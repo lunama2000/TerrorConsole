@@ -1,61 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+namespace TerrorConsole
 {
-    Vector2 _vMove;
-    Rigidbody2D _rb;
-
-    [SerializeField]
-    int _vel;
-
-    void Start()
+    public class PlayerController : MonoBehaviour
     {
-        _rb = GetComponent<Rigidbody2D>();
-    }
-    void Update()
-    {
-        GetInputs();
-    }
+        [Header("COMPONENTS")]
+        [SerializeField] private Rigidbody2D _rigidbody;
+        
+        [Header("CONFIGURATIONS")]
+        [SerializeField] private int _velocity = 10;
 
+        private IInputSource _inputSource;
 
-    private void FixedUpdate()
-    {
-        if (_vMove != Vector2.zero)
+        private void Start()
         {
-            _rb.MovePosition((Vector2)transform.position + (_vMove.normalized * _vel * Time.fixedDeltaTime));
-        }
-    }
-
-    private void GetInputs()
-    {
-        if (Input.GetKey(KeyCode.D))
-        {
-            _vMove.x = 1;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            _vMove.x = -1;
-        }
-        else
-        {
-            _vMove.x = 0;
+            _inputSource = InputManager.Source;
         }
 
-        if (Input.GetKey(KeyCode.W))
+        private void FixedUpdate()
         {
-            _vMove.y = 1;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            _vMove.y = -1;
-        }
-        else
-        {
-            _vMove.y = 0;
+            if (!_inputSource.IsMoving) return;
+            
+            _rigidbody.MovePosition((Vector2)transform.position + _inputSource.MovementDirection * (_velocity * Time.fixedDeltaTime));
         }
     }
 }
