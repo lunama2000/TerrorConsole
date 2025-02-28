@@ -571,7 +571,7 @@ TextureImporter:
         height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 71, y: 15, z: 71, w: 16}
+      border: {x: 30, y: 15, z: 30, w: 16}
       outline:
       - - {x: -89, y: 20.5}
         - {x: -89, y: -20.5}
