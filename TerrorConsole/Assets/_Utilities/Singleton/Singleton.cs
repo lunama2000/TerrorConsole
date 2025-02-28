@@ -5,7 +5,7 @@ namespace UnityEngine
         public static I Source { get; private set; }
 
         [Header("SINGLETON")]
-        [SerializeField]bool isPersistent = true;
+        [SerializeField] private bool isPersistent = true;
 
         protected virtual void Awake()
         {
