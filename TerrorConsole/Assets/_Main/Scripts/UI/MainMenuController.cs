@@ -4,9 +4,9 @@ namespace TerrorConsole
 {
     public class MainMenuController : MonoBehaviour
     {
-        public void ButtonLoadScene(int sceneIndex)
+        public void ButtonLoadScene(string sceneName)
         {
-            SceneManager.Source.LoadScene(sceneIndex);
+            ScreenTransitionManager.Source.TransitionToScene(sceneName);
         }
     }
 }
