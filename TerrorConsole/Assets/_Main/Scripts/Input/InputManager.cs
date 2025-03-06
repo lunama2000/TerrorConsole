@@ -4,6 +4,7 @@ namespace TerrorConsole
 {
     public class InputManager : Singleton<IInputSource>, IInputSource
     {
+        public bool ActionButton1 { get; private set; }
         public bool IsMoving { get; private set; }
         public Vector2 MovementDirection => _movementDirection.normalized;
 
@@ -12,6 +13,7 @@ namespace TerrorConsole
         private void Update()
         {
             SetMovementInput();
+            SetActionButtons();
         }
         
         private void SetMovementInput()
@@ -43,6 +45,18 @@ namespace TerrorConsole
             }
             
             IsMoving = _movementDirection is not { x: 0, y: 0 };
+        }
+
+        private void SetActionButtons()
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                ActionButton1 = true;
+            }
+            else
+            {
+                ActionButton1 = false;
+            }
         }
     }
 }
