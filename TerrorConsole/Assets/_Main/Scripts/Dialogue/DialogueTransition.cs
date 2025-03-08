@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TerrorConsole
 {
-    public class Dialogue : MonoBehaviour
+    public class DialogueTransition : MonoBehaviour
     {
         
     }
