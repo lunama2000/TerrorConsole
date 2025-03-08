@@ -4,25 +4,20 @@ namespace TerrorConsole
 {
     public class SwitchObject : MonoBehaviour
     {
-        [SerializeField] private MonoBehaviour _switchInteractuableObject;
-        protected ISwitchInteractuableSource _interactuableObject;
+        [SerializeField] protected SwitchLockedDoor _switchLockedDoor;
 
         protected bool _state;
-
-        private void Start()
-        {
-            _interactuableObject = _switchInteractuableObject as ISwitchInteractuableSource;
-        }
 
         protected virtual void On()
         {
             _state = true;
-            _interactuableObject.SwitchOn();
+            _switchLockedDoor.SwitchOn();
         }
+
         protected virtual void Off()
         {
             _state = false;
-            _interactuableObject.SwitchOff();
+            _switchLockedDoor.SwitchOff();
         }
 
         protected virtual void AlternateState()
@@ -30,11 +25,11 @@ namespace TerrorConsole
             _state = !_state;
             if (_state)
             {
-                _interactuableObject.SwitchOn();
+                _switchLockedDoor.SwitchOn();
             }
             else
             {
-                _interactuableObject.SwitchOff();
+                _switchLockedDoor.SwitchOff();
             }
         }
     }

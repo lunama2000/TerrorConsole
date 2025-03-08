@@ -312,6 +312,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a3fc88b4433244a9b6be9397beb0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &370120244 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4704695790419385184, guid: 76ee529f7515ea143a03f77d957182ec, type: 3}
+  m_PrefabInstance: {fileID: 8734053989523386251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &370120245 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7040587535895647283, guid: 76ee529f7515ea143a03f77d957182ec, type: 3}
+  m_PrefabInstance: {fileID: 8734053989523386251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &399591282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1091,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &740296503 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7395794117923990671, guid: 0122501949807174b8f8abac29124cc7, type: 3}
+  m_PrefabInstance: {fileID: 4508690841668400837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &740296504 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3667636726576411879, guid: 0122501949807174b8f8abac29124cc7, type: 3}
+  m_PrefabInstance: {fileID: 4508690841668400837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &793282160
 GameObject:
   m_ObjectHideFlags: 0
@@ -8240,6 +8260,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1411415991 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7572388163158137190, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
+  m_PrefabInstance: {fileID: 3723746012680132682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1411415993 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3759804837534311148, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
+  m_PrefabInstance: {fileID: 3723746012680132682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1419035166
 GameObject:
   m_ObjectHideFlags: 0
@@ -8433,6 +8463,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6191998358363352207, guid: 2657f04d57daabd42998d6c8f589d017, type: 3}
+      propertyPath: _switchLockedDoor
+      value: 
+      objectReference: {fileID: 370120243}
+    - target: {fileID: 6191998358363352207, guid: 2657f04d57daabd42998d6c8f589d017, type: 3}
       propertyPath: _switchInteractuableObject
       value: 
       objectReference: {fileID: 370120243}
@@ -8510,6 +8544,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
+      propertyPath: _collider2D
+      value: 
+      objectReference: {fileID: 1411415991}
+    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1411415993}
     - target: {fileID: 5804508235787957779, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
       propertyPath: m_Name
       value: Door
@@ -8664,6 +8706,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5489142708472544027, guid: 0122501949807174b8f8abac29124cc7, type: 3}
+      propertyPath: _collider2D
+      value: 
+      objectReference: {fileID: 740296503}
+    - target: {fileID: 5489142708472544027, guid: 0122501949807174b8f8abac29124cc7, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 740296504}
     - target: {fileID: 7948668139672506825, guid: 0122501949807174b8f8abac29124cc7, type: 3}
       propertyPath: m_Name
       value: KeyDoor
@@ -8782,6 +8832,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6650811288539238871, guid: 76ee529f7515ea143a03f77d957182ec, type: 3}
+      propertyPath: _collider2D
+      value: 
+      objectReference: {fileID: 370120244}
+    - target: {fileID: 6650811288539238871, guid: 76ee529f7515ea143a03f77d957182ec, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 370120245}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
