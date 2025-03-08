@@ -5,6 +5,8 @@ namespace TerrorConsole
     public class Door : MonoBehaviour
     {
         [SerializeField] protected bool _isLocked;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] private Collider2D _collider2D;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -34,14 +36,14 @@ namespace TerrorConsole
 
         protected virtual void OpenDoor()
         {
-            GetComponent<SpriteRenderer>().color = new Color(0.5f,0.5f,0.5f,0.5f);//TO DO Implement animation of door opening
-            GetComponent<Collider2D>().enabled = false;
+            _spriteRenderer.color = new Color(0.5f,0.5f,0.5f,0.5f);//TO DO Implement animation of door opening
+            _collider2D.enabled = false;
         }
 
         protected virtual void CloseDoor()
         {
-            GetComponent<SpriteRenderer>().color = Color.red;//TO DO Implement animation of door opening
-            GetComponent<Collider2D>().enabled = true;
+            _spriteRenderer.color = Color.red;//TO DO Implement animation of door opening
+            _collider2D.enabled = true;
         }
     }
 }

@@ -10,6 +10,7 @@ namespace TerrorConsole
         {
             _objectName = _objectName == "" ? transform.name : _objectName;
         }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
@@ -21,7 +22,6 @@ namespace TerrorConsole
         protected virtual void PickedByPlayer()
         {
             Inventory.Source.AddItemToInventory(_objectName);
-            print($"Object {_objectName} have been collected by the Player");
             Destroy(gameObject);
         }
     }
