@@ -4,18 +4,18 @@ namespace TerrorConsole
 {
     public class ObjectLockedDoor : Door
     {
-
         [SerializeField] private string _neededItemName;
 
         protected override void PlayerCollisioned()
         {
             base.PlayerCollisioned();
-            if (_isLocked && Inventory.Source.IsItemInInventory(_neededItemName))
+            if (!_isLocked || !Inventory.Source.IsItemInInventory(_neededItemName))
             {
-                Inventory.Source.RemoveItemFromInventory(_neededItemName);
-                UnlockDoor();
-                OpenDoor();
+                return;
             }
+            Inventory.Source.RemoveItemFromInventory(_neededItemName);
+            UnlockDoor();
+            OpenDoor();
         }
     }
 }

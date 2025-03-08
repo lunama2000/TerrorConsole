@@ -1,12 +1,14 @@
+using System;
 using UnityEngine;
 
 namespace TerrorConsole
 {
     public class InputManager : Singleton<IInputSource>, IInputSource
     {
-        public bool ActionButton1 { get; private set; }
         public bool IsMoving { get; private set; }
         public Vector2 MovementDirection => _movementDirection.normalized;
+
+        public Action OnActivateButton1 { get; set; }
 
         private Vector2 _movementDirection = Vector2.zero;
         
@@ -51,11 +53,7 @@ namespace TerrorConsole
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
-                ActionButton1 = true;
-            }
-            else
-            {
-                ActionButton1 = false;
+                OnActivateButton1?.Invoke();
             }
         }
     }

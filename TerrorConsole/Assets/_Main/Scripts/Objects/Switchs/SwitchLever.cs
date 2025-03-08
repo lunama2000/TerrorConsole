@@ -5,11 +5,12 @@ namespace TerrorConsole
     public class SwitchLever : SwitchObject
     {
         private bool _isPlayerColliding;
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                _isPlayerColliding = true;
+                InputManager.Source.OnActivateButton1 += AlternateState;
             }
         }
 
@@ -17,20 +18,8 @@ namespace TerrorConsole
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                _isPlayerColliding = false;
-            }
-        }
+                InputManager.Source.OnActivateButton1 -= AlternateState;
 
-        private void Update()
-        {
-            if (!_isPlayerColliding)
-            {
-                return;
-            }
-
-            if (InputManager.Source.ActionButton1)
-            {
-                AlternateState();
             }
         }
     }

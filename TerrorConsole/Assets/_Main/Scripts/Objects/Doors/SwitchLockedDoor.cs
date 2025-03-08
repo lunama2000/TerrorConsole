@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TerrorConsole
 {
-    public class SwitchLockedDoor : Door, ISwitchInteractuableSource
+    public class SwitchLockedDoor : Door
     {
         public void SwitchOff()
         {
