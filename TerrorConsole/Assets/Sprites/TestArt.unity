@@ -304,11 +304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1306709067920482467, guid: 57a467fcd9605ba41bfca29accf6ed14, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1306709067920482467, guid: 57a467fcd9605ba41bfca29accf6ed14, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1306709067920482467, guid: 57a467fcd9605ba41bfca29accf6ed14, type: 3}
       propertyPath: m_SizeDelta.x
@@ -324,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1306709067920482467, guid: 57a467fcd9605ba41bfca29accf6ed14, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -6644.003
+      value: -6700
       objectReference: {fileID: 0}
     - target: {fileID: 4712603437551493333, guid: 57a467fcd9605ba41bfca29accf6ed14, type: 3}
       propertyPath: m_Pivot.x
@@ -577,11 +577,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7219585598417637700, guid: 57a467fcd9605ba41bfca29accf6ed14, type: 3}
       propertyPath: m_margin.w
-      value: -2977.1826
+      value: -1840.8308
       objectReference: {fileID: 0}
     - target: {fileID: 7219585598417637700, guid: 57a467fcd9605ba41bfca29accf6ed14, type: 3}
       propertyPath: m_margin.y
-      value: -2870.1719
+      value: -3992.4355
       objectReference: {fileID: 0}
     - target: {fileID: 7878094267946598396, guid: 57a467fcd9605ba41bfca29accf6ed14, type: 3}
       propertyPath: scrollSpeed
