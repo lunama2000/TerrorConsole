@@ -5,7 +5,9 @@ namespace TerrorConsole
     [System.Serializable]
     public class DialogueData 
     {
-        [TextArea(3, 10)]
-        public string[] sentences;
+        [SerializeField][TextArea(3, 10)]
+        private string[] _sentences;
+
+        public string[] Sentences => _sentences;
     }
 }

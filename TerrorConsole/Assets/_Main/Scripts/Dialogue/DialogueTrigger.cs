@@ -4,11 +4,14 @@ namespace TerrorConsole
 {
     public class DialogueTrigger : MonoBehaviour
     {
-        public DialogueData dialogueData;
+        [SerializeField] private DialogueData _dialogueData;
 
-        public void TriggerDialogue()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogueData);
+            if (other.CompareTag("Player"))
+            {
+                DialogueManager.Source.StartDialogue(_dialogueData);
+            }
         }
     }
 }

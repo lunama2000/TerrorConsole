@@ -1,73 +1,43 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Rendering;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace TerrorConsole
 {
-    public class DialogueManager : MonoBehaviour
+    public class DialogueManager : Singleton<IDialogueSource>, IDialogueSource
     {
-        
-        [FormerlySerializedAs("_dialogueCanvas")]
         [Header("Components")]
-        [SerializeField] private CanvasGroup dialogueCanvas; 
-        [SerializeField] private TextMeshProUGUI dialogueText;
+        [SerializeField] private CanvasGroup _dialogueCanvas; 
+        [SerializeField] private TextMeshProUGUI _dialogueText;
+        [SerializeField] private Button _continueButton;
         
         [Header("Configuration")]
-        [SerializeField] private float dialogueDuration;
-        [SerializeField] private float dialogueAnimationDuration = 0.5f;
-        [SerializeField] private float dialogueTextSpeed = 6f;
+        [SerializeField] private float _dialogueAnimationDuration = 0.5f;
+        [SerializeField] private float _dialogueTextSpeed = 6f;
         
-        private Queue<string> _sentences;
+        private readonly Queue<string> _sentences = new Queue<string>();
 
-        void Start() 
+        private void Start()
         {
-            _sentences = new Queue<string>();
+            _continueButton.onClick.AddListener(NextSentence);
         }
-        
-        /*public void Transition(Action action, DialogueTransitionType transitionType)
-        {
-            switch (transitionType)
-            {
-                case DialogueTransitionType.Open:
-                    TransitionFade(action).Forget();
-                    break;
-                case DialogueTransitionType.Close:
-                    TransitionSlide(action).Forget();
-                    break;
-            }
-        }
-        
-        private TransitionFade(Action onTransition)
+
+        public void StartDialogue(DialogueData dialogueData)
         {
             _dialogueCanvas.alpha = 0;
             _dialogueCanvas.gameObject.SetActive(true);
-            await _dialogueCanvas.DOFade(1, _transitionDuration).AsyncWaitForCompletion();
-
-            onTransition?.Invoke();
-
-            await _dialogueCanvas.DOFade(0, _transitionDuration).AsyncWaitForCompletion();
-            _dialogueCanvas.gameObject.SetActive(false);
-        }*/
-        public void StartDialogue(DialogueData dialogueData)
-        {
-            dialogueCanvas.alpha = 0;
-            dialogueCanvas.gameObject.SetActive(true);
-            dialogueCanvas.DOFade(1f, dialogueAnimationDuration);//.OnComplete(() =>
+            _dialogueCanvas.DOFade(1f, _dialogueAnimationDuration);
+            _continueButton.gameObject.SetActive(true);
+            
+            _sentences.Clear();
+            foreach (string sentence in dialogueData.Sentences)
             {
-                _sentences.Clear();
-                foreach (string sentence in dialogueData.sentences)
-                {
-                    _sentences.Enqueue(sentence);
-                }
-                NextSentence();
-            }//);
+                _sentences.Enqueue(sentence);
+            }
+            NextSentence();
         }
-        
         
         public void NextSentence()
         {
@@ -84,23 +54,20 @@ namespace TerrorConsole
         private void AnimateText(string sentence)
         {
             string text = "";
-            DOTween.To(() => text, x => text = x, sentence, sentence.Length / dialogueTextSpeed).OnUpdate(() =>
-            {
-                dialogueText.text = text;
-            });
-            
+            DOTween
+                .To(() => text, x => text = x, sentence, sentence.Length / _dialogueTextSpeed)
+                .OnUpdate(() => _dialogueText.text = text);
         }
         
-        void EndDialogue()
+        private void EndDialogue()
         {
-            dialogueCanvas.DOFade(0f, dialogueAnimationDuration)
-                .OnComplete(() => dialogueCanvas.gameObject.SetActive(false));
-        }
-        
-        public enum DialogueTransitionType
-        {
-            Open,
-            Close
+            _dialogueCanvas
+                .DOFade(0f, _dialogueAnimationDuration)
+                .OnComplete(() =>
+                {
+                    _dialogueCanvas.gameObject.SetActive(false);
+                    _continueButton.gameObject.SetActive(false);
+                });
         }
     }
 }
