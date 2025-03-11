@@ -9,10 +9,10 @@ namespace TerrorConsole
         protected override void PlayerCollisioned()
         {
             base.PlayerCollisioned();
+            
             if (!_isLocked || !Inventory.Source.IsItemInInventory(_neededItemName))
-            {
                 return;
-            }
+
             Inventory.Source.RemoveItemFromInventory(_neededItemName);
             UnlockDoor();
             OpenDoor();
