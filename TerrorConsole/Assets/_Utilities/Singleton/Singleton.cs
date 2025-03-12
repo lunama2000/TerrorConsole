@@ -3,7 +3,10 @@ namespace UnityEngine
     public class Singleton<I> : MonoBehaviour where I : class
     {
         public static I Source { get; private set; }
-        
+
+        [Header("SINGLETON")]
+        [SerializeField]bool isPersistent = true;
+
         protected virtual void Awake()
         {
             if (Source != null)
@@ -13,7 +16,10 @@ namespace UnityEngine
             }
             
             Source = this as I;
-            DontDestroyOnLoad(gameObject);
+            if (isPersistent)
+            {
+                DontDestroyOnLoad(gameObject);
+            }
         }
     }
 }

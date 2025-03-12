@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace TerrorConsole
@@ -7,11 +8,14 @@ namespace TerrorConsole
         public bool IsMoving { get; private set; }
         public Vector2 MovementDirection => _movementDirection.normalized;
 
+        public Action OnActivateButton1 { get; set; }
+
         private Vector2 _movementDirection = Vector2.zero;
         
         private void Update()
         {
             SetMovementInput();
+            SetActionButtons();
         }
         
         private void SetMovementInput()
@@ -43,6 +47,14 @@ namespace TerrorConsole
             }
             
             IsMoving = _movementDirection is not { x: 0, y: 0 };
+        }
+
+        private void SetActionButtons()
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                OnActivateButton1?.Invoke();
+            }
         }
     }
 }
