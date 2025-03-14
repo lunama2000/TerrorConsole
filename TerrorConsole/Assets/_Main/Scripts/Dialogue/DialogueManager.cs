@@ -26,7 +26,7 @@ namespace TerrorConsole
 
         public void StartDialogue(DialogueData dialogueData)
         {
-            LevelManager.Source.ChangeLevelState(LevelManager.LevelState.InDialogue);
+            LevelManager.Source.ChangeLevelState(LevelState.InDialogue);
             _dialogueCanvas.alpha = 0;
             _dialogueCanvas.gameObject.SetActive(true);
             _dialogueCanvas.DOFade(1f, _dialogueAnimationDuration);
@@ -62,7 +62,7 @@ namespace TerrorConsole
         
         private void EndDialogue()
         {
-            LevelManager.Source.ChangeLevelState(LevelManager.LevelState.Play);
+            LevelManager.Source.ChangeLevelState(LevelState.Play);
             _dialogueCanvas
                 .DOFade(0f, _dialogueAnimationDuration)
                 .OnComplete(() =>

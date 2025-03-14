@@ -1,5 +1,4 @@
 using UnityEngine;
-using static TerrorConsole.LevelManager;
 
 namespace TerrorConsole
 {
@@ -10,17 +9,19 @@ namespace TerrorConsole
         
         [Header("CONFIGURATIONS")]
         [SerializeField] private int _velocity = 10;
-        [SerializeField] private bool _freezeInput = false;
+        private bool _freezeInput = false;
 
         private IInputSource _inputSource;
 
         private void Start()
         {
             _inputSource = InputManager.Source;
-        }
-        private void OnEnable()
-        {
             LevelManager.Source.OnLevelStateChange += OnLevelStateChange;
+        }
+
+        private void OnDestroy()
+        {
+            LevelManager.Source.OnLevelStateChange -= OnLevelStateChange;
         }
 
         private void FixedUpdate()
@@ -32,14 +33,28 @@ namespace TerrorConsole
 
         private void OnLevelStateChange(LevelState newState)
         {
-            if(newState == LevelState.InDialogue || newState == LevelState.Pause || newState == LevelState.Cinematic)
+            switch (newState)
             {
-                _freezeInput = true;
+                case LevelState.InDialogue:
+                case LevelState.Pause:
+                case LevelState.Cinematic:
+                    StopInput();
+                    break;
+
+                case LevelState.Play:
+                    ResumeInput();
+                    break;
             }
-            else
-            {
-                _freezeInput = false;
-            }
+        }
+
+        private void StopInput()
+        {
+            _freezeInput = true;
+        }
+
+        private void ResumeInput()
+        {
+            _freezeInput = false;
         }
     }
 }

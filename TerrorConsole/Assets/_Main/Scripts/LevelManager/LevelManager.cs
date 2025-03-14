@@ -3,20 +3,19 @@ using UnityEngine;
 
 namespace TerrorConsole
 {
-    public class LevelManager : Singleton<ILevelManagerSource>, ILevelManagerSource
+    public enum LevelState
     {
+        Play,
+        Pause,
+        InDialogue,
+        Cinematic
+    }
 
+    public partial class LevelManager : Singleton<ILevelManagerSource>, ILevelManagerSource
+    {
         public event Action<LevelState> OnLevelStateChange;
 
         [SerializeField] private LevelState currentLevelState;
-        
-        public enum LevelState
-        {
-            Play,
-            Pause,
-            InDialogue,
-            Cinematic
-        }
 
         public void ChangeLevelState(LevelState newState)
         {
@@ -28,17 +27,22 @@ namespace TerrorConsole
         {
             return currentLevelState;
         }
+    }
 
+    #if UNITY_EDITOR
+    public partial class LevelManager
+    {
         [ContextMenu("DEBUG_ChangeState_Play")]
         public void DEBUG_ChangeState_Play()
         {
             ChangeLevelState(LevelState.Play);
         }
 
-        [ContextMenu ("DEBUG_ChangeState_Pause")]
+        [ContextMenu("DEBUG_ChangeState_Pause")]
         public void DEBUG_ChangeState_Pause()
         {
             ChangeLevelState(LevelState.Pause);
         }
     }
+    #endif
 }
