@@ -16,33 +16,37 @@ namespace TerrorConsole
         {
             InitializeSFX();
         }
+
         private void InitializeSFX()
         {
             SFXVolume = PlayerPrefs.GetFloat("sfxVol", SFXVolume);
             _sfxMixer.SetFloat("sfxVol", SFXVolume);
         }
+
         public void PlayDoorCloseSFX()
         {
-            AudioData audioData = _audioDatabase.GetAudio("DoorCloseSFX");
-            _sfxAudioSource.PlayOneShot(audioData.audioClip, audioData.volume);
+            PlayOneShotSFX("DoorCloseSFX");
         }
 
         public void PlayDoorOpenSFX()
         {
-            AudioData audioData = _audioDatabase.GetAudio("DoorOpenSFX");
-            _sfxAudioSource.PlayOneShot(audioData.audioClip, audioData.volume);
+            PlayOneShotSFX("DoorOpenSFX");
         }
 
         public void PlayPauseSFX()
         {
-            AudioData audioData = _audioDatabase.GetAudio("PauseSFX");
-            _sfxAudioSource.PlayOneShot(audioData.audioClip, audioData.volume);
+            PlayOneShotSFX("PauseSFX");
         }
 
         public void PlayUIButtonClickSFX()
         {
-            AudioData audioData = _audioDatabase.GetAudio("UIButtonClickSFX");
-            _sfxAudioSource.PlayOneShot(audioData.audioClip, audioData.volume);
+            PlayOneShotSFX("UIButtonClickSFX");
+        }
+
+        private void PlayOneShotSFX(string audioName)
+        {
+            AudioData audioData = _audioDatabase.GetAudio(audioName);
+            _sfxAudioSource.PlayOneShot(audioData.AudioClip, audioData.Volume);
         }
 
         /// <summary>
@@ -55,7 +59,6 @@ namespace TerrorConsole
             SFXVolume = Mathf.Lerp(-80f, 20f, newVolume);
             _sfxMixer.SetFloat("sfxVol", SFXVolume);
             PlayerPrefs.SetFloat("sfxVol", SFXVolume);
-
         }
     }
 }

@@ -6,8 +6,8 @@ namespace TerrorConsole
 
     public class AudioData : ScriptableObject
     {
-        public string audioName;
-        public AudioClip audioClip;
-        public float volume = 1;
+        public string AudioName;
+        public AudioClip AudioClip;
+        public float Volume = 1;
     }
 }

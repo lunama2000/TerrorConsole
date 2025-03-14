@@ -16,7 +16,7 @@ namespace TerrorConsole
 
         private void OnEnable()
         {
-            _audioDataDictionary = _audioData.ToDictionary(audioData => audioData.audioName, audioData => audioData);
+            _audioDataDictionary = _audioData.ToDictionary(audioData => audioData.AudioName, audioData => audioData);
         }
 
         public AudioData GetAudio(string _audioName)
