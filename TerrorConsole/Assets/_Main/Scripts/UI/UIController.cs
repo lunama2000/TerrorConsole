@@ -8,5 +8,10 @@ namespace TerrorConsole
         {
             ScreenTransitionManager.Source.TransitionToScene(sceneName);
         }
+
+        public void ButtonPlaySFX()
+        {
+            AudioManager.Source.PlayUIButtonClickSFX();
+        }
     }
 }
