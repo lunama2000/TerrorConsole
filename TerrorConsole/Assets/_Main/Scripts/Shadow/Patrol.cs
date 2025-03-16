@@ -1,27 +1,32 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace TerrorConsole
 {
-    public class Patroll : MonoBehaviour
+    public class Patrol : MonoBehaviour
     {
-        public float speed;
         public float waitTime;
         public float startWaitTime;
 
         [SerializeField] Transform[] spots;
+        NavMeshAgent agent;
         private int randomSpots;
 
-        void Start () 
+
+        void Start()
         {
             waitTime = startWaitTime;
             randomSpots = Random.Range(0, spots.Length);
+            agent = GetComponent<NavMeshAgent>();
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
         }
 
         void Update () 
         {
-            transform.position = Vector2.MoveTowards(transform.position, spots[randomSpots].position, speed * Time.deltaTime);
+            agent.SetDestination(spots[randomSpots].position); 
 
-            if (Vector2.Distance(transform.position, spots[randomSpots].position)<0.2f)
+            if (Vector2.Distance(transform.position, spots[randomSpots].position) < 0.2f)
             {
                 if (waitTime <= 0)
                 {
