@@ -15,20 +15,17 @@ namespace TerrorConsole
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if(_isFreeCamera) return;
+            if(_isFreeCamera || !collision.CompareTag("Player")) return;
 
-            if (collision.CompareTag("Player"))
+            if (_virtualCamera.Follow == null)
             {
-                if (_virtualCamera.Follow == null)
-                {
-                    Debug.LogError($"Please add the player to the 'Follow' section in the virtual camera: {name}");
-                }
-                CameraSystemManager.Source.ActivateCameraZone(this);
+                Debug.LogError($"Please add the player to the 'Follow' section in the virtual camera: {_virtualCamera.name}");
             }
+            CameraSystemManager.Source.ActivateCameraZone(this);
         }
+
         private void OnTriggerExit2D(Collider2D collision)
         {
-
             if (collision.CompareTag("Player"))
             {
                 CameraSystemManager.Source.DeactvateCameraZone(this);
