@@ -21,12 +21,12 @@ namespace TerrorConsole
             agent.updateUpAxis = false;
         }
 
-        void destinationRandomSpot()
+        void DestinationRandomSpot()
         {
             agent.SetDestination(spots[randomSpots].position); 
         }
 
-        void waitTimeAndDistance()
+        void WaitTimeAndDistance()
         {
             if (Vector2.Distance(transform.position, spots[randomSpots].position) < 0.2f)
             {
@@ -44,8 +44,8 @@ namespace TerrorConsole
 
         private void Update () 
         {
-            destinationRandomSpot();
-            waitTimeAndDistance();
+            DestinationRandomSpot();
+            WaitTimeAndDistance();
         }
     }
 }
