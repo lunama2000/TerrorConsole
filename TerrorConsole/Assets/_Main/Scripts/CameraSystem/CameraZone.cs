@@ -13,9 +13,9 @@ namespace TerrorConsole
         [Tooltip ("True if this zone is not delimeted to a specific room or section")]
         private bool _isFreeCamera = false;
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            if(_isFreeCamera || !collision.CompareTag("Player")) return;
+            if(_isFreeCamera || !collider.CompareTag("Player")) return;
 
             if (_virtualCamera.Follow == null)
             {
@@ -24,9 +24,9 @@ namespace TerrorConsole
             CameraSystemManager.Source.ActivateCameraZone(this);
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
+        private void OnTriggerExit2D(Collider2D collider)
         {
-            if (collision.CompareTag("Player"))
+            if (collider.CompareTag("Player"))
             {
                 CameraSystemManager.Source.DeactvateCameraZone(this);
             }
