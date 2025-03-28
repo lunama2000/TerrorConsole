@@ -20,11 +20,11 @@ namespace TerrorConsole
         
         private void SetMovementInput()
         {
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetAxisRaw("Horizontal") == 1)
             {
                 _movementDirection.x = 1;
             }
-            else if (Input.GetKey(KeyCode.A))
+            else if (Input.GetAxisRaw("Horizontal") == -1)
             {
                 _movementDirection.x = -1;
             }
@@ -33,11 +33,11 @@ namespace TerrorConsole
                 _movementDirection.x = 0;
             }
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetAxisRaw("Vertical") == 1)
             {
                 _movementDirection.y = 1;
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (Input.GetAxisRaw("Vertical") == -1)
             {
                 _movementDirection.y = -1;
             }
@@ -51,7 +51,7 @@ namespace TerrorConsole
 
         private void SetActionButtons()
         {
-            if (Input.GetKeyDown(KeyCode.M))
+            if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 OnActivateButton1?.Invoke();
             }
