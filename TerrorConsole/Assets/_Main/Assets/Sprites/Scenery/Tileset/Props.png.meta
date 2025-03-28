@@ -1254,7 +1254,7 @@ TextureImporter:
         serializedVersion: 2
         x: 80
         y: 208
-        width: 16
+        width: 8
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2613,6 +2613,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Props_8
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 208
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41387407c9b4591439ea56a158677f0e
+      internalID: -1025326550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2773,6 +2794,7 @@ TextureImporter:
       Props_74: 214581240
       Props_75: -1527570411
       Props_76: -1787418958
+      Props_8: -1025326550
       Props_82: -1970289529
       Props_87: 650111977
       Props_88: -1209680389
