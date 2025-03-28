@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 652178cc43988044ba33f6eca2608084
+guid: dcb6f6da305422d459d0bec7ef9be31b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 24
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638787447940680806
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,158 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Idel Animation 48x48_Frame_0
+  - name: Run Animation 48x48_Frame_0
     originalName: 
-    pivot: {x: 0.4705882, y: -0.20588236}
+    pivot: {x: 0.6086957, y: -0.39285716}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
-      width: 17
-      height: 34
-    spriteID: 92b81534ce66e7a4889b2e75d23242ca
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-  - name: Idel Animation 48x48_Frame_1
-    originalName: 
-    pivot: {x: 0.4705882, y: -0.20588236}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 46
-      width: 17
-      height: 34
-    spriteID: 4e99f9fcd55fd6e438328acacc8d67a5
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 46}
-  - name: Idel Animation 48x48_Frame_2
-    originalName: 
-    pivot: {x: 0.4705882, y: -0.20588236}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 88
-      width: 17
-      height: 34
-    spriteID: 518a0bc827bde314ba6f4885dfd22fb3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 88}
-  - name: Idel Animation 48x48_Frame_3
-    originalName: 
-    pivot: {x: 0.4705882, y: -0.21875}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 29
-      y: 4
-      width: 17
-      height: 32
-    spriteID: 4dc4cd177c79de643a07f75dfa0f0574
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 29, y: 4}
-  - name: Idel Animation 48x48_Frame_4
-    originalName: 
-    pivot: {x: 0.4705882, y: -0.22580643}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 29
-      y: 84
-      width: 17
-      height: 31
-    spriteID: 5e6d89e520d33d7419ce607efeb03b5c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 29, y: 84}
-  - name: Idel Animation 48x48_Frame_5
-    originalName: 
-    pivot: {x: 0.4705882, y: -0.22580643}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 54
-      y: 4
-      width: 17
-      height: 31
-    spriteID: 5e564dc11b1ea85419217da99431f07f
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 54, y: 4}
-  - name: Idel Animation 48x48_Frame_6
-    originalName: 
-    pivot: {x: 0.4705882, y: -0.22580643}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 54
-      y: 43
-      width: 17
-      height: 31
-    spriteID: 5658b9ff7a725244f9ab6baf5121029d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 54, y: 43}
-  - name: Idel Animation 48x48_Frame_7
-    originalName: 
-    pivot: {x: 0.4705882, y: -0.22580643}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 54
       y: 82
-      width: 17
-      height: 31
-    spriteID: bd36b2eba5bbab046a117218028735ee
+      width: 23
+      height: 28
+    spriteID: 53d2268131ee8c645b74c65ff5aac390
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -280,19 +140,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 54, y: 82}
-  - name: Idel Animation 48x48_Frame_8
+    uvTransform: {x: 4, y: -133}
+  - name: Run Animation 48x48_Frame_1
     originalName: 
-    pivot: {x: 0.4705882, y: -0.22580643}
+    pivot: {x: 0.5416666, y: -0.5384615}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 79
+      x: 35
       y: 4
-      width: 17
-      height: 31
-    spriteID: 17e31191aa10db1478974dd78a8e7361
+      width: 24
+      height: 26
+    spriteID: 09b141297660d2847b8fa18b59feebad
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -300,19 +160,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 79, y: 4}
-  - name: Idel Animation 48x48_Frame_9
+    uvTransform: {x: 35, y: -211}
+  - name: Run Animation 48x48_Frame_2
     originalName: 
-    pivot: {x: 0.4705882, y: -0.21875}
+    pivot: {x: 0.5652173, y: -0.29032257}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 29
-      y: 44
-      width: 17
-      height: 32
-    spriteID: 319e69d7b18a9514782523d1740dc12c
+      x: 4
+      y: 4
+      width: 23
+      height: 31
+    spriteID: b6a25ca3eef730844a8c95c35209637c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -320,109 +180,215 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 29, y: 44}
+    uvTransform: {x: 4, y: -210}
+  - name: Run Animation 48x48_Frame_3
+    originalName: 
+    pivot: {x: 0.5333333, y: -0.32142857}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 67
+      y: 4
+      width: 15
+      height: 28
+    spriteID: 26e6be958f1a1c942a392eb5dc45766a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 67, y: -210}
+  - name: Run Animation 48x48_Frame_4
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.31034485}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 38
+      width: 17
+      height: 29
+    spriteID: 41f45a877390ed947878af450adb723f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: -172}
+  - name: Run Animation 48x48_Frame_5
+    originalName: 
+    pivot: {x: 0.5789473, y: -0.55999994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 75
+      width: 19
+      height: 25
+    spriteID: bd266c27a96a7e8408316b7e8a8b865d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: -140}
+  - name: Run Animation 48x48_Frame_6
+    originalName: 
+    pivot: {x: 0.5714286, y: -0.29032257}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 43
+      width: 21
+      height: 31
+    spriteID: cb9de76b772d1c347a4e424579fe45a9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: -168}
+  - name: Run Animation 48x48_Frame_7
+    originalName: 
+    pivot: {x: 0.42857143, y: -0.32142857}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 67
+      y: 40
+      width: 14
+      height: 28
+    spriteID: d18235ab918c6654b86a3d64eaeecd0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 67, y: -175}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1217853680
-    name: Idel Animation 48x48
+    guid: -1056402709
+    name: Run Animation 48x48
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Idel Animation 48x48_Frame_0
+    - name: Run Animation 48x48_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 16
-        y: 7
-        width: 17
-        height: 34
-      spriteId: 92b81534ce66e7a4889b2e75d23242ca
-    - name: Idel Animation 48x48_Frame_1
+        x: 10
+        y: -204
+        width: 446
+        height: 243
+      spriteId: 53d2268131ee8c645b74c65ff5aac390
+    - name: Run Animation 48x48_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 16
-        y: 7
-        width: 17
-        height: 34
-      spriteId: 4e99f9fcd55fd6e438328acacc8d67a5
-    - name: Idel Animation 48x48_Frame_2
+        x: 11
+        y: -201
+        width: 447
+        height: 241
+      spriteId: 09b141297660d2847b8fa18b59feebad
+    - name: Run Animation 48x48_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
-        x: 16
-        y: 7
-        width: 17
-        height: 34
-      spriteId: 518a0bc827bde314ba6f4885dfd22fb3
-    - name: Idel Animation 48x48_Frame_3
+        x: 11
+        y: -205
+        width: 446
+        height: 245
+      spriteId: b6a25ca3eef730844a8c95c35209637c
+    - name: Run Animation 48x48_Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
         x: 16
-        y: 7
-        width: 17
-        height: 32
-      spriteId: 4dc4cd177c79de643a07f75dfa0f0574
-    - name: Idel Animation 48x48_Frame_4
+        y: -205
+        width: 438
+        height: 242
+      spriteId: 26e6be958f1a1c942a392eb5dc45766a
+    - name: Run Animation 48x48_Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
-        x: 16
-        y: 7
-        width: 17
-        height: 31
-      spriteId: 5e6d89e520d33d7419ce607efeb03b5c
-    - name: Idel Animation 48x48_Frame_5
+        x: 15
+        y: -201
+        width: 440
+        height: 239
+      spriteId: 41f45a877390ed947878af450adb723f
+    - name: Run Animation 48x48_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
-        x: 16
-        y: 7
-        width: 17
-        height: 31
-      spriteId: 5e564dc11b1ea85419217da99431f07f
-    - name: Idel Animation 48x48_Frame_6
+        x: 13
+        y: -201
+        width: 441
+        height: 240
+      spriteId: bd266c27a96a7e8408316b7e8a8b865d
+    - name: Run Animation 48x48_Frame_6
       frameIndex: 6
       additiveSortOrder: 0
       cellRect:
-        x: 16
-        y: 7
-        width: 17
-        height: 31
-      spriteId: 5658b9ff7a725244f9ab6baf5121029d
-    - name: Idel Animation 48x48_Frame_7
+        x: 12
+        y: -202
+        width: 444
+        height: 242
+      spriteId: cb9de76b772d1c347a4e424579fe45a9
+    - name: Run Animation 48x48_Frame_7
       frameIndex: 7
       additiveSortOrder: 0
       cellRect:
-        x: 16
-        y: 7
-        width: 17
-        height: 31
-      spriteId: bd36b2eba5bbab046a117218028735ee
-    - name: Idel Animation 48x48_Frame_8
-      frameIndex: 8
-      additiveSortOrder: 0
-      cellRect:
-        x: 16
-        y: 7
-        width: 17
-        height: 31
-      spriteId: 17e31191aa10db1478974dd78a8e7361
-    - name: Idel Animation 48x48_Frame_9
-      frameIndex: 9
-      additiveSortOrder: 0
-      cellRect:
-        x: 16
-        y: 7
-        width: 17
-        height: 32
-      spriteId: 319e69d7b18a9514782523d1740dc12c
+        x: 18
+        y: -206
+        width: 437
+        height: 243
+      spriteId: d18235ab918c6654b86a3d64eaeecd0c
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
