@@ -7,5 +7,6 @@ namespace TerrorConsole
         void ActivateCameraZone(CameraZone zoneToActivate);
         void DeactvateCameraZone(CameraZone zoneToDeactivate);
         void FreeCamera();
+        void ShakeCamera();
     }
 }
