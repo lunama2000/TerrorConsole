@@ -1,5 +1,8 @@
+using System;
 using Cinemachine;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 namespace TerrorConsole
 {
@@ -12,7 +15,13 @@ namespace TerrorConsole
         [SerializeField]
         [Tooltip ("True if this zone is not delimeted to a specific room or section")]
         private bool _isFreeCamera = false;
-
+        
+        private CinemachineBasicMultiChannelPerlin _noise;
+        private void Awake()
+        {
+            _noise = _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        }
+        
         private void OnTriggerEnter2D(Collider2D collider)
         {
             if(_isFreeCamera || !collider.CompareTag("Player")) return;
@@ -41,5 +50,21 @@ namespace TerrorConsole
         {
             _virtualCamera.gameObject.SetActive(false);
         }
+
+        public void ShakeCamera(float duration, float intensity)
+        {
+            if (_noise == null)
+            {
+                Debug.LogWarning("not found the noise component to the 'Noise' section in the virtual camera.");
+                return;
+            }
+            _noise.m_AmplitudeGain = intensity;
+            
+            DOVirtual.Float(intensity, 0, duration, value =>
+            {
+                _noise.m_AmplitudeGain = value;
+            });
+        }
+        
     }
 }

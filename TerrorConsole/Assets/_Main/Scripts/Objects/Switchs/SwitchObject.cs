@@ -26,11 +26,17 @@ namespace TerrorConsole
             if (_state)
             {
                     _switchLockedDoor.Value.SwitchOn();
+                    TriggerCameraShake();
             }
             else
             {
                 _switchLockedDoor.Value.SwitchOff();
             }
+        }
+
+        protected virtual void TriggerCameraShake()
+        {
+            CameraSystemManager.Source.ShakeCamera();
         }
     }
 }
