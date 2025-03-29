@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using Cysharp.Threading.Tasks;
 
 namespace TerrorConsole
 {
@@ -19,9 +20,13 @@ namespace TerrorConsole
         
         private readonly Queue<string> _sentences = new Queue<string>();
 
+        private string _currentSentence;
+        private bool _isTextTransitionHappenig;
+        private Tween _currentTransition;
+
         private void Start()
         {
-            _continueButton.onClick.AddListener(NextSentence);
+            _continueButton.onClick.AddListener(OnContinueClicked);
         }
 
         public void StartDialogue(DialogueData dialogueData)
@@ -31,7 +36,10 @@ namespace TerrorConsole
             _dialogueCanvas.gameObject.SetActive(true);
             _dialogueCanvas.DOFade(1f, _dialogueAnimationDuration);
             _continueButton.gameObject.SetActive(true);
-            
+
+            InputManager.Source.OnActivateButton1 += OnContinueClicked;
+
+
             _sentences.Clear();
             foreach (string sentence in dialogueData.Sentences)
             {
@@ -47,17 +55,21 @@ namespace TerrorConsole
                 EndDialogue();
                 return;
             }
-            
-            string sentence = _sentences.Dequeue();
-            AnimateText(sentence);
+
+            _currentSentence = _sentences.Dequeue();
+            AnimateText(_currentSentence).Forget();
         }
 
-        private void AnimateText(string sentence)
+        private async UniTaskVoid AnimateText(string sentence)
         {
+            _isTextTransitionHappenig = true;
             string text = "";
-            DOTween
+            _currentTransition = DOTween
                 .To(() => text, x => text = x, sentence, sentence.Length / _dialogueTextSpeed)
                 .OnUpdate(() => _dialogueText.text = text);
+            await _currentTransition.AsyncWaitForCompletion();
+            _isTextTransitionHappenig = false;
+            _currentTransition = null;
         }
         
         private void EndDialogue()
@@ -70,6 +82,23 @@ namespace TerrorConsole
                     _dialogueCanvas.gameObject.SetActive(false);
                     _continueButton.gameObject.SetActive(false);
                 });
+
+            InputManager.Source.OnActivateButton1 -= OnContinueClicked;
+        }
+
+        private void OnContinueClicked()
+        {
+            if (_isTextTransitionHappenig)
+            {
+                _currentTransition.Kill();
+                _dialogueText.text = _currentSentence;
+                _isTextTransitionHappenig = false;
+                _currentTransition = null;
+            }
+            else
+            {
+                NextSentence();
+            }
         }
     }
 }
