@@ -26,6 +26,7 @@ namespace TerrorConsole
             if (_state)
             {
                     _switchLockedDoor.Value.SwitchOn();
+                    CameraSystemManager.Source.ShakeCamera();
             }
             else
             {

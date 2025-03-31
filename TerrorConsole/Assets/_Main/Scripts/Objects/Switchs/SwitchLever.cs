@@ -19,7 +19,6 @@ namespace TerrorConsole
             if (collision.gameObject.CompareTag("Player"))
             {
                 InputManager.Source.OnActivateButton1 -= AlternateState;
-
             }
         }
     }
