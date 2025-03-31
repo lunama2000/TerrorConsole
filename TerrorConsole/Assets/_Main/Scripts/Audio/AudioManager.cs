@@ -9,14 +9,21 @@ namespace TerrorConsole
         [SerializeField] private AudioSource _sfxAudioSource;
         [SerializeField] private AudioDatabase _audioDatabase;
         [SerializeField] private AudioMixer _sfxMixer;
+        [SerializeField] private AudioSource _musicAudioSource;
+        [SerializeField] private AudioMixer _musicMixer;
+        
+        private AudioClip _currentMusic;
 
         public float SFXVolume { get; private set; }
+        public float MusicVolume { get; private set; }
 
         private void Start()
         {
             InitializeSFX();
+            InitializeMusic();
         }
-
+        
+        #region SFX
         private void InitializeSFX()
         {
             SFXVolume = PlayerPrefs.GetFloat("sfxVol", SFXVolume);
@@ -48,7 +55,50 @@ namespace TerrorConsole
             AudioData audioData = _audioDatabase.GetAudio(audioName);
             _sfxAudioSource.PlayOneShot(audioData.AudioClip, audioData.Volume);
         }
+        
+        #endregion
 
+       
+        
+        #region Music
+
+        private void InitializeMusic()
+        {
+            MusicVolume = PlayerPrefs.GetFloat("musicVol", MusicVolume);
+            _musicMixer.SetFloat("musicVol", MusicVolume);
+        }
+        
+        public void PlayVoicesMusic()
+        {
+            PlayMusic("VoicesMusic");
+        }
+
+        public void PlayMusicPiano() => PlayMusic("MusicPiano");
+        public void PlayMysteryMusic() => PlayMusic("MysteryMusic");
+        public void PlayShadowMusic() => PlayMusic("ShadowMusic");
+        public void PlayScaryBellsMusic() => PlayMusic("ScaryBellsMusic");
+        
+        public void PlayMusic(string audioName)
+        {
+            AudioData audioData = _audioDatabase.GetAudio(audioName);
+            if (audioData == null) return; 
+
+            if (_currentMusic == audioData.AudioClip) return;
+
+            _currentMusic = audioData.AudioClip;
+            _musicAudioSource.clip = _currentMusic;
+            _musicAudioSource.loop = true;
+            _musicAudioSource.Play();
+        }
+
+        public void StopMusic()
+        {
+            _musicAudioSource.Stop();
+            _musicAudioSource.clip = null;
+            _currentMusic = null;
+        }
+       
+        #endregion
         /// <summary>
         /// New volume represented in a range from 0 to 1
         /// </summary>
@@ -59,6 +109,15 @@ namespace TerrorConsole
             SFXVolume = Mathf.Lerp(-80f, 20f, newVolume);
             _sfxMixer.SetFloat("sfxVol", SFXVolume);
             PlayerPrefs.SetFloat("sfxVol", SFXVolume);
+        }
+        
+        /// <param name="newVolume"></param>
+        public void SetMusicVolume(float newVolume)
+        {
+            newVolume = Mathf.Clamp(newVolume, 0f, 1f);
+            MusicVolume = Mathf.Lerp(-80f, 20f, newVolume);
+            _musicMixer.SetFloat("musicVol", MusicVolume);
+            PlayerPrefs.SetFloat("musicVol", MusicVolume);
         }
     }
 }

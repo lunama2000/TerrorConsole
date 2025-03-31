@@ -71,6 +71,7 @@ namespace TerrorConsole
         private void GoToScene(string sceneName)
         {
             SceneManager.LoadScene(sceneName);
+            AudioManager.Source.StopMusic();
         }
     }
     
