@@ -57,8 +57,6 @@ namespace TerrorConsole
         }
         
         #endregion
-
-       
         
         #region Music
 
@@ -68,11 +66,8 @@ namespace TerrorConsole
             _musicMixer.SetFloat("musicVol", MusicVolume);
         }
         
-        public void PlayVoicesMusic()
-        {
-            PlayMusic("VoicesMusic");
-        }
-
+        public void PlayLoudTonesMusic() => PlayMusic("LoudTonesMusic");
+        public void PlayVoicesMusic() => PlayMusic("VoicesMusic");
         public void PlayMusicPiano() => PlayMusic("MusicPiano");
         public void PlayMysteryMusic() => PlayMusic("MysteryMusic");
         public void PlayShadowMusic() => PlayMusic("ShadowMusic");
