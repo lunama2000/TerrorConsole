@@ -9,6 +9,16 @@ namespace TerrorConsole
             ScreenTransitionManager.Source.TransitionToScene(sceneName);
         }
 
+        public void ButtonPauseLevel()
+        {
+            LevelManager.Source.PauseLevel();
+        }
+
+        public void ButtonResumeLevel()
+        {
+            LevelManager.Source.PlayLevel();
+        }
+
         public void ButtonPlaySFX()
         {
             AudioManager.Source.PlayUIButtonClickSFX();
