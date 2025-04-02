@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce8b1a24e6de69459ffedcffdf4011e, type: 3}
   m_Name: UIButtonClick
   m_EditorClassIdentifier: 
-  audioName: UIButtonClickSFX
-  audioClip: {fileID: 8300000, guid: 707bc461673b29648b4dbaaeef89d398, type: 3}
-  volume: 1
+  AudioName: UIButtonClickSFX
+  AudioClip: {fileID: 8300000, guid: 707bc461673b29648b4dbaaeef89d398, type: 3}
+  Volume: 1
