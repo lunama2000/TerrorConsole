@@ -23,6 +23,16 @@ namespace TerrorConsole
             OnLevelStateChange?.Invoke(newState);
         }
 
+        public void PauseLevel()
+        {
+            ChangeLevelState(LevelState.Pause);
+        }
+
+        public void PlayLevel()
+        {
+            ChangeLevelState(LevelState.Play);
+        }
+
         public LevelState GetCurrentState()
         {
             return currentLevelState;
