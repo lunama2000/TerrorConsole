@@ -5,10 +5,23 @@ namespace TerrorConsole
 {
     public class SaveSystemManager : Singleton<ISaveSystemSource>, ISaveSystemSource
     {
-        SaveGameData _loadedGame;
+        private SaveGameData _loadedGame;
+        private int _lastLoadedGameFile = -1;
+
+        private void Start()
+        {
+            _lastLoadedGameFile = PlayerPrefs.GetInt("lastLoadedGameFile", -1);
+        }
         public void DeleteGame(int fileIndex)
         {
             PlayerPrefs.DeleteKey($"GameData{fileIndex}");
+            UpdateLastLoadedGameFile(-1);
+        }
+
+        private void UpdateLastLoadedGameFile(int newLastLoadedGameFile)
+        {
+            _lastLoadedGameFile = newLastLoadedGameFile;
+            PlayerPrefs.GetInt("lastLoadedGameFile", _lastLoadedGameFile);
         }
 
         public void LoadGame(int fileIndex)
@@ -30,6 +43,7 @@ namespace TerrorConsole
                 print($"No se encontró una partida con el index {fileIndex}. Cargando una vacia");
                 _loadedGame = new SaveGameData(fileIndex);
             }
+            UpdateLastLoadedGameFile(fileIndex);
         }
 
         public void SaveCurrentGame()
@@ -48,6 +62,24 @@ namespace TerrorConsole
             PlayerPrefs.SetString($"GameData{fileIndex}", json);
         }
 
+        public bool CheckIfFileExist(int fileIndex)
+        {
+            string gameData = PlayerPrefs.GetString($"GameData{fileIndex}", "ERROR");
+            if (gameData != "Error")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public int GetLastLoadedFileIndex()
+        {
+            return _lastLoadedGameFile;
+        }
     }
 
     [Serializable]
@@ -59,6 +91,21 @@ namespace TerrorConsole
         public SaveGameData(int levelIndex)
         {
             _gameIndex = levelIndex;
+        }
+    }
+
+    [Serializable]
+    public class SaveConfigurationData
+    {
+        public int _sfxVolume;
+        public int _musicVolume;
+        public int _lenguageIndex;
+
+        public SaveConfigurationData(int sfxVolume, int musicVolume, int lenguageIndex)
+        {
+            _sfxVolume = sfxVolume;
+            _musicVolume = musicVolume;
+            _lenguageIndex = lenguageIndex;
         }
     }
 
