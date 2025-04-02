@@ -3,15 +3,42 @@ using UnityEngine;
 
 namespace TerrorConsole
 {
-    public class SaveSystemManager : Singleton<ISaveSystemSource>, ISaveSystemSource
+    public partial class SaveSystemManager : Singleton<ISaveSystemSource>, ISaveSystemSource
     {
         private SaveGameData _loadedGame;
         private int _lastLoadedGameFile = -1;
+        private SaveConfigurationData _loadedConfiguration;
 
-        private void Start()
+        override protected void Awake()
         {
-            _lastLoadedGameFile = PlayerPrefs.GetInt("lastLoadedGameFile", -1);
+            base.Awake();
+            UpdateLastLoadedGameFile(PlayerPrefs.GetInt("lastLoadedGameFile", -1));
+            LoadConfigurations();
         }
+
+        private void LoadConfigurations()
+        {
+            string configurationData = PlayerPrefs.GetString("gameConfiguration", "ERROR");
+            if (string.IsNullOrEmpty(configurationData) || configurationData == "ERROR")
+            {
+                _loadedConfiguration = new SaveConfigurationData();
+            }
+            else
+            {
+                _loadedConfiguration = JsonUtility.FromJson<SaveConfigurationData>(configurationData);
+            }
+        }
+
+        public SaveConfigurationData GetConfigurationData()
+        {
+            return _loadedConfiguration;
+        }
+
+        public void DeleteConfigurationData()
+        {
+            PlayerPrefs.DeleteKey("gameConfiguration");
+        }
+
         public void DeleteGame(int fileIndex)
         {
             PlayerPrefs.DeleteKey($"GameData{fileIndex}");
@@ -21,16 +48,17 @@ namespace TerrorConsole
         private void UpdateLastLoadedGameFile(int newLastLoadedGameFile)
         {
             _lastLoadedGameFile = newLastLoadedGameFile;
-            PlayerPrefs.GetInt("lastLoadedGameFile", _lastLoadedGameFile);
+            PlayerPrefs.SetInt("lastLoadedGameFile", _lastLoadedGameFile);
         }
 
-        public void LoadGame(int fileIndex)
+        public SaveGameData LoadGame(int fileIndex)
         {
             string gameData = PlayerPrefs.GetString($"GameData{fileIndex}", "ERROR");
-            if (gameData != "Error")
+            if (gameData != "ERROR")
             {
                 try
                 {
+                    print(gameData);
                     _loadedGame = JsonUtility.FromJson<SaveGameData>(gameData);
                 }
                 catch (Exception e)
@@ -42,23 +70,20 @@ namespace TerrorConsole
             {
                 print($"No se encontró una partida con el index {fileIndex}. Cargando una vacia");
                 _loadedGame = new SaveGameData(fileIndex);
+                SaveCurrentGame();
             }
             UpdateLastLoadedGameFile(fileIndex);
+            return _loadedGame;
         }
 
         public void SaveCurrentGame()
         {
-            SaveGame(_loadedGame._gameIndex);
+            SaveGame(_loadedGame.GetGameIndex(), _loadedGame);
         }
 
-        public void SaveProgress(int currentLevel, string inventory)
+        public void SaveGame(int fileIndex, SaveGameData data)
         {
-            _loadedGame._currentLevel = currentLevel;
-        }
-
-        public void SaveGame(int fileIndex)
-        {
-            string json = JsonUtility.ToJson(_loadedGame);
+            string json = JsonUtility.ToJson(data);
             PlayerPrefs.SetString($"GameData{fileIndex}", json);
         }
 
@@ -73,7 +98,6 @@ namespace TerrorConsole
             {
                 return false;
             }
-
         }
 
         public int GetLastLoadedFileIndex()
@@ -82,31 +106,14 @@ namespace TerrorConsole
         }
     }
 
-    [Serializable]
-    public class SaveGameData
+#if UNITY_EDITOR
+    public partial class SaveSystemManager
     {
-        public int _gameIndex;
-        public int _currentLevel;
-
-        public SaveGameData(int levelIndex)
+        [ContextMenu("DeleteAllSaved")]
+        public void DEBUG_DeleteAllSaved()
         {
-            _gameIndex = levelIndex;
+            PlayerPrefs.DeleteAll();
         }
     }
-
-    [Serializable]
-    public class SaveConfigurationData
-    {
-        public int _sfxVolume;
-        public int _musicVolume;
-        public int _lenguageIndex;
-
-        public SaveConfigurationData(int sfxVolume, int musicVolume, int lenguageIndex)
-        {
-            _sfxVolume = sfxVolume;
-            _musicVolume = musicVolume;
-            _lenguageIndex = lenguageIndex;
-        }
-    }
-
+#endif
 }
