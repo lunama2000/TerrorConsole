@@ -12,11 +12,8 @@ namespace TerrorConsole
         void PlayDoorOpenSFX();
         void PlayPauseSFX();
         void PlayUIButtonClickSFX();
-        void PlayMusicPiano();
-        void PlayShadowMusic();
-        void PlayMysteryMusic();
-        void PlayScaryBellsMusic();
-        void PlayVoicesMusic();
+        void PlayMusic(MusicType musicType);
         void StopMusic();
+        
     }
 }

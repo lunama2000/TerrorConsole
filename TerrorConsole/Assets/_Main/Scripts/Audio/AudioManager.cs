@@ -66,15 +66,10 @@ namespace TerrorConsole
             _musicMixer.SetFloat("musicVol", MusicVolume);
         }
         
-        public void PlayLoudTonesMusic() => PlayMusic("LoudTonesMusic");
-        public void PlayVoicesMusic() => PlayMusic("VoicesMusic");
-        public void PlayMusicPiano() => PlayMusic("MusicPiano");
-        public void PlayMysteryMusic() => PlayMusic("MysteryMusic");
-        public void PlayShadowMusic() => PlayMusic("ShadowMusic");
-        public void PlayScaryBellsMusic() => PlayMusic("ScaryBellsMusic");
-        
-        public void PlayMusic(string audioName)
+        public void PlayMusic(MusicType musicType)
         {
+            string audioName = GetMusicName(musicType);
+            
             AudioData audioData = _audioDatabase.GetAudio(audioName);
             if (audioData == null) return; 
 
@@ -113,6 +108,20 @@ namespace TerrorConsole
             MusicVolume = Mathf.Lerp(-80f, 20f, newVolume);
             _musicMixer.SetFloat("musicVol", MusicVolume);
             PlayerPrefs.SetFloat("musicVol", MusicVolume);
+        }
+
+        private string GetMusicName(MusicType musicType)
+        {
+            switch (musicType)
+            {
+                case MusicType.LoudTones: return "LoudTonesMusic";
+                case MusicType.Voices: return "VoicesMusic";
+                case MusicType.MusicPiano: return "MusicPiano";
+                case MusicType.Mystery: return "MysteryMusic";
+                case MusicType.Shadow: return "ShadowMusic";
+                case MusicType.ScaryBells: return "ScaryBells";
+                default: return null;
+            }
         }
     }
 }
