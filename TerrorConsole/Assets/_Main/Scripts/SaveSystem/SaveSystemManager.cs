@@ -107,7 +107,6 @@ namespace TerrorConsole
         public SaveGameData GetGameDataByIndex(int fileIndex)
         {
             string gameDataString = PlayerPrefs.GetString($"GameData{fileIndex}", "ERROR");
-            print(gameDataString);
             SaveGameData saveGameData;
             if (gameDataString != "ERROR")
             {
