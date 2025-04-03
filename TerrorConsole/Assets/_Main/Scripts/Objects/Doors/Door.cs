@@ -6,6 +6,7 @@ namespace TerrorConsole
     {
         [SerializeField] protected bool _isLocked;
         [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] private Sprite newSprite;
         [SerializeField] private Collider2D _collider2D;
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -36,7 +37,7 @@ namespace TerrorConsole
 
         protected virtual void OpenDoor()
         {
-            _spriteRenderer.color = new Color(0.5f,0.5f,0.5f,0.5f);//TO DO Implement animation of door opening
+            _spriteRenderer.sprite = newSprite;//TO DO Implement animation of door opening
             _collider2D.enabled = false;
         }
 
