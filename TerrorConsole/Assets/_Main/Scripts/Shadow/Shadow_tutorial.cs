@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TerrorConsole
 {
@@ -7,20 +8,26 @@ namespace TerrorConsole
         [SerializeField] Animator _aparicion;
         [SerializeField] private GameObject _shadow;
         [SerializeField] private Collider2D _door;
+        [SerializeField] private UnityEvent onDoorOpened; 
+
+        private void Start()
+        {
+            if (onDoorOpened == null)
+                onDoorOpened = new UnityEvent();
+        }
 
         private void FixedUpdate()
         {
-            PrimerAparicion(); 
-        }
-
-        private void PrimerAparicion()
-        {
-            Debug.Log("puerta" + _door.enabled);
             if (_door.enabled == false)
             {
-                Debug.Log("animación activada");
-                _aparicion.Play("Primer aparición");
+                TriggerAnimation();
             }
+        }
+
+        private void TriggerAnimation()
+        {
+            onDoorOpened.Invoke(); 
+            _aparicion.Play("Primer aparición");
         }
 
         private void Desaparicion()
