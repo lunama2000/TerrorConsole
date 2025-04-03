@@ -28,7 +28,7 @@ namespace TerrorConsole
         private void TriggerAnimation()
         {
             onDoorOpened.Invoke(); 
-            _appearance.Play("Primer aparición");
+            _appearance.Play("Firts appearance");
         }
 
         private void disappearance() //Here i deactive the sahdow using it as an event when the animation ends
