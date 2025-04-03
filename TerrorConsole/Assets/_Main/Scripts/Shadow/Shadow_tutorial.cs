@@ -3,9 +3,10 @@ using UnityEngine.Events;
 
 namespace TerrorConsole
 {
+    // This script is only used once in the tutorial for the first appearance of the shadow
     public class Shadow_tutorial : MonoBehaviour
     {
-        [SerializeField] Animator _aparicion;
+        [SerializeField] Animator _appearance;
         [SerializeField] private GameObject _shadow;
         [SerializeField] private Collider2D _door;
         [SerializeField] private UnityEvent onDoorOpened; 
@@ -27,10 +28,10 @@ namespace TerrorConsole
         private void TriggerAnimation()
         {
             onDoorOpened.Invoke(); 
-            _aparicion.Play("Primer aparición");
+            _appearance.Play("Primer aparición");
         }
 
-        private void Desaparicion()
+        private void disappearance() //Here i deactive the sahdow using it as an event when the animation ends
         {
             _shadow.gameObject.SetActive(false);
         }
