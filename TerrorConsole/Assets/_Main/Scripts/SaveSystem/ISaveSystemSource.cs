@@ -10,5 +10,6 @@ namespace TerrorConsole
         public void DeleteGame(int fileIndex);
         public int GetLastLoadedFileIndex();
         public bool CheckIfFileExist(int fileIndex);
+        public SaveGameData GetGameDataByIndex(int fileIndex);
     }
 }

@@ -53,24 +53,16 @@ namespace TerrorConsole
 
         public SaveGameData LoadGame(int fileIndex)
         {
-            string gameData = PlayerPrefs.GetString($"GameData{fileIndex}", "ERROR");
-            if (gameData != "ERROR")
+            _loadedGame = GetGameDataByIndex(fileIndex);
+            if (_loadedGame == null)
             {
-                try
-                {
-                    print(gameData);
-                    _loadedGame = JsonUtility.FromJson<SaveGameData>(gameData);
-                }
-                catch (Exception e)
-                {
-                    print("No se pudo cargar la partida: " + e.Message);
-                }
+                print($"Cargando una partida vacia");
+                _loadedGame = new SaveGameData(fileIndex);
+                SaveCurrentGame();
             }
             else
             {
-                print($"No se encontró una partida con el index {fileIndex}. Cargando una vacia");
-                _loadedGame = new SaveGameData(fileIndex);
-                SaveCurrentGame();
+                print($"Partida cargada con exito");
             }
             UpdateLastLoadedGameFile(fileIndex);
             return _loadedGame;
@@ -103,6 +95,30 @@ namespace TerrorConsole
         public int GetLastLoadedFileIndex()
         {
             return _lastLoadedGameFile;
+        }
+
+        public SaveGameData GetGameDataByIndex(int fileIndex)
+        {
+            string gameDataString = PlayerPrefs.GetString($"GameData{fileIndex}", "ERROR");
+            SaveGameData saveGameData;
+            if (gameDataString != "ERROR")
+            {
+                try
+                {
+                    saveGameData = JsonUtility.FromJson<SaveGameData>(gameDataString);
+                    return saveGameData;
+                }
+                catch (Exception e)
+                {
+                    print("No se pudo cargar la partida: " + e.Message);
+                    return null;
+                }
+            }
+            else
+            {
+                print($"No se encontró una partida con el index {fileIndex}");
+                return null;
+            }
         }
     }
 
