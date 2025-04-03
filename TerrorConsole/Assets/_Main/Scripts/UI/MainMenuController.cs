@@ -10,6 +10,11 @@ namespace TerrorConsole
         private void Start()
         {
             _saveManager = SaveSystemManager.Source;
+            SetupContinueButton();
+        }
+
+        public void SetupContinueButton()
+        {
             _continueButton.SetActive(_saveManager.GetLastLoadedFileIndex() != -1);
         }
 
@@ -22,6 +27,11 @@ namespace TerrorConsole
         {
             SaveGameData gameData = _saveManager.LoadGame(fileIndex);
             ScreenTransitionManager.Source.TransitionToScene(gameData.GetCurrentScene());
+        }
+
+        public void OnQuitButtonPressed()
+        {
+            Application.Quit();
         }
     }
 }

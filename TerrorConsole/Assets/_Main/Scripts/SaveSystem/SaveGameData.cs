@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace TerrorConsole
@@ -8,6 +9,7 @@ namespace TerrorConsole
     {
         [SerializeField] private int _gameIndex;
         [SerializeField] private string _currentScene;
+        [SerializeField] private List<string> _inventory;
 
         public SaveGameData(int gameFileIndex)
         {
@@ -33,6 +35,16 @@ namespace TerrorConsole
         public void SetCurrentScene(string sceneName)
         {
             _currentScene = sceneName;
+        }
+
+        public List<string> GetInventory()
+        {
+            return _inventory;
+        }
+
+        public void SetInventory(List<string> newInventory)
+        {
+            _inventory = newInventory;
         }
     }
 }

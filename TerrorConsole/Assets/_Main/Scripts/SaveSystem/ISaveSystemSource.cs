@@ -11,5 +11,6 @@ namespace TerrorConsole
         public int GetLastLoadedFileIndex();
         public bool CheckIfFileExist(int fileIndex);
         public SaveGameData GetGameDataByIndex(int fileIndex);
+        public SaveGameData GetLoadedGame();
     }
 }

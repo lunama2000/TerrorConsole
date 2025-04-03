@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace TerrorConsole
@@ -58,6 +59,7 @@ namespace TerrorConsole
             {
                 print($"Cargando una partida vacia");
                 _loadedGame = new SaveGameData(fileIndex);
+
                 SaveCurrentGame();
             }
             else
@@ -97,9 +99,15 @@ namespace TerrorConsole
             return _lastLoadedGameFile;
         }
 
+        public SaveGameData GetLoadedGame()
+        {
+            return _loadedGame;
+        }
+
         public SaveGameData GetGameDataByIndex(int fileIndex)
         {
             string gameDataString = PlayerPrefs.GetString($"GameData{fileIndex}", "ERROR");
+            print(gameDataString);
             SaveGameData saveGameData;
             if (gameDataString != "ERROR")
             {
