@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TerrorConsole
 {
@@ -8,6 +9,8 @@ namespace TerrorConsole
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Sprite newSprite;
         [SerializeField] private Collider2D _collider2D;
+        [SerializeField] private UnityEvent _onDoorOpened = new UnityEvent();
+        [SerializeField] private UnityEvent _onDoorClosed = new UnityEvent();
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -22,7 +25,6 @@ namespace TerrorConsole
             if (!_isLocked)
             {
                 OpenDoor();
-                return;
             }
         }
 
@@ -39,12 +41,14 @@ namespace TerrorConsole
         {
             _spriteRenderer.sprite = newSprite;//TO DO Implement animation of door opening
             _collider2D.enabled = false;
+            _onDoorOpened?.Invoke();
         }
 
         protected virtual void CloseDoor()
         {
             _spriteRenderer.color = Color.red;//TO DO Implement animation of door opening
             _collider2D.enabled = true;
+            _onDoorClosed?.Invoke();
         }
     }
 }
