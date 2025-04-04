@@ -5,6 +5,7 @@ namespace TerrorConsole
     public class EquipableItem : MonoBehaviour
     {
         [SerializeField] protected bool _freezeInput;
+        [SerializeField] private string _objectName;
 
         protected IInputSource _inputSource;
 
@@ -12,6 +13,13 @@ namespace TerrorConsole
         {
             _inputSource = InputManager.Source;
             LevelManager.Source.OnLevelStateChange += OnLevelStateChange;
+            if (string.IsNullOrEmpty(_objectName))
+            {
+                Debug.LogError($"There is no Object Name for {name}, please set the name of the corresponding Pickable Item for this equipable");
+                _objectName = _objectName == "" ? transform.name : _objectName;
+            }
+            
+            gameObject.SetActive(Inventory.Source.IsItemInInventory(_objectName));
         }
 
         protected virtual void OnDestroy()

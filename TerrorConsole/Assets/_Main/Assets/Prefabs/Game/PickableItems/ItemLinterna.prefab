@@ -216,4 +216,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c660b420909245a9f320f12aae1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectName: 
+  _objectName: Lantern

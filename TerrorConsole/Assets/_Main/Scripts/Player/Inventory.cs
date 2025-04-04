@@ -7,14 +7,16 @@ namespace TerrorConsole
     {
         [SerializeField] private List<string> _itemsList;
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
             _itemsList = SaveSystemManager.Source.GetLoadedGame().GetInventory();
-            if(_itemsList == null)
+            if (_itemsList == null)
             {
                 _itemsList = new List<string>();
             }
         }
+
         public void AddItemToInventory(string itemName)
         {
             _itemsList.Add(itemName);
