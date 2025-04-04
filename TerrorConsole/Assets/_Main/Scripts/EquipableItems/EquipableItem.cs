@@ -9,6 +9,11 @@ namespace TerrorConsole
 
         protected IInputSource _inputSource;
 
+        public string GetObjectName()
+        {
+            return _objectName;
+        }
+
         protected virtual void Start()
         {
             _inputSource = InputManager.Source;
@@ -18,8 +23,6 @@ namespace TerrorConsole
                 Debug.LogError($"There is no Object Name for {name}, please set the name of the corresponding Pickable Item for this equipable");
                 _objectName = _objectName == "" ? transform.name : _objectName;
             }
-            
-            gameObject.SetActive(Inventory.Source.IsItemInInventory(_objectName));
         }
 
         protected virtual void OnDestroy()

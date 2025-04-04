@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace TerrorConsole
     public class Inventory : Singleton<IInventorySource>, IInventorySource
     {
         [SerializeField] private List<string> _itemsList;
+
+        public Action OnInventoryUpdated { get; set; }
 
         protected override void Awake()
         {
@@ -39,6 +42,7 @@ namespace TerrorConsole
         public void SaveInventory()
         {
             SaveSystemManager.Source.GetLoadedGame().SetInventory(_itemsList);
+            OnInventoryUpdated?.Invoke();
         }
     }
 }
