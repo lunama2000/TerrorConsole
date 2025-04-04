@@ -8,7 +8,13 @@ namespace TerrorConsole
 
         private void Start()
         {
-            _objectName = _objectName == "" ? transform.name : _objectName;
+            if (string.IsNullOrEmpty(_objectName))
+            {
+                Debug.LogError($"There is no Object Name for {name}, please set a unique name for this item");
+                _objectName = _objectName == "" ? transform.name : _objectName;
+            }
+
+            gameObject.SetActive(!Inventory.Source.IsItemInInventory( _objectName));
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

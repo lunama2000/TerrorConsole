@@ -33,7 +33,7 @@ namespace TerrorConsole
                 _gameSaveInfoUI.SetActive(true);
                 _fileNumberTxt.text = _gameFileIndex.ToString();
                 _stageTxt.text = _saveGameData.GetCurrentScene();
-                _lanternIcon.SetActive(_saveGameData.GetInventory().Contains("ItemLinterna"));
+                _lanternIcon.SetActive(_saveGameData.GetInventory().Contains("Lantern"));
             }
         }
 
