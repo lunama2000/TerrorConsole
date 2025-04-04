@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 03c2c1d418b8bce4db7e269992d41f9f
+guid: 99e2b30799ef6ce4a8320e16e4d42312
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_0
+      name: Loading Icons 3_0
       rect:
         serializedVersion: 2
-        x: 230
-        y: 234
-        width: 138
-        height: 18
+        x: 0
+        y: 0
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 534e7638a7d2286458c1318e6e842e95
-      internalID: 710722724
+      spriteID: ef49a0df80783f14bbf60c9f3556496a
+      internalID: -7004902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_14
+      name: Loading Icons 3_1
       rect:
         serializedVersion: 2
-        x: 58
-        y: 57
-        width: 148
-        height: 153
+        x: 18
+        y: 0
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b535376bd9c1b9143a9df32ac3e9ae27
-      internalID: -461009319
+      spriteID: 8fd4925540e569244b5c60659bdc082b
+      internalID: 437641409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_15
+      name: Loading Icons 3_3
       rect:
         serializedVersion: 2
-        x: 226
-        y: 57
-        width: 148
-        height: 153
+        x: 36
+        y: 0
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52bc35115dcc63e4aa4b6dfa0f5e5433
-      internalID: -481957178
+      spriteID: b878bf0fb2ee41a4f8f72cae2d130ab3
+      internalID: -965339827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_16
+      name: Loading Icons 3_4
       rect:
         serializedVersion: 2
-        x: 394
-        y: 57
-        width: 148
-        height: 153
+        x: 54
+        y: 0
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a8bcfc0adf80694f89205e38c232384
-      internalID: 1122895847
+      spriteID: b9f5f137ecd8b0d4eab1f14546c9df89
+      internalID: -1115519181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loading Icons 3_5
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7da44c6d769724e8592f25c32f249a
+      internalID: -10308066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loading Icons 3_6
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b6112d602ebcd4889222e6153d2a88
+      internalID: 336333683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loading Icons 3_8
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93b38b5339dbf824f800cf31921a0444
+      internalID: 512027028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loading Icons 3_9
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9607fda4267d3c4499ece25e4f35e611
+      internalID: -321668386
       vertices: []
       indices: 
       edges: []
@@ -191,23 +275,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_0: 710722724
-      UI_1: 151565864
-      UI_10: -687313412
-      UI_11: -351383786
-      UI_12: -44408218
-      UI_13: -1740122738
-      UI_14: -461009319
-      UI_15: -481957178
-      UI_16: 1122895847
-      UI_2: -1173491654
-      UI_3: -1702497945
-      UI_4: 1039931832
-      UI_5: 550732253
-      UI_6: -982527723
-      UI_7: 1611993222
-      UI_8: -392299507
-      UI_9: -1224647549
+      Loading Icons 3_0: -7004902
+      Loading Icons 3_1: 437641409
+      Loading Icons 3_2: -761370705
+      Loading Icons 3_3: -965339827
+      Loading Icons 3_4: -1115519181
+      Loading Icons 3_5: -10308066
+      Loading Icons 3_6: 336333683
+      Loading Icons 3_7: -413317344
+      Loading Icons 3_8: 512027028
+      Loading Icons 3_9: -321668386
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

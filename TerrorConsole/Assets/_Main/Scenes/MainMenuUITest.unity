@@ -327,6 +327,25 @@ PrefabInstance:
     - target: {fileID: 1027574024093795639, guid: 482fdefff63e2b44f88739e0f1b5bf1f, type: 3}
       propertyPath: m_Name
       value: AudioManager
+    - target: {fileID: 1391502934421993254, guid: b2c5ac96e81934d44a8212e90623d2d9, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.5568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391502934421993254, guid: b2c5ac96e81934d44a8212e90623d2d9, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.5568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391502934421993254, guid: b2c5ac96e81934d44a8212e90623d2d9, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.5568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391502934421993254, guid: b2c5ac96e81934d44a8212e90623d2d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 245825873}
+    - target: {fileID: 1471506311380402791, guid: b2c5ac96e81934d44a8212e90623d2d9, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4836345969605176892, guid: 482fdefff63e2b44f88739e0f1b5bf1f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -823,7 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 599767776}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1593302948
