@@ -38,7 +38,7 @@ namespace TerrorConsole
         {
             if (collider.CompareTag("Player"))
             {
-                CameraSystemManager.Source.DeactvateCameraZone(this);
+                CameraSystemManager.Source.DeactivateCameraZone(this);
             }
         }
 

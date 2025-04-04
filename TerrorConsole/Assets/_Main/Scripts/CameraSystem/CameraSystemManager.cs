@@ -23,7 +23,7 @@ namespace TerrorConsole
             _activeZone = zoneToActivate;
         }
 
-        public void DeactvateCameraZone(CameraZone zoneToDeactivate)
+        public void DeactivateCameraZone(CameraZone zoneToDeactivate)
         {
             if (_activeZone == zoneToDeactivate)
             {
