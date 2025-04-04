@@ -5,18 +5,18 @@ namespace UnityEngine
         public static I Source { get; private set; }
 
         [Header("SINGLETON")]
-        [SerializeField]bool isPersistent = true;
+        [SerializeField] private bool _isPersistent = true;
 
         protected virtual void Awake()
         {
-            if (Source != null)
+            if (_isPersistent && Source != null)
             {
                 DestroyImmediate(gameObject);
                 return;
             }
             
             Source = this as I;
-            if (isPersistent)
+            if (_isPersistent)
             {
                 DontDestroyOnLoad(gameObject);
             }
