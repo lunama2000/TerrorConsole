@@ -17,6 +17,7 @@ namespace TerrorConsole
         
         public void TransitionToScene(string sceneName, TransitionType transitionType)
         {
+            SaveSystemManager.Source.SaveCurrentGame();
             switch (transitionType)
             {
                 case TransitionType.Fade:
