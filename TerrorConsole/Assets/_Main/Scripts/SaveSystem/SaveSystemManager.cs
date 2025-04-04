@@ -57,14 +57,14 @@ namespace TerrorConsole
             _loadedGame = GetGameDataByIndex(fileIndex);
             if (_loadedGame == null)
             {
-                print($"Cargando una partida vacia");
+                print($"Loading empty game file");
                 _loadedGame = new SaveGameData(fileIndex);
 
                 SaveCurrentGame();
             }
             else
             {
-                print($"Partida cargada con exito");
+                print($"Game file loaded sucessfully");
             }
             UpdateLastLoadedGameFile(fileIndex);
             return _loadedGame;
@@ -84,7 +84,7 @@ namespace TerrorConsole
         public bool CheckIfFileExist(int fileIndex)
         {
             string gameData = PlayerPrefs.GetString($"GameData{fileIndex}", "ERROR");
-            if (gameData != "Error")
+            if (gameData != "ERROR")
             {
                 return true;
             }
@@ -117,13 +117,13 @@ namespace TerrorConsole
                 }
                 catch (Exception e)
                 {
-                    print("No se pudo cargar la partida: " + e.Message);
+                    print("Error loading the game file: " + e.Message);
                     return null;
                 }
             }
             else
             {
-                print($"No se encontró una partida con el index {fileIndex}");
+                print($"Couldn't find game file with index: {fileIndex}");
                 return null;
             }
         }

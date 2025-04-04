@@ -9,7 +9,6 @@ namespace TerrorConsole
         private void Start()
         {
             _objectName = _objectName == "" ? transform.name : _objectName;
-            //gameObject.SetActive(!Inventory.Source.IsItemInInventory(_objectName)); The object wont appear if it is alreay in inventory -- Commented this since idk if this is necessary
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
