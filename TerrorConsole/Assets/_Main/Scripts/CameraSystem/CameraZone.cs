@@ -38,18 +38,24 @@ namespace TerrorConsole
         {
             if (collider.CompareTag("Player"))
             {
-                CameraSystemManager.Source.DeactvateCameraZone(this);
+                CameraSystemManager.Source.DeactivateCameraZone(this);
             }
         }
 
         public void ActivateZone()
         {
-            _virtualCamera.gameObject.SetActive(true);
+            if (_virtualCamera != null)
+            {
+                _virtualCamera.gameObject.SetActive(true);
+            }
         }
 
         public void DeactivateZone()
         {
-            _virtualCamera.gameObject.SetActive(false);
+            if (_virtualCamera != null)
+            {
+                _virtualCamera.gameObject.SetActive(false);
+            }
         }
 
         public void ShakeCamera(float duration, float intensity)

@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0907bd5416efd4446b2465b18b0778ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPersistent: 0
+  _isPersistent: 0
   _dialogueCanvas: {fileID: 368291390921845562}
   _dialogueText: {fileID: 1032051869891036539}
   _continueButton: {fileID: 8737999488860709484}
