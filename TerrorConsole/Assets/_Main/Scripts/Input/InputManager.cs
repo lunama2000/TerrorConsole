@@ -6,6 +6,7 @@ namespace TerrorConsole
     public class InputManager : Singleton<IInputSource>, IInputSource
     {
         [SerializeField] private float deadZone = 0.5f;
+
         public bool IsMoving { get; private set; }
         public Vector2 MovementDirection => _movementDirection.normalized;
         public Vector2 LastLookDirection => _lastLookDirection.normalized;

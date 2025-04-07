@@ -13,7 +13,6 @@ namespace TerrorConsole
         [Header("PROPERTIES")]
         [SerializeField] private bool _isOn;
 
-
         [Header("CONFIGURATION")]
         public float _posRadius = 2f;
         public float _transitionDuration = 0.3f;
@@ -22,7 +21,6 @@ namespace TerrorConsole
         private Tween _rotateTween;
         private Vector2 _direction;
         private Vector2 _lastInputDir = Vector2.zero;
-
 
         protected override void Start()
         {

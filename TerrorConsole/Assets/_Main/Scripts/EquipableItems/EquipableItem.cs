@@ -29,6 +29,7 @@ namespace TerrorConsole
         {
             LevelManager.Source.OnLevelStateChange -= OnLevelStateChange;
         }
+
         protected virtual void OnLevelStateChange(LevelState newState)
         {
             switch (newState)
