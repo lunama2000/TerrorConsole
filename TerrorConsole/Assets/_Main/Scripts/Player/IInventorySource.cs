@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace TerrorConsole
@@ -6,7 +7,7 @@ namespace TerrorConsole
     {
         public void AddItemToInventory(string itemName);
         public void RemoveItemFromInventory(string itemName);
-
         public bool IsItemInInventory(string itemName);
+        Action OnInventoryUpdated { get; set; }
     }
 }
