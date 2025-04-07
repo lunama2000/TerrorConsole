@@ -427,10 +427,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 6855464147840255831, guid: b2c5ac96e81934d44a8212e90623d2d9, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 288.3
-      objectReference: {fileID: 0}
     - target: {fileID: 7213074807264705989, guid: b2c5ac96e81934d44a8212e90623d2d9, type: 3}
       propertyPath: _textSellector
       value: 
