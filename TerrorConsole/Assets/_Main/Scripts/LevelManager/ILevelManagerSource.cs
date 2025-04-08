@@ -9,5 +9,6 @@ namespace TerrorConsole
         public void PlayLevel();
         public void PauseLevel();
         LevelState GetCurrentState();
+        SaveLevelData GetSaveLevelData();
     }
 }

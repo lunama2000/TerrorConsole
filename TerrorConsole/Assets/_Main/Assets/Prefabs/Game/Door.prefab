@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3759804837534311148}
   - component: {fileID: 1361570093258480498}
   - component: {fileID: 7572388163158137190}
+  - component: {fileID: 1661503031811502314}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -100,8 +101,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isLocked: 0
   _spriteRenderer: {fileID: 3759804837534311148}
-  newSprite: {fileID: 2033524807, guid: 643cc51f1ea30904f9d8432ee8f834aa, type: 3}
+  openSprite: {fileID: 2033524807, guid: 643cc51f1ea30904f9d8432ee8f834aa, type: 3}
+  closedSprite: {fileID: -687561809, guid: 643cc51f1ea30904f9d8432ee8f834aa, type: 3}
   _collider2D: {fileID: 7572388163158137190}
+  _eventRecorder: {fileID: 1661503031811502314}
+  _onDoorOpened:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDoorClosed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &7572388163158137190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +156,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1661503031811502314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804508235787957779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75defc99eac0ce242bd55edcd180c346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uniqueEventKey: 
