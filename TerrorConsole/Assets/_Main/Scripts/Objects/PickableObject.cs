@@ -5,6 +5,7 @@ namespace TerrorConsole
     public class PickableObject : MonoBehaviour
     {
         [SerializeField] private string _objectName;
+        [SerializeField] private LevelEventsRecorder _eventRecorder;
 
         private void Start()
         {
@@ -14,7 +15,10 @@ namespace TerrorConsole
                 _objectName = _objectName == "" ? transform.name : _objectName;
             }
 
-            gameObject.SetActive(!Inventory.Source.IsItemInInventory( _objectName));
+            if(Inventory.Source.IsItemInInventory(_objectName) || _eventRecorder.CheckEventState())
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -28,6 +32,8 @@ namespace TerrorConsole
         protected virtual void PickedByPlayer()
         {
             Inventory.Source.AddItemToInventory(_objectName);
+            LevelManager.Source.GetSaveLevelData().AddOrUpdateLevelEvent($"ITEM:{_objectName}",true);
+            _eventRecorder.RegisterLevelEvent(true);
             Destroy(gameObject);
         }
     }

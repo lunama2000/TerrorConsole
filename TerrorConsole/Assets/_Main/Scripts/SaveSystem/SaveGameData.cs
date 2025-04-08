@@ -10,6 +10,7 @@ namespace TerrorConsole
         [SerializeField] private int _gameIndex;
         [SerializeField] private string _currentScene;
         [SerializeField] private List<string> _inventory;
+        [SerializeField] private List<SaveLevelData> _levelsData;
 
         public SaveGameData(int gameFileIndex)
         {
@@ -45,6 +46,45 @@ namespace TerrorConsole
         public void SetInventory(List<string> newInventory)
         {
             _inventory = newInventory;
+        }
+
+        public List<SaveLevelData> GetLevelsData()
+        {
+            if (_levelsData == null)
+            {
+                _levelsData = new List<SaveLevelData>();
+            }
+
+            return _levelsData;
+        }
+        public SaveLevelData GetLevelData(int levelNumber)
+        {
+            if(_levelsData == null)
+            {
+                _levelsData = new List<SaveLevelData>();
+            }
+
+            if (_levelsData.Count <= levelNumber)
+            {
+                _levelsData.Add(new SaveLevelData(_levelsData.Count));
+            }
+            return _levelsData[levelNumber];
+        }
+
+        public void SetLevelsData(List<SaveLevelData> newLevelsData)
+        {
+            _levelsData = newLevelsData;
+        }
+        public void SetLevelData(SaveLevelData newLevelData, int levelIndex)
+        {
+            try
+            {
+                _levelsData[levelIndex] = newLevelData;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Error saving the level data: {ex}");
+            }
         }
     }
 }
