@@ -51,16 +51,24 @@ namespace TerrorConsole
             _isLocked = true;
         }
 
-        protected virtual void OpenDoor()
+        protected virtual void OpenDoor(bool instantly = false)
         {
+            if (!instantly)
+            {
+                //Place here SFX or effects
+            }
             _spriteRenderer.sprite = openSprite;//TO DO Implement animation of door opening
             _eventRecorder.RegisterLevelEvent(true);
             _collider2D.enabled = false;
             _onDoorOpened?.Invoke();
         }
 
-        protected virtual void CloseDoor()
+        protected virtual void CloseDoor(bool instantly = false)
         {
+            if (!instantly)
+            {
+                //Place here SFX or effects
+            }
             _spriteRenderer.sprite = closedSprite;//TO DO Implement animation of door opening
             _eventRecorder.RegisterLevelEvent(false);
             _collider2D.enabled = true;

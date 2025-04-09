@@ -7,7 +7,6 @@ namespace TerrorConsole
         [SerializeField] private DialogueData _dialogueData;
         [SerializeField] private LevelEventsRecorder _eventRecorder;
 
-
         private void Start()
         {
             gameObject.SetActive(!_eventRecorder.CheckEventState());

@@ -57,16 +57,17 @@ namespace TerrorConsole
 
             return _levelsData;
         }
+
         public SaveLevelData GetLevelData(int levelNumber)
         {
-            if(_levelsData == null)
+            if (_levelsData == null)
             {
                 _levelsData = new List<SaveLevelData>();
             }
 
             if (_levelsData.Count <= levelNumber)
             {
-                _levelsData.Add(new SaveLevelData(_levelsData.Count));
+                _levelsData.Add(new SaveLevelData(levelNumber));
             }
             return _levelsData[levelNumber];
         }
@@ -75,6 +76,7 @@ namespace TerrorConsole
         {
             _levelsData = newLevelsData;
         }
+
         public void SetLevelData(SaveLevelData newLevelData, int levelIndex)
         {
             try

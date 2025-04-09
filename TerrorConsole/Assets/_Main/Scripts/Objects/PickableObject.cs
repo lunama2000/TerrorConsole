@@ -32,7 +32,7 @@ namespace TerrorConsole
         protected virtual void PickedByPlayer()
         {
             Inventory.Source.AddItemToInventory(_objectName);
-            LevelManager.Source.GetSaveLevelData().AddOrUpdateLevelEvent($"ITEM:{_objectName}",true);
+            LevelManager.Source.AddOrUpdateLevelEvent($"ITEM:{_objectName}",true);
             _eventRecorder.RegisterLevelEvent(true);
             Destroy(gameObject);
         }
