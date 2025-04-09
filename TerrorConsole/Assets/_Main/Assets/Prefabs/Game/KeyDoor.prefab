@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3667636726576411879}
   - component: {fileID: 7395794117923990671}
   - component: {fileID: 5489142708472544027}
+  - component: {fileID: 1932793120631318600}
   m_Layer: 0
   m_Name: KeyDoor
   m_TagString: Untagged
@@ -145,6 +146,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isLocked: 1
   _spriteRenderer: {fileID: 3667636726576411879}
-  newSprite: {fileID: 2033524807, guid: 643cc51f1ea30904f9d8432ee8f834aa, type: 3}
+  openSprite: {fileID: 2033524807, guid: 643cc51f1ea30904f9d8432ee8f834aa, type: 3}
+  closedSprite: {fileID: -687561809, guid: 643cc51f1ea30904f9d8432ee8f834aa, type: 3}
   _collider2D: {fileID: 7395794117923990671}
+  _eventRecorder: {fileID: 1932793120631318600}
+  _onDoorOpened:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDoorClosed:
+    m_PersistentCalls:
+      m_Calls: []
   _neededItemName: Key
+--- !u!114 &1932793120631318600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948668139672506825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75defc99eac0ce242bd55edcd180c346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uniqueEventKey: 

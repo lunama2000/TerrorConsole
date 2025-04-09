@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2927410149311794582}
   - component: {fileID: 4101773286496040921}
   - component: {fileID: 4630460101611467150}
+  - component: {fileID: 9046062606297331432}
   m_Layer: 0
   m_Name: DialogueTrigger
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MonoBehaviour:
     - Hola
     - Como
     - Estas
+  _eventRecorder: {fileID: 0}
 --- !u!61 &4630460101611467150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -95,3 +97,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9046062606297331432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735125895483462445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75defc99eac0ce242bd55edcd180c346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uniqueEventKey: 
