@@ -20,14 +20,6 @@ namespace TerrorConsole
 
         [SerializeField] private LevelState currentLevelState;
 
-        private SaveLevelData _saveLevelData;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            _saveLevelData = SaveSystemManager.Source.GetLoadedGame().GetLevelData(levelNumber);
-        }
-
         public void ChangeLevelState(LevelState newState)
         {
             currentLevelState = newState;
@@ -49,9 +41,17 @@ namespace TerrorConsole
             return currentLevelState;
         }
 
-        public SaveLevelData GetSaveLevelData()
+        private SaveLevelData GetSaveLevelData()
         {
-            return _saveLevelData;
+            return SaveSystemManager.Source.GetLoadedGame().GetLevelData(levelNumber);
+        }
+        public void AddOrUpdateLevelEvent(string eventName, bool eventState)
+        {
+            GetSaveLevelData().AddOrUpdateLevelEvent(eventName, eventState);
+        }
+        public bool GetEventState(string uniqueEventKey)
+        {
+            return GetSaveLevelData().GetEventState(uniqueEventKey);
         }
     }
 

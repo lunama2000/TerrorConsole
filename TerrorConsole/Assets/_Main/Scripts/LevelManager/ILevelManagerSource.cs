@@ -9,6 +9,7 @@ namespace TerrorConsole
         public void PlayLevel();
         public void PauseLevel();
         LevelState GetCurrentState();
-        SaveLevelData GetSaveLevelData();
+        public void AddOrUpdateLevelEvent(string eventName, bool eventState);
+        public bool GetEventState(string uniqueEventKey);
     }
 }

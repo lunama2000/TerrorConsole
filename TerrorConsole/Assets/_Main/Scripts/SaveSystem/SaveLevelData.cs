@@ -36,8 +36,7 @@ namespace TerrorConsole
             else
             {
                 _eventsInLevel.Add(new LevelEvent(eventName, eventState));
-            }
-            
+            }    
         }
 
         public void UpdateLevelEvent(string eventName, bool newEventState)

@@ -18,11 +18,12 @@ namespace TerrorConsole
 
         public bool CheckEventState()
         {
-            return LevelManager.Source.GetSaveLevelData().GetEventState(_uniqueEventKey);
+            return LevelManager.Source.GetEventState(_uniqueEventKey);
         }
+
         public void RegisterLevelEvent(bool eventState)
         {
-            LevelManager.Source.GetSaveLevelData().AddOrUpdateLevelEvent(_uniqueEventKey, eventState);
+            LevelManager.Source.AddOrUpdateLevelEvent(_uniqueEventKey, eventState);
         }
     }
 }
