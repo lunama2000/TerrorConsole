@@ -3,123 +3,38 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 namespace TerrorConsole
 {
+
     public class UIController : MonoBehaviour
     {
-        [SerializeField] private RectTransform _selector;
-        [SerializeField] private RectTransform[] _referenceObject;
-        [SerializeField] private Transform[] _optionsItems;
-        [SerializeField] private Transform[] _menuItems;
-        private Transform[] _currentArrayInUse;
-        //private Image[] optionsImages;
-        int _currentSelection = 0;
+        [SerializeField] private GameObject[] _menuUIButtons;
+        [SerializeField] private GameObject[] _optionsUIButtons;
+        [SerializeField] private GameObject[] _newGameUIButtons;
 
-        bool _allowedToSellect = false;
-
-        CUREENT_MENU_STATE _currentState = CUREENT_MENU_STATE.MAIN_MENU;
-        [SerializeField] GameObject _optionsScreen;
-
-        enum CUREENT_MENU_STATE
-        {
-            MAIN_MENU,
-            OPTIONS
-        }
-
-        void Start()
-        {
-            _currentArrayInUse = _menuItems;
-            _allowedToSellect = false;
-            _currentSelection = 0;
-            ChangeSelectorPosition();
-        }
-        void ChangeSelectorPosition()
-        { 
-            _selector.SetParent(_currentArrayInUse[_currentSelection]);
-            if (_currentState == CUREENT_MENU_STATE.MAIN_MENU)
+        public void MenuUIButtons()
             {
-                _selector.anchoredPosition = new Vector2(-70, 8);
-                _selector.sizeDelta = new Vector2(30,30);
-            }
-            else if (_currentState == CUREENT_MENU_STATE.OPTIONS)
-            {
-                _selector.anchoredPosition = new Vector2(0, 8);
-                _selector.sizeDelta = new Vector2(30, 30);
+            EventSystem.current.SetSelectedGameObject(_menuUIButtons[1]);
             }
 
-        }
-
-        void ChangeCurrentSelection(bool _add = true)
-        {
-
-            if (_add)
+        public void OptionsUIButtons()
             {
-                _currentSelection++;
-                if (_currentSelection >= _currentArrayInUse.Length)
-                {
-                    _currentSelection = 0;
-                }
+            EventSystem.current.SetSelectedGameObject(_optionsUIButtons[0]);
             }
-            else
+        public void NewGameUIButtons()
             {
-                _currentSelection--;
-                if (_currentSelection < 0)
-                {
-                    _currentSelection = _currentArrayInUse.Length - 1;
-                }
-            }
-        }
-
-        void ChangedCurrentSelectionOptionIsFound(bool _add = true)
-        {
-            ChangeCurrentSelection(_add);
-
-            while (!_currentArrayInUse[_currentSelection].gameObject.activeInHierarchy)
-            {
-                ChangeCurrentSelection(_add);
-            }
-            ChangeSelectorPosition();
-        }
-
-        void Update()
-        {
-            switch (_currentState)
-            {
-                case CUREENT_MENU_STATE.MAIN_MENU:
-                    if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-                    {
-                        ChangedCurrentSelectionOptionIsFound();
-                    }
-                    else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-                    {
-                        ChangedCurrentSelectionOptionIsFound(false);
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        if (_currentSelection == 4)
-                        {
-                            Button boton = _currentArrayInUse[_currentSelection].GetComponent<Button>();
-                            _currentState = CUREENT_MENU_STATE.OPTIONS;
-                            _currentSelection = 0;
-                            _currentArrayInUse = _optionsItems;
-                            ChangeSelectorPosition();
-
-                            if (boton != null)
-                            {
-                                boton.onClick.Invoke();
-                            }
-                        }
-                        /*else if (currentSelection == 1)
-                        {
-                            
-                        }*/
-                    }
-                    break;
-                }
+            EventSystem.current.SetSelectedGameObject(_newGameUIButtons[0]);
             }
 
-            public void ButtonLoadScene(string sceneName)
+        public void AllMenusClosed()
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+            }
+
+        public void ButtonLoadScene(string sceneName)
             {
                 ScreenTransitionManager.Source.TransitionToScene(sceneName);
             }
