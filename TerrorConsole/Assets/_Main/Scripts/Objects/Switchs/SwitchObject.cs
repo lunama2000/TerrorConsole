@@ -1,23 +1,31 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TerrorConsole
 {
     public class SwitchObject : MonoBehaviour
     {
-        [SerializeField] private SerializableInterface<ISwitchInteractable> _switchLockedDoor;
-
+        [SerializeField] protected string _id;
+        [SerializeField] protected SerializableInterface<ISwitchInteractable> _switchLockedDoor;
+        
+        public UnityEvent<string> OnActivated;
+        public UnityEvent<string> OnDeactivated;
+        
         protected bool _state;
 
         protected virtual void On()
         {
             _state = true;
             _switchLockedDoor.Value.SwitchOn();
+            OnActivated?.Invoke(_id);
         }
 
         protected virtual void Off()
         {
             _state = false;
             _switchLockedDoor.Value.SwitchOff();
+            OnDeactivated?.Invoke(_id);
         }
 
         protected virtual void AlternateState()
