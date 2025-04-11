@@ -17,16 +17,16 @@ namespace TerrorConsole
 
         public void MenuUIButtons()
             {
-            EventSystem.current.SetSelectedGameObject(_menuUIButtons[1]);
+                EventSystem.current.SetSelectedGameObject(_menuUIButtons[1]);
             }
 
         public void OptionsUIButtons()
             {
-            EventSystem.current.SetSelectedGameObject(_optionsUIButtons[0]);
+                EventSystem.current.SetSelectedGameObject(_optionsUIButtons[0]);
             }
         public void NewGameUIButtons()
             {
-            EventSystem.current.SetSelectedGameObject(_newGameUIButtons[0]);
+                EventSystem.current.SetSelectedGameObject(_newGameUIButtons[0]);
             }
 
         public void AllMenusClosed()
