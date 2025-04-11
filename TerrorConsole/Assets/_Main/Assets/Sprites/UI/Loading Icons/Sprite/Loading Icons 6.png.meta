@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a0e404b0dddb69545b91d0364f0a9415
+guid: 5505cd60be62c174ebf180981013142c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,106 +97,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Levers_0
+      name: Loading Icons 6_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 365b2db82df16c04c8e812481b0d9cc2
-      internalID: 967799432
+      spriteID: ec8c8a19307712f419cbdfe4c99001a5
+      internalID: 1422117372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Levers_1
+      name: Loading Icons 6_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 18
         y: 0
-        width: 64
-        height: 64
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 043e664a8c1822541863ba7835ac0fd9
-      internalID: 782493574
+      spriteID: ddcca693d7bd03140bc58d1d510531cf
+      internalID: 1816703329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Levers_2
+      name: Loading Icons 6_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 36
         y: 0
-        width: 64
-        height: 64
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0507f7a62994a8147b14a895f669408d
-      internalID: -481008986
+      spriteID: 2ed669be38d8f0e4f9297c66e808fb2e
+      internalID: 822157052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Levers_3
+      name: Loading Icons 6_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 54
         y: 0
-        width: 64
-        height: 64
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50898f13f5679074d96d8a3698081a5c
-      internalID: -209011498
+      spriteID: 2268d5506f1b38945b0520026ce5621a
+      internalID: 1741099027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Levers_4
+      name: Loading Icons 6_5
       rect:
         serializedVersion: 2
-        x: 256
+        x: 72
         y: 0
-        width: 64
-        height: 64
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4ad98e4807a8744aacb9b6b8d9bd2ec
-      internalID: -1493880316
+      spriteID: 07d4514d5f0975545a075909df54c728
+      internalID: 1030059689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loading Icons 6_6
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c94131129c483b4a90bc95fc8e5a961
+      internalID: 1035109985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loading Icons 6_8
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99df2f21619e9c240925410a180d6f40
+      internalID: -1888130566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loading Icons 6_9
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ec51c749d343349aa469634b54eb94
+      internalID: -1273457238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loading Icons 6_10
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e289cccedb7645b4eb00057dc3d175d7
+      internalID: 2122974497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Loading Icons 6_11
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b10d06fc50ca441aeeb66cdd5f8f9e
+      internalID: -616456498
       vertices: []
       indices: 
       edges: []
@@ -212,11 +317,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Levers_0: 967799432
-      Levers_1: 782493574
-      Levers_2: -481008986
-      Levers_3: -209011498
-      Levers_4: -1493880316
+      Loading Icons 6_0: 1422117372
+      Loading Icons 6_1: 1816703329
+      Loading Icons 6_10: 2122974497
+      Loading Icons 6_11: -616456498
+      Loading Icons 6_2: 822157052
+      Loading Icons 6_3: 1741099027
+      Loading Icons 6_4: -291188368
+      Loading Icons 6_5: 1030059689
+      Loading Icons 6_6: 1035109985
+      Loading Icons 6_7: -1718164159
+      Loading Icons 6_8: -1888130566
+      Loading Icons 6_9: -1273457238
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
