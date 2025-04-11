@@ -136,7 +136,7 @@ GameObject:
   m_Layer: 0
   m_Name: NavMesh
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -8640,17 +8640,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb7f24589972354bb5e61e82a9c7ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 0
-  startWaitTime: 3
-  spots:
-  - {fileID: 1071496971}
-  - {fileID: 1909837115}
-  - {fileID: 190871577}
-  - {fileID: 1529300410}
-  - {fileID: 1998006817}
-  - {fileID: 1758614454}
-  - {fileID: 270008805}
-  - {fileID: 779115927}
+  _waitTime: 0
+  _startWaitTime: 0
+  _spots: []
+  _searchCone: 0
 --- !u!212 &1588998087
 SpriteRenderer:
   m_ObjectHideFlags: 0
