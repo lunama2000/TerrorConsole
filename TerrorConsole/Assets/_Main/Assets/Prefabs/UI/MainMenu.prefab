@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4329131684594586305}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TerrorConsole.UIController, Assembly-CSharp
         m_MethodName: ButtonPlaySFX
         m_Mode: 1
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4329131684594586305}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TerrorConsole.UIController, Assembly-CSharp
         m_MethodName: ButtonPlaySFX
         m_Mode: 1
@@ -687,8 +687,8 @@ RectTransform:
   - {fileID: 1505987009372085820}
   - {fileID: 8275645344572628934}
   - {fileID: 6855464147840255831}
-  - {fileID: 1139599898679840806}
   - {fileID: 99840150417765631}
+  - {fileID: 1139599898679840806}
   m_Father: {fileID: 1471506311380402791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -708,7 +708,6 @@ GameObject:
   - component: {fileID: 6769703729271494072}
   - component: {fileID: 7765838452582742984}
   - component: {fileID: 2807915743688804750}
-  - component: {fileID: 4329131684594586305}
   - component: {fileID: 6636317912374073637}
   m_Layer: 5
   m_Name: MainMenu
@@ -801,18 +800,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4329131684594586305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5652504046309010678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee0834eef0bbe70449c333ac6cdc5a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6636317912374073637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,7 +945,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4329131684594586305}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TerrorConsole.UIController, Assembly-CSharp
         m_MethodName: ButtonPlaySFX
         m_Mode: 1
@@ -1114,7 +1101,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4329131684594586305}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TerrorConsole.UIController, Assembly-CSharp
         m_MethodName: ButtonPlaySFX
         m_Mode: 1
@@ -1290,10 +1277,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4048581131927502607, guid: afbb22b22dd56184b860587f51c39dd0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4329131684594586305}
-    - target: {fileID: 4048581131927502607, guid: afbb22b22dd56184b860587f51c39dd0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 6636317912374073637}
@@ -1309,10 +1292,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4555787885338523180}
-    - target: {fileID: 6297157620995681552, guid: afbb22b22dd56184b860587f51c39dd0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 4329131684594586305}
     - target: {fileID: 6359281399952351308, guid: afbb22b22dd56184b860587f51c39dd0, type: 3}
       propertyPath: mainMenuController
       value: 
@@ -1322,17 +1301,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6636317912374073637}
     - target: {fileID: 7758177806720182448, guid: afbb22b22dd56184b860587f51c39dd0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4329131684594586305}
-    - target: {fileID: 7758177806720182448, guid: afbb22b22dd56184b860587f51c39dd0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 6636317912374073637}
-    - target: {fileID: 8003188425062509016, guid: afbb22b22dd56184b860587f51c39dd0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4329131684594586305}
     - target: {fileID: 8003188425062509016, guid: afbb22b22dd56184b860587f51c39dd0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
