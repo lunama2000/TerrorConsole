@@ -14,22 +14,13 @@ namespace TerrorConsole
 
         [Header("Chase")]
         [SerializeField] private float _searchCone;
-        private LayerMask _player;
-        private Transform _playerTransform;
-
-        StatesEnemy _currentState = StatesEnemy.PATROL;
-
-        public enum StatesEnemy 
-        {
-            PATROL,
-            CHASE,
-            WAIT
-        }
+        [SerializeField] private LayerMask _player;
+        [SerializeField] private Transform _playerTransform;
 
         private void Awake()
         {
             _waitTime = _startWaitTime;
-            _randomSpots = Random.Range(0, _spots.Length);
+            NewSpot();
             _agent = GetComponent<NavMeshAgent>();
             _agent.updateRotation = false;
             _agent.updateUpAxis = false;
@@ -37,20 +28,18 @@ namespace TerrorConsole
 
         void DestinationRandomSpot()
         {
-            _agent.SetDestination(_spots[_randomSpots].position); 
+            _agent.SetDestination(_spots[_randomSpots].position);
+            
         }
 
         void WaitTimeAndDistance()
         {
-            _currentState = StatesEnemy.PATROL;
-
             if (Vector2.Distance(transform.position, _spots[_randomSpots].position) < 0.2f)
             {
                 if (_waitTime <= 0)
                 {
-                    _currentState = StatesEnemy.WAIT;
                     _waitTime = _startWaitTime;
-                    _randomSpots = Random.Range(0, _spots.Length);
+                    NewSpot();
                 }
                 else
                 {
@@ -61,11 +50,24 @@ namespace TerrorConsole
 
         void ChasingPlayer()
         {
-            _currentState = StatesEnemy.CHASE;
             Collider2D PlayerCollider = Physics2D.OverlapCircle(transform.position, _searchCone, _player);
             if (PlayerCollider != null)
             {
                 _playerTransform = PlayerCollider.transform;
+                _agent.SetDestination(_playerTransform.position);
+                if (Vector2.Distance(transform.position, _playerTransform.position) < 0.2f)
+                {
+                    if (_waitTime <= 0)
+                    {
+                        _waitTime = _startWaitTime;
+                        _playerTransform = null;
+                        NewSpot();
+                    }
+                    else
+                    {
+                        _waitTime -= Time.deltaTime;
+                    }
+                }
             }
         }
 
@@ -75,18 +77,19 @@ namespace TerrorConsole
             Gizmos.DrawWireSphere(transform.position, _searchCone);
         }
 
-        void WaitAfterChase()
-        {
-            _currentState = StatesEnemy.WAIT;
-        }
-
         void BackToPatroll()
         {
             WaitTimeAndDistance();
         }
 
+        void NewSpot()
+        {
+            _randomSpots = Random.Range(0, _spots.Length);
+        }
+
         private void FixedUpdate ()
         {
+            //ChasingPlayer();
             DestinationRandomSpot();
             WaitTimeAndDistance();
         }
