@@ -25,13 +25,11 @@ namespace TerrorConsole
             _state = !_state;
             if (_state)
             {
-                
                 OnActivated?.Invoke(_id);
                 CameraSystemManager.Source.ShakeCamera();
             }
             else
             {
-                
                 OnDeactivated?.Invoke(_id);
             }
         }
