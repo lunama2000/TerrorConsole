@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Main/Scenes/Tutorial.unity
     guid: ef7393b0b682d7745b99ae7673ea1924
+  - enabled: 1
+    path: Assets/_Main/Scenes/TestLoseWin.unity
+    guid: 07ef899497c41c344981c6922ffc4f0e
   m_configObjects: {}
