@@ -5,16 +5,16 @@ namespace TerrorConsole
     public class HidingPlace : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _playerSprite;
-        [SerializeField] private Collider2D _playerCollider;
-        private bool _isPlayerInRange = false; 
+        private bool _isPlayerInRange = false;
+        [SerializeField] private GameObject _player;
 
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
+                _player = other.gameObject;
                 _isPlayerInRange = true;
-                Debug.Log("Colisión detectada con " + other.gameObject.name);
             }
         }
 
@@ -23,32 +23,32 @@ namespace TerrorConsole
             if (other.gameObject.CompareTag("Player"))
             {
                 _isPlayerInRange = false;
-                Debug.Log("El jugador salió del rango.");
+                _player = null;
             }
         }
 
         void Update()
         {
             if (_isPlayerInRange && Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("Escondite");
-
+            {                
                 if (_playerSprite != null) 
                 {
-                    _playerCollider.enabled = !_playerCollider.enabled;
                     _playerSprite.enabled = !_playerSprite.enabled;
-                }
-                    
+                    ChangeLayer(_player);
+                }    
             }
+        }
 
-            /*if (_player.enabled = false && Input.GetKeyDown(KeyCode.E))
+        private void ChangeLayer(GameObject player)
+        {
+            if (player.layer == LayerMask.NameToLayer("Player"))
             {
-                if (_player != null)
-                {
-                    _player.enabled = true;
-                }
-
-            }*/
+                player.layer = LayerMask.NameToLayer("Default");
+            }
+            else if (player.layer == LayerMask.NameToLayer("Default"))
+            {
+                player.layer = LayerMask.NameToLayer("Player");
+            }
         }
     }
 }
