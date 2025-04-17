@@ -7,6 +7,8 @@ namespace TerrorConsole
         [SerializeField] private SpriteRenderer _playerSprite;
         private bool _isPlayerInRange = false;
         [SerializeField] private GameObject _player;
+        private PlayerController _playerController;
+        private bool _isHiding = false;
 
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -14,6 +16,7 @@ namespace TerrorConsole
             if (other.gameObject.CompareTag("Player"))
             {
                 _player = other.gameObject;
+                _playerController = _player.GetComponent<PlayerController>();
                 _isPlayerInRange = true;
             }
         }
@@ -24,6 +27,7 @@ namespace TerrorConsole
             {
                 _isPlayerInRange = false;
                 _player = null;
+                _playerController = null;
             }
         }
 
@@ -33,9 +37,16 @@ namespace TerrorConsole
             {                
                 if (_playerSprite != null) 
                 {
+                    _isHiding = !_isHiding;
                     _playerSprite.enabled = !_playerSprite.enabled;
                     ChangeLayer(_player);
-                }    
+                }
+                
+                if (_playerController != null)
+                {
+                    _playerController.SetMovementEnabled(!_isHiding);
+                    Debug.Log("Movimiento del jugador " + (_isHiding ? "desactivado" : "activado"));
+                }
             }
         }
 

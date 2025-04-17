@@ -66,5 +66,10 @@ namespace TerrorConsole
         {
             _freezeInput = false;
         }
+        public void SetMovementEnabled(bool enabled)
+        {
+            _freezeInput = !enabled;
+            _animator.SetBool("isWalking", false);
+        }
     }
 }
