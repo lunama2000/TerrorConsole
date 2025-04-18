@@ -5,9 +5,10 @@ namespace TerrorConsole
     public class HidingPlace : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _playerSprite;
-        private bool _isPlayerInRange = false;
         [SerializeField] private GameObject _player;
+
         private PlayerController _playerController;
+        private bool _isPlayerInRange = false;
         private bool _isHiding = false;
 
 
@@ -33,19 +34,23 @@ namespace TerrorConsole
 
         void Update()
         {
+            Hiding();
+        }
+
+        private void Hiding()
+        {
             if (_isPlayerInRange && Input.GetKeyDown(KeyCode.E))
-            {                
-                if (_playerSprite != null) 
+            {
+                if (_playerSprite != null)
                 {
                     _isHiding = !_isHiding;
                     _playerSprite.enabled = !_playerSprite.enabled;
                     ChangeLayer(_player);
                 }
-                
+
                 if (_playerController != null)
                 {
                     _playerController.SetMovementEnabled(!_isHiding);
-                    Debug.Log("Movimiento del jugador " + (_isHiding ? "desactivado" : "activado"));
                 }
             }
         }
