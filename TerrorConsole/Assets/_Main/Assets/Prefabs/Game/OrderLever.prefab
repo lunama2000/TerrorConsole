@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4638836839536031816}
   - component: {fileID: 3901227379436737725}
   - component: {fileID: 6268561167578925997}
-  - component: {fileID: 3221074078763672260}
+  - component: {fileID: 2183956047977275162}
   m_Layer: 0
   m_Name: OrderLever
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.8828125}
   m_EdgeRadius: 0
---- !u!114 &3221074078763672260
+--- !u!114 &2183956047977275162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,12 +140,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4599826332337786863}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c0cfe2e76977ea40bbd29d939579f60, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b34512387443f742858f01bef4870b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 2
-  _switchLockedDoor:
-    _object: {fileID: 0}
+  _id: 
   OnActivated:
     m_PersistentCalls:
       m_Calls: []

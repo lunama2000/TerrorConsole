@@ -28,23 +28,25 @@ namespace TerrorConsole
             }
         }
 
-        protected virtual void UnlockDoor()
+        public void UnlockDoor()
         {
             _isLocked = false;
         }
-        protected virtual void LockDoor()
+        
+        public void LockDoor()
         {
             _isLocked = true;
         }
 
-        protected virtual void OpenDoor()
+        public void OpenDoor()
         {
+            UnlockDoor();
             _spriteRenderer.sprite = newSprite;//TO DO Implement animation of door opening
             _collider2D.enabled = false;
             _onDoorOpened?.Invoke();
         }
 
-        protected virtual void CloseDoor()
+        public void CloseDoor()
         {
             _spriteRenderer.color = Color.red;//TO DO Implement animation of door opening
             _collider2D.enabled = true;
