@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace TerrorConsole
@@ -59,17 +60,23 @@ namespace TerrorConsole
         {
             _freezeInput = true;
             _animator.SetBool("isWalking", false);
-
         }
 
         private void ResumeInput()
         {
             _freezeInput = false;
         }
-        public void SetMovementEnabled(bool enabled)
+        
+        public void Hide()
         {
-            _freezeInput = !enabled;
-            _animator.SetBool("isWalking", false);
+            StopInput();
+            gameObject.layer = LayerMask.NameToLayer("Default");
+        }
+        
+        public void UnHide()
+        {
+            ResumeInput();
+            gameObject.layer = LayerMask.NameToLayer("Player");
         }
     }
 }
