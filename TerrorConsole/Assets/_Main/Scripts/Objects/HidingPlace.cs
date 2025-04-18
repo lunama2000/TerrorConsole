@@ -6,14 +6,13 @@ namespace TerrorConsole
     {
         [SerializeField] private PlayerController _playerController;
 
-        private bool _isPlayerInRange = false;
         private bool _isHiding = false;
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                _isPlayerInRange = true;
+                InputManager.Source.OnActivateButton2 += ToggleHiding;
             }
         }
 
@@ -21,29 +20,20 @@ namespace TerrorConsole
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                _isPlayerInRange = false;
-                _playerController = null;
+                InputManager.Source.OnActivateButton2 -= ToggleHiding;
             }
         }
 
-        void Update()
+        private void ToggleHiding()
         {
-            Hiding();
-        }
-
-        private void Hiding()
-        {
-            if (_isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+            _isHiding = !_isHiding;
+            if (_isHiding)
             {
-                _isHiding = !_isHiding;
-                if (_isHiding)
-                {
-                    _playerController.Hide();
-                }
-                else
-                {
-                    _playerController.UnHide();
-                }
+                _playerController.Hide();
+            }
+            else
+            {
+                _playerController.UnHide();
             }
         }
     }
