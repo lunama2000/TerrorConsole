@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9167585666238301855}
   - component: {fileID: 2091095549165880024}
   - component: {fileID: 9128339208850218106}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -210,8 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36fe5daf4f5c83e49b03e3839e85f324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipables:
-  - {fileID: 2072580100725592393}
+  _equipables: []
 --- !u!1001 &5112635908647615306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -269,17 +268,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42ec17e497126554f936db9ea17f77ca, type: 3}
---- !u!114 &2072580100725592393 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6498962386376075779, guid: 42ec17e497126554f936db9ea17f77ca, type: 3}
-  m_PrefabInstance: {fileID: 5112635908647615306}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 403733f96538e3542973ae98b6283c87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5600431673687007726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 813745988168391332, guid: 42ec17e497126554f936db9ea17f77ca, type: 3}
