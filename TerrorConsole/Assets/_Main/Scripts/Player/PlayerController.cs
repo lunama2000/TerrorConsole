@@ -8,6 +8,7 @@ namespace TerrorConsole
         [Header("COMPONENTS")]
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private Animator _animator;
+        [SerializeField] private SpriteRenderer _sprite;
 
         [Header("CONFIGURATIONS")]
         [SerializeField] private int _velocity = 10;
@@ -71,12 +72,14 @@ namespace TerrorConsole
         {
             StopInput();
             gameObject.layer = LayerMask.NameToLayer("Default");
+            _sprite.enabled = false;
         }
         
         public void UnHide()
         {
             ResumeInput();
             gameObject.layer = LayerMask.NameToLayer("Player");
+            _sprite.enabled = true;
         }
     }
 }
