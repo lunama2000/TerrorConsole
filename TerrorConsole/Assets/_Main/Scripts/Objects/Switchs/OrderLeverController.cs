@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TerrorConsole
 {
@@ -10,7 +11,8 @@ namespace TerrorConsole
         [SerializeField] private List<string> _correctOrder;
         private List<string> _currentOrder = new List<string>();
         
-        [SerializeField] private OrderSwitchLockedDoor _lockDoor;
+        [SerializeField] private UnityEvent OnOrderSuccessful;
+        [SerializeField] private UnityEvent OnOrderUnsuccesful;
             
         private void Start()
         {
@@ -44,12 +46,12 @@ namespace TerrorConsole
             {
                 if (_currentOrder[i] != _correctOrder[i])
                 {
-                    Debug.Log("Wrong order:" + _currentOrder[i]);
+                    OnOrderUnsuccesful?.Invoke();
                     return;
                 }
             }
-            Debug.Log("Correct order");
-            _lockDoor.UnlockOrderPuzzleDoor();
+            
+            OnOrderSuccessful?.Invoke();
         }
     }
 }

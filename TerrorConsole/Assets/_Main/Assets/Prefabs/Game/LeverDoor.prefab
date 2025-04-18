@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3709761740543748854}
   - component: {fileID: 7040587535895647283}
   - component: {fileID: 4704695790419385184}
-  - component: {fileID: 6650811288539238871}
+  - component: {fileID: 6684045032054566759}
   m_Layer: 0
   m_Name: LeverDoor
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
---- !u!114 &6650811288539238871
+--- !u!114 &6684045032054566759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,10 +140,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2306827657958197394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a3fc88b4433244a9b6be9397beb0de, type: 3}
+  m_Script: {fileID: 11500000, guid: 5272560036545224ca38ace8213f6fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isLocked: 1
+  _isLocked: 0
   _spriteRenderer: {fileID: 7040587535895647283}
   newSprite: {fileID: 2033524807, guid: 643cc51f1ea30904f9d8432ee8f834aa, type: 3}
   _collider2D: {fileID: 4704695790419385184}
+  _onDoorOpened:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDoorClosed:
+    m_PersistentCalls:
+      m_Calls: []
