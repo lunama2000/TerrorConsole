@@ -3,14 +3,12 @@ using UnityEngine.AI;
 
 namespace TerrorConsole
 {
-    public class Patrol : MonoBehaviour
+    public partial class Patrol : MonoBehaviour
     {
-        [Header("Patroll")]
+        [Header("Patrol")]
         [SerializeField] private float _waitTime = 0;
         [SerializeField] private float _startWaitTime = 3f;
         [SerializeField] Transform[] _spots;
-        private NavMeshAgent _agent;
-        private int _randomSpots;
 
         [Header("Chase")]
         [SerializeField] private float _searchCone;
@@ -18,6 +16,9 @@ namespace TerrorConsole
         [SerializeField] private Transform _playerTransform;
         [SerializeField]private bool _isChasing = false;
         [SerializeField] private Vector2 _lastPlayerPosition;
+        
+        private NavMeshAgent _agent;
+        private int _randomSpots;
 
         private void Awake()
         {
@@ -28,97 +29,109 @@ namespace TerrorConsole
             _agent.updateUpAxis = false;
         }
 
-        void DestinationRandomSpot()
-        {
-            if (!_isChasing) 
-            {
-                _agent.SetDestination(_spots[_randomSpots].position);
-            }
-        }
-
-        void WaitTimeAndDistance()
-        {
-            if (Vector2.Distance(transform.position, _spots[_randomSpots].position) < 0.2f && !_isChasing)
-            {
-                if (_waitTime <= 0)
-                {
-                    _waitTime = _startWaitTime;
-                    NewSpot();
-                }
-                else
-                {
-                    _waitTime -= Time.deltaTime;
-                }
-            }
-        }
-
-        void ChasingPlayer()
-        {
-            Collider2D PlayerCollider = Physics2D.OverlapCircle(transform.position, _searchCone, _player);
-            if (PlayerCollider != null)
-            {
-                _playerTransform = PlayerCollider.transform;
-                _isChasing = true;
-                _agent.SetDestination(_playerTransform.position);
-                _lastPlayerPosition = _playerTransform.position;
-
-                if (_isChasing)
-                {
-                    if (Vector2.Distance(transform.position, _playerTransform.position) < 0.2f)
-                    {
-                        if (_waitTime <= 0)
-                        {
-                            _waitTime = _startWaitTime;
-                            _playerTransform = null;
-                            NewSpot();
-                            _isChasing = false;
-                        }
-                        else
-                        {
-                            _waitTime -= Time.deltaTime;
-
-                        }
-                    }
-                }
-            }
-            else if (_isChasing)
-            {
-                _agent.SetDestination(_lastPlayerPosition);
-
-                if (Vector2.Distance(transform.position, _lastPlayerPosition) < 0.2f)
-                {
-                    if (_waitTime <= 0)
-                    {
-                        _playerTransform = null;
-                        _waitTime = _startWaitTime;
-                        NewSpot();
-                        _isChasing = false;
-                    }
-                    else
-                    {
-                        _waitTime -= Time.deltaTime;
-
-                    }
-                }
-            }
-        }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, _searchCone);
-        }
-
-        void NewSpot()
-        {
-            _randomSpots = Random.Range(0, _spots.Length);
-        }
-
         private void FixedUpdate ()
         {
             ChasingPlayer();
             DestinationRandomSpot();
             WaitTimeAndDistance();
         }
+
+        private void DestinationRandomSpot()
+        {
+            if (_isChasing) return;
+            
+            _agent.SetDestination(_spots[_randomSpots].position);
+        }
+
+        private void WaitTimeAndDistance()
+        {
+            if (!HasReachedDestination(_spots[_randomSpots].position) || _isChasing) return;
+            
+            if (_waitTime <= 0)
+            {
+                _waitTime = _startWaitTime;
+                NewSpot();
+            }
+            else
+            {
+                _waitTime -= Time.deltaTime;
+            }
+        }
+
+        private void ChasingPlayer()
+        {
+            Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, _searchCone, _player);
+            
+            if (playerCollider != null)
+            {
+                ChasePlayerWhenInRange(playerCollider);
+            }
+            else if (_isChasing)
+            {
+                GoToLastPositionOfPlayer();
+            }
+        }
+
+        private void ChasePlayerWhenInRange(Collider2D playerCollider)
+        {
+            _playerTransform = playerCollider.transform;
+            _isChasing = true;
+            _agent.SetDestination(_playerTransform.position);
+            _lastPlayerPosition = _playerTransform.position;
+
+            if (!HasReachedDestination(_playerTransform.position)) return;
+            
+            if (_waitTime <= 0)
+            {
+                _waitTime = _startWaitTime;
+                _playerTransform = null;
+                NewSpot();
+                _isChasing = false;
+            }
+            else
+            {
+                _waitTime -= Time.deltaTime;
+            }
+        }
+
+        private void GoToLastPositionOfPlayer()
+        {
+            _agent.SetDestination(_lastPlayerPosition);
+
+            if (!HasReachedDestination(_lastPlayerPosition)) return;
+            
+            if (_waitTime <= 0)
+            {
+                _playerTransform = null;
+                _waitTime = _startWaitTime;
+                NewSpot();
+                _isChasing = false;
+            }
+            else
+            {
+                _waitTime -= Time.deltaTime;
+            }
+        }
+
+        private bool HasReachedDestination(Vector3 destinationPosition)
+        {
+            return Vector2.Distance(transform.position, destinationPosition) < 0.2f;
+        }
+
+        private void NewSpot()
+        {
+            _randomSpots = Random.Range(0, _spots.Length);
+        }
     }
+
+#if UNITY_EDITOR
+    public partial class Patrol
+    {
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, _searchCone);
+        }
+    }
+#endif
 }
