@@ -34231,6 +34231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb7f24589972354bb5e61e82a9c7ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _agent: {fileID: 1424331715}
   _waitTime: 0
   _startWaitTime: 3
   _spots:
@@ -34242,7 +34243,8 @@ MonoBehaviour:
   - {fileID: 225952718}
   - {fileID: 1344079711}
   - {fileID: 863984049}
-  _searchCone: 5
+  _radius: 5
+  _searchCone: 45
   _player:
     serializedVersion: 2
     m_Bits: 64
