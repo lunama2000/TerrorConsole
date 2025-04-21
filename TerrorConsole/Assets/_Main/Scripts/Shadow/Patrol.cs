@@ -15,12 +15,15 @@ namespace TerrorConsole
 
         [Header("Chase")]
         [SerializeField] private float _radius = 5;
+        [SerializeField] private float _setTargetThreshold = 0.005f;
         [SerializeField] private float _searchCone = 45;
         [SerializeField] private LayerMask _player;
         [SerializeField] private Transform _playerTransform;
         [SerializeField]private bool _isChasing = false;
         [SerializeField] private Vector2 _lastPlayerPosition;
+        
         private int _randomSpots;
+        private Vector2 _currentViewDirection;
 
         private void Awake()
         {
@@ -32,9 +35,19 @@ namespace TerrorConsole
 
         private void FixedUpdate ()
         {
+            if (!IsSteeringTargetClose())
+            {
+                _currentViewDirection = (_agent.steeringTarget - transform.position).normalized;
+            }
+            
             ChasingPlayer();
             DestinationRandomSpot();
             WaitTimeAndDistance();
+        }
+
+        private bool IsSteeringTargetClose()
+        {
+            return _agent.steeringTarget == Vector3.zero || Vector2.Distance(transform.position, _agent.steeringTarget) < _setTargetThreshold;
         }
 
         private void DestinationRandomSpot()
@@ -116,15 +129,14 @@ namespace TerrorConsole
 
         private Collider2D DetectPlayerInCone()
         {
-            var position = transform.position;
+            Vector2 position = transform.position;
+            
             var hit = Physics2D.OverlapCircle(position, _radius, _player);
 
             if (hit == null) return null;
             
-            var directionToPlayer = (hit.transform.position - position).normalized;
-            var directionToDestination = (_agent.steeringTarget - position).normalized;
-            
-            var angleToTarget = Vector2.Angle(directionToDestination, directionToPlayer);
+            var directionToPlayer = ((Vector2)hit.transform.position - position).normalized;
+            var angleToTarget = Vector2.Angle(_currentViewDirection, directionToPlayer);
 
             return angleToTarget <= _searchCone ? hit : null;
         }
@@ -143,23 +155,19 @@ namespace TerrorConsole
 #if UNITY_EDITOR
     public partial class Patrol
     {
-        private void OnDrawGizmos()
+        void OnDrawGizmos()
         {
-            var position = transform.position;  
-            var forward =  (_agent.steeringTarget - position).normalized;
-            var angle = _searchCone;
+            Vector3 position = transform.position;
+            Vector3 dir = transform.rotation * _currentViewDirection.normalized;
 
-            var leftRayRotation = Quaternion.AngleAxis(-angle, Vector3.forward);
-            var rightRayRotation = Quaternion.AngleAxis(angle, Vector3.forward);    
-
-            var leftDirection = leftRayRotation * forward;
-            var rightDirection = rightRayRotation * forward;
-
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(position, _radius);
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(position, position + leftDirection * _radius);
-            Gizmos.DrawLine(position, position + rightDirection * _radius);
+            Gizmos.DrawRay(position, dir * _radius);
+
+            for (var i = -_searchCone ; i <= _searchCone ; i += (_searchCone / 10))
+            {
+                Vector3 ray = Quaternion.AngleAxis(i, Vector3.forward) * dir;
+                Gizmos.DrawRay(position, ray * _radius);
+            }
         }
     }
 #endif
