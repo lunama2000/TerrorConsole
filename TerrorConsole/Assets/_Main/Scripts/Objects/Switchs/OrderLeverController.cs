@@ -26,14 +26,12 @@ namespace TerrorConsole
         private void OnLeverActivated(string leverId)
         {
             _currentOrder.Add(leverId);
-            Debug.Log($"OnLeverActivated: {leverId}");
             CheckForCorrectOrder();
         }
 
         private void OnLeverDeactivated(string leverId)
         {
             _currentOrder.Remove(leverId);
-            Debug.Log($"Lever {leverId} deactivated");
             CheckForCorrectOrder();
         }
 
