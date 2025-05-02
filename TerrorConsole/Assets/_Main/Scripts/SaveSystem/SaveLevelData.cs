@@ -99,7 +99,7 @@ namespace TerrorConsole
             }
             else
             {
-                Debug.Log($"There is no event with key {eventName}");
+                //Debug.Log($"There is no event with key {eventName}");
                 return false;
             }
         }

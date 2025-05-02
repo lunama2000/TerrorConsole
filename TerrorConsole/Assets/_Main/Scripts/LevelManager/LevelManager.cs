@@ -45,10 +45,12 @@ namespace TerrorConsole
         {
             return SaveSystemManager.Source.GetLoadedGame().GetLevelData(levelNumber);
         }
+
         public void AddOrUpdateLevelEvent(string eventName, bool eventState)
         {
             GetSaveLevelData().AddOrUpdateLevelEvent(eventName, eventState);
         }
+
         public bool GetEventState(string uniqueEventKey)
         {
             return GetSaveLevelData().GetEventState(uniqueEventKey);
