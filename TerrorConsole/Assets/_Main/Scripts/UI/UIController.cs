@@ -11,47 +11,60 @@ namespace TerrorConsole
 
     public class UIController : MonoBehaviour
     {
+        [SerializeField] private GameObject defaultSelectedUI;
         [SerializeField] private GameObject[] _menuUIButtons;
         [SerializeField] private GameObject[] _optionsUIButtons;
         [SerializeField] private GameObject[] _newGameUIButtons;
 
         public void MenuUIButtons()
-            {
-                EventSystem.current.SetSelectedGameObject(_menuUIButtons[1]);
-            }
+        {
+            SetSelectedGameObject(_menuUIButtons[1]);
+        }
 
         public void OptionsUIButtons()
-            {
-                EventSystem.current.SetSelectedGameObject(_optionsUIButtons[0]);
-            }
+        {
+            SetSelectedGameObject(_optionsUIButtons[0]);
+        }
+
         public void NewGameUIButtons()
             {
-                EventSystem.current.SetSelectedGameObject(_newGameUIButtons[0]);
+                SetSelectedGameObject(_newGameUIButtons[0]);
             }
 
         public void AllMenusClosed()
-            {
-                EventSystem.current.SetSelectedGameObject(null);
-            }
+        {
+            SetSelectedGameObject(null);
+        }
+
+        private void SetSelectedGameObject(GameObject selectedGameObject)
+        {
+            EventSystem.current.SetSelectedGameObject(selectedGameObject);
+        }
 
         public void ButtonLoadScene(string sceneName)
-            {
-                ScreenTransitionManager.Source.TransitionToScene(sceneName);
-            }
-
-            public void ButtonPauseLevel()
-            {
-                LevelManager.Source.PauseLevel();
-            }
-
-            public void ButtonResumeLevel()
-            {
-                LevelManager.Source.PlayLevel();
-            }
-
-            public void ButtonPlaySFX()
-            {
-                AudioManager.Source.PlayUIButtonClickSFX();
-            }
+        {
+            ScreenTransitionManager.Source.TransitionToScene(sceneName);
         }
+
+        public void ButtonPauseLevel()
+        {
+            SetSelectedGameObject(defaultSelectedUI);
+            LevelManager.Source.PauseLevel();
+        }
+        
+        public void ButtonResumeLevel()
+        {
+            LevelManager.Source.PlayLevel();
+        }
+        
+        public void ButtonPlaySFX()
+        {
+            AudioManager.Source.PlayUIButtonClickSFX();
+        }
+
+        private void OnEnable()
+        {
+            SetSelectedGameObject(defaultSelectedUI);
+        }
+    }
 }

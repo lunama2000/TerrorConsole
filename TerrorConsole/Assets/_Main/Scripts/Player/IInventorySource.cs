@@ -5,9 +5,9 @@ namespace TerrorConsole
 {
     public interface IInventorySource
     {
-        public void AddItemToInventory(string itemName);
-        public void RemoveItemFromInventory(string itemName);
-        public bool IsItemInInventory(string itemName);
+        public void AddItemToInventory(ItemInfo newItem);
+        public void RemoveItemFromInventory(ItemInfo newItem);
+        public bool IsItemInInventory(ItemInfo newItem);
         Action OnInventoryUpdated { get; set; }
     }
 }

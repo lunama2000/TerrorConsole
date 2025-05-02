@@ -4,7 +4,7 @@ namespace TerrorConsole
 {
     public class ObjectLockedDoor : Door
     {
-        [SerializeField] private string _neededItemName;
+        [SerializeField] private ItemInfo _neededItemName;
 
         protected override void PlayerCollisioned()
         {

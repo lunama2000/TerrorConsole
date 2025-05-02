@@ -6,7 +6,7 @@ namespace TerrorConsole
 {
     public class Inventory : Singleton<IInventorySource>, IInventorySource
     {
-        [SerializeField] private List<string> _itemsList;
+        [SerializeField] private List<ItemInfo> _itemsList;
 
         public Action OnInventoryUpdated { get; set; }
 
@@ -16,26 +16,26 @@ namespace TerrorConsole
             _itemsList = SaveSystemManager.Source.GetLoadedGame().GetInventory();
             if (_itemsList == null)
             {
-                _itemsList = new List<string>();
+                _itemsList = new List<ItemInfo>();
             }
         }
 
-        public void AddItemToInventory(string itemName)
+        public void AddItemToInventory(ItemInfo newItem)
         {
-            _itemsList.Add(itemName);
-            print($"{itemName} has been added to the inventory");
+            _itemsList.Add(newItem);
+            print($"{newItem.itemName} has been added to the inventory");
             SaveInventory();
         }
 
-        public bool IsItemInInventory(string itemName)
+        public bool IsItemInInventory(ItemInfo newItem)
         {
-            return _itemsList.Contains(itemName);
+            return _itemsList.Contains(newItem);
         }
 
-        public void RemoveItemFromInventory(string itemName)
+        public void RemoveItemFromInventory(ItemInfo newItem)
         {
-            _itemsList.Remove(itemName);
-            print($"{itemName} has been removed from the inventory");
+            _itemsList.Remove(newItem);
+            print($"{newItem} has been removed from the inventory");
             SaveInventory();
         }
 

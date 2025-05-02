@@ -12,6 +12,7 @@ namespace TerrorConsole
         [SerializeField] private TextMeshProUGUI _fileNumberTxt;
         [SerializeField] private TextMeshProUGUI _stageTxt;
         [SerializeField] private GameObject _lanternIcon;
+        [SerializeField] private ItemInfo _lanternItemInfo;
         SaveGameData _saveGameData;
 
         private void Start()
@@ -33,7 +34,7 @@ namespace TerrorConsole
                 _gameSaveInfoUI.SetActive(true);
                 _fileNumberTxt.text = _gameFileIndex.ToString();
                 _stageTxt.text = _saveGameData.GetCurrentScene();
-                _lanternIcon.SetActive(_saveGameData.GetInventory().Contains("Lantern"));
+                _lanternIcon.SetActive(_saveGameData.GetInventory().Contains(_lanternItemInfo));
             }
         }
 

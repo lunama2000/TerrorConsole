@@ -23,7 +23,7 @@ namespace TerrorConsole
         {
             foreach (EquipableItem item in _equipables)
             {
-                item.gameObject.SetActive(Inventory.Source.IsItemInInventory(item.GetObjectName()));
+                item.gameObject.SetActive(Inventory.Source.IsItemInInventory(item.GetObjectInfo()));
             }
         }
     }
