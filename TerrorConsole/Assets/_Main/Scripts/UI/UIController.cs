@@ -11,25 +11,41 @@ namespace TerrorConsole
 
     public class UIController : MonoBehaviour
     {
-        [SerializeField] private GameObject defaultSelectedUI;
-        [SerializeField] private GameObject[] _menuUIButtons;
-        [SerializeField] private GameObject[] _optionsUIButtons;
-        [SerializeField] private GameObject[] _newGameUIButtons;
+        [SerializeField] private GameObject _defaultSelectedUI;
+        [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private bool _startOpened = false;
 
-        public void MenuUIButtons()
+        private void Start()
         {
-            SetSelectedGameObject(_menuUIButtons[1]);
-        }
-
-        public void OptionsUIButtons()
-        {
-            SetSelectedGameObject(_optionsUIButtons[0]);
-        }
-
-        public void NewGameUIButtons()
+            if (_startOpened)
             {
-                SetSelectedGameObject(_newGameUIButtons[0]);
+                OpenMenu(this);
             }
+        }
+
+        public void OpenMenu(UIController newMenu)
+        {
+            UIMenusManager.Source.OpenNewMenuOnTop(newMenu);
+        }
+
+        public void CloseMenuOnTop()
+        {
+            UIMenusManager.Source.CloseMenuOnTop();
+        }
+        public void CloseMenu(UIController menuToClose)
+        {
+            UIMenusManager.Source.CloseMenu(menuToClose);
+        }
+
+        public GameObject GetDefaultSelectedUI()
+        {
+            return _defaultSelectedUI;
+        }
+
+        public CanvasGroup GetCanvasGroup()
+        {
+            return _canvasGroup;
+        }
 
         public void AllMenusClosed()
         {
@@ -48,7 +64,7 @@ namespace TerrorConsole
 
         public void ButtonPauseLevel()
         {
-            SetSelectedGameObject(defaultSelectedUI);
+            SetSelectedGameObject(_defaultSelectedUI);
             LevelManager.Source.PauseLevel();
         }
         
@@ -64,7 +80,7 @@ namespace TerrorConsole
 
         private void OnEnable()
         {
-            SetSelectedGameObject(defaultSelectedUI);
+            SetSelectedGameObject(_defaultSelectedUI);
         }
     }
 }

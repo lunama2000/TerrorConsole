@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 4079350243649687577}
   - component: {fileID: 6162353640585043768}
   - component: {fileID: 5886549994501758079}
-  - component: {fileID: 1989094696422613196}
   - component: {fileID: -302517039436550638}
   m_Layer: 5
   m_Name: InventoryUI
@@ -238,22 +237,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1989094696422613196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257038622779635659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee0834eef0bbe70449c333ac6cdc5a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSelectedUI: {fileID: 524330939663587071}
-  _menuUIButtons: []
-  _optionsUIButtons: []
-  _newGameUIButtons: []
 --- !u!114 &-302517039436550638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +269,7 @@ MonoBehaviour:
   - {fileID: 6369709347430764819}
   _previewImage: {fileID: 8042488399714897454}
   _previewText: {fileID: 7849380214585437226}
-  _defaultSelected: {fileID: 524330939663587071}
+  _uIController: {fileID: 9173659753482191347}
 --- !u!1 &2146139693712578171
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,19 +529,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1989094696422613196}
+      - m_Target: {fileID: 9173659753482191347}
         m_TargetAssemblyTypeName: TerrorConsole.UIController, Assembly-CSharp
-        m_MethodName: ButtonResumeLevel
-        m_Mode: 1
+        m_MethodName: CloseMenu
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 9173659753482191347}
+          m_ObjectArgumentAssemblyTypeName: TerrorConsole.UIController, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1989094696422613196}
+      - m_Target: {fileID: 9173659753482191347}
         m_TargetAssemblyTypeName: TerrorConsole.UIController, Assembly-CSharp
         m_MethodName: ButtonPlaySFX
         m_Mode: 1
@@ -570,10 +553,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7696473072049678669}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 9173659753482191347}
+        m_TargetAssemblyTypeName: TerrorConsole.UIController, Assembly-CSharp
+        m_MethodName: ButtonResumeLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1014,6 +997,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8380516213193455901}
+  - component: {fileID: 4238763518826969849}
+  - component: {fileID: 9173659753482191347}
   m_Layer: 5
   m_Name: InventoryUI
   m_TagString: Untagged
@@ -1045,6 +1030,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &4238763518826969849
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696473072049678669}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &9173659753482191347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696473072049678669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0834eef0bbe70449c333ac6cdc5a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultSelectedUI: {fileID: 524330939663587071}
+  _canvasGroup: {fileID: 4238763518826969849}
+  _startOpened: 0
+  _menuUIButtons: []
+  _optionsUIButtons: []
+  _newGameUIButtons: []
 --- !u!1001 &1514976341267159337
 PrefabInstance:
   m_ObjectHideFlags: 0

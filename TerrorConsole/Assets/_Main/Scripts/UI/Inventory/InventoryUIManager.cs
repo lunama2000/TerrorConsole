@@ -12,7 +12,7 @@ namespace TerrorConsole
         [SerializeField] private UIInventorySlot[] _slots;
         [SerializeField] private Image _previewImage;
         [SerializeField] private TextMeshProUGUI _previewText;
-        [SerializeField] private GameObject _defaultSelected;
+        [SerializeField] private UIController _uIController;
 
         protected override void Awake()
         {
@@ -23,6 +23,10 @@ namespace TerrorConsole
         private void InitializeInventory()
         {
             List<ItemInfo> items = SaveSystemManager.Source.GetLoadedGame().GetInventory();
+            foreach (UIInventorySlot slot in _slots)
+            {
+                slot.ResetItem();
+            }
             for (int i = 0; i < items.Count; i++)
             {
                 _slots[i].SetItem(items[i]);
@@ -41,16 +45,16 @@ namespace TerrorConsole
 
         private void OnInventoryInput()
         {
-            _inventoryUI.SetActive(!_inventoryUI.activeSelf);
             if (_inventoryUI.activeSelf)
             {
-                LevelManager.Source.PauseLevel();
-                InitializeInventory();
-                EventSystem.current.SetSelectedGameObject(_defaultSelected);
+                _uIController.CloseMenu(_uIController);
+                LevelManager.Source.PlayLevel();
             }
             else
             {
-                LevelManager.Source.PlayLevel();
+                _uIController.OpenMenu(_uIController);
+                LevelManager.Source.PauseLevel();
+                InitializeInventory();
             }
         }
 

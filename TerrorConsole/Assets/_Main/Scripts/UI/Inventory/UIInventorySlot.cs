@@ -9,6 +9,12 @@ namespace TerrorConsole
         [SerializeField] private Image itemImage;
         [SerializeField] private ItemInfo item;
 
+        public void ResetItem()
+        {
+            item = null;
+            itemImage.sprite = null;
+            itemImage.color = new Color(1,1,1,0);
+        }
         public void SetItem(ItemInfo newItem)
         {
             item = newItem;
@@ -23,6 +29,11 @@ namespace TerrorConsole
         public void OnSelect(BaseEventData eventData)
         {
             InventoryUIManager.Source.UpdateItemPreview(item);
+        }
+
+        public void OnItemClicked()
+        {
+            item.OnClickedInInventory();
         }
     }
 }
