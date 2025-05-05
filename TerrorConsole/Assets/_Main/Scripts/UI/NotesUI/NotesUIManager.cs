@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 namespace TerrorConsole
 {
-    public class NotesUIController : Singleton<INotesUISource>, INotesUISource
+    public class NotesUIManager : Singleton<INotesUISource>, INotesUISource
     {
         [SerializeField] private GameObject _noteUI;
         [SerializeField] private CanvasGroup _noteUICanvasGroup;

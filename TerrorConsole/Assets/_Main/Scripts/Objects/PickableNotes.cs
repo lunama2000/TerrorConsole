@@ -6,7 +6,7 @@ namespace TerrorConsole
     {
         protected override void PickedByPlayer()
         {
-            NotesUIController.Source.DisplayNote((NoteInfo)_itemInfo);
+            NotesUIManager.Source.DisplayNote((NoteInfo)_itemInfo);
             base.PickedByPlayer();
         }
     }

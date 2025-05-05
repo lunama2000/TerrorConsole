@@ -25,9 +25,7 @@ namespace TerrorConsole
             {
                 SetMenuInteractable(menuStack.Peek().GetCanvasGroup(),true);
                 EventSystem.current.SetSelectedGameObject(menuStack.Peek().GetDefaultSelectedUI());
-
             }
-
         }
 
         public int GetOpenedMenusCount()
@@ -45,7 +43,6 @@ namespace TerrorConsole
             newTopMenu.gameObject.SetActive(true);
             SetMenuInteractable(menuStack.Peek().GetCanvasGroup(), true);
             EventSystem.current.SetSelectedGameObject(newTopMenu.GetDefaultSelectedUI());
-
         }
 
         private void SetMenuInteractable(CanvasGroup menu, bool value)

@@ -12,8 +12,7 @@ namespace TerrorConsole
 
         public override void OnClickedInInventory()
         {
-            NotesUIController.Source.DisplayNote(this);
-
+            NotesUIManager.Source.DisplayNote(this);
         }
     }
 }
