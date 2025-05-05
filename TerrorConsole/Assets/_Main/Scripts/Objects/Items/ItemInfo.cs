@@ -12,5 +12,9 @@ namespace TerrorConsole
         public string ItemName { get => itemName; set => itemName = value; }
         public Sprite ItemSprite { get => itemSprite; set => itemSprite = value; }
         public string ItemDescription { get => itemDescription; set => itemDescription = value; }
+
+        public virtual void OnClickedInInventory()
+        {
+        }
     }
 }

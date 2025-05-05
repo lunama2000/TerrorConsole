@@ -4,7 +4,7 @@ namespace TerrorConsole
 {
     public class PickableObject : MonoBehaviour
     {
-        [SerializeField] private ItemInfo _itemInfo;
+        [SerializeField] protected ItemInfo _itemInfo;
         [SerializeField] private LevelEventsRecorder _eventRecorder;
 
         private void Start()
