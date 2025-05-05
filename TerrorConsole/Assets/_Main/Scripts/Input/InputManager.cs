@@ -13,6 +13,8 @@ namespace TerrorConsole
 
         public Action OnActivateButton1 { get; set; }
         public Action OnActivateButton2 { get; set; }
+        public Action OnPauseButton { get; set; }
+        public Action OnInventoryButton { get; set; }
 
         private Vector2 _movementDirection = Vector2.zero;
         private Vector2 _lastLookDirection = Vector2.zero;
@@ -72,6 +74,14 @@ namespace TerrorConsole
             if (Input.GetKeyDown(KeyCode.N) || Input.GetKeyDown(KeyCode.JoystickButton2))
             {
                 OnActivateButton2?.Invoke();
+            }
+            if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.JoystickButton7))
+            {
+                OnPauseButton?.Invoke();
+            }
+            if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.JoystickButton3))
+            {
+                OnInventoryButton?.Invoke();
             }
         }
     }

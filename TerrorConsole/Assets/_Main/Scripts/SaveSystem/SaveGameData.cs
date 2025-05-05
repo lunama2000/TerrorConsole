@@ -9,7 +9,7 @@ namespace TerrorConsole
     {
         [SerializeField] private int _gameIndex;
         [SerializeField] private string _currentScene;
-        [SerializeField] private List<string> _inventory;
+        [SerializeField] private List<ItemInfo> _inventory;
         [SerializeField] private List<SaveLevelData> _levelsData;
 
         public SaveGameData(int gameFileIndex)
@@ -38,12 +38,12 @@ namespace TerrorConsole
             _currentScene = sceneName;
         }
 
-        public List<string> GetInventory()
+        public List<ItemInfo> GetInventory()
         {
             return _inventory;
         }
 
-        public void SetInventory(List<string> newInventory)
+        public void SetInventory(List<ItemInfo> newInventory)
         {
             _inventory = newInventory;
         }

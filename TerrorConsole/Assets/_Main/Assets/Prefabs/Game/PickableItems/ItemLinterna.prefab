@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c660b420909245a9f320f12aae1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectName: Lantern
+  _itemInfo: {fileID: 11400000, guid: 7d130014fae8c2742a1ebaaf94ac631b, type: 2}
   _eventRecorder: {fileID: -1538568358516746291}
 --- !u!114 &-1538568358516746291
 MonoBehaviour:
