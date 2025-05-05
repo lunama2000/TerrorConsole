@@ -16,13 +16,13 @@ namespace TerrorConsole
         }
         public void Initialize()
         {
-            itemImage.sprite = item.itemSprite;
+            itemImage.sprite = item.ItemSprite;
             itemImage.color = Color.white;
         }
 
         public void OnSelect(BaseEventData eventData)
         {
-            InventoryUIController.Source.UpdateItemPreview(item);
+            InventoryUIManager.Source.UpdateItemPreview(item);
         }
     }
 }

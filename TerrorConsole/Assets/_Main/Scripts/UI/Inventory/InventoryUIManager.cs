@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace TerrorConsole
 {
-    public class InventoryUIController : Singleton<IInventoryUISource>, IInventoryUISource
+    public class InventoryUIManager : Singleton<IInventoryUISource>, IInventoryUISource
     {
         [SerializeField] private GameObject _inventoryUI;
         [SerializeField] private UIInventorySlot[] _slots;
@@ -64,9 +64,9 @@ namespace TerrorConsole
         {
             if (item)
             {
-                _previewImage.sprite = item.itemSprite;
+                _previewImage.sprite = item.ItemSprite;
                 _previewImage.color = Color.white;
-                _previewText.text = item.itemDescription;
+                _previewText.text = item.ItemDescription;
             }
             else
             {

@@ -23,7 +23,7 @@ namespace TerrorConsole
         public void AddItemToInventory(ItemInfo newItem)
         {
             _itemsList.Add(newItem);
-            print($"{newItem.itemName} has been added to the inventory");
+            print($"{newItem.ItemName} has been added to the inventory");
             SaveInventory();
         }
 
