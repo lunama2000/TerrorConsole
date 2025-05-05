@@ -25,8 +25,8 @@ namespace TerrorConsole
 
         public void OnGameFileButonPressed(int fileIndex)
         {
-            SaveGameData gameData = _saveManager.LoadGame(fileIndex);
-            ScreenTransitionManager.Source.TransitionToScene(gameData.GetCurrentScene());
+            var gameData = _saveManager.LoadGame(fileIndex);
+            ScreenTransitionManager.Source.TransitionToScene(gameData.CurrentScene);
         }
 
         public void OnQuitButtonPressed()

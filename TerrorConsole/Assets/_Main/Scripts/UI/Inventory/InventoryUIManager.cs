@@ -22,7 +22,7 @@ namespace TerrorConsole
 
         private void InitializeInventory()
         {
-            List<ItemInfo> items = SaveSystemManager.Source.GetLoadedGame().GetInventory();
+            List<ItemInfo> items = SaveSystemManager.Source.GetInventory();
             foreach (UIInventorySlot slot in _slots)
             {
                 slot.ResetItem();

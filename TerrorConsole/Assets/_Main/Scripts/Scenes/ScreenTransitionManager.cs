@@ -14,10 +14,13 @@ namespace TerrorConsole
         
         [Header("CONFIGURATIONS")]
         [SerializeField] private float _transitionDuration = 1;
+
+        public event Action OnTransitionBegan;
         
         public void TransitionToScene(string sceneName, TransitionType transitionType)
         {
-            SaveSystemManager.Source.SaveCurrentGame();
+            OnTransitionBegan?.Invoke();
+            
             switch (transitionType)
             {
                 case TransitionType.Fade:

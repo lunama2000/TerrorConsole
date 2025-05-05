@@ -39,7 +39,7 @@ namespace TerrorConsole
             }    
         }
 
-        public void UpdateLevelEvent(string eventName, bool newEventState)
+        private void UpdateLevelEvent(string eventName, bool newEventState)
         {
             if (CheckIfEventExist(eventName))
             {

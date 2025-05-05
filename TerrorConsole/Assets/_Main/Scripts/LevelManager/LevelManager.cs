@@ -13,7 +13,6 @@ namespace TerrorConsole
 
     public partial class LevelManager : Singleton<ILevelManagerSource>, ILevelManagerSource
     {
-
         [SerializeField] private int levelNumber;
 
         public event Action<LevelState> OnLevelStateChange;
@@ -41,19 +40,14 @@ namespace TerrorConsole
             return currentLevelState;
         }
 
-        private SaveLevelData GetSaveLevelData()
-        {
-            return SaveSystemManager.Source.GetLoadedGame().GetLevelData(levelNumber);
-        }
-
         public void AddOrUpdateLevelEvent(string eventName, bool eventState)
         {
-            GetSaveLevelData().AddOrUpdateLevelEvent(eventName, eventState);
+            SaveSystemManager.Source.AddOrUpdateLevelEvent(levelNumber, eventName, eventState);
         }
 
         public bool GetEventState(string uniqueEventKey)
         {
-            return GetSaveLevelData().GetEventState(uniqueEventKey);
+            return SaveSystemManager.Source.GetEventState(levelNumber, uniqueEventKey);
         }
     }
 

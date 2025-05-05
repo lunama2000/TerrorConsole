@@ -13,7 +13,7 @@ namespace TerrorConsole
         protected override void Awake()
         {
             base.Awake();
-            _itemsList = SaveSystemManager.Source.GetLoadedGame().GetInventory();
+            _itemsList = SaveSystemManager.Source.GetInventory();
             if (_itemsList == null)
             {
                 _itemsList = new List<ItemInfo>();
@@ -41,7 +41,7 @@ namespace TerrorConsole
 
         public void SaveInventory()
         {
-            SaveSystemManager.Source.GetLoadedGame().SetInventory(_itemsList);
+            SaveSystemManager.Source.SetInventory(_itemsList);
             OnInventoryUpdated?.Invoke();
         }
     }

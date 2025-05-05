@@ -4,14 +4,23 @@ using UnityEngine;
 
 namespace TerrorConsole
 {
+    public interface ISaveGameData
+    {
+        string CurrentScene { get; }
+        List<ItemInfo> Inventory { get; }
+    }
+    
     [Serializable]
-    public class SaveGameData
+    public class SaveGameData: ISaveGameData
     {
         [SerializeField] private int _gameIndex;
         [SerializeField] private string _currentScene;
         [SerializeField] private List<ItemInfo> _inventory;
         [SerializeField] private List<SaveLevelData> _levelsData;
 
+        public string CurrentScene => _currentScene;
+        public List<ItemInfo> Inventory => _inventory;
+        
         public SaveGameData(int gameFileIndex)
         {
             SetGameIndex(gameFileIndex);
@@ -28,19 +37,9 @@ namespace TerrorConsole
             _gameIndex = newIndex;
         }
 
-        public string GetCurrentScene()
-        {
-            return _currentScene;
-        }
-
         public void SetCurrentScene(string sceneName)
         {
             _currentScene = sceneName;
-        }
-
-        public List<ItemInfo> GetInventory()
-        {
-            return _inventory;
         }
 
         public void SetInventory(List<ItemInfo> newInventory)
