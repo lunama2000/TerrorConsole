@@ -5,24 +5,24 @@ namespace TerrorConsole
     public class EquipableItem : MonoBehaviour
     {
         [SerializeField] protected bool _freezeInput;
-        [SerializeField] private string _objectName;
+        [SerializeField] private ItemInfo _itemInfo;
 
         protected IInputSource _inputSource;
 
-        public string GetObjectName()
+        public ItemInfo GetObjectInfo()
         {
-            return _objectName;
+            return _itemInfo;
         }
 
         protected virtual void Start()
         {
             _inputSource = InputManager.Source;
             LevelManager.Source.OnLevelStateChange += OnLevelStateChange;
-            if (string.IsNullOrEmpty(_objectName))
+            if (!_itemInfo)
             {
-                Debug.LogError($"There is no Object Name for {name}, please set the name of the corresponding Pickable Item for this equipable");
-                _objectName = _objectName == "" ? transform.name : _objectName;
+                Debug.LogError($"There is no Item Info for {name}, please set the Item Info of the corresponding Pickable Item for this equipable");
             }
+            gameObject.SetActive(Inventory.Source.IsItemInInventory(_itemInfo));
         }
 
         protected virtual void OnDestroy()

@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2436578191575710990}
   - component: {fileID: 7540016298400597341}
   - component: {fileID: 5230765103257337908}
+  - component: {fileID: -1538568358516746291}
   m_Layer: 0
   m_Name: ItemLinterna
   m_TagString: Untagged
@@ -216,4 +217,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c660b420909245a9f320f12aae1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectName: Lantern
+  _itemInfo: {fileID: 11400000, guid: 7d130014fae8c2742a1ebaaf94ac631b, type: 2}
+  _eventRecorder: {fileID: -1538568358516746291}
+--- !u!114 &-1538568358516746291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5666475224314809171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75defc99eac0ce242bd55edcd180c346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uniqueEventKey: 

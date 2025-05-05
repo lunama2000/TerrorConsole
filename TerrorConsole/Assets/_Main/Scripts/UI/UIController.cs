@@ -11,47 +11,76 @@ namespace TerrorConsole
 
     public class UIController : MonoBehaviour
     {
-        [SerializeField] private GameObject[] _menuUIButtons;
-        [SerializeField] private GameObject[] _optionsUIButtons;
-        [SerializeField] private GameObject[] _newGameUIButtons;
+        [SerializeField] private GameObject _defaultSelectedUI;
+        [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private bool _startOpened = false;
 
-        public void MenuUIButtons()
+        private void Start()
+        {
+            if (_startOpened)
             {
-                EventSystem.current.SetSelectedGameObject(_menuUIButtons[1]);
-            }
-
-        public void OptionsUIButtons()
-            {
-                EventSystem.current.SetSelectedGameObject(_optionsUIButtons[0]);
-            }
-        public void NewGameUIButtons()
-            {
-                EventSystem.current.SetSelectedGameObject(_newGameUIButtons[0]);
-            }
-
-        public void AllMenusClosed()
-            {
-                EventSystem.current.SetSelectedGameObject(null);
-            }
-
-        public void ButtonLoadScene(string sceneName)
-            {
-                ScreenTransitionManager.Source.TransitionToScene(sceneName);
-            }
-
-            public void ButtonPauseLevel()
-            {
-                LevelManager.Source.PauseLevel();
-            }
-
-            public void ButtonResumeLevel()
-            {
-                LevelManager.Source.PlayLevel();
-            }
-
-            public void ButtonPlaySFX()
-            {
-                AudioManager.Source.PlayUIButtonClickSFX();
+                OpenMenu(this);
             }
         }
+
+        public void OpenMenu(UIController newMenu)
+        {
+            UIMenusManager.Source.OpenNewMenuOnTop(newMenu);
+        }
+
+        public void CloseMenuOnTop()
+        {
+            UIMenusManager.Source.CloseMenuOnTop();
+        }
+        public void CloseMenu(UIController menuToClose)
+        {
+            UIMenusManager.Source.CloseMenu(menuToClose);
+        }
+
+        public GameObject GetDefaultSelectedUI()
+        {
+            return _defaultSelectedUI;
+        }
+
+        public CanvasGroup GetCanvasGroup()
+        {
+            return _canvasGroup;
+        }
+
+        public void AllMenusClosed()
+        {
+            SetSelectedGameObject(null);
+        }
+
+        private void SetSelectedGameObject(GameObject selectedGameObject)
+        {
+            EventSystem.current.SetSelectedGameObject(selectedGameObject);
+        }
+
+        public void ButtonLoadScene(string sceneName)
+        {
+            ScreenTransitionManager.Source.TransitionToScene(sceneName);
+        }
+
+        public void ButtonPauseLevel()
+        {
+            SetSelectedGameObject(_defaultSelectedUI);
+            LevelManager.Source.PauseLevel();
+        }
+        
+        public void ButtonResumeLevel()
+        {
+            LevelManager.Source.PlayLevel();
+        }
+        
+        public void ButtonPlaySFX()
+        {
+            AudioManager.Source.PlayUIButtonClickSFX();
+        }
+
+        private void OnEnable()
+        {
+            SetSelectedGameObject(_defaultSelectedUI);
+        }
+    }
 }

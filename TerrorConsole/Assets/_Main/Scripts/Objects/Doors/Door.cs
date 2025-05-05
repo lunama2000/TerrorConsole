@@ -7,10 +7,24 @@ namespace TerrorConsole
     {
         [SerializeField] protected bool _isLocked;
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private Sprite newSprite;
+        [SerializeField] private Sprite openSprite;
+        [SerializeField] private Sprite closedSprite;
         [SerializeField] private Collider2D _collider2D;
+        [SerializeField] private LevelEventsRecorder _eventRecorder;
         [SerializeField] private UnityEvent _onDoorOpened = new UnityEvent();
         [SerializeField] private UnityEvent _onDoorClosed = new UnityEvent();
+
+        private void Start()
+        {
+            if (_eventRecorder.CheckEventState())
+            {
+                OpenDoorInmediate();
+            }
+            else
+            {
+                CloseDoorInmediate();
+            }
+        }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -41,16 +55,26 @@ namespace TerrorConsole
         public void OpenDoor()
         {
             UnlockDoor();
-            _spriteRenderer.sprite = newSprite;//TO DO Implement animation of door opening
-            _collider2D.enabled = false;
             _onDoorOpened?.Invoke();
+            OpenDoorInmediate();
+        }
+
+        private void OpenDoorInmediate()
+        {
+            _spriteRenderer.sprite = openSprite;//TO DO Implement animation of door opening
+            _collider2D.enabled = false;
         }
 
         public void CloseDoor()
         {
-            _spriteRenderer.color = Color.red;//TO DO Implement animation of door opening
-            _collider2D.enabled = true;
             _onDoorClosed?.Invoke();
+            CloseDoorInmediate();
+        }
+
+        private void CloseDoorInmediate()
+        {
+            _spriteRenderer.sprite = closedSprite;//TO DO Implement animation of door opening
+            _collider2D.enabled = true;
         }
     }
 }

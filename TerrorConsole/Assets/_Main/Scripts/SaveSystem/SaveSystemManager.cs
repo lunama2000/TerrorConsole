@@ -1,5 +1,5 @@
 using System;
-using UnityEditor;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace TerrorConsole
@@ -10,11 +10,21 @@ namespace TerrorConsole
         private int _lastLoadedGameFile = -1;
         private SaveConfigurationData _loadedConfiguration;
 
-        override protected void Awake()
+        protected override void Awake()
         {
             base.Awake();
             UpdateLastLoadedGameFile(PlayerPrefs.GetInt("lastLoadedGameFile", -1));
             LoadConfigurations();
+        }
+
+        private void Start()
+        {
+            ScreenTransitionManager.Source.OnTransitionBegan += SaveCurrentGame;
+        }
+
+        private void OnDestroy()
+        {
+            ScreenTransitionManager.Source.OnTransitionBegan -= SaveCurrentGame;
         }
 
         private void LoadConfigurations()
@@ -52,7 +62,7 @@ namespace TerrorConsole
             PlayerPrefs.SetInt("lastLoadedGameFile", _lastLoadedGameFile);
         }
 
-        public SaveGameData LoadGame(int fileIndex)
+        public ISaveGameData LoadGame(int fileIndex)
         {
             _loadedGame = GetGameDataByIndex(fileIndex);
             if (_loadedGame == null)
@@ -94,14 +104,35 @@ namespace TerrorConsole
             }
         }
 
+        ISaveGameData ISaveSystemSource.GetGameDataByIndex(int fileIndex)
+        {
+            return GetGameDataByIndex(fileIndex);
+        }
+
         public int GetLastLoadedFileIndex()
         {
             return _lastLoadedGameFile;
         }
 
-        public SaveGameData GetLoadedGame()
+        public void SetInventory(List<ItemInfo> newInventory)
         {
-            return _loadedGame;
+            _loadedGame.SetInventory(newInventory);
+            SaveCurrentGame();
+        }
+
+        public List<ItemInfo> GetInventory()
+        {
+            return _loadedGame.Inventory;
+        }
+
+        public void AddOrUpdateLevelEvent(int levelNumber, string eventName, bool eventState)
+        {
+            _loadedGame.GetLevelData(levelNumber).AddOrUpdateLevelEvent(eventName, eventState);
+        }
+
+        public bool GetEventState(int levelNumber, string eventName)
+        {
+            return _loadedGame.GetLevelData(levelNumber).GetEventState(eventName);
         }
 
         public SaveGameData GetGameDataByIndex(int fileIndex)
