@@ -48,5 +48,13 @@ namespace TerrorConsole
             }
         }
         
+        public void TeleportPlayerWithCameraReset(Transform player, Vector2 targetPosition)
+        {
+            if (_activeZone != null)
+                _activeZone.DeactivateZone();
+            
+            player.position = targetPosition;
+        }
+        
     }
 }

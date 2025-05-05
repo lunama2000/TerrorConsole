@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TerrorConsole
 {
     public class CapturePlayer : MonoBehaviour
     {
        [SerializeField] Collider2D ShadowCollider;
+       public UnityEvent OnplayerCaptured;
+       public UnityEvent OnplayerRespawn;
 
         public void ActivateCollider()
         {
@@ -15,11 +18,7 @@ namespace TerrorConsole
         {
             if (other.CompareTag("Player"))
             {
-                PlayerTeleporterToSpawn teleporter = other.gameObject.GetComponent<PlayerTeleporterToSpawn>();
-                if (teleporter != null)
-                {
-                    teleporter.StartTeleport();
-                }
+                OnplayerCaptured?.Invoke();
             }
         }
     }
