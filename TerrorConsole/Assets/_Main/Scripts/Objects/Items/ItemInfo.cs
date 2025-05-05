@@ -9,9 +9,9 @@ namespace TerrorConsole
         [SerializeField] private Sprite itemSprite;
         [SerializeField] private string itemDescription;
 
-        public string ItemName { get => itemName; set => itemName = value; }
-        public Sprite ItemSprite { get => itemSprite; set => itemSprite = value; }
-        public string ItemDescription { get => itemDescription; set => itemDescription = value; }
+        public string ItemName => itemName;
+        public Sprite ItemSprite => itemSprite;
+        public string ItemDescription => itemDescription;
 
         public virtual void OnClickedInInventory()
         {
