@@ -1,105 +1,143 @@
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 using System.IO;
-using System.Text;
-using TerrorConsole;
-using UnityEngine.Serialization;
+using UnityEngine;
 
-public class LocalizationManager : Singleton<ILocalization>, ILocalization
+namespace TerrorConsole
 {
-    public static LocalizationManager Instance;
-
-    public string defaultLanguage = "EN";
-    public string currentLanguage = "EN";
-    
-    private Dictionary<string, Dictionary<string, string>> _localizedTexts = new Dictionary<string, Dictionary<string, string>>();
-
-    protected override void Awake()
+    public class LocalizationManager : Singleton<ILocalization>, ILocalization
     {
-            LoadLocalizationFile("Localization");
-    }
+        [Header("CSV Settings")] [Tooltip("CSV file must be inside the Resources folder")] [SerializeField]
+        private string _csvFileName = "Localization"; // File must be in Resources and without .csv extension
 
-    public void SetLanguage(string lang)
-    {
-        currentLanguage = lang;
-    }
+        private readonly Dictionary<string, Dictionary<string, string>> _localizationData = new();
+        private string _currentLanguage = "en";
 
-    public string GetLocalizedValue(string key)
-    {
-        if (_localizedTexts.ContainsKey(key))
+        public string CurrentLanguage => _currentLanguage;
+        public event Action OnLanguageChanged;
+
+        protected override void Awake()
         {
-            if (_localizedTexts[key].ContainsKey(currentLanguage))
-            {
-                return _localizedTexts[key][currentLanguage];
-            }
-            else if (_localizedTexts[key].ContainsKey(defaultLanguage))
-            {
-                return _localizedTexts[key][defaultLanguage];
-            }
+            base.Awake();
+            LoadCsvData();
         }
 
-        return $"#{key}#";
-    }
-
-    private void LoadLocalizationFile(string fileName)
-    {
-        TextAsset csvFile = Resources.Load<TextAsset>(fileName);
-        if (csvFile == null)
+        private void LoadCsvData()
         {
-            Debug.LogError("Localization CSV file not found!");
-            return;
+            _localizationData.Clear();
+
+            TextAsset csvFile = Resources.Load<TextAsset>(_csvFileName);
+            if (csvFile == null)
+            {
+                Debug.LogError($"Localization CSV file '{_csvFileName}' not found in Resources.");
+                return;
+            }
+
+            using StringReader reader = new(csvFile.text);
+
+            string headerLine = reader.ReadLine();
+            if (headerLine == null)
+            {
+                Debug.LogError("CSV file is empty.");
+                return;
+            }
+
+            string[] headers = ParseCsvLine(headerLine);
+            if (headers.Length < 2)
+            {
+                Debug.LogError("CSV must contain a 'Key' and at least one language column.");
+                return;
+            }
+
+            while (reader.Peek() > -1)
+            {
+                string line = reader.ReadLine();
+                if (string.IsNullOrWhiteSpace(line)) continue;
+
+                string[] fields = ParseCsvLine(line);
+                if (fields.Length != headers.Length)
+                {
+                    Debug.LogWarning($"Line skipped due to mismatch in column count: {line}");
+                    continue;
+                }
+
+                string key = fields[0];
+                for (int i = 1; i < headers.Length; i++)
+                {
+                    string lang = headers[i];
+                    string value = fields[i];
+
+                    if (!_localizationData.ContainsKey(lang))
+                        _localizationData[lang] = new Dictionary<string, string>();
+
+                    _localizationData[lang][key] = value;
+                }
+            }
+
+            Debug.Log("Localization CSV loaded successfully.");
         }
 
-        string[] lines = csvFile.text.Split('\n');
-        if (lines.Length <= 1) return;
-
-        string[] headers = lines[0].Trim().Split(',');
-
-        for (int i = 1; i < lines.Length; i++)
+        // Basic CSV parser to handle quoted fields with commas and double quotes
+        private static string[] ParseCsvLine(string line)
         {
-            string[] entries = ParseCsvLine(lines[i]);
-
-            if (entries.Length != headers.Length)
-                continue;
-
-            string key = entries[0].Trim();
-            var langDict = new Dictionary<string, string>();
-
-            for (int j = 1; j < headers.Length; j++)
+            List<string> fields = new();
+            bool inQuotes = false;
+            string currentField = "";
+            for (int i = 0; i < line.Length; i++)
             {
-                langDict[headers[j].Trim()] = entries[j].Trim().Replace("\\n", "\n");
+                char c = line[i];
+
+                if (c == '\"')
+                {
+                    if (inQuotes && i + 1 < line.Length && line[i + 1] == '\"')
+                    {
+                        currentField += '\"';
+                        i++; // Skip escaped quote
+                    }
+                    else
+                    {
+                        inQuotes = !inQuotes;
+                    }
+                }
+                else if (c == ',' && !inQuotes)
+                {
+                    fields.Add(currentField);
+                    currentField = "";
+                }
+                else
+                {
+                    currentField += c;
+                }
             }
 
-            _localizedTexts[key] = langDict;
-        }
-    }
-
-    private string[] ParseCsvLine(string line)
-    {
-        var result = new List<string>();
-        bool inQuotes = false;
-        StringBuilder field = new StringBuilder();
-
-        foreach (char c in line)
-        {
-            if (c == '"')
-            {
-                inQuotes = !inQuotes;
-                continue;
-            }
-
-            if (c == ',' && !inQuotes)
-            {
-                result.Add(field.ToString());
-                field.Clear();
-            }
-            else
-            {
-                field.Append(c);
-            }
+            fields.Add(currentField);
+            return fields.ToArray();
         }
 
-        result.Add(field.ToString());
-        return result.ToArray();
+        public void SetLanguage(string languageCode)
+        {
+            if (string.IsNullOrWhiteSpace(languageCode) || languageCode == _currentLanguage)
+                return;
+
+            if (!_localizationData.ContainsKey(languageCode))
+            {
+                Debug.LogWarning($"Language '{languageCode}' not found in localization data.");
+                return;
+            }
+
+            _currentLanguage = languageCode;
+            OnLanguageChanged?.Invoke();
+        }
+
+        public string GetLocalizedText(string key)
+        {
+            if (_localizationData.TryGetValue(_currentLanguage, out var langDict))
+            {
+                if (langDict.TryGetValue(key, out var value))
+                    return value;
+            }
+
+            return $"#{key}";
+        }
     }
 }

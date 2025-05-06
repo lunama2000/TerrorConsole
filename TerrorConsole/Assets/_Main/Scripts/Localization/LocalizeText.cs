@@ -1,20 +1,53 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class LocalizeText : MonoBehaviour
+namespace TerrorConsole
 {
-    public string localizationKey;
-
-    void Start()
+    public class LocalizeText : MonoBehaviour
     {
-        UpdateText();
-    }
+       [Tooltip("Key usada para buscar el texto traducido en el archivo CSV.")] [SerializeField]
+        private string _localizationKey;
 
-    public void UpdateText()
-    {
-        if (!string.IsNullOrEmpty(localizationKey))
+        private void OnEnable()
         {
-            GetComponent<TextMeshProUGUI>().text = LocalizationManager.Source.GetLocalizedValue(localizationKey);
+            UpdateLocalizedText();
+            LocalizationManager.Source.OnLanguageChanged += UpdateLocalizedText;
+        }
+
+        private void OnDisable()
+        {
+            if (LocalizationManager.Source != null)
+                LocalizationManager.Source.OnLanguageChanged -= UpdateLocalizedText;
+        }
+
+        private void Reset()
+        {
+            if (TryGetComponent(out Text uiText) && !string.IsNullOrWhiteSpace(uiText.text))
+                _localizationKey = uiText.text;
+            else if (TryGetComponent(out TMP_Text tmpText) && !string.IsNullOrWhiteSpace(tmpText.text))
+                _localizationKey = tmpText.text;
+        }
+
+        private void UpdateLocalizedText()
+        {
+            if (string.IsNullOrWhiteSpace(_localizationKey))
+                return;
+
+            string localized = LocalizationManager.Source.GetLocalizedText(_localizationKey);
+
+            if (TryGetComponent(out TMP_Text tmpText))
+            {
+                tmpText.text = localized;
+            }
+            else if (TryGetComponent(out Text uiText))
+            {
+                uiText.text = localized;
+            }
+            else
+            {
+                Debug.LogWarning($"No UI Text component found on '{gameObject.name}'.");
+            }
         }
     }
 }

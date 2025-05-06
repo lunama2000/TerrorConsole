@@ -1,60 +1,64 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class LanguageCarouselSelector : MonoBehaviour
+namespace TerrorConsole
 {
-    public List<string> availableLanguages = new List<string> { "EN", "ES", "PT" };
-
-    public TextMeshProUGUI languageLabel;
-    public Button leftButton;
-    public Button rightButton;
-
-    private int currentIndex = 0;
-
-    void Start()
+    public class LanguageCarouselSelector : MonoBehaviour
     {
-        string currentLang = LocalizationManager.Instance.currentLanguage;
-        currentIndex = availableLanguages.IndexOf(currentLang);
-        if (currentIndex < 0) currentIndex = 0;
+        [Header("UI Elements")] [SerializeField]
+        private Button leftButton;
 
-        UpdateLanguageLabel();
+        [SerializeField] private Button rightButton;
+        [SerializeField] private TMP_Text languageLabel;
+        
+        private int _currentIndex = 0;
 
-        leftButton.onClick.AddListener(OnLeftPressed);
-        rightButton.onClick.AddListener(OnRightPressed);
-    }
-
-    void OnLeftPressed()
-    {
-        currentIndex = (currentIndex - 1 + availableLanguages.Count) % availableLanguages.Count;
-        ApplyLanguageChange();
-    }
-
-    void OnRightPressed()
-    {
-        currentIndex = (currentIndex + 1) % availableLanguages.Count;
-        ApplyLanguageChange();
-    }
-
-    void ApplyLanguageChange()
-    {
-        string selectedLang = availableLanguages[currentIndex];
-        LocalizationManager.Instance.SetLanguage(selectedLang);
-        UpdateLanguageLabel();
-        RefreshLocalizedTexts();
-    }
-
-    void UpdateLanguageLabel()
-    {
-        languageLabel.text = availableLanguages[currentIndex];
-    }
-
-    void RefreshLocalizedTexts()
-    {
-        foreach (LocalizeText lt in FindObjectsOfType<LocalizeText>())
+        private void Start()
         {
-            lt.UpdateText();
+            if (LocalizationExtensions.LanguageCodes.Length != LocalizationExtensions.LanguageNames.Length)
+            {
+                Debug.LogError("Language codes and names must be the same length.".Localize());
+                return;
+            }
+
+            leftButton.onClick.AddListener(SelectPrevious);
+            rightButton.onClick.AddListener(SelectNext);
+
+            string savedLang = PlayerPrefs.GetString("language", LocalizationExtensions.LanguageCodes[0]);
+            _currentIndex = System.Array.IndexOf(LocalizationExtensions.LanguageCodes, savedLang);
+            if (_currentIndex < 0) _currentIndex = 0;
+
+            ApplyLanguage();
+        }
+
+        private void SelectPrevious()
+        {
+            _currentIndex--;
+            if (_currentIndex < 0)
+                _currentIndex = LocalizationExtensions.LanguageCodes.Length - 1;
+
+            ApplyLanguage();
+        }
+
+        private void SelectNext()
+        {
+            _currentIndex++;
+            if (_currentIndex >= LocalizationExtensions.LanguageCodes.Length)
+                _currentIndex = 0;
+
+            ApplyLanguage();
+        }
+
+        private void ApplyLanguage()
+        {
+            string langCode = LocalizationExtensions.LanguageCodes[_currentIndex];
+            string langName = LocalizationExtensions.LanguageNames[_currentIndex];
+
+            languageLabel.text = langName;
+            LocalizationManager.Source.SetLanguage(langCode);
+            PlayerPrefs.SetString("language", langCode);
+            PlayerPrefs.Save();
         }
     }
 }
