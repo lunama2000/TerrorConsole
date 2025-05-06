@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 namespace TerrorConsole
 {
     public class LanguageCarouselSelector : MonoBehaviour
-    {
-        [Header("UI Elements")] [SerializeField]
-        private Button leftButton;
-
-        [SerializeField] private Button rightButton;
-        [SerializeField] private TMP_Text languageLabel;
+    { 
+        [Header("UI Elements")] 
+        [SerializeField] private Button _leftButton;
+        [SerializeField] private Button _rightButton;
+        [SerializeField] private TMP_Text _languageLabel;
         
         private int _currentIndex = 0;
 
@@ -22,8 +22,8 @@ namespace TerrorConsole
                 return;
             }
 
-            leftButton.onClick.AddListener(SelectPrevious);
-            rightButton.onClick.AddListener(SelectNext);
+            _leftButton.onClick.AddListener(SelectPrevious);
+            _rightButton.onClick.AddListener(SelectNext);
 
             string savedLang = PlayerPrefs.GetString("language", LocalizationExtensions.LanguageCodes[0]);
             _currentIndex = System.Array.IndexOf(LocalizationExtensions.LanguageCodes, savedLang);
@@ -55,7 +55,7 @@ namespace TerrorConsole
             string langCode = LocalizationExtensions.LanguageCodes[_currentIndex];
             string langName = LocalizationExtensions.LanguageNames[_currentIndex];
 
-            languageLabel.text = langName;
+            _languageLabel.text = langName;
             LocalizationManager.Source.SetLanguage(langCode);
             PlayerPrefs.SetString("language", langCode);
             PlayerPrefs.Save();

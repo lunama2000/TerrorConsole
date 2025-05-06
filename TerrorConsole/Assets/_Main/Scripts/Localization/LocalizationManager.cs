@@ -5,17 +5,18 @@ using UnityEngine;
 
 namespace TerrorConsole
 {
+    [DefaultExecutionOrder(-1000)]
     public class LocalizationManager : Singleton<ILocalization>, ILocalization
     {
         [Header("CSV Settings")] [Tooltip("CSV file must be inside the Resources folder")] [SerializeField]
-        private string _csvFileName = "Localization"; // File must be in Resources and without .csv extension
+        private string _csvFileName = "Localization";
 
         private readonly Dictionary<string, Dictionary<string, string>> _localizationData = new();
-        private string _currentLanguage = "en";
+        private string _currentLanguage = "EN";
 
         public string CurrentLanguage => _currentLanguage;
         public event Action OnLanguageChanged;
-
+        
         protected override void Awake()
         {
             base.Awake();
@@ -76,8 +77,7 @@ namespace TerrorConsole
 
             Debug.Log("Localization CSV loaded successfully.");
         }
-
-        // Basic CSV parser to handle quoted fields with commas and double quotes
+        
         private static string[] ParseCsvLine(string line)
         {
             List<string> fields = new();
@@ -92,7 +92,7 @@ namespace TerrorConsole
                     if (inQuotes && i + 1 < line.Length && line[i + 1] == '\"')
                     {
                         currentField += '\"';
-                        i++; // Skip escaped quote
+                        i++;
                     }
                     else
                     {
@@ -134,10 +134,14 @@ namespace TerrorConsole
             if (_localizationData.TryGetValue(_currentLanguage, out var langDict))
             {
                 if (langDict.TryGetValue(key, out var value))
+                {
                     return value;
+                }
+                Debug.LogWarning($"[Localization] Key not found in {_currentLanguage}: {key}");
             }
 
             return $"#{key}";
         }
+        
     }
 }

@@ -6,8 +6,8 @@ namespace TerrorConsole
 {
     public class LocalizeText : MonoBehaviour
     {
-       [Tooltip("Key usada para buscar el texto traducido en el archivo CSV.")] [SerializeField]
-        private string _localizationKey;
+       [Tooltip("Key usada para buscar el texto traducido en el archivo CSV.")] 
+       [SerializeField] private string _localizationKey;
 
         private void OnEnable()
         {
@@ -35,6 +35,11 @@ namespace TerrorConsole
                 return;
 
             string localized = LocalizationManager.Source.GetLocalizedText(_localizationKey);
+
+            if (localized.StartsWith("#"))
+            {
+                Debug.LogWarning($"Localization key not found: {_localizationKey}");
+            }
 
             if (TryGetComponent(out TMP_Text tmpText))
             {
