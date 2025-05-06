@@ -6,20 +6,18 @@ namespace TerrorConsole
     public class PlayerTeleporterToSpawn : MonoBehaviour
     {
         [SerializeField] private Transform spawnPoint;
-        [SerializeField] private CapturePlayer _enemy;
-        [SerializeField] private float transitionDuration;
 
         private void OnEnable()
         {
-            _enemy.OnplayerCaptured.AddListener(PlayerCaptured);
+            LevelManager.Source.OnPlayerCaptured.AddListener(PlayerCaptured);
         }
 
         private void OnDisable()
         {
-            _enemy.OnplayerCaptured.RemoveListener(PlayerCaptured);
+            LevelManager.Source.OnPlayerCaptured.RemoveListener(PlayerCaptured);
         }
 
-        public void PlayerCaptured()
+        private void PlayerCaptured()
         {
             StartTeleportToSpawn().Forget();
         }
@@ -30,7 +28,8 @@ namespace TerrorConsole
                 () =>
                 {
                     CameraSystemManager.Source.TeleportPlayerWithCameraReset(transform, spawnPoint.position);
-                },TransitionType.Slide);
+                },
+                TransitionType.Slide);
         }
     }
 }
