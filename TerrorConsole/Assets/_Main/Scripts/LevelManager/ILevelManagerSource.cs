@@ -15,9 +15,5 @@ namespace TerrorConsole
         public bool GetEventState(string uniqueEventKey);
         UnityEvent OnPlayerCaptured { get; set; }
         UnityEvent OnPlayerRespawn { get; set; }
-        void SubscribeToPlayerCaptured(UnityAction callback);
-        void UnsubscribeFromPlayerCaptured(UnityAction callback);
-        void SubscribeToPlayerRespawn(UnityAction callback);
-        void UnsubscribeFromPlayerRespawn(UnityAction callback);
     }
 }

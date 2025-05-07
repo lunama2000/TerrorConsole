@@ -52,24 +52,6 @@ namespace TerrorConsole
         public bool GetEventState(string uniqueEventKey)
         {
             return SaveSystemManager.Source.GetEventState(levelNumber, uniqueEventKey);
-        public void SubscribeToPlayerCaptured(UnityAction callback)
-        {
-            OnPlayerCaptured.AddListener(callback);
-        }
-
-        public void UnsubscribeFromPlayerCaptured(UnityAction callback)
-        {
-            OnPlayerCaptured.RemoveListener(callback);
-        }
-
-        public void SubscribeToPlayerRespawn(UnityAction callback)
-        {
-            OnPlayerRespawn.AddListener(callback);
-        }
-
-        public void UnsubscribeFromPlayerRespawn(UnityAction callback)
-        {
-            OnPlayerRespawn.RemoveListener(callback);
         }
     }
 
