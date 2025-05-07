@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace TerrorConsole
 {
@@ -8,20 +7,20 @@ namespace TerrorConsole
     {
         public int SfxVolume;
         public int MusicVolume;
-        public int LanguageIndex;
+        public string LanguageCode;
 
         public SaveConfigurationData()
         {
             SfxVolume = 1;
             MusicVolume = 1;
-            LanguageIndex = 0;
+            LanguageCode = "EN";
         }
 
-        public SaveConfigurationData(int sfxVolume, int musicVolume, int lenguageIndex)
+        public SaveConfigurationData(int sfxVolume, int musicVolume, string languageCode)
         {
             SfxVolume = sfxVolume;
             MusicVolume = musicVolume;
-            LanguageIndex = lenguageIndex;
+            LanguageCode = languageCode;
         }
     }
 }
