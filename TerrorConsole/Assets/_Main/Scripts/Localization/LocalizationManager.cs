@@ -125,6 +125,7 @@ namespace TerrorConsole
                 return;
             }
 
+            SaveSystemManager.Source.SaveLanguageCode(languageCode);
             _currentLanguage = languageCode;
             OnLanguageChanged?.Invoke();
         }

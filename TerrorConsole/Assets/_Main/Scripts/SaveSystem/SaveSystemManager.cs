@@ -29,8 +29,8 @@ namespace TerrorConsole
 
         private void LoadConfigurations()
         {
-            string configurationData = PlayerPrefs.GetString("gameConfiguration", "ERROR");
-            if (string.IsNullOrEmpty(configurationData) || configurationData == "ERROR")
+            var configurationData = PlayerPrefs.GetString("gameConfiguration", null);
+            if (string.IsNullOrEmpty(configurationData))
             {
                 _loadedConfiguration = new SaveConfigurationData();
             }
@@ -38,16 +38,14 @@ namespace TerrorConsole
             {
                 _loadedConfiguration = JsonUtility.FromJson<SaveConfigurationData>(configurationData);
             }
+            
+            LocalizationManager.Source.SetLanguage(_loadedConfiguration.LanguageCode);
         }
 
-        public SaveConfigurationData GetConfigurationData()
+        private void SaveConfigurationData()
         {
-            return _loadedConfiguration;
-        }
-
-        public void DeleteConfigurationData()
-        {
-            PlayerPrefs.DeleteKey("gameConfiguration");
+            string json = JsonUtility.ToJson(_loadedConfiguration);
+            PlayerPrefs.SetString("gameConfiguration", json);
         }
 
         public void DeleteGame(int fileIndex)
@@ -133,6 +131,12 @@ namespace TerrorConsole
         public bool GetEventState(int levelNumber, string eventName)
         {
             return _loadedGame.GetLevelData(levelNumber).GetEventState(eventName);
+        }
+        
+        public void SaveLanguageCode(string languageCode)
+        {
+            _loadedConfiguration.LanguageCode = languageCode;
+            SaveConfigurationData();
         }
 
         public SaveGameData GetGameDataByIndex(int fileIndex)

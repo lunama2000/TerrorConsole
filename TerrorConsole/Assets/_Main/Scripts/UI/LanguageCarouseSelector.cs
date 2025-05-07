@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Serialization;
 
 namespace TerrorConsole
 {
@@ -25,8 +24,7 @@ namespace TerrorConsole
             _leftButton.onClick.AddListener(SelectPrevious);
             _rightButton.onClick.AddListener(SelectNext);
 
-            string savedLang = PlayerPrefs.GetString("language", LocalizationExtensions.LanguageCodes[0]);
-            _currentIndex = System.Array.IndexOf(LocalizationExtensions.LanguageCodes, savedLang);
+            _currentIndex = System.Array.IndexOf(LocalizationExtensions.LanguageCodes, LocalizationManager.Source.CurrentLanguage);
             if (_currentIndex < 0) _currentIndex = 0;
 
             ApplyLanguage();
@@ -52,13 +50,11 @@ namespace TerrorConsole
 
         private void ApplyLanguage()
         {
-            string langCode = LocalizationExtensions.LanguageCodes[_currentIndex];
-            string langName = LocalizationExtensions.LanguageNames[_currentIndex];
+            string languageCode = LocalizationExtensions.LanguageCodes[_currentIndex];
+            string languageName = LocalizationExtensions.LanguageNames[_currentIndex];
 
-            _languageLabel.text = langName;
-            LocalizationManager.Source.SetLanguage(langCode);
-            PlayerPrefs.SetString("language", langCode);
-            PlayerPrefs.Save();
+            _languageLabel.text = languageName;
+            LocalizationManager.Source.SetLanguage(languageCode);
         }
     }
 }

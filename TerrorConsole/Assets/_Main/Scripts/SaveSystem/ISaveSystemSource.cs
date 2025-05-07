@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace TerrorConsole
 {
@@ -16,5 +15,7 @@ namespace TerrorConsole
 
         void AddOrUpdateLevelEvent(int levelNumber, string eventName, bool eventState);
         bool GetEventState(int levelNumber, string eventName);
+
+        void SaveLanguageCode(string languageCode);
     }
 }
