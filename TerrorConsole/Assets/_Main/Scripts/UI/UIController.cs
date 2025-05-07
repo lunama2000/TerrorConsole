@@ -75,7 +75,7 @@ namespace TerrorConsole
         
         public void ButtonPlaySFX()
         {
-            AudioManager.Source.PlayUIButtonClickSFX();
+            AudioManager.Source.PlaySFX("UIButtonClickSFX");
         }
 
         private void OnEnable()

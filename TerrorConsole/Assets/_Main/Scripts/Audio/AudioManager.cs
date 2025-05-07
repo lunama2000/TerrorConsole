@@ -1,111 +1,90 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Windows;
 
 namespace TerrorConsole
 {
     public class AudioManager : Singleton<IAudioSource>, IAudioSource
     {
         [SerializeField] private AudioSource _sfxAudioSource;
-    [SerializeField] private AudioSource _musicAudioSource;
-    [SerializeField] private AudioMixer _sfxMixer;
-    [SerializeField] private AudioMixer _musicMixer;
-    [SerializeField] private AudioDatabase _audioDatabase;
+        [SerializeField] private AudioSource _musicAudioSource;
+        [SerializeField] private AudioMixer _sfxMixer;
+        [SerializeField] private AudioMixer _musicMixer;
+        
+        [SerializeField] private AudioDatabase _audioDatabase;
 
-    private AudioClip _currentMusic;
+        private AudioClip _currentMusic;
 
-    public float SFXVolume { get; private set; }
-    public float MusicVolume { get; private set; }
+        public float SFXVolume { get; private set; }
+        public float MusicVolume { get; private set; }
 
-    private void Start()
-    {
-        InitializeSFX();
-        InitializeMusic();
-    }
-
-    #region Initialization
-
-    private void InitializeSFX()
-    {
-        SFXVolume = PlayerPrefs.GetFloat("sfxVol", 0.5f);
-        _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 20f, SFXVolume));
-    }
-
-    private void InitializeMusic()
-    {
-        MusicVolume = PlayerPrefs.GetFloat("musicVol", 0.5f);
-        _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 20f, MusicVolume));
-    }
-
-    #endregion
-
-    #region Generalized Audio Play Methods
-
-    public void PlaySFX(string audioKey)
-    {
-        AudioData audioData = _audioDatabase.GetAudio(audioKey);
-        if (audioData == null)
+        private void Start()
         {
-            Debug.LogWarning($"[AudioManager] No SFX found for key: {audioKey}");
-            return;
+            InitializeSFX();
+            InitializeMusic();
         }
 
-        _sfxAudioSource.PlayOneShot(audioData.AudioClip, audioData.Volume);
-    }
-
-    public void PlayMusic(string musicKey)
-    {
-        AudioData audioData = _audioDatabase.GetAudio(musicKey);
-        if (audioData == null)
+        private void InitializeSFX()
         {
-            Debug.LogWarning($"[AudioManager] No Music found for key: {musicKey}");
-            return;
+            SFXVolume = PlayerPrefs.GetFloat("sfxVol", 0.75f);
+            _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 20f, SFXVolume));
         }
 
-        if (_currentMusic == audioData.AudioClip) return;
+        private void InitializeMusic()
+        {
+            MusicVolume = PlayerPrefs.GetFloat("musicVol", 0.75f);
+            _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 20f, MusicVolume));
+        }
 
-        _currentMusic = audioData.AudioClip;
-        _musicAudioSource.clip = _currentMusic;
-        _musicAudioSource.loop = true;
-        _musicAudioSource.Play();
-    }
+        public void PlaySFX(string audioKey)
+        {
+            var audioData = _audioDatabase.GetAudio(audioKey);
+            if (audioData == null)
+            {
+                Debug.LogWarning($"[AudioManager] SFX '{audioKey}' not found in AudioDatabase.");
+                return;
+            }
 
-    public void StopMusic()
-    {
-        _musicAudioSource.Stop();
-        _musicAudioSource.clip = null;
-        _currentMusic = null;
-    }
+            _sfxAudioSource.PlayOneShot(audioData.AudioClip, audioData.Volume);
+        }
 
-    #endregion
+        public void PlayMusic(string audioKey)
+        {
+            var audioData = _audioDatabase.GetAudio(audioKey);
+            if (audioData == null)
+            {
+                Debug.LogWarning($"[AudioManager] Music '{audioKey}' not found in AudioDatabase.");
+                return;
+            }
 
-    #region Volume Control
+            if (_currentMusic == audioData.AudioClip) return;
 
-    public void SetSFXVolume(float newVolume)
-    {
-        newVolume = Mathf.Clamp01(newVolume);
-        SFXVolume = newVolume;
-        _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 20f, newVolume));
-        PlayerPrefs.SetFloat("sfxVol", newVolume);
-    }
+            _currentMusic = audioData.AudioClip;
+            _musicAudioSource.clip = _currentMusic;
+            _musicAudioSource.loop = true;
+            _musicAudioSource.Play();
+        }
 
-    public void SetMusicVolume(float newVolume)
-    {
-        newVolume = Mathf.Clamp01(newVolume);
-        MusicVolume = newVolume;
-        _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 20f, newVolume));
-        PlayerPrefs.SetFloat("musicVol", newVolume);
-    }
+        public void StopMusic()
+        {
+            _musicAudioSource.Stop();
+            _musicAudioSource.clip = null;
+            _currentMusic = null;
+        }
 
-    #endregion
+        public void SetSFXVolume(float newVolume)
+        {
+            newVolume = Mathf.Clamp01(newVolume);
+            SFXVolume = newVolume;
+            _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 20f, newVolume));
+            PlayerPrefs.SetFloat("sfxVol", newVolume);
+        }
 
-    #region (Optional) Legacy SFX Wrappers
-
-    public void PlayDoorCloseSFX() => PlaySFX("DoorCloseSFX");
-    public void PlayDoorOpenSFX() => PlaySFX("DoorOpenSFX");
-    public void PlayPauseSFX() => PlaySFX("PauseSFX");
-    public void PlayUIButtonClickSFX() => PlaySFX("UIButtonClickSFX");
-
-    #endregion
+        public void SetMusicVolume(float newVolume)
+        {
+            newVolume = Mathf.Clamp01(newVolume);
+            MusicVolume = newVolume;
+            _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 20f, newVolume));
+            PlayerPrefs.SetFloat("musicVol", newVolume);
+        }
     }
 }
