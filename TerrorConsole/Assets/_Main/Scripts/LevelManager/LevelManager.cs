@@ -17,9 +17,9 @@ namespace TerrorConsole
         [SerializeField] private int levelNumber;
 
         public event Action<LevelState> OnLevelStateChange;
-       
-        public UnityEvent OnPlayerCaptured { get; set; } = new UnityEvent();
-        public UnityEvent OnPlayerRespawn { get; set; } = new UnityEvent();
+
+        public event Action OnPlayerCaptured;
+        public event Action OnPlayerRespawn;
 
         [SerializeField] private LevelState currentLevelState;
 
@@ -52,6 +52,16 @@ namespace TerrorConsole
         public bool GetEventState(string uniqueEventKey)
         {
             return SaveSystemManager.Source.GetEventState(levelNumber, uniqueEventKey);
+        }
+        
+        public void PlayerCaptured()
+        {
+            OnPlayerCaptured?.Invoke();
+        }
+
+        public void RespawnPlayer()
+        {
+            OnPlayerRespawn?.Invoke();
         }
     }
 

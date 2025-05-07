@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace TerrorConsole
@@ -15,16 +14,21 @@ namespace TerrorConsole
         private bool _freezeInput = false;
 
         private IInputSource _inputSource;
+        private Vector3 _respawnPosition;
 
         private void Start()
         {
             _inputSource = InputManager.Source;
             LevelManager.Source.OnLevelStateChange += OnLevelStateChange;
+            LevelManager.Source.OnPlayerRespawn += OnRespawn;
+
+            _respawnPosition = transform.position;
         }
 
         private void OnDestroy()
         {
             LevelManager.Source.OnLevelStateChange -= OnLevelStateChange;
+            LevelManager.Source.OnPlayerRespawn -= OnRespawn;
         }
 
         private void FixedUpdate()
@@ -80,6 +84,11 @@ namespace TerrorConsole
             ResumeInput();
             gameObject.layer = LayerMask.NameToLayer("Player");
             _sprite.enabled = true;
+        }
+
+        private void OnRespawn()
+        {
+            transform.position = _respawnPosition;
         }
     }
 }

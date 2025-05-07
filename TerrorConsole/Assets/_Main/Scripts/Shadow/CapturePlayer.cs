@@ -15,7 +15,7 @@ namespace TerrorConsole
         {
             if (other.CompareTag("Player"))
             {
-                LevelManager.Source.OnPlayerCaptured?.Invoke();
+                LevelManager.Source.PlayerCaptured();
             }
         }
     }

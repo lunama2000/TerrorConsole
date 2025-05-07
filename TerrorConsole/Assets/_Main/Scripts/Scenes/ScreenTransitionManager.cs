@@ -17,6 +17,16 @@ namespace TerrorConsole
 
         public event Action OnTransitionBegan;
         
+        private void Start()
+        {
+            LevelManager.Source.OnPlayerCaptured += OnPlayerCapture;
+        }
+        
+        private void OnDestroy()
+        {
+            LevelManager.Source.OnPlayerCaptured -= OnPlayerCapture;
+        }
+
         public void TransitionToScene(string sceneName, TransitionType transitionType)
         {
             OnTransitionBegan?.Invoke();
@@ -76,6 +86,14 @@ namespace TerrorConsole
         {
             SceneManager.LoadScene(sceneName);
             AudioManager.Source.StopMusic();
+        }
+
+        private void OnPlayerCapture()
+        {
+            Transition(() =>
+            {
+                LevelManager.Source.RespawnPlayer();
+            }, TransitionType.Slide);
         }
     }
     

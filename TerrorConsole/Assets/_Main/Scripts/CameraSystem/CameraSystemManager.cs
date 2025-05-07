@@ -1,4 +1,3 @@
-using DG.Tweening;
 using UnityEngine;
 
 namespace TerrorConsole
@@ -12,7 +11,17 @@ namespace TerrorConsole
         
         [SerializeField] private float _shakeDuration = 1f;
         [SerializeField] private float _shakeStrength = 2f;
+
+        private void Start()
+        {
+            LevelManager.Source.OnPlayerRespawn += OnRespawn;
+        }
         
+        private void OnDestroy()
+        {
+            LevelManager.Source.OnPlayerRespawn += OnRespawn;
+        }
+
         public void ActivateCameraZone(CameraZone zoneToActivate)
         {
             if (_activeZone != null)
@@ -48,13 +57,9 @@ namespace TerrorConsole
             }
         }
         
-        public void TeleportPlayerWithCameraReset(Transform player, Vector2 targetPosition)
+        private void OnRespawn()
         {
-            if (_activeZone != null)
-                _activeZone.DeactivateZone();
-            
-            player.position = targetPosition;
+            _activeZone.DeactivateZone();
         }
-        
     }
 }
