@@ -26,7 +26,7 @@ namespace TerrorConsole
         #region SFX
         private void InitializeSFX()
         {
-            SFXVolume = PlayerPrefs.GetFloat("sfxVol", SFXVolume);
+            SFXVolume = SaveSystemManager.Source.GetSavedSFXVolume();
             _sfxMixer.SetFloat("sfxVol", SFXVolume);
         }
 
@@ -62,7 +62,7 @@ namespace TerrorConsole
 
         private void InitializeMusic()
         {
-            MusicVolume = PlayerPrefs.GetFloat("musicVol", MusicVolume);
+            MusicVolume = SaveSystemManager.Source.GetSavedMusicVolume();
             _musicMixer.SetFloat("musicVol", MusicVolume);
         }
         

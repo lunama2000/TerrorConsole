@@ -162,6 +162,44 @@ namespace TerrorConsole
                 return null;
             }
         }
+
+        public void SaveSFXVolume(float newSFX)
+        {
+            _loadedConfiguration.SfxVolume = newSFX;
+            SaveConfigurationData();
+        }
+
+        public void SaveMusicVolume(float newMusic)
+        {
+            _loadedConfiguration.MusicVolume = newMusic;
+            SaveConfigurationData();
+        }
+
+        public float GetSavedMusicVolume()
+        {
+            return _loadedConfiguration.MusicVolume;
+        }
+
+        public float GetSavedSFXVolume()
+        {
+            return _loadedConfiguration.SfxVolume;
+        }
+
+        public void SaveResolution(int newIndex)
+        {
+            _loadedConfiguration.ResolutionIndex = newIndex;
+            SaveConfigurationData();
+        }
+
+        public int GetSavedResolution()
+        {
+            return _loadedConfiguration.ResolutionIndex;
+        }
+
+        public string GetSavedLanguageCode()
+        {
+            return _loadedConfiguration.LanguageCode;
+        }
     }
 
 #if UNITY_EDITOR
