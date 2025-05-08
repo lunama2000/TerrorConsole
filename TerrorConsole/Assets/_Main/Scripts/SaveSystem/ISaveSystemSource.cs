@@ -17,5 +17,16 @@ namespace TerrorConsole
         bool GetEventState(int levelNumber, string eventName);
 
         void SaveLanguageCode(string languageCode);
+        string GetSavedLanguageCode();
+
+        void SaveSFXVolume(float newSFX);
+
+        void SaveMusicVolume(float newMusic);
+        void SaveResolution(int newIndex);
+
+        float GetSavedMusicVolume();
+        float GetSavedSFXVolume();
+
+        int GetSavedResolution();
     }
 }

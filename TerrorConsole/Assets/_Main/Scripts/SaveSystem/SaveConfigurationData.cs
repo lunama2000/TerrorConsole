@@ -5,9 +5,10 @@ namespace TerrorConsole
     [Serializable]
     public class SaveConfigurationData
     {
-        public int SfxVolume;
-        public int MusicVolume;
+        public float SfxVolume;
+        public float MusicVolume;
         public string LanguageCode;
+        public int ResolutionIndex;
 
         public SaveConfigurationData()
         {
@@ -16,11 +17,12 @@ namespace TerrorConsole
             LanguageCode = "EN";
         }
 
-        public SaveConfigurationData(int sfxVolume, int musicVolume, string languageCode)
+        public SaveConfigurationData(float sfxVolume, float musicVolume, string languageCode, int resolutionIndex)
         {
             SfxVolume = sfxVolume;
             MusicVolume = musicVolume;
             LanguageCode = languageCode;
+            ResolutionIndex = resolutionIndex;
         }
     }
 }

@@ -41,6 +41,8 @@ namespace TerrorConsole
             }
             menuStack.Push(newTopMenu);
             newTopMenu.gameObject.SetActive(true);
+            newTopMenu.transform.root.gameObject.SetActive(false);
+            newTopMenu.transform.root.gameObject.SetActive(true);
             SetMenuInteractable(menuStack.Peek().GetCanvasGroup(), true);
             EventSystem.current.SetSelectedGameObject(newTopMenu.GetDefaultSelectedUI());
         }

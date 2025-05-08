@@ -5,29 +5,30 @@ namespace TerrorConsole
 {
     public class PauseController : MonoBehaviour
     {
-        [SerializeField] private GameObject _pauseUI;
-        [SerializeField] private GameObject _defaultSelected;
+        [SerializeField] private UIController _pauseUI;
+        private bool _paused;
 
         private void Start()
         {
-            InputManager.Source.OnPauseButton += OnInventoryButton;
+            InputManager.Source.OnPauseButton += OnPauseButton;
         }
 
         private void OnDestroy()
         {
-            InputManager.Source.OnPauseButton -= OnInventoryButton;
+            InputManager.Source.OnPauseButton -= OnPauseButton;
         }
 
-        private void OnInventoryButton()
+        private void OnPauseButton()
         {
-            _pauseUI.SetActive(!_pauseUI.activeSelf);
-            if (_pauseUI.activeSelf)
+            _paused = !_paused;
+            if (_paused)
             {
                 LevelManager.Source.PauseLevel();
-                EventSystem.current.SetSelectedGameObject(_defaultSelected);
+                UIMenusManager.Source.OpenNewMenuOnTop(_pauseUI);
             }
             else
             {
+                UIMenusManager.Source.CloseMenuOnTop();
                 LevelManager.Source.PlayLevel();
             }
         }
