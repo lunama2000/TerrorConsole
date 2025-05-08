@@ -56,7 +56,7 @@ namespace TerrorConsole
                 return;
             }
 
-            _currentSentence = _sentences.Dequeue();
+            _currentSentence = _sentences.Dequeue().Localize();
             AnimateText(_currentSentence).Forget();
         }
 

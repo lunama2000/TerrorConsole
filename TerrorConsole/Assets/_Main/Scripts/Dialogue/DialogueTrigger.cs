@@ -21,5 +21,10 @@ namespace TerrorConsole
                 gameObject.SetActive(false);
             }
         }
+
+        public void SwitchOn()
+        {
+            DialogueManager.Source.StartDialogue(_dialogueData);
+        }
     }
 }
