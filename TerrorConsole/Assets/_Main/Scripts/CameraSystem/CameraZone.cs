@@ -72,6 +72,5 @@ namespace TerrorConsole
                 _cameraNoiseChannel.m_AmplitudeGain = value;
             });
         }
-        
     }
 }

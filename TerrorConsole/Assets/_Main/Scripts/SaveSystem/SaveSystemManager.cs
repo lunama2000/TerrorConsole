@@ -9,12 +9,21 @@ namespace TerrorConsole
         private SaveGameData _loadedGame;
         private int _lastLoadedGameFile = -1;
         private SaveConfigurationData _loadedConfiguration;
+        
+        [Header("CONFIGURATIONS")]
+        [SerializeField] private bool _forceLoadGame = false;
+        [SerializeField] private int _forceLoadGameIndex = 0;
 
         protected override void Awake()
         {
             base.Awake();
             UpdateLastLoadedGameFile(PlayerPrefs.GetInt("lastLoadedGameFile", -1));
             LoadConfigurations();
+
+            if (_forceLoadGame)
+            {
+                LoadGame(_forceLoadGameIndex);
+            }
         }
 
         private void Start()

@@ -18,6 +18,14 @@ namespace TerrorConsole
             _triggered = true;
         }
 
+        public void TriggerAnimationTutorialPursuit()
+        {
+            if (!_shouldRepeat && _triggered) return;
+            
+            _animator.Play("TutorialShadowPursuit");
+            _triggered = true;
+        }
+        
         public void OnAnimationEnd()
         {
             _shadow.gameObject.SetActive(false);
