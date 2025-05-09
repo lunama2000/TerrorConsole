@@ -1,10 +1,30 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TerrorConsole
 {
+    public enum InputType { None, KeyboardMouse, Gamepad }
+    public enum InputActionsInGame { Button1, Button2, PauseButton, InventoryButton, LeftAxis }
+    
+    [System.Serializable]
+    public struct ActionInGameKeyCode
+    {
+        public InputActionsInGame action;
+        public KeyCode inputKeyCode;
+    }
+
     public class InputManager : Singleton<IInputSource>, IInputSource
     {
+        [SerializeField] private InputType currentInputType = InputType.None;
+        public event Action<InputType> OnInputTypeChange;
+
+        private List<ActionInGameKeyCode> _currentActionsInGameKeyCodes = new List<ActionInGameKeyCode>();
+        [SerializeField] private List<ActionInGameKeyCode> _GamepadActionsInGameKeyCodes = new List<ActionInGameKeyCode>();
+        [SerializeField] private List<ActionInGameKeyCode> _KeyboardActionsInGameKeyCodes = new List<ActionInGameKeyCode>();
+
+
         [SerializeField] private float deadZone = 0.5f;
 
         public bool IsMoving { get; private set; }
@@ -24,6 +44,37 @@ namespace TerrorConsole
             SetMovementInput();
             SetActionButtons();
             SetLookDirection();
+            SetInputType();
+        }
+
+        private void SetInputType()
+        {
+            if (Gamepad.current != null && (Gamepad.current?.lastUpdateTime ?? 0) > (Keyboard.current?.lastUpdateTime ?? 0))
+            {
+                if (currentInputType != InputType.Gamepad)
+                {
+                    currentInputType = InputType.Gamepad;
+                    UpdateCurrentInputType();
+                }
+            }
+            else if ((Keyboard.current != null && (Keyboard.current?.lastUpdateTime ?? 0) > (Gamepad.current?.lastUpdateTime ?? 0)))
+            {
+                if (currentInputType != InputType.KeyboardMouse)
+                {
+                    currentInputType = InputType.KeyboardMouse;
+                    UpdateCurrentInputType();
+                }
+            }
+        }
+
+        private void UpdateCurrentInputType()
+        {
+            switch (currentInputType)
+            {
+                case InputType.Gamepad: _currentActionsInGameKeyCodes = _GamepadActionsInGameKeyCodes; break;
+                case InputType.KeyboardMouse: _currentActionsInGameKeyCodes = _KeyboardActionsInGameKeyCodes; break;
+            }
+            OnInputTypeChange?.Invoke(currentInputType);
         }
 
         private void SetLookDirection()
@@ -83,6 +134,18 @@ namespace TerrorConsole
             {
                 OnInventoryButton?.Invoke();
             }
+        }
+
+        public KeyCode GetActionInGameKeyCode(InputActionsInGame actionsInGame)
+        {
+            foreach(ActionInGameKeyCode inputAction in _currentActionsInGameKeyCodes)
+            {
+                if(inputAction.action == actionsInGame)
+                {
+                    return inputAction.inputKeyCode;
+                }
+            }
+            return KeyCode.None;
         }
     }
 }
