@@ -38833,7 +38833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6684045032054566759, guid: 76ee529f7515ea143a03f77d957182ec, type: 3}
       propertyPath: _isLocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6684045032054566759, guid: 76ee529f7515ea143a03f77d957182ec, type: 3}
       propertyPath: openSprite
