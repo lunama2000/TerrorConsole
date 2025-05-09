@@ -97,6 +97,7 @@ namespace TerrorConsole
         
         private void GoToScene(string sceneName)
         {
+            TooltipsManager.Source.HideAll();
             UnsuscribeToLevelEvents();
             SceneManager.LoadScene(sceneName);
             AudioManager.Source.StopMusic();
