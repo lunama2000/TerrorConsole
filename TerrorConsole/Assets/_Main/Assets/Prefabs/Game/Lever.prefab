@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 1
+  _sfxKey: Lever
   OnActivated:
     m_PersistentCalls:
       m_Calls:

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -73,6 +74,16 @@ namespace TerrorConsole
         {
             _animator.SetTrigger("Close");
             _collider2D.enabled = true;
+        }
+
+        public void PlaySFXOpenDoor()
+        {
+            AudioManager.Source.PlaySFX("OpenDoor");
+        }
+
+        public void PlaySFXCloseDoor()
+        {
+            AudioManager.Source.PlaySFX("CloseDoor");
         }
     }
 }

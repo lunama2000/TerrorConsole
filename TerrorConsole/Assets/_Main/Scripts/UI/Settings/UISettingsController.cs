@@ -48,13 +48,11 @@ namespace TerrorConsole
         private void SetSFXVolume(float newVolume)
         {
             AudioManager.Source.SetSFXVolume(newVolume);
-            SaveSystemManager.Source.SaveSFXVolume(newVolume);
         }
 
         private void SetMusicVolume(float newVolume)
         {
             AudioManager.Source.SetMusicVolume(newVolume);
-            SaveSystemManager.Source.SaveMusicVolume(newVolume);
         }
 
         public void ToogleFullScreen()

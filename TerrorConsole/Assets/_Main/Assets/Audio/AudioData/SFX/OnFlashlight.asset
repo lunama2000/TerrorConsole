@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ce8b1a24e6de69459ffedcffdf4011e, type: 3}
-  m_Name: PianoMusic
+  m_Name: OnFlashlight
   m_EditorClassIdentifier: 
-  AudioName: MusicPiano
-  AudioClip: {fileID: 8300000, guid: f504c327b316f7548b479be3d6152f64, type: 3}
+  AudioName: OnFlashlight
+  AudioClip: {fileID: 8300000, guid: c41ec05af4a598e439fbea837631e05d, type: 3}
   Volume: 1

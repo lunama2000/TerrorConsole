@@ -47,12 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae78f7741bcf0cd428fe85f687601a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPersistent: 1
+  _isPersistent: 1
   _sfxAudioSource: {fileID: 8281329912393758018}
-  _audioDatabase: {fileID: 7872283130936903023}
-  _sfxMixer: {fileID: 24100000, guid: 403e891dcc123774894c49ca4f8f2cdd, type: 2}
   _musicAudioSource: {fileID: 9056862283482676051}
+  _sfxMixer: {fileID: 24100000, guid: 403e891dcc123774894c49ca4f8f2cdd, type: 2}
   _musicMixer: {fileID: 24100000, guid: 25083dd52c75fa84f99faf7a31fa6610, type: 2}
+  _audioDatabase: {fileID: 7872283130936903023}
 --- !u!82 &8281329912393758018
 AudioSource:
   m_ObjectHideFlags: 0
@@ -166,6 +166,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 22049d1cf0c18d34b9f68849d87d7291, type: 2}
   - {fileID: 11400000, guid: 2ef5401d2529082429f897b7f893e0d8, type: 2}
   - {fileID: 11400000, guid: b1b432bfdab3bb9418355db8a0810394, type: 2}
+  - {fileID: 11400000, guid: 35a9562698754e04fb803349dbdcd26c, type: 2}
+  - {fileID: 11400000, guid: c3b0e3695ef88074aaf609e314f83a92, type: 2}
+  - {fileID: 11400000, guid: 59553a91d1b45924a9060b70e88f4844, type: 2}
+  - {fileID: 11400000, guid: 137c281acfd8a664b88d99368d7cae19, type: 2}
+  - {fileID: 11400000, guid: 7592b8adfd5606f4eaea4d3726905d7c, type: 2}
+  - {fileID: 11400000, guid: 8f00fdbfdf0dcb344b4a5e6b258f19f5, type: 2}
+  - {fileID: 11400000, guid: ac7248839f8f30c418207190a57d2ce1, type: 2}
+  - {fileID: 11400000, guid: a197fac6c46ddee4b961216a2493c454, type: 2}
+  - {fileID: 11400000, guid: ee59d7bbea9a8f845b2ae16194256a9b, type: 2}
+  - {fileID: 11400000, guid: 13b0ea7d0728c4f449ea1b29e05f1655, type: 2}
+  - {fileID: 11400000, guid: 337c328133343744da9060aef5ac7750, type: 2}
+  - {fileID: 11400000, guid: 886ed4b8b717f1447ab11ea0bcfdc47f, type: 2}
 --- !u!82 &9056862283482676051
 AudioSource:
   m_ObjectHideFlags: 0

@@ -147,5 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b306dee6692f1a46a98bfc6f0a5cef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickableSFXKey: Note
   _itemInfo: {fileID: 11400000, guid: 16f03e1ff04b96741b7eb932dd7d8b3f, type: 2}
   _eventRecorder: {fileID: 7977701616342945281}

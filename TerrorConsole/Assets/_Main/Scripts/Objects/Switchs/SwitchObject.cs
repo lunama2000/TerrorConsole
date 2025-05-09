@@ -6,7 +6,7 @@ namespace TerrorConsole
     public class SwitchObject : MonoBehaviour
     {
         [SerializeField] protected string _id;
-        
+        [SerializeField] private string _sfxKey;
         public UnityEvent<string> OnActivated;
         public UnityEvent<string> OnDeactivated;
         
@@ -36,6 +36,11 @@ namespace TerrorConsole
         {
             _state = false;
             OnDeactivated?.Invoke(_id);
+        }
+
+        public void PlayObjetcSFX()
+        {
+            AudioManager.Source.PlaySFX(_sfxKey);
         }
     }
 }

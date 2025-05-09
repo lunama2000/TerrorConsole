@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,6 +7,7 @@ namespace TerrorConsole
     public class TriggerEvents : MonoBehaviour
     {
         [SerializeField] private UnityEvent _onTriggerEnter = new UnityEvent();
+        [SerializeField] private String _sfxTriggerKey;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -15,6 +17,10 @@ namespace TerrorConsole
             }
         }
 
+        public void PlayTriggerSound()
+        {
+            AudioManager.Source.PlaySFX(_sfxTriggerKey);
+        }
 
     }
 }

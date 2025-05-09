@@ -13,6 +13,5 @@ namespace TerrorConsole
         void PlaySFX(string audioKey);
         void PlayMusic(string musicKey);
         void StopMusic();
-        
     }
 }
