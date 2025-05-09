@@ -25,14 +25,16 @@ namespace TerrorConsole
 
         private void InitializeSFX()
         {
-            SFXVolume = PlayerPrefs.GetFloat("sfxVol", 0.75f);
+            SFXVolume = SaveSystemManager.Source.GetSavedSFXVolume();
             _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 20f, SFXVolume));
+            Debug.Log($"[AudioManager] Init SFX Volume: {SFXVolume}");
         }
 
         private void InitializeMusic()
         {
-            MusicVolume = PlayerPrefs.GetFloat("musicVol", 0.75f);
+            MusicVolume = SaveSystemManager.Source.GetSavedMusicVolume();
             _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 20f, MusicVolume));
+            Debug.Log($"[AudioManager] Init Music Volume: {MusicVolume}");
         }
 
         public void PlaySFX(string audioKey)
@@ -76,7 +78,8 @@ namespace TerrorConsole
             newVolume = Mathf.Clamp01(newVolume);
             SFXVolume = newVolume;
             _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 20f, newVolume));
-            PlayerPrefs.SetFloat("sfxVol", newVolume);
+            Debug.Log("[AudioManager] Music volume (dB): " + Mathf.Lerp(-80f, 20f, SFXVolume));
+            SaveSystemManager.Source.SaveSFXVolume(newVolume);
         }
 
         public void SetMusicVolume(float newVolume)
@@ -84,7 +87,8 @@ namespace TerrorConsole
             newVolume = Mathf.Clamp01(newVolume);
             MusicVolume = newVolume;
             _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 20f, newVolume));
-            PlayerPrefs.SetFloat("musicVol", newVolume);
+            Debug.Log("[AudioManager] Music volume (dB): " + Mathf.Lerp(-80f, 20f, MusicVolume));
+            SaveSystemManager.Source.SaveMusicVolume(newVolume);
         }
     }
 }
