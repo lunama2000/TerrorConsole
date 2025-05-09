@@ -6,11 +6,9 @@ namespace TerrorConsole
     public class Door : MonoBehaviour
     {
         [SerializeField] protected bool _isLocked;
-        [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private Sprite openSprite;
-        [SerializeField] private Sprite closedSprite;
         [SerializeField] private Collider2D _collider2D;
         [SerializeField] private LevelEventsRecorder _eventRecorder;
+        [SerializeField] private Animator _animator;
         [SerializeField] private UnityEvent _onDoorOpened = new UnityEvent();
         [SerializeField] private UnityEvent _onDoorClosed = new UnityEvent();
 
@@ -61,7 +59,7 @@ namespace TerrorConsole
 
         private void OpenDoorInmediate()
         {
-            _spriteRenderer.sprite = openSprite;//TO DO Implement animation of door opening
+            _animator.SetTrigger("Open");
             _collider2D.enabled = false;
         }
 
@@ -73,7 +71,7 @@ namespace TerrorConsole
 
         private void CloseDoorInmediate()
         {
-            _spriteRenderer.sprite = closedSprite;//TO DO Implement animation of door opening
+            _animator.SetTrigger("Close");
             _collider2D.enabled = true;
         }
     }
