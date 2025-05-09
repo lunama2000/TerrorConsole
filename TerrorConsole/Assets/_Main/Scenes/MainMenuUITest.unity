@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -323,12 +322,23 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+--- !u!114 &336717657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 222485854385606357, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+  m_PrefabInstance: {fileID: 7664183912947041737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0834eef0bbe70449c333ac6cdc5a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &441055145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -511,6 +521,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 482fdefff63e2b44f88739e0f1b5bf1f, type: 3}
+--- !u!114 &788762355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8139966630143936129, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+  m_PrefabInstance: {fileID: 7664183912947041737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0834eef0bbe70449c333ac6cdc5a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1435414159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -673,6 +694,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1212277377585907995, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
   m_PrefabInstance: {fileID: 7664183912947041737}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2017791601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7106453784184597273, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+  m_PrefabInstance: {fileID: 7664183912947041737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0834eef0bbe70449c333ac6cdc5a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1617717610439723048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -855,6 +887,122 @@ PrefabInstance:
     - target: {fileID: 601025254849861072, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_Name
       value: MainMenuUIController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361153671392183406, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361153671392183406, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361153671392183406, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2017791601}
+    - target: {fileID: 1361153671392183406, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361153671392183406, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonPlaySFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361153671392183406, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TerrorConsole.UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361153671392183406, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TerrorConsole.MainMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850074725502590446, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 336717657}
+    - target: {fileID: 2850074725502590446, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonPlaySFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850074725502590446, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TerrorConsole.UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242739395891744753, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 336717657}
+    - target: {fileID: 5242739395891744753, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonPlaySFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242739395891744753, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TerrorConsole.UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188329824251435219, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188329824251435219, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188329824251435219, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 788762355}
+    - target: {fileID: 6188329824251435219, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188329824251435219, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ButtonPlaySFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188329824251435219, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TerrorConsole.UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188329824251435219, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120840816523201337, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 336717657}
+    - target: {fileID: 8120840816523201337, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonPlaySFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120840816523201337, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TerrorConsole.UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361101304099342929, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 336717657}
+    - target: {fileID: 8361101304099342929, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonPlaySFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361101304099342929, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TerrorConsole.UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439835823838949036, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2017791601}
+    - target: {fileID: 8439835823838949036, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonPlaySFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439835823838949036, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TerrorConsole.UIController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9204175234681477167, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_LocalPosition.x
