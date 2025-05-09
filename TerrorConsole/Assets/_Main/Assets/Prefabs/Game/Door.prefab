@@ -137,6 +137,7 @@ MonoBehaviour:
   _collider2D: {fileID: 7572388163158137190}
   _eventRecorder: {fileID: 1661503031811502314}
   _animator: {fileID: 7981286743827022374}
+  _DoorSFXKey: DoorOpen
   _onDoorOpened:
     m_PersistentCalls:
       m_Calls: []

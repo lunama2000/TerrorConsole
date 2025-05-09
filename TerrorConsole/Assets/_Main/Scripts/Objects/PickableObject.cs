@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace TerrorConsole
 {
     public class PickableObject : MonoBehaviour
     {
+        [SerializeField] private String _pickableSFXKey;
         [SerializeField] protected ItemInfo _itemInfo;
         [SerializeField] private LevelEventsRecorder _eventRecorder;
 
@@ -32,6 +34,7 @@ namespace TerrorConsole
         {
             Inventory.Source.AddItemToInventory(_itemInfo);
             _eventRecorder.RegisterLevelEvent(true);
+            AudioManager.Source.PlaySFX(_pickableSFXKey);
             Destroy(gameObject);
         }
     }
