@@ -19,12 +19,7 @@ namespace TerrorConsole
         [SerializeField] private float _loadingAnimDuration = 0.25f;
 
         public event Action OnTransitionBegan;
-        
-        private void Start()
-        {
-            LevelManager.Source.OnPlayerCaptured += OnPlayerCapture;
-        }
-        
+                
         private void OnDestroy()
         {
             LevelManager.Source.OnPlayerCaptured -= OnPlayerCapture;
@@ -62,6 +57,7 @@ namespace TerrorConsole
         {
             _mainCanvasGroup.alpha = 0;
             _mainCanvasGroup.gameObject.SetActive(true);
+            _backgroundPanel.transform.localPosition = new Vector3(0, 0, 0);
             await _mainCanvasGroup.DOFade(1, _transitionDuration).AsyncWaitForCompletion();
             
             await ShowLoadingIcon();
@@ -75,6 +71,7 @@ namespace TerrorConsole
         private async UniTaskVoid TransitionSlide(Action onTransition)
         {
             _mainCanvasGroup.gameObject.SetActive(true);
+            _mainCanvasGroup.alpha = 1;
             var mainCanvasRect = ((RectTransform)_mainCanvasGroup.transform).rect;
             var screenWidth = mainCanvasRect.width;
             
@@ -100,6 +97,7 @@ namespace TerrorConsole
         
         private void GoToScene(string sceneName)
         {
+            UnsuscribeToLevelEvents();
             SceneManager.LoadScene(sceneName);
             AudioManager.Source.StopMusic();
         }
@@ -110,6 +108,23 @@ namespace TerrorConsole
             {
                 LevelManager.Source.RespawnPlayer();
             }, TransitionType.Slide);
+        }
+
+        public void SuscribeToLevelEvents()
+        {
+            LevelManager.Source.OnPlayerCaptured += OnPlayerCapture;
+        }
+
+        private void UnsuscribeToLevelEvents()
+        {
+            try
+            {
+                LevelManager.Source.OnPlayerCaptured -= OnPlayerCapture;
+            }
+            catch
+            {
+
+            }
         }
     }
     

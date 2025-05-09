@@ -12,7 +12,7 @@ namespace TerrorConsole
         
         protected bool _state;
 
-        protected void AlternateState()
+        protected virtual void AlternateState()
         {
             _state = !_state;
             if (_state)

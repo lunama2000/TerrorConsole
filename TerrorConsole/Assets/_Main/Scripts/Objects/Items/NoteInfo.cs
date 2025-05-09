@@ -8,6 +8,7 @@ namespace TerrorConsole
     {
         public Sprite NoteBackground;
         public Sprite NoteDraw;
+        [Multiline]
         public string NoteText;
 
         public override void OnClickedInInventory()

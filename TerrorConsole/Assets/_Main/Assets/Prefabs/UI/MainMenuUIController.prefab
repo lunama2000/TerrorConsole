@@ -756,7 +756,7 @@ PrefabInstance:
     - target: {fileID: 2259879862413590887, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: mainMenuController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6663477406803888775}
     - target: {fileID: 2417717266990144295, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: _lanternItemInfo
       value: 
@@ -764,7 +764,7 @@ PrefabInstance:
     - target: {fileID: 2417717266990144295, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: mainMenuController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6663477406803888775}
     - target: {fileID: 3363695004210517627, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 4
@@ -884,7 +884,7 @@ PrefabInstance:
     - target: {fileID: 4440998559536851915, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: mainMenuController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6663477406803888775}
     - target: {fileID: 4747553358008353892, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 4

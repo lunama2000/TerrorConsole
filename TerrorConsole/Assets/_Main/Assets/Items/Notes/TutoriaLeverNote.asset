@@ -10,11 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef1bae15c555e0540a8172fb58f35338, type: 3}
-  m_Name: TutorialNote
+  m_Name: TutoriaLeverNote
   m_EditorClassIdentifier: 
-  itemName: TutorialNote
+  itemName: TutorialLeverNote
   itemSprite: {fileID: 21300000, guid: 1ec1ea5239ab4244783bfbaa274abbf3, type: 3}
-  itemDescription: This is trash
+  itemDescription: Is this useful?
   NoteBackground: {fileID: 21300000, guid: 85fa8d4e60140c64c89ddf0c3c87a771, type: 3}
   NoteDraw: {fileID: 0}
-  NoteText: If you are reading this note it is because I couldn't picked it up again.
+  NoteText: 'Center
+
+    Left
+
+    Right'
