@@ -1,17 +1,17 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Windows;
 
 namespace TerrorConsole
 {
     public class AudioManager : Singleton<IAudioSource>, IAudioSource
     {
         [SerializeField] private AudioSource _sfxAudioSource;
-        [SerializeField] private AudioDatabase _audioDatabase;
-        [SerializeField] private AudioMixer _sfxMixer;
         [SerializeField] private AudioSource _musicAudioSource;
+        [SerializeField] private AudioMixer _sfxMixer;
         [SerializeField] private AudioMixer _musicMixer;
         
+        [SerializeField] private AudioDatabase _audioDatabase;
+
         private AudioClip _currentMusic;
 
         public float SFXVolume { get; private set; }
@@ -22,56 +22,39 @@ namespace TerrorConsole
             InitializeSFX();
             InitializeMusic();
         }
-        
-        #region SFX
+
         private void InitializeSFX()
         {
-            SFXVolume = SaveSystemManager.Source.GetSavedSFXVolume();
-            _sfxMixer.SetFloat("sfxVol", SFXVolume);
+            SFXVolume = PlayerPrefs.GetFloat("sfxVol", 0.75f);
+            _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 20f, SFXVolume));
         }
-
-        public void PlayDoorCloseSFX()
-        {
-            PlayOneShotSFX("DoorCloseSFX");
-        }
-
-        public void PlayDoorOpenSFX()
-        {
-            PlayOneShotSFX("DoorOpenSFX");
-        }
-
-        public void PlayPauseSFX()
-        {
-            PlayOneShotSFX("PauseSFX");
-        }
-
-        public void PlayUIButtonClickSFX()
-        {
-            PlayOneShotSFX("UIButtonClickSFX");
-        }
-
-        private void PlayOneShotSFX(string audioName)
-        {
-            AudioData audioData = _audioDatabase.GetAudio(audioName);
-            _sfxAudioSource.PlayOneShot(audioData.AudioClip, audioData.Volume);
-        }
-        
-        #endregion
-        
-        #region Music
 
         private void InitializeMusic()
         {
-            MusicVolume = SaveSystemManager.Source.GetSavedMusicVolume();
-            _musicMixer.SetFloat("musicVol", MusicVolume);
+            MusicVolume = PlayerPrefs.GetFloat("musicVol", 0.75f);
+            _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 20f, MusicVolume));
         }
-        
-        public void PlayMusic(MusicType musicType)
+
+        public void PlaySFX(string audioKey)
         {
-            string audioName = GetMusicName(musicType);
-            
-            AudioData audioData = _audioDatabase.GetAudio(audioName);
-            if (audioData == null) return; 
+            var audioData = _audioDatabase.GetAudio(audioKey);
+            if (audioData == null)
+            {
+                Debug.LogWarning($"[AudioManager] SFX '{audioKey}' not found in AudioDatabase.");
+                return;
+            }
+
+            _sfxAudioSource.PlayOneShot(audioData.AudioClip, audioData.Volume);
+        }
+
+        public void PlayMusic(string audioKey)
+        {
+            var audioData = _audioDatabase.GetAudio(audioKey);
+            if (audioData == null)
+            {
+                Debug.LogWarning($"[AudioManager] Music '{audioKey}' not found in AudioDatabase.");
+                return;
+            }
 
             if (_currentMusic == audioData.AudioClip) return;
 
@@ -87,41 +70,21 @@ namespace TerrorConsole
             _musicAudioSource.clip = null;
             _currentMusic = null;
         }
-       
-        #endregion
-        /// <summary>
-        /// New volume represented in a range from 0 to 1
-        /// </summary>
-        /// <param name="newVolume"></param>
+
         public void SetSFXVolume(float newVolume)
         {
-            newVolume = Mathf.Clamp(newVolume, 0f, 1f);
-            SFXVolume = Mathf.Lerp(-80f, 20f, newVolume);
-            _sfxMixer.SetFloat("sfxVol", SFXVolume);
-            PlayerPrefs.SetFloat("sfxVol", SFXVolume);
-        }
-        
-        /// <param name="newVolume"></param>
-        public void SetMusicVolume(float newVolume)
-        {
-            newVolume = Mathf.Clamp(newVolume, 0f, 1f);
-            MusicVolume = Mathf.Lerp(-80f, 20f, newVolume);
-            _musicMixer.SetFloat("musicVol", MusicVolume);
-            PlayerPrefs.SetFloat("musicVol", MusicVolume);
+            newVolume = Mathf.Clamp01(newVolume);
+            SFXVolume = newVolume;
+            _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 20f, newVolume));
+            PlayerPrefs.SetFloat("sfxVol", newVolume);
         }
 
-        private string GetMusicName(MusicType musicType)
+        public void SetMusicVolume(float newVolume)
         {
-            switch (musicType)
-            {
-                case MusicType.LoudTones: return "LoudTonesMusic";
-                case MusicType.Voices: return "VoicesMusic";
-                case MusicType.MusicPiano: return "MusicPiano";
-                case MusicType.Mystery: return "MysteryMusic";
-                case MusicType.Shadow: return "ShadowMusic";
-                case MusicType.ScaryBells: return "ScaryBells";
-                default: return null;
-            }
+            newVolume = Mathf.Clamp01(newVolume);
+            MusicVolume = newVolume;
+            _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 20f, newVolume));
+            PlayerPrefs.SetFloat("musicVol", newVolume);
         }
     }
 }

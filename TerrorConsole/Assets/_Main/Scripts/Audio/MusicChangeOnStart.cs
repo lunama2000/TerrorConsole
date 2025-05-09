@@ -4,10 +4,10 @@ namespace TerrorConsole
 {
     public class MusicChangeOnStart : MonoBehaviour
     {
-        [SerializeField] private MusicType musicType;
+        [SerializeField] private string _musicKey;
         private void Start()
         {
-            AudioManager.Source.PlayMusic(musicType);
+            AudioManager.Source.PlayMusic(_musicKey);
         }
     }
 }
