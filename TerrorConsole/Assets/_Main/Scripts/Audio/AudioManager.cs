@@ -26,15 +26,13 @@ namespace TerrorConsole
         private void InitializeSFX()
         {
             SFXVolume = SaveSystemManager.Source.GetSavedSFXVolume();
-            _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 20f, SFXVolume));
-            Debug.Log($"[AudioManager] Init SFX Volume: {SFXVolume}");
+            _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 0f, SFXVolume));
         }
 
         private void InitializeMusic()
         {
             MusicVolume = SaveSystemManager.Source.GetSavedMusicVolume();
-            _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 20f, MusicVolume));
-            Debug.Log($"[AudioManager] Init Music Volume: {MusicVolume}");
+            _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 0f, MusicVolume));
         }
 
         public void PlaySFX(string audioKey)
@@ -75,20 +73,18 @@ namespace TerrorConsole
 
         public void SetSFXVolume(float newVolume)
         {
-            newVolume = Mathf.Clamp01(newVolume);
-            SFXVolume = newVolume;
-            _sfxMixer.SetFloat("sfxVol", Mathf.Lerp(-80f, 20f, newVolume));
-            Debug.Log("[AudioManager] Music volume (dB): " + Mathf.Lerp(-80f, 20f, SFXVolume));
-            SaveSystemManager.Source.SaveSFXVolume(newVolume);
+            SFXVolume = Mathf.Clamp01(newVolume);
+            var dB = Mathf.Log10(SFXVolume == 0f ? 0.0001f : SFXVolume) * 20f;
+            _sfxMixer.SetFloat("sfxVol", dB);
+            SaveSystemManager.Source.SaveSFXVolume(SFXVolume);
         }
 
         public void SetMusicVolume(float newVolume)
         {
-            newVolume = Mathf.Clamp01(newVolume);
-            MusicVolume = newVolume;
-            _musicMixer.SetFloat("musicVol", Mathf.Lerp(-80f, 20f, newVolume));
-            Debug.Log("[AudioManager] Music volume (dB): " + Mathf.Lerp(-80f, 20f, MusicVolume));
-            SaveSystemManager.Source.SaveMusicVolume(newVolume);
+            MusicVolume = Mathf.Clamp01(newVolume);
+            var dB = Mathf.Log10(MusicVolume == 0f ? 0.0001f : MusicVolume) * 20f;
+            _musicMixer.SetFloat("musicVol", dB);
+            SaveSystemManager.Source.SaveMusicVolume(MusicVolume);
         }
     }
 }

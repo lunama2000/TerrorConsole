@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce8b1a24e6de69459ffedcffdf4011e, type: 3}
   m_Name: PianoMusic
   m_EditorClassIdentifier: 
-  AudioName: MusicPiano
+  AudioName: PianoMusic
   AudioClip: {fileID: 8300000, guid: f504c327b316f7548b479be3d6152f64, type: 3}
   Volume: 1
