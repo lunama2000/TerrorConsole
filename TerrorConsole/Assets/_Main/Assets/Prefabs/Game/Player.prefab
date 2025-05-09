@@ -132,6 +132,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 437277839779755587}
   _animator: {fileID: 2091095549165880024}
   _sprite: {fileID: 380226546314325380}
+  _stepInterval: 0.4
+  _sfxStepKey: Steps
   _velocity: 6
 --- !u!61 &9167585666238301855
 BoxCollider2D:

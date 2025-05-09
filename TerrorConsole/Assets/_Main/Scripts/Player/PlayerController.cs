@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace TerrorConsole
@@ -8,12 +9,15 @@ namespace TerrorConsole
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private Animator _animator;
         [SerializeField] private SpriteRenderer _sprite;
+        [SerializeField] private float _stepInterval;
+        [SerializeField] private string _sfxStepKey;
 
         [Header("CONFIGURATIONS")]
         [SerializeField] private int _velocity = 10;
         private bool _freezeInput = false;
 
         private IInputSource _inputSource;
+        private float _stepTimer = 0f;
         private Vector3 _respawnPosition;
 
         private void Start()
@@ -43,6 +47,13 @@ namespace TerrorConsole
             _rigidbody.MovePosition((Vector2)transform.position + _inputSource.MovementDirection * (_velocity * Time.fixedDeltaTime));
             _animator.SetFloat("X", _inputSource.MovementDirection.normalized.x);
             _animator.SetFloat("Y", _inputSource.MovementDirection.normalized.y);
+            
+            _stepTimer += Time.fixedDeltaTime;
+            if (_stepTimer >= _stepInterval)
+            {
+                _stepTimer = 0f;
+                AudioManager.Source.PlaySFX(_sfxStepKey);
+            }
         }
 
         private void OnLevelStateChange(LevelState newState)
