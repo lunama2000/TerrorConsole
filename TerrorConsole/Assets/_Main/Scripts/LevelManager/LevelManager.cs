@@ -23,6 +23,11 @@ namespace TerrorConsole
 
         [SerializeField] private LevelState currentLevelState;
 
+        private void Start()
+        {
+            ScreenTransitionManager.Source.SuscribeToLevelEvents();
+        }
+
         public void ChangeLevelState(LevelState newState)
         {
             currentLevelState = newState;
