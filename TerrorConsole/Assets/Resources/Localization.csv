@@ -1,6 +1,38 @@
 Key,EN,ES,PT
-Start,Start,Iniciar,começar
+Start,Start,Comenzar,Começar
 Settings,Settings,Ajustes,Configurações
-Where am I?,Where am I?,¿Donde estoy?,Onde estou?
-English,English,Español,Português
-Language,Language,Lenguaje,Linguagem
+Where am I?,Where am I?,¿Dónde estoy?,Onde estou?
+English,English,Inglés,Inglês
+Language,Language,Idioma,Linguagem
+Prolog-Dial1,This exploration was supposed to do something quiet,Se suponia que ésta exploración iba hacer algo tranquilo,Esta exploração deveria fazer algo silencioso
+Prolog-Dial2,"Joking among ourselves, using the supposed legend that was told about the place","Bromeando entre nosotros, usando la supuesta leyenda que se contaba del lugar","Brincando entre nós, usando a suposta lenda que se contava sobre o lugar"
+Prolog-Dial3,But now it turns out that what they said about the creature is true,Pero ahora resulta que lo que decían sobre la criatura es cierto,Mas agora acontece que o que disseram sobre a criatura é verdade
+Prolog-Dial4,"Damn, now I can't find anyone","¡Maldición!, ahora no encuentro a nadie","Droga, agora não consigo encontrar ninguém"
+Prolog-Dial5,"I just hope everyone is well, I hope to find you soon so we can get out of here.","Solo espero que todos se encuentren bien, espero encontrarlos pronto para salir de aquí","Só espero que todos estejam bem, espero encontrar vocês logo para podermos sair daqui."
+L1-Dialog-1,I hope I don't meet the shadow I saw back there,Espero no encontrarme con la sombra que ví alla atras,Espero não encontrar a sombra que vi lá atrás
+L1-Dialog-2,A lever?,¿Una palanca?,Uma alavanca?
+L1-Dialog-3,What will it do if I activate it?,¿Qué hará si la activo?,O que acontecerá se eu ativá-lo?
+L1-Dialog-Note-1," What, a note?", ¿Qué?¿una nota?," O que, uma nota?"
+L1-Dialog-lever-1,What was that?,¿Que fue eso?,O que é que foi isso?
+L1-Dialog-lever-2,Was the wall fake?,¿El muro era falso?,A parede era falsa?
+L1-Dialog-lever-3,OH NO!!! IT'S THE SHADOW!!!,OH NO!!! ES LA SOMBRA!!!,OH NÃO!!! É A SOMBRA!!!
+L1-Dialog-Note-2,"Another note, maybe you can tell me something useful.","Otra nota, talvez pueda decirme algo util","Outra observação, talvez você possa me dizer algo útil."
+L2-Dialog-1,My God!!!,Dios mio!!!,Meu Deus!!!
+L2-Dialog-2-Note,What does this note say?,¿Qué dice esta nota?,O que esta nota diz?
+L2-Dialog-1-ShadowJumpScare,"*Whispering* I have to get out of here, avoiding that thing","*Susurrando* Debo salir de aquí, evitando esa cosa","*Sussurrando* Eu tenho que sair daqui, evitando aquela coisa"
+L2-Dialog-1-Manual,another note?,¿otra nota?,outra nota?
+L2-Dialog-2-Manual,Manual? I guess you could help me,¿Manual? supongo que me podria ayudar,Manual? Eu acho que você poderia me ajudar
+L2-Dialog-1-Page-M,What is this? What kind of language is this?,¿Qué es esto? ¿Qué clase de lenguaje es este?,O que é isso? Que tipo de linguagem é essa?
+L2-Dialog-2-Page-M,"I guess it's the last one, I have to get out of here","Supongo que es la última, debo salir de aquí","Acho que é o último, tenho que sair daqui"
+Back,Back,Atras,Voltar
+Full Screen,Full Screen,Pantalla Completa,Tela cheia
+Resolution,Resolution,Resolución,Resolução
+Music,Music,Música,Música
+Language,Language,Idioma,Linguagem
+Credits,Credits,Créditos,Créditos
+Load Game,Load Game,Cargar,Carregar jogo
+Continue,Continue,Continuar,Continuar
+Quit,Quit,Salir,Desistir
+Graphics,Graphics,Gráficos,Gráficos
+Sound,Sound,Sonido,Som
+Main Menu,Main Menu,Menú principal,Menu principal
