@@ -42,6 +42,7 @@ namespace TerrorConsole
             _direction = _inputSource.LastLookDirection;
             LookInmetiateToDir();
             _lanternLight.enabled = _isOn;
+            AudioManager.Source.PlaySFX(_isOn ? "OnFlashlight" : "OffFlashlight");
         }
 
         private void TurnLight(bool turnOn)
