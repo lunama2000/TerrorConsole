@@ -5,6 +5,8 @@ namespace TerrorConsole
 {
     public interface IInputSource
     {
+        public KeyCode GetActionInGameKeyCode(InputActionsInGame actionsInGame);
+        event Action<InputType> OnInputTypeChange;
         Action OnActivateButton1 { get; set; }
         Action OnActivateButton2 { get; set; }
         Action OnPauseButton { get; set; }

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd1e9a5286904d45a7e9b2737a192d5, type: 3}
+  m_Name: InputIconsDatabase
+  m_EditorClassIdentifier: 
+  KeyCodesIcons:
+  - KeyCode: 110
+    Icon: {fileID: -355778586, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 109
+    Icon: {fileID: -683926710, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 105
+    Icon: {fileID: -1806457278, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 112
+    Icon: {fileID: 198117557, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 119
+    Icon: {fileID: 703039226, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 97
+    Icon: {fileID: 1239366491, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 115
+    Icon: {fileID: 4622492, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 100
+    Icon: {fileID: 2016313923, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 330
+    Icon: {fileID: -1025349598, guid: ddac484acc79fe14f87cd20268cd4897, type: 3}
+  - KeyCode: 332
+    Icon: {fileID: -1488142001, guid: ddac484acc79fe14f87cd20268cd4897, type: 3}
+  - KeyCode: 337
+    Icon: {fileID: -359248175, guid: ddac484acc79fe14f87cd20268cd4897, type: 3}
+  - KeyCode: 333
+    Icon: {fileID: 1479251247, guid: ddac484acc79fe14f87cd20268cd4897, type: 3}
