@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -70,7 +71,10 @@ namespace TerrorConsole
             for (int i = 0; i < _resolutions.Length; i++)
             {
                 string option = _resolutions[i].width + " x " + _resolutions[i].height;
-                options.Add(option);
+                if (!options.Contains(option))
+                {
+                    options.Add(option);
+                }
 
 
                 if (Screen.fullScreen && _resolutions[i].width == Screen.currentResolution.width &&

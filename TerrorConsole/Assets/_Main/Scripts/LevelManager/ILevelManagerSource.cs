@@ -22,5 +22,7 @@ namespace TerrorConsole
 
         void PlayerCaptured();
         void RespawnPlayer();
+
+        LevelState GetCurrentLevelState();
     }
 }

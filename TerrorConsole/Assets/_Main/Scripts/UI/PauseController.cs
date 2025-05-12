@@ -20,6 +20,9 @@ namespace TerrorConsole
 
         private void OnPauseButton()
         {
+            if(LevelManager.Source.GetCurrentLevelState() == LevelState.InDialogue)
+                return;
+
             _paused = !_paused;
             if (_paused)
             {

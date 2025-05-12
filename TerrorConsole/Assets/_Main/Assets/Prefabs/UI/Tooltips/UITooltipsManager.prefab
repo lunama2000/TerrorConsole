@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 4029686271205965392}
   - component: {fileID: 1840500379031031097}
   m_Layer: 5
-  m_Name: UITooltips
+  m_Name: UITooltipsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

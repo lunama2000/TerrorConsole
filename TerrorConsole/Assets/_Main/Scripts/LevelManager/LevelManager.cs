@@ -80,6 +80,11 @@ namespace TerrorConsole
         {
             OnPlayerRespawn?.Invoke();
         }
+
+        public LevelState GetCurrentLevelState()
+        {
+            return currentLevelState;
+        }
     }
 
     #if UNITY_EDITOR
