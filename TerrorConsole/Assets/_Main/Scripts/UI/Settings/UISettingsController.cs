@@ -33,7 +33,7 @@ namespace TerrorConsole
                 _fullScreenToggle.isOn = false;
             }
             GenerateResolutions();
-            GenerateLanguajes();
+            GenerateLanguages();
         }
 
         public void UpdateSFXVolumeFromSlider()
@@ -66,33 +66,30 @@ namespace TerrorConsole
             _resolutions = Screen.resolutions;
             _resolutionsDropdown.ClearOptions();
             List<string> options = new List<string>();
-            int resolucionActual = 0;
+            int currentResolution = 0;
 
             for (int i = 0; i < _resolutions.Length; i++)
             {
-                string option = _resolutions[i].width + " x " + _resolutions[i].height;
-                if (!options.Contains(option))
-                {
-                    options.Add(option);
-                }
-
-
+                string option = $"{_resolutions[i].width } x {_resolutions[i].height} {_resolutions[i].refreshRateRatio}hz";
+                
+                options.Add(option);
+                
                 if (Screen.fullScreen && _resolutions[i].width == Screen.currentResolution.width &&
                     _resolutions[i].height == Screen.currentResolution.height)
                 {
-                    resolucionActual = i;
+                    currentResolution = i;
                 }
 
             }
 
             _resolutionsDropdown.AddOptions(options);
-            _resolutionsDropdown.value = resolucionActual;
+            _resolutionsDropdown.value = currentResolution;
             _resolutionsDropdown.RefreshShownValue();
 
             _resolutionsDropdown.value = SaveSystemManager.Source.GetSavedResolution();
         }
 
-        private void GenerateLanguajes()
+        private void GenerateLanguages()
         {
             _languageDropdown.ClearOptions();
             _languageDropdown.AddOptions(_languageKeys);

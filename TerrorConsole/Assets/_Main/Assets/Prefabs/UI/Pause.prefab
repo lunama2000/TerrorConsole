@@ -1155,6 +1155,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1258880877968219437}
+    - target: {fileID: 3329437243170544382, guid: 59e12370303bab04cb1d01b6b25eaf10, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3648387180492201730, guid: 59e12370303bab04cb1d01b6b25eaf10, type: 3}
       propertyPath: m_Name
       value: SettingsMenu
