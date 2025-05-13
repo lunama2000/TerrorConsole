@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -28,7 +29,16 @@ namespace TerrorConsole
 
         public void OnSelect(BaseEventData eventData)
         {
+            TooltipsManager.Source.HideTooltip("Preview");
+
+            if (!item)
+                return;
+
             InventoryUIManager.Source.UpdateItemPreview(item);
+            if (item.HasPreviewInInventory)
+            {
+                TooltipsManager.Source.ShowTooltip(KeyCode.Return, "Preview");
+            }
         }
 
         public void OnItemClicked()

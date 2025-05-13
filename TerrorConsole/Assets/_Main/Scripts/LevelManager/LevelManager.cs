@@ -9,7 +9,8 @@ namespace TerrorConsole
         Play,
         Pause,
         InDialogue,
-        Cinematic
+        Cinematic,
+        InInventory
     }
 
     public partial class LevelManager : Singleton<ILevelManagerSource>, ILevelManagerSource
@@ -39,6 +40,10 @@ namespace TerrorConsole
         public void PauseLevel()
         {
             ChangeLevelState(LevelState.Pause);
+        }
+        public void OpenInventory()
+        {
+            ChangeLevelState(LevelState.InInventory);
         }
 
         public void PlayLevel()

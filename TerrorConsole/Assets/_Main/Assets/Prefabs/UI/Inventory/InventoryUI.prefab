@@ -565,6 +565,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -302517039436550638}
+        m_TargetAssemblyTypeName: TerrorConsole.InventoryUIManager, Assembly-CSharp
+        m_MethodName: OnInventoryClosed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4568580671590418505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,9 +1069,6 @@ MonoBehaviour:
   _defaultSelectedUI: {fileID: 524330939663587071}
   _canvasGroup: {fileID: 4238763518826969849}
   _startOpened: 0
-  _menuUIButtons: []
-  _optionsUIButtons: []
-  _newGameUIButtons: []
 --- !u!1001 &1514976341267159337
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -40,10 +40,24 @@ namespace TerrorConsole
             _currentTooltips.Add(actionName, newTooltip.gameObject);
         }
 
+        public void ShowTooltip(KeyCode inputKeyCode, string actionName)
+        {
+            if (_currentTooltips.ContainsKey(actionName))
+                return;
+
+            UITooltip newTooltip = Instantiate(_toolTipPrefab, _toolTipsHolder.transform).GetComponent<UITooltip>();
+            newTooltip.Initialize(inputKeyCode, actionName);
+            _currentTooltips.Add(actionName, newTooltip.gameObject);
+        }
+
         public Sprite GetActionInGameIcon(InputActionsInGame actionsInGame)
         {
             return _iconsDatabase.GetKeyCodeIcon(InputManager.Source.GetActionInGameKeyCode(actionsInGame));
         }
 
+        public Sprite GetKeycodeIcon(KeyCode keycode)
+        {
+            return _iconsDatabase.GetKeyCodeIcon(keycode);
+        }
     }
 }

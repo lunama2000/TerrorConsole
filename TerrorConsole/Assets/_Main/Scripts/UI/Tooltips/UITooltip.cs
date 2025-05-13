@@ -22,6 +22,12 @@ namespace TerrorConsole
             UpdateIcon();
         }
 
+        public void Initialize(KeyCode inputToDisplay, string actionName)
+        {
+            _actionName.text = actionName;
+            _inputImage.sprite = TooltipsManager.Source.GetKeycodeIcon(inputToDisplay);
+        }
+
         private void UpdateIcon()
         {
             _inputImage.sprite = TooltipsManager.Source.GetActionInGameIcon(_inputToDisplay);

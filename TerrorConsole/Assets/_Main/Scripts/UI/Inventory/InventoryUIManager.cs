@@ -53,7 +53,7 @@ namespace TerrorConsole
             else
             {
                 _uIController.OpenMenu(_uIController);
-                LevelManager.Source.PauseLevel();
+                LevelManager.Source.OpenInventory();
                 InitializeInventory();
             }
         }
@@ -76,6 +76,11 @@ namespace TerrorConsole
             {
                 ResetItemPreview();
             }
+        }
+
+        public void OnInventoryClosed()
+        {
+            TooltipsManager.Source.HideTooltip("Preview");
         }
     }
 }
