@@ -22,6 +22,8 @@ namespace TerrorConsole
         public event Action OnPlayerRespawn;
 
         [SerializeField] private LevelState currentLevelState;
+        
+        private Vector3 _currentRespawnPosition;
 
         private void Start()
         {
@@ -57,6 +59,16 @@ namespace TerrorConsole
         public bool GetEventState(string uniqueEventKey)
         {
             return SaveSystemManager.Source.GetEventState(levelNumber, uniqueEventKey);
+        }
+        
+        public void SetRespawnPosition(Vector3 newPosition)
+        {
+            _currentRespawnPosition = newPosition;
+        }
+        
+        public Vector3 GetRespawnPosition()
+        {
+            return _currentRespawnPosition;
         }
         
         public void PlayerCaptured()
