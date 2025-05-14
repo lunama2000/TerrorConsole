@@ -10,7 +10,6 @@ namespace TerrorConsole
         [SerializeField] RectTransform _myRectTransform;
         [SerializeField] Toggle _myToggle;
         [SerializeField] ScrollRect _scrollRect;
-        [SerializeField] RectTransform contentPanel;
 
         private void Start()
         {
@@ -25,10 +24,15 @@ namespace TerrorConsole
 
         private void UpdateScrollPosition()
         {
-            Vector2 targetPosition = (Vector2)_scrollRect.transform.InverseTransformPoint(contentPanel.position) - (Vector2)_scrollRect.transform.InverseTransformPoint(transform.position);
+            float targetY = 1f - (float)(_myRectTransform.GetSiblingIndex() - 1) / (_scrollRect.content.childCount - 2);
+            Vector2 startPos = _scrollRect.normalizedPosition;
 
-            targetPosition -= new Vector2(0, _myRectTransform.rect.height);
-            contentPanel.DOAnchorPos(targetPosition, 0.3f).SetEase(Ease.OutCubic);
+            DOTween.To(
+            () => _scrollRect.normalizedPosition.y,
+            y => _scrollRect.normalizedPosition = new Vector2(0f, y),
+            targetY,
+            0.3f
+            );
         }
     }
 }
