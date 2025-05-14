@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace TerrorConsole
 {
@@ -15,6 +16,9 @@ namespace TerrorConsole
 
         public void AddOrUpdateLevelEvent(string eventName, bool eventState);
         public bool GetEventState(string uniqueEventKey);
+
+        void SetRespawnPosition(Vector3 newPosition);
+        Vector3 GetRespawnPosition();
 
         void PlayerCaptured();
         void RespawnPlayer();

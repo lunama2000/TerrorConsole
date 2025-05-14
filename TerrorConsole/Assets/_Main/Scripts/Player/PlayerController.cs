@@ -99,7 +99,7 @@ namespace TerrorConsole
 
         private void OnRespawn()
         {
-            transform.position = _respawnPosition;
+            transform.position = LevelManager.Source.GetRespawnPosition();
         }
     }
 }
