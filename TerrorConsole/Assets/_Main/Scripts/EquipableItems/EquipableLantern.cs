@@ -26,7 +26,7 @@ namespace TerrorConsole
         {
             base.Start();
             _inputSource.OnActivateButton2 += SwitchLight;
-            TooltipsManager.Source.ShowTooltip(InputActionsInGame.Button2, "Lantern");
+            TooltipsManager.Source.ShowUITooltip(InputActionsInGame.Button2, "Lantern");
             TurnLight(false);
         }
 

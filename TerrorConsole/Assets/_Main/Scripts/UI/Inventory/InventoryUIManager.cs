@@ -77,16 +77,16 @@ namespace TerrorConsole
 
         public void OnInventoryClosed()
         {
-            TooltipsManager.Source.HideAll();
+            TooltipsManager.Source.HideAllUITooltips();
             LevelManager.Source.PlayLevel();
             _uIController.CloseMenu(_uIController);
-            TooltipsManager.Source.UnStashTooltips();
+            TooltipsManager.Source.UnStashUITooltips();
         }
 
         public void OnInventoryOpened()
         {
-            TooltipsManager.Source.StashCurrentTooltips();
-            TooltipsManager.Source.ShowTooltip(InputActionsInGame.InventoryButton, "Close");
+            TooltipsManager.Source.StashCurrentUITooltips();
+            TooltipsManager.Source.ShowUITooltip(InputActionsInGame.InventoryButton, "Close");
             _uIController.OpenMenu(_uIController);
             InitializeInventory();
             LevelManager.Source.OpenInventory();

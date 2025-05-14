@@ -4,42 +4,15 @@ using UnityEngine.UI;
 
 namespace TerrorConsole
 {
-    public class UITooltip : MonoBehaviour
+    public class UITooltip : Tooltip
     {
         [SerializeField] private Image _inputImage;
-        [SerializeField] private TextMeshProUGUI _actionName;
-        [SerializeField] private InputActionsInGame _inputToDisplay;
+        [SerializeField] private TextMeshProUGUI _actionText;
 
-        private void OnEnable()
+        protected override void DisplayIcon()
         {
-            InputManager.Source.OnInputTypeChange += UpdateIconWithNewInput;
-        }
-        private void OnDestroy()
-        {
-            InputManager.Source.OnInputTypeChange -= UpdateIconWithNewInput;
-        }
-
-        public void Initialize(InputActionsInGame inputToDisplay, string actionName)
-        {
-            _inputToDisplay = inputToDisplay;
-            _actionName.text = actionName;
-            UpdateIcon();
-        }
-
-        public void Initialize(KeyCode inputToDisplay, string actionName)
-        {
-            _actionName.text = actionName;
-            _inputImage.sprite = TooltipsManager.Source.GetKeycodeIcon(inputToDisplay);
-        }
-
-        private void UpdateIcon()
-        {
-            _inputImage.sprite = TooltipsManager.Source.GetActionInGameIcon(_inputToDisplay);
-        }
-
-        public void UpdateIconWithNewInput(InputType newInputType)
-        {
-            UpdateIcon();
+            _inputImage.sprite = _inputSprite;
+            _actionText.text = _actionName;
         }
     }
 }

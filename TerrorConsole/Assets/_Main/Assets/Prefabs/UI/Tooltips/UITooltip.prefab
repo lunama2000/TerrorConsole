@@ -287,9 +287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7781e0956e4cd4e45bda121ad32d8d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputImage: {fileID: 2233961224158149257}
-  _actionName: {fileID: 5227799697252535856}
   _inputToDisplay: 0
+  _inputImage: {fileID: 2233961224158149257}
+  _actionText: {fileID: 5227799697252535856}
 --- !u!225 &8413762333345085676
 CanvasGroup:
   m_ObjectHideFlags: 0

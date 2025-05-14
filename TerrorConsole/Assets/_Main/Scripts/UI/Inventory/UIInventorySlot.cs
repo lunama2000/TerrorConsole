@@ -29,7 +29,7 @@ namespace TerrorConsole
 
         public void OnSelect(BaseEventData eventData)
         {
-            TooltipsManager.Source.HideTooltip("Preview");
+            TooltipsManager.Source.HideUITooltip("Preview");
 
             if (!item)
                 return;
@@ -37,7 +37,7 @@ namespace TerrorConsole
             InventoryUIManager.Source.UpdateItemPreview(item);
             if (item.HasPreviewInInventory)
             {
-                TooltipsManager.Source.ShowTooltip(InputActionsInGame.UISelect, "Preview");
+                TooltipsManager.Source.ShowUITooltip(InputActionsInGame.UISelect, "Preview");
             }
         }
 
