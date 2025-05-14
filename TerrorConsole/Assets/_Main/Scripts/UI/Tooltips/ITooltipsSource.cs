@@ -13,5 +13,8 @@ namespace TerrorConsole
 
         void HideAll();
         public Sprite GetActionInGameIcon(InputActionsInGame actionsInGame);
+
+        void StashCurrentTooltips();
+        void UnStashTooltips();
     }
 }

@@ -37,12 +37,15 @@ namespace TerrorConsole
             InventoryUIManager.Source.UpdateItemPreview(item);
             if (item.HasPreviewInInventory)
             {
-                TooltipsManager.Source.ShowTooltip(KeyCode.Return, "Preview");
+                TooltipsManager.Source.ShowTooltip(InputActionsInGame.UISelect, "Preview");
             }
         }
 
         public void OnItemClicked()
         {
+            if(!item)
+                return;
+
             item.OnClickedInInventory();
         }
     }

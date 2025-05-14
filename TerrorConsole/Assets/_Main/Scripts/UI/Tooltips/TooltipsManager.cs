@@ -9,6 +9,7 @@ namespace TerrorConsole
         [SerializeField] private GameObject _toolTipPrefab;
 
         private Dictionary<string, GameObject> _currentTooltips = new Dictionary<string, GameObject>();
+        private Dictionary<string, GameObject> _stashedTooltips = new Dictionary<string, GameObject>();
 
         [SerializeField] private InputIconsDatabase _iconsDatabase;
 
@@ -58,6 +59,27 @@ namespace TerrorConsole
         public Sprite GetKeycodeIcon(KeyCode keycode)
         {
             return _iconsDatabase.GetKeyCodeIcon(keycode);
+        }
+
+        public void StashCurrentTooltips()
+        {
+            foreach (KeyValuePair<string, GameObject> tooltip in _currentTooltips)
+            {
+                _stashedTooltips.Add(tooltip.Key, tooltip.Value);
+                tooltip.Value.SetActive(false);
+            }
+            _currentTooltips.Clear();
+        }
+
+        public void UnStashTooltips()
+        {
+            foreach (KeyValuePair<string, GameObject> tooltip in _stashedTooltips)
+            {
+                _currentTooltips.Add(tooltip.Key, tooltip.Value);
+                tooltip.Value.SetActive(true);
+            }
+            print(_currentTooltips.Count);
+            _stashedTooltips.Clear();
         }
     }
 }

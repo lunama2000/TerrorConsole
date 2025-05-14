@@ -14,6 +14,10 @@ namespace TerrorConsole
         {
             InputManager.Source.OnInputTypeChange += UpdateIconWithNewInput;
         }
+        private void OnDestroy()
+        {
+            InputManager.Source.OnInputTypeChange -= UpdateIconWithNewInput;
+        }
 
         public void Initialize(InputActionsInGame inputToDisplay, string actionName)
         {
