@@ -69,6 +69,10 @@ namespace TerrorConsole
                 case LevelState.Play:
                     ResumeInput();
                     break;
+
+                default:
+                    StopInput();
+                    break;
             }
         }
 

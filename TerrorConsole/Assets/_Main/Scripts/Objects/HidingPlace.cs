@@ -13,6 +13,7 @@ namespace TerrorConsole
             if (other.gameObject.CompareTag("Player"))
             {
                 InputManager.Source.OnActivateButton2 += ToggleHiding;
+                TooltipsManager.Source.ShowSpriteTooltip(InputActionsInGame.Button2, "Hide", (Vector2)other.transform.position + Vector2.up);
             }
         }
 
@@ -21,6 +22,7 @@ namespace TerrorConsole
             if (other.gameObject.CompareTag("Player"))
             {
                 InputManager.Source.OnActivateButton2 -= ToggleHiding;
+                TooltipsManager.Source.HideSpriteTooltip("Hide");
             }
         }
 

@@ -18,7 +18,7 @@ namespace TerrorConsole
         {
             foreach (TooltipInfo tooltip in tooltipsToDisplay)
             {
-                TooltipsManager.Source.ShowTooltip(tooltip.inputAction, tooltip.actionName);
+                TooltipsManager.Source.ShowUITooltip(tooltip.inputAction, tooltip.actionName);
             }
         }
     }
