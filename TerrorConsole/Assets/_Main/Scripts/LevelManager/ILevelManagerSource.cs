@@ -12,6 +12,7 @@ namespace TerrorConsole
         void ChangeLevelState(LevelState newState);
         void PlayLevel();
         void PauseLevel();
+        void OpenInventory();
         LevelState GetCurrentState();
 
         public void AddOrUpdateLevelEvent(string eventName, bool eventState);
@@ -22,5 +23,7 @@ namespace TerrorConsole
 
         void PlayerCaptured();
         void RespawnPlayer();
+
+        LevelState GetCurrentLevelState();
     }
 }

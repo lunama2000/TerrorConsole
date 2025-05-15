@@ -47,14 +47,11 @@ namespace TerrorConsole
         {
             if (_inventoryUI.activeSelf)
             {
-                _uIController.CloseMenu(_uIController);
-                LevelManager.Source.PlayLevel();
+                OnInventoryClosed();
             }
             else
             {
-                _uIController.OpenMenu(_uIController);
-                LevelManager.Source.PauseLevel();
-                InitializeInventory();
+                OnInventoryOpened();
             }
         }
 
@@ -76,6 +73,23 @@ namespace TerrorConsole
             {
                 ResetItemPreview();
             }
+        }
+
+        public void OnInventoryClosed()
+        {
+            TooltipsManager.Source.HideAllUITooltips();
+            LevelManager.Source.PlayLevel();
+            _uIController.CloseMenu(_uIController);
+            TooltipsManager.Source.UnStashUITooltips();
+        }
+
+        public void OnInventoryOpened()
+        {
+            TooltipsManager.Source.StashCurrentUITooltips();
+            TooltipsManager.Source.ShowUITooltip(InputActionsInGame.InventoryButton, "Close");
+            _uIController.OpenMenu(_uIController);
+            InitializeInventory();
+            LevelManager.Source.OpenInventory();
         }
     }
 }

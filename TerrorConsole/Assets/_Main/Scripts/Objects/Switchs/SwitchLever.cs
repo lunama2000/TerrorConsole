@@ -12,6 +12,7 @@ namespace TerrorConsole
             if (collision.gameObject.CompareTag("Player"))
             {
                 InputManager.Source.OnActivateButton1 += AlternateState;
+                TooltipsManager.Source.ShowSpriteTooltip(InputActionsInGame.Button1, "Interact",(Vector2)collision.transform.position+Vector2.up);
             }
         }
 
@@ -20,6 +21,7 @@ namespace TerrorConsole
             if (collision.gameObject.CompareTag("Player"))
             {
                 InputManager.Source.OnActivateButton1 -= AlternateState;
+                TooltipsManager.Source.HideSpriteTooltip("Interact");
             }
         }
 

@@ -4,11 +4,19 @@ namespace TerrorConsole
 {
     public interface ITooltipsSource
     {
-        void ShowTooltip(InputActionsInGame inputType, string actionName);
+        void ShowUITooltip(InputActionsInGame inputType, string actionName);
+        void ShowSpriteTooltip(InputActionsInGame inputType, string actionName, Vector2 position);
+        void HideSpriteTooltip(string actionName);
+        void HideAllSpriteTooltips();
 
-        void HideTooltip(string actionName);
+        public Sprite GetKeycodeIcon(KeyCode keycode);
 
-        void HideAll();
+        void HideUITooltip(string actionName);
+
+        void HideAllUITooltips();
         public Sprite GetActionInGameIcon(InputActionsInGame actionsInGame);
+
+        void StashCurrentUITooltips();
+        void UnStashUITooltips();
     }
 }
