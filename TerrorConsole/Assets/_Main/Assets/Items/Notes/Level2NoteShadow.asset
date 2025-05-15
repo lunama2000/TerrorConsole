@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef1bae15c555e0540a8172fb58f35338, type: 3}
-  m_Name: ManualPage1
+  m_Name: Level2NoteShadow
   m_EditorClassIdentifier: 
-  itemName: Page 1
+  itemName: NoteAboutShadow
   itemSprite: {fileID: 21300000, guid: 1ec1ea5239ab4244783bfbaa274abbf3, type: 3}
-  itemDescription: Translation of a strange language
+  itemDescription: Describe something about the shadow
   NoteBackground: {fileID: 21300000, guid: 85fa8d4e60140c64c89ddf0c3c87a771, type: 3}
-  NoteDraw: {fileID: 2019403090, guid: ad5bb314490a74248ab8a9f81d1e6786, type: 3}
-  NoteText: 
+  NoteDraw: {fileID: 0}
+  NoteText: The shadow follows everyone who sees it and i swear i saw that it looked
+    like me
