@@ -16,5 +16,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 1ec1ea5239ab4244783bfbaa274abbf3, type: 3}
   itemDescription: Translation of a strange language
   NoteBackground: {fileID: 21300000, guid: 85fa8d4e60140c64c89ddf0c3c87a771, type: 3}
-  NoteDraw: {fileID: 0}
+  NoteDraw: {fileID: -208848055, guid: ad5bb314490a74248ab8a9f81d1e6786, type: 3}
   NoteText: 
