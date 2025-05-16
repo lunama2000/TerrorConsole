@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace TerrorConsole
 {
@@ -74,7 +75,9 @@ namespace TerrorConsole
         public void SetSFXVolume(float newVolume)
         {
             SFXVolume = Mathf.Clamp01(newVolume);
-            var dB = Mathf.Log10(SFXVolume == 0f ? 0.0001f : SFXVolume) * 20f;
+            var dB = Mathf.Lerp(-20f, 15f, SFXVolume);
+            if (dB < -19)
+                dB = -80;
             _sfxMixer.SetFloat("sfxVol", dB);
             SaveSystemManager.Source.SaveSFXVolume(SFXVolume);
         }
@@ -82,7 +85,9 @@ namespace TerrorConsole
         public void SetMusicVolume(float newVolume)
         {
             MusicVolume = Mathf.Clamp01(newVolume);
-            var dB = Mathf.Log10(MusicVolume == 0f ? 0.0001f : MusicVolume) * 20f;
+            var dB = Mathf.Lerp(-20f, 15f, MusicVolume);
+            if (dB < -19)
+                dB = -80;
             _musicMixer.SetFloat("musicVol", dB);
             SaveSystemManager.Source.SaveMusicVolume(MusicVolume);
         }
