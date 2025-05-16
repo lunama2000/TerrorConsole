@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TerrorConsole
 {
@@ -8,6 +9,7 @@ namespace TerrorConsole
         [SerializeField] private String _pickableSFXKey;
         [SerializeField] protected ItemInfo _itemInfo;
         [SerializeField] private LevelEventsRecorder _eventRecorder;
+        public UnityEvent OnPicked;
 
         private void Start()
         {
@@ -35,6 +37,7 @@ namespace TerrorConsole
             Inventory.Source.AddItemToInventory(_itemInfo);
             _eventRecorder.RegisterLevelEvent(true);
             AudioManager.Source.PlaySFX(_pickableSFXKey);
+            OnPicked?.Invoke();
             Destroy(gameObject);
         }
     }
