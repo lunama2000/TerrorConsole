@@ -9,7 +9,7 @@ namespace TerrorConsole
         [SerializeField] private string _sfxKey;
         public UnityEvent<string> OnActivated;
         public UnityEvent<string> OnDeactivated;
-        
+
         protected bool _state;
 
         protected virtual void AlternateState()
@@ -36,6 +36,14 @@ namespace TerrorConsole
         {
             _state = false;
             OnDeactivated?.Invoke(_id);
+        }
+
+        public virtual void ResetLever()
+        {
+            if (_state)
+            {
+              Off();
+            }
         }
 
         public void PlayObjetcSFX()
