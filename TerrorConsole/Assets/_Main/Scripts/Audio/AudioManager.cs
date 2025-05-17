@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace TerrorConsole
 {
     public class AudioManager : Singleton<IAudioSource>, IAudioSource
     {
+        private const float MaxdB = 15f;
+        private const float MindB = -20f;
+        private const float SilentdB = -80f;
         [SerializeField] private AudioSource _sfxAudioSource;
         [SerializeField] private AudioSource _musicAudioSource;
         [SerializeField] private AudioMixer _sfxMixer;
@@ -75,9 +77,9 @@ namespace TerrorConsole
         public void SetSFXVolume(float newVolume)
         {
             SFXVolume = Mathf.Clamp01(newVolume);
-            var dB = Mathf.Lerp(-20f, 15f, SFXVolume);
-            if (dB < -19)
-                dB = -80;
+            var dB = Mathf.Lerp(MindB, MaxdB, SFXVolume);
+            if (dB < MindB+1)
+                dB = SilentdB;
             _sfxMixer.SetFloat("sfxVol", dB);
             SaveSystemManager.Source.SaveSFXVolume(SFXVolume);
         }
@@ -85,9 +87,9 @@ namespace TerrorConsole
         public void SetMusicVolume(float newVolume)
         {
             MusicVolume = Mathf.Clamp01(newVolume);
-            var dB = Mathf.Lerp(-20f, 15f, MusicVolume);
-            if (dB < -19)
-                dB = -80;
+            var dB = Mathf.Lerp(-MindB, MaxdB, MusicVolume);
+            if (dB < MindB+1)
+                dB = SilentdB;
             _musicMixer.SetFloat("musicVol", dB);
             SaveSystemManager.Source.SaveMusicVolume(MusicVolume);
         }
