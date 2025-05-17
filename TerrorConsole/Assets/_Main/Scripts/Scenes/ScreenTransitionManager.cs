@@ -28,6 +28,7 @@ namespace TerrorConsole
         public void TransitionToScene(string sceneName, TransitionType transitionType)
         {
             OnTransitionBegan?.Invoke();
+            LevelManager.Source.ChangeLevelState(LevelState.InTransition);
             
             switch (transitionType)
             {
@@ -66,6 +67,7 @@ namespace TerrorConsole
             
             await _mainCanvasGroup.DOFade(0, _transitionDuration).AsyncWaitForCompletion();
             _mainCanvasGroup.gameObject.SetActive(false);
+            LevelManager.Source.ChangeLevelState(LevelState.Play);
         }
         
         private async UniTaskVoid TransitionSlide(Action onTransition)
@@ -84,6 +86,7 @@ namespace TerrorConsole
             
             await _backgroundPanel.transform.DOLocalMoveX(screenWidth, _transitionDuration).AsyncWaitForCompletion();
             _mainCanvasGroup.gameObject.SetActive(false);
+            LevelManager.Source.ChangeLevelState(LevelState.Play);
         }
         
         private async UniTask ShowLoadingIcon()
@@ -101,6 +104,7 @@ namespace TerrorConsole
             UnsuscribeToLevelEvents();
             SceneManager.LoadScene(sceneName);
             AudioManager.Source.StopMusic();
+            UIMenusManager.Source.ResetMenuStack();
         }
 
         private void OnPlayerCapture()

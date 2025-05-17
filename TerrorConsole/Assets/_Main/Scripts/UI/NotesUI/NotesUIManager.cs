@@ -39,7 +39,7 @@ namespace TerrorConsole
 
         public void DisplayNote(NoteInfo noteToDisplay)
         {
-            LevelManager.Source.PauseLevel();
+            LevelManager.Source.ChangeLevelState(LevelState.ReadingNote);
             _noteBackgroud.sprite = noteToDisplay.NoteBackground;
             if (noteToDisplay.NoteDraw)
             {

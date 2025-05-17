@@ -60,12 +60,6 @@ namespace TerrorConsole
         {
             switch (newState)
             {
-                case LevelState.InDialogue:
-                case LevelState.Pause:
-                case LevelState.Cinematic:
-                    StopInput();
-                    break;
-
                 case LevelState.Play:
                     ResumeInput();
                     break;
@@ -104,6 +98,7 @@ namespace TerrorConsole
         private void OnRespawn()
         {
             transform.position = LevelManager.Source.GetRespawnPosition();
+            LevelManager.Source.ChangeLevelState(LevelState.Play);
         }
     }
 }
