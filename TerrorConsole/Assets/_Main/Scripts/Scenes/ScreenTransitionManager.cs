@@ -22,7 +22,7 @@ namespace TerrorConsole
                 
         private void OnDestroy()
         {
-            LevelManager.Source.OnPlayerCaptured -= OnPlayerCapture;
+            UnsuscribeToLevelEvents();
         }
 
         public void TransitionToScene(string sceneName, TransitionType transitionType)
@@ -101,7 +101,6 @@ namespace TerrorConsole
         private void GoToScene(string sceneName)
         {
             TooltipsManager.Source.HideAllUITooltips();
-            UnsuscribeToLevelEvents();
             SceneManager.LoadScene(sceneName);
             AudioManager.Source.StopMusic();
             UIMenusManager.Source.ResetMenuStack();

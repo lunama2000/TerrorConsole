@@ -135,6 +135,7 @@ namespace TerrorConsole
         public void AddOrUpdateLevelEvent(int levelNumber, string eventName, bool eventState)
         {
             _loadedGame.GetLevelData(levelNumber).AddOrUpdateLevelEvent(eventName, eventState);
+            SaveCurrentGame();
         }
 
         public bool GetEventState(int levelNumber, string eventName)
