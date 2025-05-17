@@ -39,12 +39,44 @@ namespace TerrorConsole
         private Vector2 _movementDirection = Vector2.zero;
         private Vector2 _lastLookDirection = Vector2.zero;
 
+        private bool _processInput = true;
+
+        private void Start()
+        {
+            LevelManager.Source.OnLevelStateChange += OnLevelStateChange;
+        }
+
+        private void OnDestroy()
+        {
+            LevelManager.Source.OnLevelStateChange -= OnLevelStateChange;
+        }
+
+        private void OnLevelStateChange(LevelState newState)
+        {
+            switch (newState)
+            {
+                case LevelState.Play:
+                case LevelState.InDialogue:
+                    _processInput = true;
+                    break;
+
+                default:
+                    _processInput = false;
+                    break;
+            }
+        }
+
         private void Update()
         {
+            SetInputType();
+            SetUIButtons();
+
+            if (!_processInput)
+                return;
+
             SetMovementInput();
             SetActionButtons();
             SetLookDirection();
-            SetInputType();
         }
 
         private void SetInputType()
@@ -126,7 +158,11 @@ namespace TerrorConsole
             {
                 OnActivateButton2?.Invoke();
             }
-            if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.JoystickButton7))
+        }
+
+        private void SetUIButtons()
+        {
+            if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.JoystickButton7))
             {
                 OnPauseButton?.Invoke();
             }

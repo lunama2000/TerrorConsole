@@ -5,6 +5,9 @@ namespace TerrorConsole
 {
     public class AudioManager : Singleton<IAudioSource>, IAudioSource
     {
+        private const float MaxdB = 15f;
+        private const float MindB = -20f;
+        private const float SilentdB = -80f;
         [SerializeField] private AudioSource _sfxAudioSource;
         [SerializeField] private AudioSource _musicAudioSource;
         [SerializeField] private AudioMixer _sfxMixer;
@@ -74,7 +77,9 @@ namespace TerrorConsole
         public void SetSFXVolume(float newVolume)
         {
             SFXVolume = Mathf.Clamp01(newVolume);
-            var dB = Mathf.Log10(SFXVolume == 0f ? 0.0001f : SFXVolume) * 20f;
+            var dB = Mathf.Lerp(MindB, MaxdB, SFXVolume);
+            if (dB < MindB+1)
+                dB = SilentdB;
             _sfxMixer.SetFloat("sfxVol", dB);
             SaveSystemManager.Source.SaveSFXVolume(SFXVolume);
         }
@@ -82,7 +87,9 @@ namespace TerrorConsole
         public void SetMusicVolume(float newVolume)
         {
             MusicVolume = Mathf.Clamp01(newVolume);
-            var dB = Mathf.Log10(MusicVolume == 0f ? 0.0001f : MusicVolume) * 20f;
+            var dB = Mathf.Lerp(-MindB, MaxdB, MusicVolume);
+            if (dB < MindB+1)
+                dB = SilentdB;
             _musicMixer.SetFloat("musicVol", dB);
             SaveSystemManager.Source.SaveMusicVolume(MusicVolume);
         }

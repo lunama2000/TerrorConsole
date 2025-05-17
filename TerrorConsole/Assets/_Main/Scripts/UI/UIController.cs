@@ -68,7 +68,7 @@ namespace TerrorConsole
             LevelManager.Source.PauseLevel();
         }
         
-        public void ButtonResumeLevel()
+        private void ButtonResumeLevel()
         {
             LevelManager.Source.PlayLevel();
         }

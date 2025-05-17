@@ -7,9 +7,11 @@ namespace TerrorConsole
     {
         [SerializeField] private UIController _pauseUI;
         private bool _paused;
+        private LevelState _lastLevelState;
 
         private void Start()
         {
+            _lastLevelState = LevelState.Play;
             InputManager.Source.OnPauseButton += OnPauseButton;
         }
 
@@ -20,20 +22,28 @@ namespace TerrorConsole
 
         private void OnPauseButton()
         {
-            if(LevelManager.Source.GetCurrentLevelState() == LevelState.InDialogue)
-                return;
-
             _paused = !_paused;
             if (_paused)
             {
-                LevelManager.Source.PauseLevel();
-                UIMenusManager.Source.OpenNewMenuOnTop(_pauseUI);
+                PauseGame();
             }
             else
             {
-                UIMenusManager.Source.CloseMenuOnTop();
-                LevelManager.Source.PlayLevel();
+                ResumeGame();
             }
+        }
+
+        public void ResumeGame()
+        {
+            UIMenusManager.Source.CloseMenuOnTop();
+            LevelManager.Source.ChangeLevelState(_lastLevelState);
+        }
+
+        public void PauseGame()
+        {
+            _lastLevelState = LevelManager.Source.GetCurrentLevelState();
+            LevelManager.Source.PauseLevel();
+            UIMenusManager.Source.OpenNewMenuOnTop(_pauseUI);
         }
     }
 }

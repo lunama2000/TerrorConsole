@@ -622,9 +622,6 @@ MonoBehaviour:
   _defaultSelectedUI: {fileID: 8648141975231591347}
   _canvasGroup: {fileID: 4138058285720003420}
   _startOpened: 0
-  _menuUIButtons: []
-  _optionsUIButtons: []
-  _newGameUIButtons: []
 --- !u!1 &7002063228214818085
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +683,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 22
   m_TargetDisplay: 0
 --- !u!114 &1024046492208200726
 MonoBehaviour:
