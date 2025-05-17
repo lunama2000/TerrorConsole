@@ -7,13 +7,13 @@ namespace TerrorConsole
     public class OrderLeverController : MonoBehaviour
     {
         [SerializeField] private List<SwitchObject> levers;
-        
+
         [SerializeField] private List<string> _correctOrder;
         private List<string> _currentOrder = new List<string>();
-        
+
         [SerializeField] private UnityEvent OnOrderSuccessful;
         [SerializeField] private UnityEvent OnOrderUnsuccesful;
-            
+
         private void Start()
         {
             foreach (var lever in levers)
@@ -45,11 +45,22 @@ namespace TerrorConsole
                 if (_currentOrder[i] != _correctOrder[i])
                 {
                     OnOrderUnsuccesful?.Invoke();
+                    ResetAllLevers();
                     return;
                 }
             }
-            
+
             OnOrderSuccessful?.Invoke();
+        }
+
+        private void ResetAllLevers()
+        {
+            _currentOrder.Clear();
+
+            foreach (var lever in levers)
+            {
+                lever.ResetLever();
+            }
         }
     }
 }
