@@ -10,7 +10,10 @@ namespace TerrorConsole
         Pause,
         InDialogue,
         Cinematic,
-        InInventory
+        InInventory,
+        PlayerCaptured,
+        ReadingNote,
+        InTransition
     }
 
     public partial class LevelManager : Singleton<ILevelManagerSource>, ILevelManagerSource
@@ -29,6 +32,7 @@ namespace TerrorConsole
         private void Start()
         {
             ScreenTransitionManager.Source.SuscribeToLevelEvents();
+            ChangeLevelState(LevelState.Play);
         }
 
         public void ChangeLevelState(LevelState newState)
@@ -78,6 +82,7 @@ namespace TerrorConsole
         
         public void PlayerCaptured()
         {
+            ChangeLevelState(LevelState.PlayerCaptured);
             OnPlayerCaptured?.Invoke();
         }
 

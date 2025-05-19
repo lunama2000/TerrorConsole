@@ -10,6 +10,9 @@ namespace TerrorConsole
 
         public void CloseMenu(UIController menuToClose)
         {
+            if (menuStack.Count <= 0)
+                return;
+
             while (menuStack.Peek() != menuToClose)
             {
                 CloseMenuOnTop();
@@ -45,6 +48,11 @@ namespace TerrorConsole
             newTopMenu.transform.root.gameObject.SetActive(true);
             SetMenuInteractable(menuStack.Peek().GetCanvasGroup(), true);
             EventSystem.current.SetSelectedGameObject(newTopMenu.GetDefaultSelectedUI());
+        }
+
+        public void ResetMenuStack()
+        {
+            menuStack.Clear();
         }
 
         private void SetMenuInteractable(CanvasGroup menu, bool value)
