@@ -66,7 +66,7 @@ namespace TerrorConsole
                 for (int i = 1; i < headers.Length; i++)
                 {
                     string lang = headers[i];
-                    string value = fields[i];
+                    string value = fields[i].Replace("\\n", "\n");
 
                     if (!_localizationData.ContainsKey(lang))
                         _localizationData[lang] = new Dictionary<string, string>();

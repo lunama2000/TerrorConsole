@@ -44,13 +44,13 @@ namespace TerrorConsole
             if (noteToDisplay.NoteDraw)
             {
                 _noteDraw.sprite = noteToDisplay.NoteDraw;
-                _noteTextIfDraw.text = noteToDisplay.NoteText;
+                _noteTextIfDraw.text = noteToDisplay.NoteText.Localize();
                 _noteDraw.gameObject.SetActive(true);
                 _noteTextIfDraw.gameObject.SetActive(true);
             }
             else
             {
-                _noteText.text = noteToDisplay.NoteText;
+                _noteText.text = noteToDisplay.NoteText.Localize();
                 _noteText.gameObject.SetActive(true);
             }
 
