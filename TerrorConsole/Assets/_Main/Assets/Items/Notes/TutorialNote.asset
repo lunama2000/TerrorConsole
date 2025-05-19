@@ -18,4 +18,4 @@ MonoBehaviour:
   hasPreviewInInventory: 1
   NoteBackground: {fileID: 21300000, guid: 85fa8d4e60140c64c89ddf0c3c87a771, type: 3}
   NoteDraw: {fileID: 0}
-  NoteText: If you are reading this note it is because I couldn't picked it up again.
+  NoteText: Tutorial_Note1
