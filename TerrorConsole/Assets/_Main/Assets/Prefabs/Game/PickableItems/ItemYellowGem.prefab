@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6086540370129615057}
   - component: {fileID: 2731689819692564184}
   - component: {fileID: 1309575480898165138}
-  - component: {fileID: 4845318420876166255}
   - component: {fileID: 588713546178528582}
+  - component: {fileID: 793433534202495785}
   m_Layer: 0
   m_Name: ItemYellowGem
   m_TagString: Untagged
@@ -123,21 +123,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4845318420876166255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5439735741222891113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85c660b420909245a9f320f12aae1c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pickableSFXKey: 
-  _itemInfo: {fileID: 11400000, guid: c3ad7c63ae2f7d64ea1314f780206ee6, type: 2}
-  _eventRecorder: {fileID: 588713546178528582}
 --- !u!114 &588713546178528582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +136,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uniqueEventKey: 
+--- !u!114 &793433534202495785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439735741222891113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85c660b420909245a9f320f12aae1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pickableSFXKey: 
+  _itemInfo: {fileID: 11400000, guid: 53cf8fc2601055d47b2ecbf29c586ef5, type: 2}
+  _eventRecorder: {fileID: 588713546178528582}
 --- !u!1 &8817124585385264341
 GameObject:
   m_ObjectHideFlags: 0
