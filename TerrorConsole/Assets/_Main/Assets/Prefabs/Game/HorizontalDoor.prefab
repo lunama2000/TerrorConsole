@@ -136,7 +136,7 @@ MonoBehaviour:
   _isLocked: 0
   _collider2D: {fileID: 7572388163158137190}
   _eventRecorder: {fileID: 1661503031811502314}
-  _animator: {fileID: 0}
+  _animator: {fileID: 6059600707284616615}
   _onDoorOpened:
     m_PersistentCalls:
       m_Calls: []
