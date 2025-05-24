@@ -48,7 +48,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.387
+  m_FalloffIntensity: 0.448
   m_Color: {r: 1, g: 0.5267917, b: 0, a: 1}
   m_Intensity: 5
   m_LightVolumeIntensity: 1
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _freezeInput: 0
-  _objectName: Lantern
+  _itemInfo: {fileID: 0}
   _lanternLight: {fileID: 5156681988650169604}
   _isOn: 0
   _posRadius: 0.5
