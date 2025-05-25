@@ -5,8 +5,8 @@ namespace TerrorConsole
 {
     public class AudioManager : Singleton<IAudioSource>, IAudioSource
     {
-        private const float MaxdB = 15f;
-        private const float MindB = -20f;
+        private const float MaxdB = 0f;
+        private const float MindB = -40f;
         private const float SilentdB = -80f;
         [SerializeField] private AudioSource _sfxAudioSource;
         [SerializeField] private AudioSource _musicAudioSource;
@@ -88,12 +88,16 @@ namespace TerrorConsole
         public void SetMusicVolume(float newVolume)
         {
             MusicVolume = Mathf.Clamp01(newVolume);
-            var dB = Mathf.Lerp(-MindB, MaxdB, MusicVolume);
+            
+            var dB = Mathf.Lerp(MindB, MaxdB, MusicVolume);
+            
             if (dB < MindB+1)
-                dB = SilentdB;
+                dB = SilentdB; 
+            
             _musicMixer.SetFloat("musicVol", dB);
             SaveSystemManager.Source.SaveMusicVolume(MusicVolume);
-            Debug.Log($"[AudioManager] Music Volume Set: {MusicVolume:F2} -> {dB:F2} dB");
+
+            Debug.Log($"[AudioManager] MUSIC volume: {MusicVolume:F3} → {dB:F1} dB");
         }
     }
 }
