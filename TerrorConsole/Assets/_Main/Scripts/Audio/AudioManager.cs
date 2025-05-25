@@ -82,6 +82,7 @@ namespace TerrorConsole
                 dB = SilentdB;
             _sfxMixer.SetFloat("sfxVol", dB);
             SaveSystemManager.Source.SaveSFXVolume(SFXVolume);
+            Debug.Log($"[AudioManager] SFX Volume Set: {SFXVolume:F2} -> {dB:F2} dB");
         }
 
         public void SetMusicVolume(float newVolume)
@@ -92,6 +93,7 @@ namespace TerrorConsole
                 dB = SilentdB;
             _musicMixer.SetFloat("musicVol", dB);
             SaveSystemManager.Source.SaveMusicVolume(MusicVolume);
+            Debug.Log($"[AudioManager] Music Volume Set: {MusicVolume:F2} -> {dB:F2} dB");
         }
     }
 }
