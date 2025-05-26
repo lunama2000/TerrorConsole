@@ -14,6 +14,7 @@ namespace TerrorConsole
         }
         public void LoadScene(string sceneName)
         {
+            SaveSystemManager.Source.SetCurrentScene(sceneName);
             ScreenTransitionManager.Source.TransitionToScene(sceneName);
         }
     }

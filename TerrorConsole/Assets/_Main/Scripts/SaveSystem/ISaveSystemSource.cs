@@ -11,6 +11,7 @@ namespace TerrorConsole
         ISaveGameData GetGameDataByIndex(int fileIndex);
 
         void SetInventory(List<ItemInfo> newInventory);
+        void SetCurrentScene(string currentScene);
         List<ItemInfo> GetInventory();
 
         void AddOrUpdateLevelEvent(int levelNumber, string eventName, bool eventState);

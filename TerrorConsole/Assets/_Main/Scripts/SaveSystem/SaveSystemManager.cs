@@ -94,7 +94,7 @@ namespace TerrorConsole
         {
             SaveGame(_loadedGame.GetGameIndex(), _loadedGame);
         }
-
+        
         public void SaveGame(int fileIndex, SaveGameData data)
         {
             string json = JsonUtility.ToJson(data);
@@ -130,6 +130,12 @@ namespace TerrorConsole
             SaveCurrentGame();
         }
 
+        public void SetCurrentScene(string currentScene)
+        {
+            _loadedGame.SetCurrentScene(currentScene);
+            SaveCurrentGame();
+        }
+        
         public List<ItemInfo> GetInventory()
         {
             return _loadedGame.Inventory;
