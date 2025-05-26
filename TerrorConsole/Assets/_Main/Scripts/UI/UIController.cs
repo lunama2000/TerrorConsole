@@ -72,6 +72,11 @@ namespace TerrorConsole
         {
             LevelManager.Source.PlayLevel();
         }
+
+        public void QuitApplication()
+        {
+            Application.Quit();
+        }
         
         public void ButtonPlaySFX()
         {
