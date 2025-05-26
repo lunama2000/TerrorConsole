@@ -14,5 +14,8 @@ namespace TerrorConsole
         bool IsMoving { get; }
         Vector2 MovementDirection { get; }
         Vector2 LastLookDirection{ get; }
+
+        void SuscribeToInputActionsInGame(InputActionsInGame inputAction, Action callbackFunction);
+        void UnSuscribeToInputActionsInGame(InputActionsInGame inputAction, Action callbackFunction);
     }
 }

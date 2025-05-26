@@ -55,6 +55,12 @@ namespace TerrorConsole
         private void SetSelectedGameObject(GameObject selectedGameObject)
         {
             EventSystem.current.SetSelectedGameObject(selectedGameObject);
+            var handler = selectedGameObject.GetComponent<ISelectHandler>();
+            if (handler != null)
+            {
+                var data = new BaseEventData(EventSystem.current);
+                handler.OnSelect(data);
+            }
         }
 
         public void ButtonLoadScene(string sceneName)
