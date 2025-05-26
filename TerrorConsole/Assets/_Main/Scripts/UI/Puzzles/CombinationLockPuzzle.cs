@@ -28,6 +28,7 @@ namespace TerrorConsole
             LevelManager.Source.ChangeLevelState(LevelState.InDialogue);
             InputManager.Source.OnActivateButton1 += CloseCombinationLock;
             InputManager.Source.OnActivateButton2 += ValidateCombination;
+            TooltipsManager.Source.StashCurrentUITooltips();
             TooltipsManager.Source.ShowUITooltip(InputActionsInGame.Button1, "Close");
             TooltipsManager.Source.ShowUITooltip(InputActionsInGame.Button2, "Validate");
         }
@@ -39,6 +40,7 @@ namespace TerrorConsole
             InputManager.Source.OnActivateButton2 -= ValidateCombination;
             TooltipsManager.Source.HideUITooltip("Close");
             TooltipsManager.Source.HideUITooltip("Validate");
+            TooltipsManager.Source.UnStashUITooltips();
         }
 
         private void CloseCombinationLock()
