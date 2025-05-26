@@ -71,7 +71,7 @@ namespace TerrorConsole
 
             for (int i = 0; i < _resolutions.Length; i++)
             {
-                string option = $"{_resolutions[i].width } x {_resolutions[i].height} {_resolutions[i].refreshRateRatio}hz";
+                string option = $"{_resolutions[i].width } x {_resolutions[i].height} {_resolutions[i].refreshRateRatio.value:F2}hz";
                 
                 options.Add(option);
                 
