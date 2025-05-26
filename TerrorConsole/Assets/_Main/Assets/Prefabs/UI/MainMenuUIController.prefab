@@ -877,6 +877,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4361035306822925324, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4440998559536851915, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: _lanternItemInfo
       value: 
@@ -885,6 +889,10 @@ PrefabInstance:
       propertyPath: mainMenuController
       value: 
       objectReference: {fileID: 6663477406803888775}
+    - target: {fileID: 4555787885338523180, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4747553358008353892, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 4
@@ -936,6 +944,10 @@ PrefabInstance:
     - target: {fileID: 4747553358008353892, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TerrorConsole.AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853613073782492403, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4919470988342973456, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: _canvasGroup

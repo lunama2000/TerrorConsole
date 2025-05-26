@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace TerrorConsole
 {
@@ -13,6 +14,8 @@ namespace TerrorConsole
         [SerializeField] private TextMeshProUGUI _stageTxt;
         [SerializeField] private GameObject _lanternIcon;
         [SerializeField] private ItemInfo _lanternItemInfo;
+        
+        public NavigationUpdateSaveFiles _navigationUpdateSaveFiles;
         
         ISaveGameData _saveGameData;
 
@@ -37,6 +40,8 @@ namespace TerrorConsole
                 _stageTxt.text = _saveGameData.CurrentScene;
                 _lanternIcon.SetActive(_saveGameData.Inventory.Contains(_lanternItemInfo));
             }
+            
+            _navigationUpdateSaveFiles.UpdateNavigation();
         }
 
         public void OnDeleteGameFileButonPressed()
@@ -44,6 +49,10 @@ namespace TerrorConsole
             SaveSystemManager.Source.DeleteGame(_gameFileIndex);
             LoadFileUIInfo();
             mainMenuController.SetupContinueButton();
+            EventSystem.current.SetSelectedGameObject(this.gameObject);
+            
+            if (_navigationUpdateSaveFiles != null)
+                _navigationUpdateSaveFiles.RefreshBackNavigation();
         }
     }
 }

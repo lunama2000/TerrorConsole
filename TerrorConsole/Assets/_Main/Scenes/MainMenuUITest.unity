@@ -328,6 +328,70 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &212927307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2850074725502590446, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+  m_PrefabInstance: {fileID: 7664183912947041737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &284536957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 284536959}
+  - component: {fileID: 284536958}
+  m_Layer: 0
+  m_Name: UpdateNavigationUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &284536958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284536957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754194d36cd0a404cb8e400d9e9f6bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _saveFileButtons:
+  - {fileID: 1751610097}
+  - {fileID: 1204615260}
+  - {fileID: 212927307}
+  _deleteButtons:
+  - {fileID: 1356586450}
+  - {fileID: 412974506}
+  - {fileID: 601284902}
+  _backButton: {fileID: 1853623144}
+--- !u!4 &284536959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284536957}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 245.34201, y: 134.21207, z: 2.6195295}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &336717657 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 222485854385606357, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
@@ -337,6 +401,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee0834eef0bbe70449c333ac6cdc5a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &412974506 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5490442785048867624, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+  m_PrefabInstance: {fileID: 7664183912947041737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &441055145
@@ -521,6 +596,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 482fdefff63e2b44f88739e0f1b5bf1f, type: 3}
+--- !u!114 &601284902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1383441001933966588, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+  m_PrefabInstance: {fileID: 7664183912947041737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &755118038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -627,6 +713,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee0834eef0bbe70449c333ac6cdc5a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1204615260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8120840816523201337, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+  m_PrefabInstance: {fileID: 7664183912947041737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1356586450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6029840604951049286, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+  m_PrefabInstance: {fileID: 7664183912947041737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1435414159
@@ -786,6 +894,28 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!114 &1751610097 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8361101304099342929, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+  m_PrefabInstance: {fileID: 7664183912947041737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1853623144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5242739395891744753, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+  m_PrefabInstance: {fileID: 7664183912947041737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886430462 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1212277377585907995, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
@@ -1014,6 +1144,10 @@ PrefabInstance:
       value: TerrorConsole.MainMenuController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2850074725502590446, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850074725502590446, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 336717657}
@@ -1025,6 +1159,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TerrorConsole.UIController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5179905345336443565, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: _navigationUpdateSaveFiles
+      value: 
+      objectReference: {fileID: 284536958}
     - target: {fileID: 5242739395891744753, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1065,6 +1203,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6615319280158028353, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: _navigationUpdateSaveFiles
+      value: 
+      objectReference: {fileID: 284536958}
+    - target: {fileID: 8120840816523201337, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8120840816523201337, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1076,6 +1222,10 @@ PrefabInstance:
     - target: {fileID: 8120840816523201337, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TerrorConsole.UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361101304099342929, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8361101304099342929, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1101,6 +1251,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TerrorConsole.UIController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 8733457959865227501, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: _navigationUpdateSaveFiles
+      value: 
+      objectReference: {fileID: 284536958}
     - target: {fileID: 9204175234681477167, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 389.57733
@@ -1161,3 +1315,4 @@ SceneRoots:
   - {fileID: 441055145}
   - {fileID: 1435414159}
   - {fileID: 755118038}
+  - {fileID: 284536959}
