@@ -22,6 +22,12 @@ namespace TerrorConsole
             {
                 gameObject.SetActive(false);
             }
+
+            if (Inventory.Source.IsItemInInventory(_itemInfo))
+            {
+                Destroy(gameObject);
+            }
+
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
