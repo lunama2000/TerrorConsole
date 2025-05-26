@@ -4,26 +4,24 @@ namespace TerrorConsole
 {
     public class Credits : MonoBehaviour
     {
-        public float scrollSpeed = 10f;
-        public RectTransform rectTransform;
-        private float startPositionY; // Guardamos la posición inicial en Y
+        [SerializeField] private float _scrollSpeed = 80f;
+        [SerializeField] private RectTransform _rectTransform;
+        [SerializeField] private Transform _resetThreshold;
+        
+        private float _startAnchoredPositionY;
 
-        void Start()
+        private void Start()
         {
-            rectTransform = GetComponent<RectTransform>();
-            startPositionY = rectTransform.anchoredPosition.y; // Guardamos la posición inicial
+            _startAnchoredPositionY = _rectTransform.anchoredPosition.y;
         }
 
-        void Update()
+        private void Update()
         {
-            // Movemos el cuadro de texto hacia arriba
-            rectTransform.anchoredPosition += new Vector2(0, scrollSpeed * Time.deltaTime);
-
-            // Si el cuadro de texto sale de la pantalla por la parte superior
-            if (rectTransform.anchoredPosition.y > Screen.height)
+            _rectTransform.anchoredPosition += new Vector2(0, _scrollSpeed * Time.deltaTime);
+            
+            if (_rectTransform.position.y > _resetThreshold.position.y)
             {
-                // Lo reposicionamos al inicio (en la parte inferior de la pantalla)
-                rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, startPositionY);
+                _rectTransform.anchoredPosition = new Vector2(_rectTransform.anchoredPosition.x, _startAnchoredPositionY);
             }
         }
     }
