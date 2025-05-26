@@ -30,7 +30,8 @@ namespace TerrorConsole
         
         [Header("Shadow Configuration")]
         [SerializeField] private float _shadowSpeed;
-
+        
+        
         public void StartTimer()
         {
             _timerActive = true;
