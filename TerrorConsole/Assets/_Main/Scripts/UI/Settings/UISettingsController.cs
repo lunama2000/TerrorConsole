@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -64,13 +65,19 @@ namespace TerrorConsole
         private void GenerateResolutions()
         {
             _resolutions = Screen.resolutions;
+
+            _resolutions = Screen.resolutions
+                .GroupBy(resolution => new { resolution.width, resolution.height })
+                .Select(group => group.First())
+                .ToArray();
+
             _resolutionsDropdown.ClearOptions();
             List<string> options = new List<string>();
             int currentResolution = 0;
 
             for (int i = 0; i < _resolutions.Length; i++)
             {
-                string option = $"{_resolutions[i].width } x {_resolutions[i].height} {_resolutions[i].refreshRateRatio}hz";
+                string option = $"{_resolutions[i].width } x {_resolutions[i].height}";
                 
                 options.Add(option);
                 
@@ -115,11 +122,22 @@ namespace TerrorConsole
 
         public void ChangeResolution()
         {
+            ChangeResolutionAsync().Forget();
+        }
+
+        public async UniTask ChangeResolutionAsync()
+        {
+            _resolutionsDropdown.interactable = false;
+
             int index = _resolutionsDropdown.value;
             SaveSystemManager.Source.SaveResolution(index);
-            
+
             Resolution resolution = _resolutions[index];
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+
+            await UniTask.Delay(500);
+
+            _resolutionsDropdown.interactable = true;
         }
     }
 }
