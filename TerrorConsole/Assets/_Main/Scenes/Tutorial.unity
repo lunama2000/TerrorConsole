@@ -27198,10 +27198,6 @@ PrefabInstance:
       propertyPath: _forceLoadGame
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5529375179398605198, guid: aace26b705faa8d4689d9133db1f41b0, type: 3}
-      propertyPath: _forceLoadGameIndex
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7882356975557492289, guid: aace26b705faa8d4689d9133db1f41b0, type: 3}
       propertyPath: m_Name
       value: SaveManager

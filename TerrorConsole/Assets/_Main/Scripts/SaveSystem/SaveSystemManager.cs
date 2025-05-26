@@ -17,6 +17,9 @@ namespace TerrorConsole
         protected override void Awake()
         {
             base.Awake();
+            
+            if (MarkedForDestruction) return;
+            
             UpdateLastLoadedGameFile(PlayerPrefs.GetInt("lastLoadedGameFile", -1));
             LoadConfigurations();
 

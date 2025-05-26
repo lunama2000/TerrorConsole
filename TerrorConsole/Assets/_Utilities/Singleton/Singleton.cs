@@ -6,12 +6,15 @@ namespace UnityEngine
 
         [Header("SINGLETON")]
         [SerializeField] private bool _isPersistent = true;
+        
+        protected bool MarkedForDestruction { get; private set; }
 
         protected virtual void Awake()
         {
             if (_isPersistent && Source != null)
             {
                 DestroyImmediate(gameObject);
+                MarkedForDestruction = true;
                 return;
             }
             
