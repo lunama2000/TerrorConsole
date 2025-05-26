@@ -8,6 +8,13 @@ namespace TerrorConsole
     {
         private Stack<UIController> menuStack = new Stack<UIController>();
 
+        protected override void Awake()
+        {
+            base.Awake();
+
+            Cursor.visible = false;
+        }
+
         public void CloseMenu(UIController menuToClose)
         {
             if (menuStack.Count <= 0)
