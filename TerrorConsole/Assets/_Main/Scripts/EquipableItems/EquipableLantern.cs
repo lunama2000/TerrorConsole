@@ -46,7 +46,7 @@ namespace TerrorConsole
             AudioManager.Source.PlaySFX(_isOn ? "OnFlashlight" : "OffFlashlight");
         }
 
-        private void TurnLight(bool turnOn)
+        public void TurnLight(bool turnOn)
         {
             _isOn = turnOn;
             _direction = _inputSource.LastLookDirection;

@@ -6,7 +6,7 @@ namespace TerrorConsole
     public class TooltipsManager : Singleton<ITooltipsSource>, ITooltipsSource
     {
         [Header("Sprite Tooltips")]
-        [SerializeField] private GameObject _spriteToolTipPrefab;
+        [SerializeField] private SpriteTooltip _spriteToolTipPrefab;
         private Dictionary<string, GameObject> _currentSpriteTooltips = new Dictionary<string, GameObject>();
 
         [Header("UI Tooltips")]
@@ -83,7 +83,7 @@ namespace TerrorConsole
             if (_currentSpriteTooltips.ContainsKey(actionName))
                 return;
 
-            SpriteTooltip newTooltip = Instantiate(_spriteToolTipPrefab, position,Quaternion.identity, transform).GetComponent<SpriteTooltip>();
+            SpriteTooltip newTooltip = Instantiate(_spriteToolTipPrefab, position,Quaternion.identity);
             newTooltip.Initialize(inputType, actionName);
             _currentSpriteTooltips.Add(actionName, newTooltip.gameObject);
         }

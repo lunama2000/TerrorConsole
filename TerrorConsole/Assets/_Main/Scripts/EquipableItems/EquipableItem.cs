@@ -34,14 +34,11 @@ namespace TerrorConsole
         {
             switch (newState)
             {
-                case LevelState.InDialogue:
-                case LevelState.Pause:
-                case LevelState.Cinematic:
-                    StopInput();
-                    break;
-
                 case LevelState.Play:
                     ResumeInput();
+                    break;
+                default:
+                    StopInput();
                     break;
             }
         }

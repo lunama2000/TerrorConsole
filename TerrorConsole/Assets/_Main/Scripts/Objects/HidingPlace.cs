@@ -5,6 +5,7 @@ namespace TerrorConsole
     public class HidingPlace : MonoBehaviour
     {
         [SerializeField] private PlayerController _playerController;
+        [SerializeField] private float _tooltipOffset = 1;
 
         private bool _isHiding = false;
 
@@ -12,8 +13,8 @@ namespace TerrorConsole
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                InputManager.Source.OnActivateButton2 += ToggleHiding;
-                TooltipsManager.Source.ShowSpriteTooltip(InputActionsInGame.Button2, "Hide", (Vector2)other.transform.position + Vector2.up);
+                InputManager.Source.OnActivateButton3 += ToggleHiding;
+                TooltipsManager.Source.ShowSpriteTooltip(InputActionsInGame.Button3, "Hide", (Vector2)transform.position + Vector2.up * _tooltipOffset);
             }
         }
 
@@ -21,7 +22,7 @@ namespace TerrorConsole
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                InputManager.Source.OnActivateButton2 -= ToggleHiding;
+                InputManager.Source.OnActivateButton3 -= ToggleHiding;
                 TooltipsManager.Source.HideSpriteTooltip("Hide");
             }
         }
@@ -32,10 +33,14 @@ namespace TerrorConsole
             if (_isHiding)
             {
                 _playerController.Hide();
+                TooltipsManager.Source.HideSpriteTooltip("Hide");
+                TooltipsManager.Source.ShowSpriteTooltip(InputActionsInGame.Button3, "UnHide", (Vector2)transform.position + Vector2.up * _tooltipOffset);
             }
             else
             {
                 _playerController.UnHide();
+                TooltipsManager.Source.HideSpriteTooltip("UnHide");
+                TooltipsManager.Source.ShowSpriteTooltip(InputActionsInGame.Button3, "Hide", (Vector2)transform.position + Vector2.up * _tooltipOffset);
             }
         }
     }

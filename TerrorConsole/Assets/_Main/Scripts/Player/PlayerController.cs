@@ -11,6 +11,7 @@ namespace TerrorConsole
         [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private float _stepInterval;
         [SerializeField] private string _sfxStepKey;
+        [SerializeField] private EquipableLantern _light;
 
         [Header("CONFIGURATIONS")]
         [SerializeField] private int _velocity = 10;
@@ -84,13 +85,16 @@ namespace TerrorConsole
         public void Hide()
         {
             StopInput();
+            LevelManager.Source.ChangeLevelState(LevelState.Hiding);
             gameObject.layer = LayerMask.NameToLayer("Default");
             _sprite.enabled = false;
+            _light.TurnLight(false);
         }
         
         public void UnHide()
         {
             ResumeInput();
+            LevelManager.Source.ChangeLevelState(LevelState.Play);
             gameObject.layer = LayerMask.NameToLayer("Player");
             _sprite.enabled = true;
         }
