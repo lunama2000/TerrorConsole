@@ -189,5 +189,59 @@ namespace TerrorConsole
             }
             return KeyCode.None;
         }
+
+        public void SuscribeToInputActionsInGame(InputActionsInGame inputAction, Action callbackFunction)
+        {
+            switch (inputAction)
+            {
+                case InputActionsInGame.Button1:
+                    OnActivateButton1 += callbackFunction;
+                    break;
+                case InputActionsInGame.Button2:
+                    OnActivateButton2 += callbackFunction;
+                    break;
+                case InputActionsInGame.PauseButton:
+                    OnPauseButton += callbackFunction;
+                    break;
+                case InputActionsInGame.InventoryButton:
+                    OnInventoryButton += callbackFunction;
+                    break;
+                case InputActionsInGame.LeftAxis:
+                    print("No Action for LeftAxis");
+                    break;
+                case InputActionsInGame.UISelect:
+                    OnActivateButton1 += callbackFunction;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void UnSuscribeToInputActionsInGame(InputActionsInGame inputAction, Action callbackFunction)
+        {
+            switch (inputAction)
+            {
+                case InputActionsInGame.Button1:
+                    OnActivateButton1 -= callbackFunction;
+                    break;
+                case InputActionsInGame.Button2:
+                    OnActivateButton2 -= callbackFunction;
+                    break;
+                case InputActionsInGame.PauseButton:
+                    OnPauseButton -= callbackFunction;
+                    break;
+                case InputActionsInGame.InventoryButton:
+                    OnInventoryButton -= callbackFunction;
+                    break;
+                case InputActionsInGame.LeftAxis:
+                    print("No Action for LeftAxis");
+                    break;
+                case InputActionsInGame.UISelect:
+                    OnActivateButton1 -= callbackFunction;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

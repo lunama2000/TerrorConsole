@@ -96,7 +96,7 @@ namespace TerrorConsole
             }
             _currentGem = null;
             _currentPathColor = GemColors.None;
-            _floorPath.color = new Color(1,1,1,0.5f);
+            _floorPath.color = new Color(1,1,1,0.2f);
             _currentGemSprite.gameObject.SetActive(false);
 
             switch (_lightPath)
