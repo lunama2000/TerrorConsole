@@ -11,9 +11,11 @@ namespace TerrorConsole
         [SerializeField] private List<string> _correctOrder;
         private List<string> _currentOrder = new List<string>();
 
-        [SerializeField] private UnityEvent OnOrderSuccessful;
-        [SerializeField] private UnityEvent OnOrderUnsuccesful;
-
+        private bool _allowAnyOrder = false;
+        
+        [SerializeField] public UnityEvent OnOrderSuccessful;
+        [SerializeField] public UnityEvent OnOrderUnsuccesful;
+        
         private void Start()
         {
             foreach (var lever in levers)
