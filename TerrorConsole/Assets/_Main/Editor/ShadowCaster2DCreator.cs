@@ -7,8 +7,6 @@ using UnityEngine.Rendering.Universal;
 
 namespace TerrorConsole
 {
-    
-	#if UNITY_EDITOR
 
     [RequireComponent(typeof(CompositeCollider2D))]
     public class ShadowCaster2DCreator : MonoBehaviour
@@ -86,5 +84,4 @@ namespace TerrorConsole
 			EditorGUILayout.EndHorizontal();
 		}
     }
-#endif
 }
