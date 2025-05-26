@@ -24,8 +24,8 @@ Manual? I guess you could help me,Manual? I suppose you could help me.,¿Manual?
 What is this? What kind of language is this?,What is this? What kind of language is this?,¿Qué es esto? ¿Qué clase de lenguaje es este?,O que é isso? Que tipo de linguagem é essa?
 "I guess it's the last one, I have to get out of here","I guess this is the last one, I have to get out of here.","Supongo que es la última, debo salir de aquí","Acho que essa é a última, tenho que sair daqui."
 Back,Back,Atras,Voltar
-Full Screen,Full Screen,Pantalla Completa,Tela cheia
-Resolution,Resolution,Resolución,Resolução
+Full Screen:,Full Screen:,Pantalla Completa,Tela cheia
+Resolution:,Resolution:,Resolución,Resolução
 Music,Music,Música,Música
 Credits,Credits,Créditos,Créditos
 Load Game,Load Game,Cargar,Carregar jogo
@@ -48,3 +48,132 @@ The door is also closed,The door is also closed,La puerta esta tambien cerrada,A
 But... it doesn't have a lock,But... it doesn't have a lock.,Pero ... no tiene cerradura.,Mas... não tem fechadura.
 If you are reading this note it is because I couldn't picked it up again,If you are reading this note it is because I couldn't picked it up again,Si estás leyendo esta nota es porque no pude retomarla,Se você está lendo esta nota é porque não consegui pegá-la novamente
 Center Left Right,Center\nLeft\nRight,Centro\nIzquierda\nDerecha,Centro\nEsquerda\nDireita
+My God!!,My God!!,Dios Mio!!,Meu Deus!!
+What does this note say?,What does this note say?,¿Qué dice esta nota?,O que diz esta nota?
+It just can't be!!!!,It just can't be!!!!,No puede ser!!!!,Simplesmente não pode ser!!!!
+"I have to get out of here, avoiding that thing.","I have to get out of here, avoiding that thing.","Debo salir de aquí, evitando a esa cosa","Tenho que sair daqui, evitando aquela coisa."
+Another note?,Another note?,¿Otra nota?,Outra nota?
+Manual? I suppose you could help me.,Manual? I suppose you could help me.,¿Manual? supongo que me podria ayudar,Manual? Acho que você poderia me ajudar
+What is this? ,What is this? ,¿Qué es esto? ,O que é isso? 
+What kind of language is this?,What kind of language is this?,¿Qué clase de lenguaje es este?,Que tipo de linguagem é essa?
+"I guess this is the last one, I have to get out of here.","I guess this is the last one, I have to get out of here.","Supongo que es la última, debo salir de aquí","Acho que essa é a última, tenho que sair daqui."
+A combination lock?,A combination lock?,¿Un candado con combinación?,Uma fechadura de combinação?
+Although... I've already seen those symbols.,Although... I've already seen those symbols.,Aunque.. esos símbolos ya los he visto,Embora... eu já tenha visto esses símbolos.
+Continue,Continue,Continuar,Continuar
+New Game,New Game,Nueva Partida,Novo jogo
+Credits,Credits,Créditos,Créditos
+Quit,Quit,Salir,Sair
+Back,Back,Atrás,Voltar
+Select a Save,Select a Save,Selecciona una Partida,Selecione um jogo
+File:,File:,Partida:,Partida:
+Tutorial,Tutorial,Tutorial,Tutorial
+Level_1,Level_2,Nivel_1,Nível_1
+Level_2,Level_3,Nivel_2,Nível_2
+SFX:,SFX:,Efectos sonoros:,Efeitos sonoros:
+Music:,Music:,Música:,Música:
+Language,Language,Idioma,Linguagem
+"Check the walls, that's the key.","Check the walls, that's the key.","Revisa las paredes, ahí esta la clave","Verifique as paredes, essa é a chave."
+Stage:,Stage:,Nivel:,Nível:
+Credits Key,"<size=70>CREDITS</size>
+
+<size=60>LEAD PROGRAMMER</size>
+
+Manuel Alejandro Luna Arce
+
+<size=60>PROGRAMMER</size>
+
+Mauricio Arechederra Trejo
+Oscar Alejandro Rios Ramírez
+
+<size=60>LEAD GAME DESIGN</size>
+
+Oscar Alejandro Rios Ramírez
+
+<size=60>GAME DESIGN</size>
+
+Mauricio Arechederra Trejo
+Manuel Alejandro Luna Arce
+
+<size=60>ARTIST</size>
+
+Manuel Alejandro Luna Arce
+Mauricio Arechederra Trejo
+Oscar Alejandro Rios Ramírez
+
+<size=60>PROJECT MANAGER</size>
+
+Manuel Ivan Herrera Maciel
+
+<size=60>MANAGEMENT ASSISTANT</size>
+
+Luis Fernando González Chávez
+
+<size=50>Thanks for playing :D</size>","<size=70>CRÉDITOS</size>
+
+<size=60>PROGRAMADOR PRINCIPAL</size>
+
+Manuel Alejandro Luna Arce
+
+<size=60>PROGRAMADOR</size>
+
+Mauricio Arechederra Trejo
+Oscar Alejandro Rios Ramírez
+
+<size=60>DISEÑADOR DE JUEGO PRINCIPAL</size>
+
+Oscar Alejandro Rios Ramírez
+
+<size=60>DISEÑADOR DE JUEGO</size>
+
+Mauricio Arechederra Trejo
+Manuel Alejandro Luna Arce
+
+<size=60>ARTISTA</size>
+
+Manuel Alejandro Luna Arce
+Mauricio Arechederra Trejo
+Oscar Alejandro Rios Ramírez
+
+<size=60>GESTOR DE PROYECTO</size>
+
+Manuel Ivan Herrera Maciel
+
+<size=60>GESTOR ASISTENTE</size>
+
+Luis Fernando González Chávez
+
+<size=50>Gracias por jugar :D</size>","<size=70>CRÉDITOS</size>
+
+<size=60>PROGRAMADOR PRINCIPAL</size>
+
+Manuel Alejandro Luna Arce
+
+<size=60>PROGRAMADOR</size>
+
+Mauricio Arechederra Trejo
+Oscar Alejandro Rios Ramirez
+
+<size=60>DESIGNER CHEFE DE JOGOS</size>
+
+Oscar Alejandro Rios Ramirez
+
+<size=60>DESIGNER DE JOGOS</size>
+
+Mauricio Arechederra Trejo
+Manuel Alejandro Luna Arce
+
+<size=60>ARTISTA</size>
+
+Manuel Alejandro Luna Arce
+Mauricio Arechederra Trejo
+Oscar Alejandro Rios Ramirez
+
+<size=60>GERENTE DE PROJETO</size>
+
+Manuel Iván Herrera Maciel
+
+<size=60>GERENTE ASSISTENTE</size>
+
+Luis Fernando González Chávez
+
+<size=50>Obrigado por jogar :D</size>"
