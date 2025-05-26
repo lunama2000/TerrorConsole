@@ -65,13 +65,19 @@ namespace TerrorConsole
         private void GenerateResolutions()
         {
             _resolutions = Screen.resolutions;
+
+            _resolutions = Screen.resolutions
+                .GroupBy(resolution => new { resolution.width, resolution.height })
+                .Select(group => group.First())
+                .ToArray();
+
             _resolutionsDropdown.ClearOptions();
             List<string> options = new List<string>();
             int currentResolution = 0;
 
             for (int i = 0; i < _resolutions.Length; i++)
             {
-                string option = $"{_resolutions[i].width } x {_resolutions[i].height} {_resolutions[i].refreshRateRatio.value:F2}hz";
+                string option = $"{_resolutions[i].width } x {_resolutions[i].height}";
                 
                 options.Add(option);
                 
@@ -121,9 +127,7 @@ namespace TerrorConsole
 
         public async UniTask ChangeResolutionAsync()
         {
-
             _resolutionsDropdown.interactable = false;
-
 
             int index = _resolutionsDropdown.value;
             SaveSystemManager.Source.SaveResolution(index);
@@ -131,12 +135,9 @@ namespace TerrorConsole
             Resolution resolution = _resolutions[index];
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 
-
             await UniTask.Delay(500);
 
-
             _resolutionsDropdown.interactable = true;
-
         }
     }
 }
