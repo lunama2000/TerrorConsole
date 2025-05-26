@@ -7,16 +7,16 @@ namespace TerrorConsole
     {
         [SerializeField] private ItemInfo[] _itemsList;
         
-        public UnityEvent OnPickedItems;
+        [SerializeField] private UnityEvent OnPickedItems;
 
-        void Start()
+        private void Start()
         {
             CheckItems();
 
             Inventory.Source.OnInventoryUpdated += CheckItems;
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
             Inventory.Source.OnInventoryUpdated -= CheckItems;
         }

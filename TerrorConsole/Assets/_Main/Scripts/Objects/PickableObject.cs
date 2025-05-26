@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace TerrorConsole
 {
@@ -9,7 +8,6 @@ namespace TerrorConsole
         [SerializeField] private String _pickableSFXKey;
         [SerializeField] protected ItemInfo _itemInfo;
         [SerializeField] private LevelEventsRecorder _eventRecorder;
-        public UnityEvent OnPicked;
 
         private void Start()
         {
@@ -17,7 +15,7 @@ namespace TerrorConsole
             {
                 Debug.LogError($"There is no Item Info for {name}, please set the corresponding scriptable Object");
             }
-
+            
             if (_eventRecorder.CheckEventState())
             {
                 gameObject.SetActive(false);
@@ -27,7 +25,6 @@ namespace TerrorConsole
             {
                 Destroy(gameObject);
             }
-
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +40,6 @@ namespace TerrorConsole
             Inventory.Source.AddItemToInventory(_itemInfo);
             _eventRecorder.RegisterLevelEvent(true);
             AudioManager.Source.PlaySFX(_pickableSFXKey);
-            OnPicked?.Invoke();
             Destroy(gameObject);
         }
     }
