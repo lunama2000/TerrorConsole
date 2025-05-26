@@ -15,10 +15,15 @@ namespace TerrorConsole
             {
                 Debug.LogError($"There is no Item Info for {name}, please set the corresponding scriptable Object");
             }
-
+            
             if (_eventRecorder.CheckEventState())
             {
                 gameObject.SetActive(false);
+            }
+
+            if (Inventory.Source.IsItemInInventory(_itemInfo))
+            {
+                Destroy(gameObject);
             }
         }
 
