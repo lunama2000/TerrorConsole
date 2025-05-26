@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -115,11 +116,27 @@ namespace TerrorConsole
 
         public void ChangeResolution()
         {
+            ChangeResolutionAsync().Forget();
+        }
+
+        public async UniTask ChangeResolutionAsync()
+        {
+
+            _resolutionsDropdown.interactable = false;
+
+
             int index = _resolutionsDropdown.value;
             SaveSystemManager.Source.SaveResolution(index);
-            
+
             Resolution resolution = _resolutions[index];
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+
+
+            await UniTask.Delay(500);
+
+
+            _resolutionsDropdown.interactable = true;
+
         }
     }
 }
