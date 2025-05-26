@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 namespace TerrorConsole
 {
     public enum InputType { None, KeyboardMouse, Gamepad }
-    public enum InputActionsInGame { Button1, Button2, PauseButton, InventoryButton, LeftAxis, UISelect }
+    public enum InputActionsInGame { Button1, Button2, Button3, PauseButton, InventoryButton, LeftAxis, UISelect }
     
     [System.Serializable]
     public struct ActionInGameKeyCode
@@ -33,6 +33,7 @@ namespace TerrorConsole
 
         public Action OnActivateButton1 { get; set; }
         public Action OnActivateButton2 { get; set; }
+        public Action OnActivateButton3 { get; set; }
         public Action OnPauseButton { get; set; }
         public Action OnInventoryButton { get; set; }
 
@@ -57,6 +58,7 @@ namespace TerrorConsole
             {
                 case LevelState.Play:
                 case LevelState.InDialogue:
+                case LevelState.Hiding:
                     _processInput = true;
                     break;
 
@@ -157,6 +159,10 @@ namespace TerrorConsole
             if (Input.GetKeyDown(KeyCode.N) || Input.GetKeyDown(KeyCode.JoystickButton2))
             {
                 OnActivateButton2?.Invoke();
+            }
+            if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.JoystickButton1))    
+            {
+                OnActivateButton3?.Invoke();
             }
         }
 

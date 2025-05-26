@@ -10,6 +10,7 @@ namespace TerrorConsole
         Pause,
         InDialogue,
         Cinematic,
+        Hiding,
         InInventory,
         PlayerCaptured,
         ReadingNote,

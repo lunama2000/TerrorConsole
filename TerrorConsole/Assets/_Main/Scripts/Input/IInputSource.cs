@@ -9,6 +9,7 @@ namespace TerrorConsole
         event Action<InputType> OnInputTypeChange;
         Action OnActivateButton1 { get; set; }
         Action OnActivateButton2 { get; set; }
+        Action OnActivateButton3 { get; set; }
         Action OnPauseButton { get; set; }
         Action OnInventoryButton { get; set; }
         bool IsMoving { get; }

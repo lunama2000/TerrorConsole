@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
+  _tooltipOffset: 2.5
 --- !u!114 &1243607367572954143
 MonoBehaviour:
   m_ObjectHideFlags: 0
