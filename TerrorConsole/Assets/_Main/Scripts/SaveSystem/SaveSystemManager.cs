@@ -151,7 +151,18 @@ namespace TerrorConsole
         {
             return _loadedGame.GetLevelData(levelNumber).GetEventState(eventName);
         }
-        
+
+        public void AddOrUpdateLevelParameter(int levelNumber, string parameterName, int parameterValue)
+        {
+            _loadedGame.GetLevelData(levelNumber).AddOrUpdateLevelParameter(parameterName, parameterValue);
+            SaveCurrentGame();
+        }
+
+        public int GetLevelParameterValue(int levelNumber, string parameterName)
+        {
+            return _loadedGame.GetLevelData(levelNumber).GetParameterValue(parameterName);
+        }
+
         public void SaveLanguageCode(string languageCode)
         {
             _loadedConfiguration.LanguageCode = languageCode;

@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 4309201589345659147}
   - component: {fileID: 1606450055235393291}
   - component: {fileID: 741463615590785545}
+  - component: {fileID: 818872095054768061}
   m_Layer: 0
   m_Name: BlueGemPedestral
   m_TagString: Untagged
@@ -308,6 +309,20 @@ MonoBehaviour:
   _lightPath: 0
   _currentGemSprite: {fileID: 6874542649689807009}
   _currentGemLight: {fileID: 3281743704014983842}
+  _levelParameterRecorder: {fileID: 818872095054768061}
+--- !u!114 &818872095054768061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833809639313663412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2b6be2d43f2c243a98c4331ea9df92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uniqueParameterKey: 
 --- !u!1 &6494420011119961935
 GameObject:
   m_ObjectHideFlags: 0

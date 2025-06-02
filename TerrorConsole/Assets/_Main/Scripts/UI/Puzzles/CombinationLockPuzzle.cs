@@ -14,6 +14,8 @@ namespace TerrorConsole
         [SerializeField] private Door _doorToOpen;
         [SerializeField] private GameObject _interactuableLock;
 
+        [SerializeField] private LevelEventsRecorder _levelEventsRecorder;
+
         protected override void Awake()
         {
             base.Awake();
@@ -58,7 +60,6 @@ namespace TerrorConsole
                     return;
                 }
             }
-            print("COMPLETED");
             OnCompleted();
         }
 
@@ -79,6 +80,7 @@ namespace TerrorConsole
             _doorToOpen.OpenDoor();
             CloseCombinationLock();
             _interactuableLock.gameObject.SetActive(false);
+            _levelEventsRecorder.RegisterLevelEvent(true);
         }
     }
 }

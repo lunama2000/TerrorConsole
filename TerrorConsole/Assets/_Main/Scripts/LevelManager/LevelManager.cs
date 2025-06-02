@@ -70,7 +70,17 @@ namespace TerrorConsole
         {
             return SaveSystemManager.Source.GetEventState(levelNumber, uniqueEventKey);
         }
-        
+
+        public void AddOrUpdateLevelParameter(string parameterName, int parameterValue)
+        {
+            SaveSystemManager.Source.AddOrUpdateLevelParameter(levelNumber, parameterName, parameterValue);
+        }
+
+        public int GetLevelParameterValue(string parameterName)
+        {
+            return SaveSystemManager.Source.GetLevelParameterValue(levelNumber, parameterName);
+        }
+
         public void SetRespawnPosition(Vector3 newPosition)
         {
             _currentRespawnPosition = newPosition;

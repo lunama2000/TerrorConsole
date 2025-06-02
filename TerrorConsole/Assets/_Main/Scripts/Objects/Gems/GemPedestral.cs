@@ -27,6 +27,23 @@ namespace TerrorConsole
         [SerializeField] LightPaths _lightPath;
         [SerializeField] SpriteRenderer _currentGemSprite;
         [SerializeField] Light2D _currentGemLight;
+        [SerializeField] LevelParameterRecorder _levelParameterRecorder;
+
+
+        private void Start()
+        {
+            if (_levelParameterRecorder == null)
+                return;
+
+            if(_levelParameterRecorder.GetParameterValue() > -1)
+            {
+                PlaceNewGem(_validGems[_levelParameterRecorder.GetParameterValue()]);
+            }
+            else
+            {
+                RemoveGem();
+            }
+        }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -57,12 +74,14 @@ namespace TerrorConsole
                         Inventory.Source.AddItemToInventory(_currentGem);
                     }
                     PlaceNewGem(_validGems[i]);
+                    _levelParameterRecorder.RegisterLevelParameter(i);
                     Inventory.Source.RemoveItemFromInventory(_validGems[i]);
                     _currentGemIndex = i+1;
                     return;
                 }
             }
             _currentGemIndex = 0;
+            _levelParameterRecorder.RegisterLevelParameter(-1);
             RemoveGem();
         }
 

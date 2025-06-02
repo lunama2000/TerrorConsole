@@ -49,14 +49,14 @@ namespace TerrorConsole
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow) && _isSelected)
+            /*if (Input.GetKeyDown(KeyCode.DownArrow) && _isSelected)
             {
                 OnDownPressed();
             }
             if (Input.GetKeyDown(KeyCode.UpArrow) && _isSelected)
             {
                 OnUpPressed();
-            }
+            }*/
         }
         public void OnSelect(BaseEventData eventData)
         {
@@ -70,16 +70,34 @@ namespace TerrorConsole
             _selectedMarker.gameObject.SetActive(false);
         }
 
+        private void OnEnable()
+        {
+            InputManager.Source.OnActivateUp += OnUpPressed;
+            InputManager.Source.OnActivateDown += OnDownPressed;
+        }
+
+        private void OnDisable()
+        {
+            InputManager.Source.OnActivateUp -= OnUpPressed;
+            InputManager.Source.OnActivateDown -= OnDownPressed;
+        }
+
         private void OnUpPressed()
         {
-            DoTransitionCenterDigit(_centerDigit.rectTransform, _upDigitPos, 1).Forget();
-            DoTransitionComplementaryDigit(_downDigit.rectTransform, _centerDigitPos).Forget();
+            if (_isSelected)
+            {
+                DoTransitionCenterDigit(_centerDigit.rectTransform, _upDigitPos, 1).Forget();
+                DoTransitionComplementaryDigit(_downDigit.rectTransform, _centerDigitPos).Forget();
+            }
         }
 
         private void OnDownPressed()
         {
-            DoTransitionCenterDigit(_centerDigit.rectTransform, _downDigitPos, -1).Forget();
-            DoTransitionComplementaryDigit(_upDigit.rectTransform, _centerDigitPos).Forget();
+            if (_isSelected)
+            {
+                DoTransitionCenterDigit(_centerDigit.rectTransform, _downDigitPos, -1).Forget();
+                DoTransitionComplementaryDigit(_upDigit.rectTransform, _centerDigitPos).Forget();
+            }
         }
 
         private async UniTaskVoid DoTransitionCenterDigit(RectTransform digitToMove, Vector2 destinyPos, int indexModifier)

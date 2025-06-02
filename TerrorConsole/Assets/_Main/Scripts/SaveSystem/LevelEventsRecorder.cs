@@ -18,7 +18,7 @@ namespace TerrorConsole
             }
             else if(_deactivateIfLevelEvent)
             {
-                gameObject.SetActive(CheckEventState());
+                gameObject.SetActive(!CheckEventState());
             }
         }
 

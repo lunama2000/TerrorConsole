@@ -39,3 +39,19 @@ MonoBehaviour:
     Icon: {fileID: 1479251247, guid: ddac484acc79fe14f87cd20268cd4897, type: 3}
   - KeyCode: 13
     Icon: {fileID: 1174083216, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 273
+    Icon: {fileID: 793830434, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 274
+    Icon: {fileID: 312597106, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 276
+    Icon: {fileID: 311170477, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 275
+    Icon: {fileID: 1480742809, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 296
+    Icon: {fileID: -31020533, guid: a7f0af46d34aaec4193ce7abd75316d0, type: 3}
+  - KeyCode: 295
+    Icon: {fileID: 2080241115, guid: a7f0af46d34aaec4193ce7abd75316d0, type: 3}
+  - KeyCode: 294
+    Icon: {fileID: 1458935319, guid: a7f0af46d34aaec4193ce7abd75316d0, type: 3}
+  - KeyCode: 293
+    Icon: {fileID: 46224212, guid: a7f0af46d34aaec4193ce7abd75316d0, type: 3}

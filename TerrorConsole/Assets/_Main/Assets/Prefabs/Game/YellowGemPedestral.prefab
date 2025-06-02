@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2919122020071436948}
   - component: {fileID: 3435608485015588727}
   - component: {fileID: 6224043670912729780}
+  - component: {fileID: 8645026185574946480}
   m_Layer: 0
   m_Name: YellowGemPedestral
   m_TagString: Untagged
@@ -229,6 +230,20 @@ MonoBehaviour:
   _lightPath: 0
   _currentGemSprite: {fileID: 1762762706228361522}
   _currentGemLight: {fileID: 2211477853323199280}
+  _levelParameterRecorder: {fileID: 8645026185574946480}
+--- !u!114 &8645026185574946480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4714634878991285667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2b6be2d43f2c243a98c4331ea9df92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uniqueParameterKey: 
 --- !u!1 &5041773053930406303
 GameObject:
   m_ObjectHideFlags: 0
