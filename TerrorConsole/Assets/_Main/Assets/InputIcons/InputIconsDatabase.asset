@@ -55,3 +55,7 @@ MonoBehaviour:
     Icon: {fileID: 1458935319, guid: a7f0af46d34aaec4193ce7abd75316d0, type: 3}
   - KeyCode: 293
     Icon: {fileID: 46224212, guid: a7f0af46d34aaec4193ce7abd75316d0, type: 3}
+  - KeyCode: 98
+    Icon: {fileID: 625818580, guid: bbf56e8a4f4b10a47a7568d6f83e4e7f, type: 3}
+  - KeyCode: 336
+    Icon: {fileID: -755752383, guid: ddac484acc79fe14f87cd20268cd4897, type: 3}

@@ -30,20 +30,41 @@ namespace TerrorConsole
 
         public void UpdateColorA(GemColors newColor)
         {
-            _currentColors[0] = newColor;
-            CheckToOpenDoor();
+            try
+            { 
+                _currentColors[0] = newColor;
+                CheckToOpenDoor();
+            }
+            catch
+            {
+
+            }
         }
 
         public void UpdateColorB(GemColors newColor)
         {
-            _currentColors[1] = newColor;
-            CheckToOpenDoor();
+            try
+            {
+                _currentColors[1] = newColor;
+                CheckToOpenDoor();
+            }
+            catch
+            {
+
+            }
         }
 
         public void UpdateColorC(GemColors newColor)
         {
-            _currentColors[2] = newColor;
-            CheckToOpenDoor();
+            try
+            {
+                _currentColors[2] = newColor;
+                CheckToOpenDoor();
+            }
+            catch
+            {
+
+            }
         }
 
         void CheckToOpenDoor()

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 namespace TerrorConsole
 {
     public enum InputType { None, KeyboardMouse, Gamepad }
-    public enum InputActionsInGame { Button1, Button2, Button3, PauseButton, InventoryButton, LeftAxis, UISelect, UISelect, Up, Down, Left, Right }
+    public enum InputActionsInGame { Button1, Button2, Button3, PauseButton, InventoryButton, LeftAxis, UISelect, Up, Down, Left, Right }
     
     [System.Serializable]
     public struct ActionInGameKeyCode

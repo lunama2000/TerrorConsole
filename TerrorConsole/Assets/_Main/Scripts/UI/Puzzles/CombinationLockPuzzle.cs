@@ -28,17 +28,17 @@ namespace TerrorConsole
         private void OnEnable()
         {
             LevelManager.Source.ChangeLevelState(LevelState.InDialogue);
-            InputManager.Source.OnActivateButton1 += CloseCombinationLock;
+            InputManager.Source.OnActivateButton3 += CloseCombinationLock;
             InputManager.Source.OnActivateButton2 += ValidateCombination;
             TooltipsManager.Source.StashCurrentUITooltips();
-            TooltipsManager.Source.ShowUITooltip(InputActionsInGame.Button1, "Close");
+            TooltipsManager.Source.ShowUITooltip(InputActionsInGame.Button3, "Close");
             TooltipsManager.Source.ShowUITooltip(InputActionsInGame.Button2, "Validate");
         }
 
         private void OnDisable()
         {
             LevelManager.Source.ChangeLevelState(LevelState.Play);
-            InputManager.Source.OnActivateButton1 -= CloseCombinationLock;
+            InputManager.Source.OnActivateButton3 -= CloseCombinationLock;
             InputManager.Source.OnActivateButton2 -= ValidateCombination;
             TooltipsManager.Source.HideUITooltip("Close");
             TooltipsManager.Source.HideUITooltip("Validate");
