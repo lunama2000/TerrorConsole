@@ -18,6 +18,9 @@ namespace TerrorConsole
         public void AddOrUpdateLevelEvent(string eventName, bool eventState);
         public bool GetEventState(string uniqueEventKey);
 
+        public void AddOrUpdateLevelParameter(string parameterName, int parameterValue);
+        public int GetLevelParameterValue(string parameterName);
+
         void SetRespawnPosition(Vector3 newPosition);
         Vector3 GetRespawnPosition();
 

@@ -52,20 +52,40 @@ MonoBehaviour:
   - action: 1
     inputKeyCode: 332
   - action: 2
-    inputKeyCode: 337
-  - action: 3
     inputKeyCode: 333
-  - action: 5
+  - action: 3
+    inputKeyCode: 263
+  - action: 4
+    inputKeyCode: 336
+  - action: 6
     inputKeyCode: 330
+  - action: 7
+    inputKeyCode: 293
+  - action: 9
+    inputKeyCode: 294
+  - action: 10
+    inputKeyCode: 296
+  - action: 8
+    inputKeyCode: 295
   _KeyboardActionsInGameKeyCodes:
   - action: 0
     inputKeyCode: 109
   - action: 1
     inputKeyCode: 110
   - action: 2
-    inputKeyCode: 112
+    inputKeyCode: 98
   - action: 3
+    inputKeyCode: 112
+  - action: 4
     inputKeyCode: 105
-  - action: 5
-    inputKeyCode: 13
+  - action: 7
+    inputKeyCode: 273
+  - action: 8
+    inputKeyCode: 274
+  - action: 9
+    inputKeyCode: 276
+  - action: 10
+    inputKeyCode: 275
+  - action: 6
+    inputKeyCode: 109
   deadZone: 0.5

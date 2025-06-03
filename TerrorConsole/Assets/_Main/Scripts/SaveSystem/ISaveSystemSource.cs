@@ -17,6 +17,9 @@ namespace TerrorConsole
         void AddOrUpdateLevelEvent(int levelNumber, string eventName, bool eventState);
         bool GetEventState(int levelNumber, string eventName);
 
+        void AddOrUpdateLevelParameter(int levelNumber, string parameterName, int parameterValue);
+        int GetLevelParameterValue(int levelNumber, string parameterName);
+
         void SaveLanguageCode(string languageCode);
         string GetSavedLanguageCode();
 
