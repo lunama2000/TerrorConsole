@@ -47,17 +47,6 @@ namespace TerrorConsole
             ResetDigitsPos();
         }
 
-        private void Update()
-        {
-            /*if (Input.GetKeyDown(KeyCode.DownArrow) && _isSelected)
-            {
-                OnDownPressed();
-            }
-            if (Input.GetKeyDown(KeyCode.UpArrow) && _isSelected)
-            {
-                OnUpPressed();
-            }*/
-        }
         public void OnSelect(BaseEventData eventData)
         {
             _selectedMarker.gameObject.SetActive(true);

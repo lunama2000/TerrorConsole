@@ -15,56 +15,39 @@ namespace TerrorConsole
         [SerializeField] private List<GemColors> _correctColors = new List<GemColors>(3);
         private List<GemColors> _currentColors = new List<GemColors>(3);
 
-        private void Start()
+        protected override void Awake()
         {
-            if (_correctColors.Count != 3)
-            {
-                Debug.LogError("The 'Correct Colors' list need to have 3 items");
-            }
+            base.Awake();
 
             for (int i = 0; i < _correctColors.Count; i++)
             {
                 _currentColors.Add(GemColors.None);
             }
         }
+        private void Start()
+        {
+            if (_correctColors.Count != 3)
+            {
+                Debug.LogError("The 'Correct Colors' list need to have 3 items");
+            }
+        }
 
         public void UpdateColorA(GemColors newColor)
         {
-            try
-            { 
-                _currentColors[0] = newColor;
-                CheckToOpenDoor();
-            }
-            catch
-            {
-
-            }
+            _currentColors[0] = newColor;
+            CheckToOpenDoor();
         }
 
         public void UpdateColorB(GemColors newColor)
         {
-            try
-            {
-                _currentColors[1] = newColor;
-                CheckToOpenDoor();
-            }
-            catch
-            {
-
-            }
+            _currentColors[1] = newColor;
+            CheckToOpenDoor();
         }
 
         public void UpdateColorC(GemColors newColor)
         {
-            try
-            {
-                _currentColors[2] = newColor;
-                CheckToOpenDoor();
-            }
-            catch
-            {
-
-            }
+            _currentColors[2] = newColor;
+            CheckToOpenDoor();
         }
 
         void CheckToOpenDoor()
