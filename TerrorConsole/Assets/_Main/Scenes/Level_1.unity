@@ -4890,11 +4890,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: 14.6465025
+      value: 13.967895
       objectReference: {fileID: 0}
     - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: 5.4273205
+      value: 5.4024115
       objectReference: {fileID: 0}
     - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
@@ -4914,11 +4914,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: 14.639181
+      value: 14.063879
       objectReference: {fileID: 0}
     - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -3.846137
+      value: -3.7428346
       objectReference: {fileID: 0}
     - target: {fileID: 1411833458954424249, guid: 16ad68b567866524c92434e9c707780b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37426,6 +37426,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6304461329504052299, guid: 891ebce324cb809409e7bd0072f9fb54, type: 3}
+      propertyPath: _light
+      value: 
+      objectReference: {fileID: 1343391789}
+    - target: {fileID: 6304461329504052299, guid: 891ebce324cb809409e7bd0072f9fb54, type: 3}
       propertyPath: _sprite
       value: 
       objectReference: {fileID: 573876101}
@@ -38246,6 +38250,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 401008512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &1343391789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2072580100725592393, guid: 891ebce324cb809409e7bd0072f9fb54, type: 3}
+  m_PrefabInstance: {fileID: 1159338635}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403733f96538e3542973ae98b6283c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1380777094
 GameObject:
   m_ObjectHideFlags: 0
@@ -40552,6 +40567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uniqueEventKey: Level1ExitDoor
+  _deactivateIfLevelEvent: 0
 --- !u!114 &1810992019
 MonoBehaviour:
   m_ObjectHideFlags: 0

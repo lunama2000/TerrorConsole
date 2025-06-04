@@ -14,8 +14,6 @@ namespace TerrorConsole
         [SerializeField] private TextMeshProUGUI _previewText;
         [SerializeField] private UIController _uIController;
 
-        private LevelState _lastLevelState;
-
         protected override void Awake()
         {
             base.Awake();
@@ -83,14 +81,14 @@ namespace TerrorConsole
         public void OnInventoryClosed()
         {
             TooltipsManager.Source.HideAllUITooltips();
-            LevelManager.Source.ChangeLevelState(_lastLevelState);
+            LevelManager.Source.ChangeLevelState(LevelState.Play);
             _uIController.CloseMenu(_uIController);
             TooltipsManager.Source.UnStashUITooltips();
         }
 
         public void OnInventoryOpened()
         {
-            _lastLevelState = LevelManager.Source.GetCurrentLevelState();
+            LevelManager.Source.ChangeLevelState(LevelState.InInventory);
             TooltipsManager.Source.StashCurrentUITooltips();
             TooltipsManager.Source.ShowUITooltip(InputActionsInGame.InventoryButton, "Close");
             _uIController.OpenMenu(_uIController);

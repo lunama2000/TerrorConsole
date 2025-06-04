@@ -33,6 +33,16 @@ namespace TerrorConsole
             _agent.updateUpAxis = false;
         }
 
+        private void Start()
+        {
+            LevelManager.Source.OnLevelStateChange += OnLevelStateChange;
+        }
+
+        private void OnDestroy()
+        {
+            LevelManager.Source.OnLevelStateChange -= OnLevelStateChange;
+        }
+
         private void FixedUpdate ()
         {
             if (!IsSteeringTargetClose())
@@ -149,6 +159,31 @@ namespace TerrorConsole
         private void NewSpot()
         {
             _randomSpots = Random.Range(0, _spots.Length);
+        }
+
+        private void OnLevelStateChange(LevelState newState)
+        {
+            switch (newState)
+            {
+                case LevelState.Play:
+                    ResumeMove();
+                    break;
+                case LevelState.Hiding:
+                    break;
+                default:
+                    StopMove();
+                    break;
+            }
+        }
+
+        private void StopMove()
+        {
+            _agent.enabled = false;
+        }
+
+        private void ResumeMove()
+        {
+            _agent.enabled = true;
         }
     }
 
