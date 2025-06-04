@@ -7,6 +7,7 @@ namespace TerrorConsole
     {
         [Header("Components")]
         [SerializeField] private NavMeshAgent _agent;
+        [SerializeField] private AudioSource _audioSource;
         
         [Header("Patrol")]
         [SerializeField] private float _waitTime = 0;
@@ -179,11 +180,13 @@ namespace TerrorConsole
         private void StopMove()
         {
             _agent.enabled = false;
+            _audioSource.enabled = false;
         }
 
         private void ResumeMove()
         {
             _agent.enabled = true;
+            _audioSource.enabled = true;
         }
     }
 
