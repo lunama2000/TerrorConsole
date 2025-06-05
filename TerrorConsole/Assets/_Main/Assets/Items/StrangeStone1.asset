@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8fae6fed33e7f49b9a67e9f4c3116b, type: 3}
   m_Name: StrangeStone1
   m_EditorClassIdentifier: 
-  itemName: Key
-  itemSprite: {fileID: 21300000, guid: 85fa8d4e60140c64c89ddf0c3c87a771, type: 3}
+  itemName: Strange Stone A
+  itemSprite: {fileID: 1468991378, guid: fb22ff703a5f85546bb4cc5a16a7390c, type: 3}
   itemDescription: A Strange Stone
   hasPreviewInInventory: 0
+  isBossItem: 1

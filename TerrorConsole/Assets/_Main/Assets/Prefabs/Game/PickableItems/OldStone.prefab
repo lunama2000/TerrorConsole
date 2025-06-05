@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 85fa8d4e60140c64c89ddf0c3c87a771, type: 3}
+  m_Sprite: {fileID: -828350883, guid: fb22ff703a5f85546bb4cc5a16a7390c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,9 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c660b420909245a9f320f12aae1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickableSFXKey: Key
+  _pickableSFXKey: 
   _itemInfo: {fileID: 11400000, guid: 0d7633b91d990524c91aaa4c205864cc, type: 2}
   _eventRecorder: {fileID: 588713546178528582}
+  _disableEventRecording: 0
 --- !u!114 &588713546178528582
 MonoBehaviour:
   m_ObjectHideFlags: 0
