@@ -68,6 +68,7 @@ namespace TerrorConsole
                 case LevelState.Play:
                 case LevelState.InDialogue:
                 case LevelState.Hiding:
+                case LevelState.BossPhase:
                     _processInput = true;
                     break;
 

@@ -10,10 +10,13 @@ namespace TerrorConsole
 
         [SerializeField] private List<string> _correctOrder;
         private List<string> _currentOrder = new List<string>();
-
-        [SerializeField] private UnityEvent OnOrderSuccessful;
-        [SerializeField] private UnityEvent OnOrderUnsuccesful;
-
+        
+        [SerializeField] private int leverCountToActivate = 3;
+        [SerializeField] private bool _allowAnyOrder = false;
+        
+        [SerializeField] public UnityEvent OnOrderSuccessful;
+        [SerializeField] public UnityEvent OnOrderUnsuccesful;
+        
         private void Start()
         {
             foreach (var lever in levers)
@@ -37,6 +40,16 @@ namespace TerrorConsole
 
         private void CheckForCorrectOrder()
         {
+            if (_allowAnyOrder)
+            {
+                if (_currentOrder.Count >= leverCountToActivate)
+                {
+                    Debug.Log("Order without any correct order");
+                    OnOrderSuccessful?.Invoke();
+                }
+                return;
+            }
+            
             if (_currentOrder.Count != _correctOrder.Count)
                 return;
 
@@ -62,5 +75,6 @@ namespace TerrorConsole
                 lever.ResetLever();
             }
         }
+        
     }
 }
