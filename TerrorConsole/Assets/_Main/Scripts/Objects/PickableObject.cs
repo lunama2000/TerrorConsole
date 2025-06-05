@@ -8,6 +8,8 @@ namespace TerrorConsole
         [SerializeField] private String _pickableSFXKey;
         [SerializeField] protected ItemInfo _itemInfo;
         [SerializeField] private LevelEventsRecorder _eventRecorder;
+        [SerializeField] private bool _isBossLevelItem = false;
+        [SerializeField] private bool _disableEventRecording = false;
 
         private void Start()
         {
@@ -38,7 +40,13 @@ namespace TerrorConsole
         protected virtual void PickedByPlayer()
         {
             Inventory.Source.AddItemToInventory(_itemInfo);
-            _eventRecorder.RegisterLevelEvent(true);
+
+            if (!_disableEventRecording && _eventRecorder != null && !_isBossLevelItem)
+            {
+                Debug.Log("Evento registrado");
+                _eventRecorder.RegisterLevelEvent(true);
+            }
+            
             AudioManager.Source.PlaySFX(_pickableSFXKey);
             Destroy(gameObject);
         }

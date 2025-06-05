@@ -89,6 +89,10 @@ namespace TerrorConsole
             float angle = Mathf.Atan2(localOffset.y, localOffset.x) * Mathf.Rad2Deg - 90f;
             transform.localRotation = Quaternion.Euler(0f, 0f, angle);
         }
-
+        
+        public void ForceEnableInput()
+        {
+            _freezeInput = false;
+        }
     }
 }

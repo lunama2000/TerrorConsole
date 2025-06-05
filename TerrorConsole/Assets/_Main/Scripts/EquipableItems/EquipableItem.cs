@@ -35,6 +35,7 @@ namespace TerrorConsole
             switch (newState)
             {
                 case LevelState.Play:
+                case LevelState.BossPhase:
                     ResumeInput();
                     break;
                 default:
@@ -52,5 +53,6 @@ namespace TerrorConsole
         {
             _freezeInput = false;
         }
+        
     }
 }

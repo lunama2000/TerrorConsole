@@ -12,7 +12,7 @@ namespace TerrorConsole
         private List<string> _currentOrder = new List<string>();
         
         [SerializeField] private int leverCountToActivate = 3;
-        private bool _allowAnyOrder = false;
+        [SerializeField] private bool _allowAnyOrder = false;
         
         [SerializeField] public UnityEvent OnOrderSuccessful;
         [SerializeField] public UnityEvent OnOrderUnsuccesful;
@@ -76,9 +76,5 @@ namespace TerrorConsole
             }
         }
         
-        public void SetAllowAnyOrder(bool value)
-        {
-            _allowAnyOrder = value;
-        }
     }
 }

@@ -7,70 +7,25 @@ using UnityEngine.UI;
 
 namespace TerrorConsole
 {
-    public class BossFightPhaseOne : MonoBehaviour
+    public class BossFightPhaseOne : BossPhaseBase
     {
-        [Header("Shadow Health")]
-        [SerializeField]private GameObject _shadowHealthCanvas;
-        [SerializeField]private int _maxHealthShadow = 0;
-        [SerializeField]private Slider _healthSlider;
-        [SerializeField]private TMP_Text _healthText;
-        
+        [SerializeField] private BossfightPhaseTwo _bossfightPhaseTwo;
         [Header("Levers Locations")]
         [SerializeField] private List<GameObject> _leverLocations;
         private List<GameObject> _activeLevers = new List<GameObject>();
-        
-        [Header("Events")]
-        [SerializeField]public UnityEvent _onTimerEnd;
-        [SerializeField]public UnityEvent _onTimerStart;
-        
-        [Header("Timer")]
-        [SerializeField]private GameObject _timerCanvas;
-        [SerializeField]private TMP_Text _timerText;
-        [SerializeField] private float _timerDuration = 30f;
-        
-        private bool _timerActive;
-        
+
         [Header("Lever Controller")]
-        OrderLeverController _orderLeverController;
-        
+        private OrderLeverController _orderLeverController;
+
         public void BeginBossFightPhaseOne()
         {
-            _shadowHealthCanvas.gameObject.SetActive(true);
-            _timerCanvas.gameObject.SetActive(true);
-            _healthSlider.maxValue = 100;
-            _healthSlider.value = _maxHealthShadow;
-            
-            ActivateRandomLevers(3);
-            StartTimer();
-        }
-        
-        public void ReceiveDamage(int damage)
-        {
-            DOTween.To(() => _healthSlider.value, UpdateHealth, _healthSlider.value - damage, 0.5f).SetEase(Ease.InFlash);
-        }
-        
-        private void UpdateHealth(float health)
-        {
-            _healthSlider.value = health;
-        }
-        
-        private void StartTimer()
-        {
-            _timerActive = true;
-            _timerDuration -= Time.deltaTime;
-            _timerText.text = _timerDuration.ToString();
-            
-            _orderLeverController = FindObjectOfType<OrderLeverController>();
-            _orderLeverController.SetAllowAnyOrder(true);
+            StartPhase(useHealthUI: true, resetHealth: true, useTimer: true);
 
-            
-            if (_timerDuration <= 0)
-            {
-                _onTimerEnd?.Invoke();
-            }
-            
+            _orderLeverController = FindObjectOfType<OrderLeverController>();
+
+            ActivateRandomLevers(3);
         }
-        
+
         private void ActivateRandomLevers(int amount)
         {
             foreach (var lever in _activeLevers)
@@ -78,7 +33,7 @@ namespace TerrorConsole
                 lever.SetActive(false);
             }
             _activeLevers.Clear();
-            
+
             List<GameObject> shuffled = new List<GameObject>(_leverLocations);
             for (int i = 0; i < shuffled.Count; i++)
             {
@@ -87,17 +42,24 @@ namespace TerrorConsole
                 shuffled[i] = shuffled[randomIndex];
                 shuffled[randomIndex] = temp;
             }
-            
+
             for (int i = 0; i < Mathf.Min(amount, shuffled.Count); i++)
             {
                 shuffled[i].SetActive(true);
                 _activeLevers.Add(shuffled[i]);
             }
         }
-
+        
+        public void DamageBoss(int damage)
+        {
+            ReceiveDamage(damage);
+        }
+        
         public void EndBossFightPhaseOne()
         {
-            _timerActive = false;
+            StopTimer();
+            _bossfightPhaseTwo.BeginBossFightPhaseTwo();
+            this.enabled = false;
             
         }
     }

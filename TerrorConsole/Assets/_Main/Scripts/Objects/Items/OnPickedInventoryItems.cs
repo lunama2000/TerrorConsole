@@ -8,6 +8,8 @@ namespace TerrorConsole
         [SerializeField] private ItemInfo[] _itemsList;
         
         [SerializeField] private UnityEvent OnPickedItems;
+        
+        [SerializeField] private bool removeItemsAfterTrigger = false;
 
         private void Start()
         {
@@ -29,6 +31,16 @@ namespace TerrorConsole
             }
 
             OnPickedItems?.Invoke();
+            
+            if (removeItemsAfterTrigger)
+            {
+                foreach (var item in _itemsList)
+                {
+                    Inventory.Source.RemoveItemFromInventory(item);
+                }
+
+                Inventory.Source.SaveInventory();
+            }
         }
     }
 }

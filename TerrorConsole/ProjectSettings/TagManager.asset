@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Creditos
   - HidingPLace
+  - CameraZone
+  - Flashlight
   layers:
   - Default
   - TransparentFX

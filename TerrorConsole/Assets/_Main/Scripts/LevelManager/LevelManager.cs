@@ -14,7 +14,8 @@ namespace TerrorConsole
         InInventory,
         PlayerCaptured,
         ReadingNote,
-        InTransition
+        InTransition,
+        BossPhase
     }
 
     public partial class LevelManager : Singleton<ILevelManagerSource>, ILevelManagerSource
