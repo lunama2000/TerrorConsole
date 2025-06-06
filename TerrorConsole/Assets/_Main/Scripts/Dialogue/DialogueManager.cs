@@ -17,7 +17,10 @@ namespace TerrorConsole
         [Header("Configuration")]
         [SerializeField] private float _dialogueAnimationDuration = 0.5f;
         [SerializeField] private float _dialogueTextSpeed = 6f;
-        
+
+        private LevelState _lastLevelState;
+
+
         private readonly Queue<string> _sentences = new Queue<string>();
 
         private string _currentSentence;
@@ -31,6 +34,7 @@ namespace TerrorConsole
 
         public void StartDialogue(DialogueData dialogueData)
         {
+            _lastLevelState = LevelManager.Source.GetCurrentLevelState();
             LevelManager.Source.ChangeLevelState(LevelState.InDialogue);
             _dialogueCanvas.alpha = 0;
             _dialogueCanvas.gameObject.SetActive(true);
@@ -74,7 +78,7 @@ namespace TerrorConsole
         
         private void EndDialogue()
         {
-            LevelManager.Source.ChangeLevelState(LevelState.Play);
+            LevelManager.Source.ChangeLevelState(_lastLevelState);
             _dialogueCanvas
                 .DOFade(0f, _dialogueAnimationDuration)
                 .OnComplete(() =>
