@@ -11,7 +11,7 @@ But now it turns out that what they said about the creature is true,But now it t
 I hope I don't meet the shadow I saw back there,I hope I don't run into the shadow I saw back there.,Espero no encontrarme con la sombra que ví alla atras,Espero não esbarrar na sombra que vi lá atrás.
 A lever?,A lever?,¿Una palanca?,Uma alavanca?
 What will it do if I activate it?,What will it do if I activate it?,¿Qué hará si la activo?,O que acontecerá se eu ativá-lo?
-" What, a note?",What? A note?, ¿Qué?¿una nota?, O que? Uma nota?
+" What, a note?",What? A note?, ¿Qué?¿una nota?,O quê? Um bilhete?
 What was that?,What was that?,¿Que fue eso?,O que é que foi isso?
 Was the wall fake?,Was the wall fake?,¿El muro era falso?,A parede era falsa?
 OH NO!!! IT'S THE SHADOW!!!,OH NO!!! IT'S THE SHADOW!!!,OH NO!!! ES LA SOMBRA!!!,OH NÃO!!! É A SOMBRA!!!
@@ -20,7 +20,7 @@ My God!!!,My God!!!,Dios mio!!!,Meu Deus!!!
 What does this note say?,What does this note say?,¿Qué dice esta nota?,O que diz esta nota?
 "*Whispering* I have to get out of here, avoiding that thing","*Whispering* I have to get out of here, avoiding that thing","*Susurrando* Debo salir de aquí, evitando esa cosa","*Sussurrando* Eu tenho que sair daqui, evitando aquela coisa"
 another note?,another note?,¿otra nota?,outra nota?
-Manual? I guess you could help me,Manual? I suppose you could help me.,¿Manual? supongo que me podria ayudar,Manual? Acho que você poderia me ajudar
+Manual? I guess you could help me,Manual? I suppose you could help me.,¿Manual? supongo que me podria ayudar,Manual? Acho que você poderia me ajudar.
 What is this? What kind of language is this?,What is this? What kind of language is this?,¿Qué es esto? ¿Qué clase de lenguaje es este?,O que é isso? Que tipo de linguagem é essa?
 "I guess it's the last one, I have to get out of here","I guess this is the last one, I have to get out of here.","Supongo que es la última, debo salir de aquí","Acho que essa é a última, tenho que sair daqui."
 Back,Back,Atras,Voltar
@@ -53,7 +53,7 @@ What does this note say?,What does this note say?,¿Qué dice esta nota?,O que d
 It just can't be!!!!,It just can't be!!!!,No puede ser!!!!,Simplesmente não pode ser!!!!
 "I have to get out of here, avoiding that thing.","I have to get out of here, avoiding that thing.","Debo salir de aquí, evitando a esa cosa","Tenho que sair daqui, evitando aquela coisa."
 Another note?,Another note?,¿Otra nota?,Outra nota?
-Manual? I suppose you could help me.,Manual? I suppose you could help me.,¿Manual? supongo que me podria ayudar,Manual? Acho que você poderia me ajudar
+Manual? I suppose you could help me.,Manual? I suppose you could help me.,¿Manual? supongo que me podria ayudar,Manual? Acho que você poderia me ajudar.
 What is this? ,What is this? ,¿Qué es esto? ,O que é isso? 
 What kind of language is this?,What kind of language is this?,¿Qué clase de lenguaje es este?,Que tipo de linguagem é essa?
 "I guess this is the last one, I have to get out of here.","I guess this is the last one, I have to get out of here.","Supongo que es la última, debo salir de aquí","Acho que essa é a última, tenho que sair daqui."
@@ -144,29 +144,29 @@ Luis Fernando González Chávez
 
 <size=50>Gracias por jugar :D</size>","<size=70>CRÉDITOS</size>
 
-<size=60>PROGRAMADOR PRINCIPAL</size>
+<size=60>PROGRAMADOR LÍDER</size>
 
 Manuel Alejandro Luna Arce
 
 <size=60>PROGRAMADOR</size>
 
-Mauricio Arechederra Trejo
-Oscar Alejandro Rios Ramirez
+Maurício Arechederra Trejo
+Oscar Alejandro Rios Ramírez
 
-<size=60>DESIGNER CHEFE DE JOGOS</size>
+<size=60>DESIGNER LÍDER DE JOGOS</size>
 
-Oscar Alejandro Rios Ramirez
+Oscar Alejandro Rios Ramírez
 
 <size=60>DESIGNER DE JOGOS</size>
 
-Mauricio Arechederra Trejo
+Maurício Arechederra Trejo
 Manuel Alejandro Luna Arce
 
 <size=60>ARTISTA</size>
 
 Manuel Alejandro Luna Arce
-Mauricio Arechederra Trejo
-Oscar Alejandro Rios Ramirez
+Maurício Arechederra Trejo
+Oscar Alejandro Rios Ramírez
 
 <size=60>GERENTE DE PROJETO</size>
 
@@ -177,3 +177,19 @@ Manuel Iván Herrera Maciel
 Luis Fernando González Chávez
 
 <size=50>Obrigado por jogar :D</size>"
+"I found a way to kill him. It's too late for me, but I hope it helps...
+Lever
+stones
+light","I found a way to kill him. It's too late for me, but I hope it helps...
+Lever
+Stones
+Light","Encontré la manera de matarlo. Es demasiado tarde para mí, pero espero que sirva de algo...
+Palancas
+Piedras
+Luz","Encontrei um jeito de matá-lo. É tarde demais para mim, mas espero que ajude...
+Alavanca
+Pedras
+Luz"
+What happened?,What happened?,¿Qué sucedió?,O que aconteceu?
+I feel... Different,I feel... Different,Me siento... Diferente,Eu me sinto... diferente
+Play,Play,Jugar,Jogar

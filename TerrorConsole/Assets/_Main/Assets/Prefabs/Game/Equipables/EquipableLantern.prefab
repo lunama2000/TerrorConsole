@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _freezeInput: 0
-  _objectName: Lantern
+  _itemInfo: {fileID: 11400000, guid: 7d130014fae8c2742a1ebaaf94ac631b, type: 2}
   _lanternLight: {fileID: 5156681988650169604}
   _isOn: 0
   _posRadius: 0.5

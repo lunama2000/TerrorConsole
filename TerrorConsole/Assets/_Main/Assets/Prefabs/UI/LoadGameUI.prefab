@@ -250,9 +250,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5613208, g: 0.5613208, b: 0.5613208, a: 1}
+    m_PressedColor: {r: 0.3160377, g: 0.3160377, b: 0.3160377, a: 1}
+    m_SelectedColor: {r: 0.6650944, g: 0.6650944, b: 0.6650944, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -383,9 +383,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5613208, g: 0.5613208, b: 0.5613208, a: 1}
+    m_PressedColor: {r: 0.3160377, g: 0.3160377, b: 0.3160377, a: 1}
+    m_SelectedColor: {r: 0.6650944, g: 0.6650944, b: 0.6650944, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -650,9 +650,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5613208, g: 0.5613208, b: 0.5613208, a: 1}
+    m_PressedColor: {r: 0.3160377, g: 0.3160377, b: 0.3160377, a: 1}
+    m_SelectedColor: {r: 0.6650944, g: 0.6650944, b: 0.6650944, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1759,6 +1759,7 @@ MonoBehaviour:
   _fileNumberTxt: {fileID: 3530079400308216019}
   _stageTxt: {fileID: 3131196027585203698}
   _lanternIcon: {fileID: 4877788310321032409}
+  _lanternItemInfo: {fileID: 0}
 --- !u!1 &4334827475979387444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,6 +1926,7 @@ MonoBehaviour:
   _fileNumberTxt: {fileID: 7416389054798887826}
   _stageTxt: {fileID: 8682041981884338533}
   _lanternIcon: {fileID: 86358605793257713}
+  _lanternItemInfo: {fileID: 0}
 --- !u!1 &4877788310321032409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3716,6 +3718,7 @@ MonoBehaviour:
   _fileNumberTxt: {fileID: 4823320129549123464}
   _stageTxt: {fileID: 1125175522485569814}
   _lanternIcon: {fileID: 6521360745320118198}
+  _lanternItemInfo: {fileID: 0}
 --- !u!1 &6768842050096573678
 GameObject:
   m_ObjectHideFlags: 0
