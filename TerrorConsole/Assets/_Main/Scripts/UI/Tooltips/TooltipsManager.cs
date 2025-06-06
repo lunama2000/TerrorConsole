@@ -31,6 +31,7 @@ namespace TerrorConsole
 
         public void HideUITooltip(string actionName)
         {
+            actionName = actionName.Localize();
             if (!_currentUITooltips.ContainsKey(actionName))
                 return;
 
@@ -40,6 +41,7 @@ namespace TerrorConsole
 
         public void ShowUITooltip(InputActionsInGame inputType, string actionName)
         {
+            actionName = actionName.Localize();
             if (_currentUITooltips.ContainsKey(actionName))
                 return;
 
@@ -80,6 +82,7 @@ namespace TerrorConsole
 
         public void ShowSpriteTooltip(InputActionsInGame inputType, string actionName, Vector2 position)
         {
+            actionName = actionName.Localize();
             if (_currentSpriteTooltips.ContainsKey(actionName))
                 return;
 
@@ -90,6 +93,7 @@ namespace TerrorConsole
 
         public void HideSpriteTooltip(string actionName)
         {
+            actionName = actionName.Localize();
             if (!_currentSpriteTooltips.ContainsKey(actionName))
                 return;
 
