@@ -20,6 +20,36 @@ namespace TerrorConsole
         [Header("Icons Database")]
         [SerializeField] private InputIconsDatabase _iconsDatabase;
 
+        private void OnEnable()
+        {
+            LocalizationManager.Source.OnLanguageChanged += LocalizeTooltips;
+        }
+
+        private void OnDisable()
+        {
+            if (LocalizationManager.Source != null)
+                LocalizationManager.Source.OnLanguageChanged -= LocalizeTooltips;
+        }
+        void LocalizeTooltips()
+        {
+            foreach (var tootlip in _currentUITooltips)
+            {
+                tootlip.Value.GetComponent<Tooltip>().UpdateText(tootlip.Key.Localize());
+            }
+
+            foreach (var tootlip in _currentSpriteTooltips)
+            {
+                tootlip.Value.GetComponent<Tooltip>().UpdateText(tootlip.Key.Localize());
+            }
+            
+            foreach (var tootlip in _stashedUITooltips)
+            {
+                tootlip.Value.GetComponent<Tooltip>().UpdateText(tootlip.Key.Localize());
+                
+            }
+        }
+
+
         public void HideAllUITooltips()
         {
             foreach (GameObject tooltip in _currentUITooltips.Values)
@@ -31,7 +61,6 @@ namespace TerrorConsole
 
         public void HideUITooltip(string actionName)
         {
-            actionName = actionName.Localize();
             if (!_currentUITooltips.ContainsKey(actionName))
                 return;
 
@@ -41,12 +70,11 @@ namespace TerrorConsole
 
         public void ShowUITooltip(InputActionsInGame inputType, string actionName)
         {
-            actionName = actionName.Localize();
             if (_currentUITooltips.ContainsKey(actionName))
                 return;
 
             UITooltip newTooltip = Instantiate(_uIToolTipPrefab,_uIToolTipsHolder.transform).GetComponent<UITooltip>();
-            newTooltip.Initialize(inputType, actionName);
+            newTooltip.Initialize(inputType, actionName.Localize());
             _currentUITooltips.Add(actionName, newTooltip.gameObject);
         }
 
@@ -82,18 +110,16 @@ namespace TerrorConsole
 
         public void ShowSpriteTooltip(InputActionsInGame inputType, string actionName, Vector2 position)
         {
-            actionName = actionName.Localize();
             if (_currentSpriteTooltips.ContainsKey(actionName))
                 return;
 
             SpriteTooltip newTooltip = Instantiate(_spriteToolTipPrefab, position,Quaternion.identity);
-            newTooltip.Initialize(inputType, actionName);
+            newTooltip.Initialize(inputType, actionName.Localize());
             _currentSpriteTooltips.Add(actionName, newTooltip.gameObject);
         }
 
         public void HideSpriteTooltip(string actionName)
         {
-            actionName = actionName.Localize();
             if (!_currentSpriteTooltips.ContainsKey(actionName))
                 return;
 

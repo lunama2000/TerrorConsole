@@ -23,6 +23,11 @@ namespace TerrorConsole
             _actionName = actionName;
             UpdateIcon();
         }
+        public void UpdateText(string actionName)
+        {
+            _actionName = actionName;
+            DisplayIcon();
+        }
         private void UpdateIcon()
         {
             _inputSprite = TooltipsManager.Source.GetActionInGameIcon(_inputToDisplay);
