@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipsToDisplay:
-  - inputAction: 2
-    actionName: Pause
   - inputAction: 3
-    actionName: Invantory
+    actionName: Pause
+  - inputAction: 4
+    actionName: Inventory

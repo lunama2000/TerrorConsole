@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace TerrorConsole
 {
@@ -44,6 +45,8 @@ namespace TerrorConsole
             SaveSystemManager.Source.DeleteGame(_gameFileIndex);
             LoadFileUIInfo();
             mainMenuController.SetupContinueButton();
+            EventSystem.current.SetSelectedGameObject(gameObject);
+
         }
     }
 }

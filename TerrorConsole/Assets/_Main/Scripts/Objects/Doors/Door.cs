@@ -65,7 +65,7 @@ namespace TerrorConsole
 
         private void OpenDoorInmediate()
         {
-            _animator.SetTrigger("Open");
+            _animator.SetBool("Open", true);
             _collider2D.enabled = false;
         }
 
@@ -77,7 +77,7 @@ namespace TerrorConsole
 
         private void CloseDoorInmediate()
         {
-            _animator.SetTrigger("Close");
+            _animator.SetBool("Open", false);
             _collider2D.enabled = true;
         }
 

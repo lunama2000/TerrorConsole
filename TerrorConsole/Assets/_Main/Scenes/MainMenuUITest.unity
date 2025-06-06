@@ -1225,7 +1225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6197093327196145599, guid: 46ca94a8f7900424b95804efd1d24b28, type: 3}
       propertyPath: m_text
-      value: New Game
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 6859437351369397099, guid: 46ca94a8f7900424b95804efd1d24b28, type: 3}
       propertyPath: m_Name
@@ -1233,7 +1233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7819912339419114799, guid: 46ca94a8f7900424b95804efd1d24b28, type: 3}
       propertyPath: _localizationKey
-      value: New Game
+      value: Play
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2871,6 +2871,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2850074725502590446, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850074725502590446, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 336717657}
@@ -3135,6 +3139,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1394088285, guid: 20a65624fd5650c4a89fa96db70a3081, type: 3}
     - target: {fileID: 8120840816523201337, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120840816523201337, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 336717657}
@@ -3149,6 +3157,10 @@ PrefabInstance:
     - target: {fileID: 8335180018572771505, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361101304099342929, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8361101304099342929, guid: d741cb1bd2922464a8f2986517e7ede1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

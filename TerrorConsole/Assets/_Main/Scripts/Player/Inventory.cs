@@ -10,8 +10,9 @@ namespace TerrorConsole
 
         public Action OnInventoryUpdated { get; set; }
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
             _itemsList = SaveSystemManager.Source.GetInventory();
             if (_itemsList == null)
             {

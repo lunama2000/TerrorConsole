@@ -87,6 +87,7 @@ namespace TerrorConsole
                 {
                     _timerActive = false;
                     _onTimerEnd?.Invoke();
+                    HideTimer();
                 }
             }
         }
