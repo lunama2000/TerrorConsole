@@ -4,9 +4,15 @@ namespace TerrorConsole
 {
     public class FinalScene : MonoBehaviour
     {
-        private void Awake()
+        public void ChageState()
         {
             LevelManager.Source.ChangeLevelState(LevelState.Cinematic);
+
+        }
+
+        public void HideUI()
+        {
+            TooltipsManager.Source.HideAllUITooltips();
         }
     }
 }

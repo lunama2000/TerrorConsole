@@ -195,7 +195,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -8066,6 +8066,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!82 &61041562 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5501418236112975192, guid: 482fdefff63e2b44f88739e0f1b5bf1f, type: 3}
+  m_PrefabInstance: {fileID: 1976984581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &164760858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8252,7 +8257,7 @@ PrefabInstance:
     - target: {fileID: 1232465954222741613, guid: e9cfe0d67258e6143bb04b18fb22ada7, type: 3}
       propertyPath: _freeCamera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1191115297}
     - target: {fileID: 1650382069593793221, guid: e9cfe0d67258e6143bb04b18fb22ada7, type: 3}
       propertyPath: m_Name
       value: CameraManager
@@ -8480,6 +8485,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &292471280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9046062606297331432, guid: b3574a1ba4109464d92b080be18a21bb, type: 3}
+  m_PrefabInstance: {fileID: 1554085304}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292471274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75defc99eac0ce242bd55edcd180c346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &323516912
 GameObject:
   m_ObjectHideFlags: 0
@@ -8592,7 +8608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841771621}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.013481125, w: 0.99990916}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.2160339, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8638,7 +8654,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 2.3501065
+  m_PointLightOuterRadius: 2.1332278
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -8773,16 +8789,28 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 897072473}
-          m_TargetAssemblyTypeName: TerrorConsole.TransitionDoors, Assembly-CSharp
-          m_MethodName: LoadScene
-          m_Mode: 5
+        - m_Target: {fileID: 897072472}
+          m_TargetAssemblyTypeName: TerrorConsole.FinalScene, Assembly-CSharp
+          m_MethodName: HideUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: MainMenuUITest
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 897072472}
+          m_TargetAssemblyTypeName: TerrorConsole.FinalScene, Assembly-CSharp
+          m_MethodName: ChageState
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!4 &897072475
@@ -8800,6 +8828,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1191115297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5455998711855810467, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+  m_PrefabInstance: {fileID: 1493805907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84918ad6bd0987b4fa94720e993f5527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1370651928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9038,13 +9077,11 @@ PlayableDirector:
   - key: {fileID: 3831739746783460874, guid: ba8bea0548fbcb04eb03076d8ad8bbbe, type: 2}
     value: {fileID: 1834801612}
   - key: {fileID: 2970402158103110940, guid: ba8bea0548fbcb04eb03076d8ad8bbbe, type: 2}
-    value: {fileID: 1976984585}
+    value: {fileID: 61041562}
   - key: {fileID: 8260691723804771355, guid: ba8bea0548fbcb04eb03076d8ad8bbbe, type: 2}
     value: {fileID: 292471279}
   - key: {fileID: -7039810034618663920, guid: ba8bea0548fbcb04eb03076d8ad8bbbe, type: 2}
     value: {fileID: 897072474}
-  - key: {fileID: -1749616978112978309, guid: ba8bea0548fbcb04eb03076d8ad8bbbe, type: 2}
-    value: {fileID: 1641247974}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1514165270
@@ -9088,7 +9125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2927410149311794582, guid: b3574a1ba4109464d92b080be18a21bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.43
+      value: 8.68
       objectReference: {fileID: 0}
     - target: {fileID: 2927410149311794582, guid: b3574a1ba4109464d92b080be18a21bb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9125,7 +9162,7 @@ PrefabInstance:
     - target: {fileID: 4101773286496040921, guid: b3574a1ba4109464d92b080be18a21bb, type: 3}
       propertyPath: _eventRecorder
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 292471280}
     - target: {fileID: 4101773286496040921, guid: b3574a1ba4109464d92b080be18a21bb, type: 3}
       propertyPath: _dialogueData._sentences.Array.size
       value: 8
@@ -9172,7 +9209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4630460101611467150, guid: b3574a1ba4109464d92b080be18a21bb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4630460101611467150, guid: b3574a1ba4109464d92b080be18a21bb, type: 3}
       propertyPath: m_Offset.x
@@ -9185,6 +9222,10 @@ PrefabInstance:
     - target: {fileID: 5735125895483462445, guid: b3574a1ba4109464d92b080be18a21bb, type: 3}
       propertyPath: m_Name
       value: DialogueTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046062606297331432, guid: b3574a1ba4109464d92b080be18a21bb, type: 3}
+      propertyPath: _uniqueEventKey
+      value: Final Dialogue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9229,6 +9270,18 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1641247969}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1641247970}
           m_TargetAssemblyTypeName: TerrorConsole.TooltipsManager, Assembly-CSharp
           m_MethodName: HideAllSpriteTooltips
@@ -9686,11 +9739,6 @@ PrefabInstance:
 --- !u!4 &1976984582 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4836345969605176892, guid: 482fdefff63e2b44f88739e0f1b5bf1f, type: 3}
-  m_PrefabInstance: {fileID: 1976984581}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1976984585 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8281329912393758018, guid: 482fdefff63e2b44f88739e0f1b5bf1f, type: 3}
   m_PrefabInstance: {fileID: 1976984581}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1988185914
