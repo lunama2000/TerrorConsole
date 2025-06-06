@@ -217,42 +217,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5390984313636198211}
     m_Modifications:
-    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
-      propertyPath: _isLocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
-      propertyPath: _onDoorOpened.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
-      propertyPath: _onDoorOpened.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
-      propertyPath: _onDoorOpened.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4898418763612040408}
-    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
-      propertyPath: _onDoorOpened.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
-      propertyPath: _onDoorOpened.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RegisterLevelEvent
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
-      propertyPath: _onDoorOpened.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TerrorConsole.LevelEventsRecorder, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
-      propertyPath: _onDoorOpened.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
-      propertyPath: _onDoorOpened.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1661503031811502314, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
       propertyPath: _uniqueEventKey
       value: Level3_CombinationLockDoor
@@ -311,17 +275,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8734645919558218891, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
   m_PrefabInstance: {fileID: 6121647388947897394}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4898418763612040408 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1661503031811502314, guid: 9d905785dab54e14580c856482ec2d18, type: 3}
-  m_PrefabInstance: {fileID: 6121647388947897394}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75defc99eac0ce242bd55edcd180c346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5048870623440815936 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1361570093258480498, guid: 9d905785dab54e14580c856482ec2d18, type: 3}

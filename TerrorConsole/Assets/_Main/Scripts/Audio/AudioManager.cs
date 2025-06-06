@@ -62,6 +62,7 @@ namespace TerrorConsole
             if (_currentMusic == audioData.AudioClip) return;
 
             _currentMusic = audioData.AudioClip;
+            _musicAudioSource.volume = audioData.Volume;
             _musicAudioSource.clip = _currentMusic;
             _musicAudioSource.loop = true;
             _musicAudioSource.Play();

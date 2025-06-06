@@ -67373,50 +67373,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: 20.449724
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: 5.265552
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -9.233631
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: 5.1029468
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: -9.04673
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -2.2151403
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: 20.322626
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -2.3777466
-      objectReference: {fileID: 0}
-    - target: {fileID: 2431344143573115980, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 1082084593}
-    - target: {fileID: 2431344143573115980, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: m_Lens.FieldOfView
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455998711855810467, guid: 16ad68b567866524c92434e9c707780b, type: 3}
-      propertyPath: _camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4567761951580547665, guid: aae8462dc22cd884b819c97c6b8e498f, type: 3}
       propertyPath: m_Name
       value: LevelManager
@@ -67460,6 +67416,50 @@ PrefabInstance:
     - target: {fileID: 7739591686752565003, guid: aae8462dc22cd884b819c97c6b8e498f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: 20.449724
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 5.265552
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -9.233631
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 5.1029468
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -9.04673
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -2.2151403
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 20.322626
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364688553932819862, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -2.3777466
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431344143573115980, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 1082084593}
+    - target: {fileID: 2431344143573115980, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455998711855810467, guid: 16ad68b567866524c92434e9c707780b, type: 3}
+      propertyPath: _camera
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -69915,6 +69915,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  removeItemsAfterTrigger: 0
 --- !u!4 &634169597
 Transform:
   m_ObjectHideFlags: 0
@@ -78071,6 +78072,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1596144756734189627, guid: 002e0f7fefab592439d2ec309a3a8bef, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 1759606714}
+    - target: {fileID: 1596144756734189627, guid: 002e0f7fefab592439d2ec309a3a8bef, type: 3}
       propertyPath: _spots.Array.size
       value: 10
       objectReference: {fileID: 0}
@@ -78181,6 +78186,11 @@ GameObject:
 --- !u!4 &1759606713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6728849515724594078, guid: 002e0f7fefab592439d2ec309a3a8bef, type: 3}
+  m_PrefabInstance: {fileID: 1759606711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1759606714 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7194692056339075636, guid: 002e0f7fefab592439d2ec309a3a8bef, type: 3}
   m_PrefabInstance: {fileID: 1759606711}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764914471

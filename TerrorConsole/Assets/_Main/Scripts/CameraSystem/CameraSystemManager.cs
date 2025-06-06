@@ -56,7 +56,19 @@ namespace TerrorConsole
                 Debug.LogWarning("There is no active zone to be shaked.");
             }
         }
-        
+
+        public void ShakeCamera(float strength)
+        {
+            if (_activeZone != null)
+            {
+                _activeZone.ShakeCamera(_shakeDuration, strength);
+            }
+            else
+            {
+                Debug.LogWarning("There is no active zone to be shaked.");
+            }
+        }
+
         private void OnRespawn()
         {
             _activeZone.DeactivateZone();

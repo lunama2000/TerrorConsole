@@ -6,6 +6,7 @@ namespace TerrorConsole
     public class CapturePlayer : MonoBehaviour
     {
         [SerializeField] Collider2D ShadowCollider;
+        [SerializeField] private string _sfxCapturedKey;
 
         public void ActivateCollider()
         {
@@ -14,7 +15,12 @@ namespace TerrorConsole
 
         public void Capture()
         {
+            if (!string.IsNullOrEmpty(_sfxCapturedKey))
+            {
+                AudioManager.Source.PlaySFX( _sfxCapturedKey );
+            }
             LevelManager.Source.PlayerCaptured();
+            CameraSystemManager.Source.ShakeCamera();
         }
         
         private void OnTriggerEnter2D(Collider2D other)

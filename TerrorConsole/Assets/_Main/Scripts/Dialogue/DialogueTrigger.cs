@@ -6,10 +6,12 @@ namespace TerrorConsole
     {
         [SerializeField] private DialogueData _dialogueData;
         [SerializeField] private LevelEventsRecorder _eventRecorder;
+        [SerializeField] private bool _disbleIfRead = true;
 
         private void Start()
         {
-            gameObject.SetActive(!_eventRecorder.CheckEventState());
+            if(_disbleIfRead)
+                gameObject.SetActive(!_eventRecorder.CheckEventState());
         }
 
         private void OnTriggerEnter2D(Collider2D other)

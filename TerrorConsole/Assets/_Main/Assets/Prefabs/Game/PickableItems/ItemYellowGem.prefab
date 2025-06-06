@@ -135,7 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75defc99eac0ce242bd55edcd180c346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uniqueEventKey: 
+  _uniqueEventKey: Level3_YellowGemItem
+  _deactivateIfLevelEvent: 0
 --- !u!114 &793433534202495785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,9 +149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c660b420909245a9f320f12aae1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickableSFXKey: 
+  _pickableSFXKey: MagicStone2
   _itemInfo: {fileID: 11400000, guid: 53cf8fc2601055d47b2ecbf29c586ef5, type: 2}
   _eventRecorder: {fileID: 588713546178528582}
+  _isBossLevelItem: 0
+  _disableEventRecording: 0
 --- !u!1 &8817124585385264341
 GameObject:
   m_ObjectHideFlags: 0
