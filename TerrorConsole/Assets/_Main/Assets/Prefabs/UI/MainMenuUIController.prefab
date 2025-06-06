@@ -95,6 +95,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4811786392708408203, guid: 59e12370303bab04cb1d01b6b25eaf10, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811786392708408203, guid: 59e12370303bab04cb1d01b6b25eaf10, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811786392708408203, guid: 59e12370303bab04cb1d01b6b25eaf10, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811786392708408203, guid: 59e12370303bab04cb1d01b6b25eaf10, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -433,6 +445,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9204175234681477167}
     m_Modifications:
+    - target: {fileID: 940814243899064637, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
+      propertyPath: m_text
+      value: The Entity
+      objectReference: {fileID: 0}
+    - target: {fileID: 940814243899064637, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
+      propertyPath: m_fontSize
+      value: 188.95
+      objectReference: {fileID: 0}
     - target: {fileID: 1326121157422617563, guid: 792729d70270c604ca2d85bdf041ea33, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 4

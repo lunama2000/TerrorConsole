@@ -10,7 +10,7 @@ namespace TerrorConsole
         void CloseMenu(UIController menuToClose);
 
         int GetOpenedMenusCount();
-
+        void CloseAllMenus();
         void ResetMenuStack();
     }
 }

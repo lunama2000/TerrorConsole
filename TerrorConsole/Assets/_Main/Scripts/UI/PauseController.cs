@@ -45,5 +45,11 @@ namespace TerrorConsole
             LevelManager.Source.PauseLevel();
             UIMenusManager.Source.OpenNewMenuOnTop(_pauseUI);
         }
+
+        public void GoToMainMenu(string mainMenuSceneName)
+        {
+            UIMenusManager.Source.CloseAllMenus();
+            ScreenTransitionManager.Source.TransitionToScene(mainMenuSceneName);
+        }
     }
 }

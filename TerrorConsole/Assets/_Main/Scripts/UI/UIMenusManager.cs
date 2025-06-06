@@ -27,6 +27,15 @@ namespace TerrorConsole
             CloseMenuOnTop();
         }
 
+        public void CloseAllMenus()
+        {
+            while (menuStack.Count > 0)
+            {
+                CloseMenuOnTop();
+            }
+            ResetMenuStack();
+        }
+
         public void CloseMenuOnTop()
         {
             if (menuStack.Count == 0) return;
