@@ -15,6 +15,8 @@ MonoBehaviour:
   itemName: AboutShadow
   itemSprite: {fileID: 21300000, guid: 1ec1ea5239ab4244783bfbaa274abbf3, type: 3}
   itemDescription: The shadow is immortal??
+  hasPreviewInInventory: 0
+  isBossItem: 0
   NoteBackground: {fileID: 21300000, guid: 85fa8d4e60140c64c89ddf0c3c87a771, type: 3}
   NoteDraw: {fileID: 0}
-  NoteText: I've tried several things, it seems that this thing can't be damaged
+  NoteText: I've tried several things, it seems this thing can't be damaged.

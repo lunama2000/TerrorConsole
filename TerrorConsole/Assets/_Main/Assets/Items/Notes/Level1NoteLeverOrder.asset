@@ -15,7 +15,9 @@ MonoBehaviour:
   itemName: OrderLevers
   itemSprite: {fileID: 21300000, guid: 1ec1ea5239ab4244783bfbaa274abbf3, type: 3}
   itemDescription: Tell me the location of some Levers
+  hasPreviewInInventory: 0
+  isBossItem: 0
   NoteBackground: {fileID: 21300000, guid: 85fa8d4e60140c64c89ddf0c3c87a771, type: 3}
   NoteDraw: {fileID: 0}
-  NoteText: "To exit you most active the levers:\nOne in the librery, another in
-    hallway next to a shelf, \nthe last one is next to a desk"
+  NoteText: 'To exit, activate the levers: One in the library, another in the hallway
+    next to a bookshelf, and the last one is next to a desk.'
