@@ -75,8 +75,9 @@ namespace TerrorConsole
             var lantern = FindObjectOfType<EquipableLantern>();
             if (lantern != null)
             {
+                TooltipsManager.Source.StashCurrentUITooltips();
                 lantern.TurnLight(true);
-                lantern.ForceEnableInput();
+                lantern.ForceDisableInput();
             }
             
             LevelManager.Source.ChangeLevelState(LevelState.BossPhase);
@@ -109,7 +110,12 @@ namespace TerrorConsole
             AudioManager.Source.PlayMusic(_victoryMusic);
             CameraSystemManager.Source.ShakeCamera(10f);
             onBossDefeated?.Invoke();
-            
+            var lantern = FindObjectOfType<EquipableLantern>();
+            if (lantern != null)
+            {
+                lantern.ForceEnableInput();
+            }
+            TooltipsManager.Source.UnStashUITooltips();
             LevelManager.Source.ChangeLevelState(LevelState.Play);
         }
     }

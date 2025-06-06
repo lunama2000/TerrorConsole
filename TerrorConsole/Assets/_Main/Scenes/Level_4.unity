@@ -3014,6 +3014,10 @@ PrefabInstance:
       propertyPath: _spots.Array.data[9]
       value: 
       objectReference: {fileID: 888317173}
+    - target: {fileID: 2536634720095757001, guid: 002e0f7fefab592439d2ec309a3a8bef, type: 3}
+      propertyPath: _resetLevelWhenCaptured
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2564788616650378540, guid: 002e0f7fefab592439d2ec309a3a8bef, type: 3}
       propertyPath: m_Name
       value: Shadow

@@ -187,3 +187,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShadowCollider: {fileID: 4661002485637245360}
+  _sfxCapturedKey: 
+  _resetLevelWhenCaptured: 1

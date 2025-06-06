@@ -94,5 +94,9 @@ namespace TerrorConsole
         {
             _freezeInput = false;
         }
+        public void ForceDisableInput()
+        {
+            _freezeInput = true;
+        }
     }
 }

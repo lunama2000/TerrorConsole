@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TerrorConsole
 {
@@ -7,7 +8,7 @@ namespace TerrorConsole
     {
         [SerializeField] Collider2D ShadowCollider;
         [SerializeField] private string _sfxCapturedKey;
-
+        [SerializeField] private bool _resetLevelWhenCaptured = false;
         public void ActivateCollider()
         {
             ShadowCollider.enabled = true;
@@ -19,8 +20,15 @@ namespace TerrorConsole
             {
                 AudioManager.Source.PlaySFX( _sfxCapturedKey );
             }
-            LevelManager.Source.PlayerCaptured();
-            CameraSystemManager.Source.ShakeCamera();
+            if (_resetLevelWhenCaptured)
+            {
+                ScreenTransitionManager.Source.TransitionToScene(SceneManager.GetActiveScene().name);
+            }
+            else
+            {
+                LevelManager.Source.PlayerCaptured();
+            }
+                CameraSystemManager.Source.ShakeCamera();
         }
         
         private void OnTriggerEnter2D(Collider2D other)
