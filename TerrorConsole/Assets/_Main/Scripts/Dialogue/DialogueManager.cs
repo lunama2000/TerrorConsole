@@ -12,7 +12,6 @@ namespace TerrorConsole
         [Header("Components")]
         [SerializeField] private CanvasGroup _dialogueCanvas; 
         [SerializeField] private TextMeshProUGUI _dialogueText;
-        [SerializeField] private Button _continueButton;
         
         [Header("Configuration")]
         [SerializeField] private float _dialogueAnimationDuration = 0.5f;
@@ -27,11 +26,6 @@ namespace TerrorConsole
         private bool _isTextTransitionHappenig;
         private Tween _currentTransition;
 
-        private void Start()
-        {
-            _continueButton.onClick.AddListener(OnContinueClicked);
-        }
-
         public void StartDialogue(DialogueData dialogueData)
         {
             _lastLevelState = LevelManager.Source.GetCurrentLevelState();
@@ -39,7 +33,6 @@ namespace TerrorConsole
             _dialogueCanvas.alpha = 0;
             _dialogueCanvas.gameObject.SetActive(true);
             _dialogueCanvas.DOFade(1f, _dialogueAnimationDuration);
-            _continueButton.gameObject.SetActive(true);
 
             InputManager.Source.OnActivateButton1 += OnContinueClicked;
 
@@ -84,7 +77,6 @@ namespace TerrorConsole
                 .OnComplete(() =>
                 {
                     _dialogueCanvas.gameObject.SetActive(false);
-                    _continueButton.gameObject.SetActive(false);
                 });
 
             InputManager.Source.OnActivateButton1 -= OnContinueClicked;
