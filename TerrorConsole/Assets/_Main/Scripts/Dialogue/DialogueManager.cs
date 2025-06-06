@@ -28,6 +28,7 @@ namespace TerrorConsole
 
         public void StartDialogue(DialogueData dialogueData)
         {
+            TooltipsManager.Source.ShowUITooltip(InputActionsInGame.Button1, "Continue");
             _lastLevelState = LevelManager.Source.GetCurrentLevelState();
             LevelManager.Source.ChangeLevelState(LevelState.InDialogue);
             _dialogueCanvas.alpha = 0;
@@ -80,6 +81,7 @@ namespace TerrorConsole
                 });
 
             InputManager.Source.OnActivateButton1 -= OnContinueClicked;
+            TooltipsManager.Source.HideUITooltip("Continue");
         }
 
         private void OnContinueClicked()
