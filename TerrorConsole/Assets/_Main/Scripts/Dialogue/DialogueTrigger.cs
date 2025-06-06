@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TerrorConsole
 {
@@ -7,6 +8,7 @@ namespace TerrorConsole
         [SerializeField] private DialogueData _dialogueData;
         [SerializeField] private LevelEventsRecorder _eventRecorder;
         [SerializeField] private bool _disbleIfRead = true;
+        [SerializeField] private UnityEvent _onTriggerEnter = new UnityEvent();
 
         private void Start()
         {
@@ -21,6 +23,7 @@ namespace TerrorConsole
                 DialogueManager.Source.StartDialogue(_dialogueData);
                 _eventRecorder.RegisterLevelEvent(true);
                 gameObject.SetActive(false);
+                _onTriggerEnter?.Invoke();
             }
         }
 

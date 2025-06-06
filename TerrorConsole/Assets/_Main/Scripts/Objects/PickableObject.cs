@@ -13,10 +13,7 @@ namespace TerrorConsole
 
         private void Start()
         {
-            if (!_itemInfo)
-            {
-                Debug.LogError($"There is no Item Info for {name}, please set the corresponding scriptable Object");
-            }
+            if (!_itemInfo) return;
             
             if (_eventRecorder.CheckEventState())
             {
