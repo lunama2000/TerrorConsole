@@ -12,6 +12,7 @@ namespace TerrorConsole
         [SerializeField] private Animator _animator;
         [SerializeField] private UnityEvent _onDoorOpened = new UnityEvent();
         [SerializeField] private UnityEvent _onDoorClosed = new UnityEvent();
+        [SerializeField] private string _sfxDoorOpenKey;
 
         private void Start()
         {
@@ -54,6 +55,10 @@ namespace TerrorConsole
         public void OpenDoor()
         {
             UnlockDoor();
+            if (!string.IsNullOrEmpty(_sfxDoorOpenKey))
+            {
+                AudioManager.Source.PlaySFX(_sfxDoorOpenKey);
+            }
             _onDoorOpened?.Invoke();
             OpenDoorInmediate();
         }

@@ -330,6 +330,8 @@ MonoBehaviour:
   _correctAnswer: 440041004600
   _doorToOpen: {fileID: 0}
   _interactuableLock: {fileID: 0}
+  _levelEventsRecorder: {fileID: 0}
+  _sfxClickKey: Click
 --- !u!1 &2906118812201960837
 GameObject:
   m_ObjectHideFlags: 0

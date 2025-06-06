@@ -21,7 +21,8 @@ namespace TerrorConsole
         private float _phaseStartHealth;
         
         public UnityEvent onBossDefeated;
-        
+        [SerializeField] private string _victoryMusic;
+
         private void OnEnable()
         {
             LevelManager.Source.OnPlayerRespawn += OnPlayerRespawn;
@@ -105,6 +106,8 @@ namespace TerrorConsole
             base.OnBossDefeated();
     
             Debug.Log("Boss Phase 3 terminado.");
+            AudioManager.Source.PlayMusic(_victoryMusic);
+            CameraSystemManager.Source.ShakeCamera(10f);
             onBossDefeated?.Invoke();
             
             LevelManager.Source.ChangeLevelState(LevelState.Play);

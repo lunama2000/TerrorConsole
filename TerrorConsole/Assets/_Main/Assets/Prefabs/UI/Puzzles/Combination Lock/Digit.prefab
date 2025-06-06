@@ -686,6 +686,7 @@ MonoBehaviour:
   _centerDigit: {fileID: 5682772053263045393}
   _upDigit: {fileID: 4596843987625803479}
   _downDigit: {fileID: 7262652531495669911}
+  _sfxClickKey: Click
 --- !u!114 &5420479598998032701
 MonoBehaviour:
   m_ObjectHideFlags: 0

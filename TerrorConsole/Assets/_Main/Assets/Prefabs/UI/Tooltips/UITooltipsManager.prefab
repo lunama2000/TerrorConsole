@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPersistent: 1
-  _spriteToolTipPrefab: {fileID: 2840218661566897193, guid: 8f9e430e80dfaf0448774d2195c6661c, type: 3}
+  _spriteToolTipPrefab: {fileID: 2156946614155133956, guid: 8f9e430e80dfaf0448774d2195c6661c, type: 3}
   _uIToolTipsHolder: {fileID: 3474101706482751536}
   _uIToolTipPrefab: {fileID: 6357499956639235730, guid: f56c591cb55b1444596d703fee1461ab, type: 3}
   _iconsDatabase: {fileID: 11400000, guid: 3a1133433df910147b66a8a02cff631e, type: 2}

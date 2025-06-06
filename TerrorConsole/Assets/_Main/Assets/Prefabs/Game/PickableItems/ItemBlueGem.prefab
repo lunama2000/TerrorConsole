@@ -217,7 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75defc99eac0ce242bd55edcd180c346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uniqueEventKey: 
+  _uniqueEventKey: Level3_BlueGemItem
+  _deactivateIfLevelEvent: 0
 --- !u!114 &374100677621075073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85c660b420909245a9f320f12aae1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickableSFXKey: 
+  _pickableSFXKey: MagicStone2
   _itemInfo: {fileID: 11400000, guid: 2f7626eb93cb502478f696adc668534c, type: 2}
   _eventRecorder: {fileID: 588713546178528582}
+  _isBossLevelItem: 0
+  _disableEventRecording: 0

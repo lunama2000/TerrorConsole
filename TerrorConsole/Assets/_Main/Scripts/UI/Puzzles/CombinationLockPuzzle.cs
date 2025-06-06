@@ -16,6 +16,8 @@ namespace TerrorConsole
 
         [SerializeField] private LevelEventsRecorder _levelEventsRecorder;
 
+        [SerializeField] private string _sfxClickKey;
+
         protected override void Awake()
         {
             base.Awake();
@@ -59,6 +61,10 @@ namespace TerrorConsole
                     ShakeX(_lockUI);
                     return;
                 }
+            }
+            if (!string.IsNullOrEmpty(_sfxClickKey))
+            {
+                AudioManager.Source.PlaySFX(_sfxClickKey);
             }
             OnCompleted();
         }

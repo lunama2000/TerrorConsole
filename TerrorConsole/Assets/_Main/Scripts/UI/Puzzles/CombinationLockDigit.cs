@@ -29,6 +29,8 @@ namespace TerrorConsole
 
         private bool _isTransitionHappening;
 
+        [SerializeField] private string _sfxClickKey;
+
 
         private void Start()
         {
@@ -77,6 +79,15 @@ namespace TerrorConsole
             {
                 DoTransitionCenterDigit(_centerDigit.rectTransform, _upDigitPos, 1).Forget();
                 DoTransitionComplementaryDigit(_downDigit.rectTransform, _centerDigitPos).Forget();
+                PlayClickSFX();
+            }
+        }
+
+        private void PlayClickSFX()
+        {
+            if (!string.IsNullOrEmpty(_sfxClickKey))
+            {
+                AudioManager.Source.PlaySFX(_sfxClickKey);
             }
         }
 
@@ -86,6 +97,7 @@ namespace TerrorConsole
             {
                 DoTransitionCenterDigit(_centerDigit.rectTransform, _downDigitPos, -1).Forget();
                 DoTransitionComplementaryDigit(_upDigit.rectTransform, _centerDigitPos).Forget();
+                PlayClickSFX();
             }
         }
 

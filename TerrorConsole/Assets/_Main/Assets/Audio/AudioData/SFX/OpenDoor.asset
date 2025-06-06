@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioName: OpenDoor
   AudioClip: {fileID: 8300000, guid: 40d9f07e96ebf794b9ac29b2e4c59b74, type: 3}
-  Volume: 1
+  Volume: 0.5

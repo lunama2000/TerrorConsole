@@ -9,5 +9,10 @@ namespace TerrorConsole
         {
             AudioManager.Source.PlayMusic(_musicKey);
         }
+
+        public void PlayMusicUsingKey(string newMusicKey)
+        {
+            AudioManager.Source.PlayMusic(newMusicKey);
+        }
     }
 }
